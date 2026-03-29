@@ -66,13 +66,52 @@ export function Home() {
     }
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "O Recibo Grátis tem validade legal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. Desde que preenchido corretamente com os dados de quem paga (pagador), de quem recebe (recebedor), valores, data e, principalmente, a assinatura do recebedor, o recibo gerado tem total validade legal como comprovante de pagamento no Brasil."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Preciso de CNPJ para emitir um recibo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Não. Pessoas físicas (usando o CPF) podem emitir recibos normalmente para comprovar o recebimento de valores por prestação de serviços eventuais, vendas de bens, aluguéis, entre outros."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como salvar o recibo em PDF?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Após preencher os dados no gerador, clique no botão 'Imprimir / Salvar PDF'. Na tela de impressão do seu navegador, altere o destino de 'Impressora' para 'Salvar como PDF' e confirme."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "É seguro colocar meus dados e do meu cliente no site?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim, é 100% seguro. O Recibo Grátis funciona inteiramente no seu navegador (client-side). Nós não possuímos banco de dados e nenhuma informação digitada é enviada ou salva em nossos servidores."
+        }
+      }
+    ]
+  };
+
   return (
     <>
       <SEO 
-        title="Gerador de Recibos Online Grátis - Imprimir em PDF" 
-        description="O maior portal de recibos do Brasil. Gere recibo simples, de pagamento, aluguel, prestação de serviços, MEI e muito mais. 100% grátis e sem cadastro."
-        keywords="gerador de recibo, recibo online, recibo simples, recibo de pagamento, recibo pdf, imprimir recibo, modelos de recibo"
-        schema={JSON.stringify(websiteSchema)}
+        title="Recibo Grátis: Gerador de Recibos Online em PDF (40+ Modelos)" 
+        description="O maior portal de recibos do Brasil. Gere recibos online grátis em PDF: simples, pagamento, aluguel, MEI e mais 40 modelos. Pronto para imprimir e enviar por WhatsApp."
+        keywords="gerador de recibo, recibo online, recibo simples, recibo de pagamento, recibo pdf, imprimir recibo, modelos de recibo, fazer recibo online, recibo pronto"
+        schema={JSON.stringify([websiteSchema, faqSchema])}
         url="https://recibogratis.com.br"
       />
       
@@ -89,7 +128,7 @@ export function Home() {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6 text-emerald-50 font-medium text-lg">
             <div className="flex items-center gap-2 bg-emerald-700/50 px-4 py-2 rounded-full">
               <CheckCircle2 className="w-5 h-5 text-emerald-300" />
-              <span>12+ Modelos Exclusivos</span>
+              <span>40+ Modelos Exclusivos</span>
             </div>
             <div className="flex items-center gap-2 bg-emerald-700/50 px-4 py-2 rounded-full">
               <CheckCircle2 className="w-5 h-5 text-emerald-300" />
@@ -154,31 +193,50 @@ export function Home() {
               </p>
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Modelos Atualizados</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Mais de 40 Modelos Atualizados</h3>
               <p className="text-gray-600 leading-relaxed">
-                Nossos modelos de recibo foram revisados para atender às exigências legais e comerciais atuais. Seja você um MEI, um profissional liberal, um locador de imóveis ou apenas alguém precisando de um recibo simples, temos o formato exato que você precisa.
+                Nossos modelos de recibo foram revisados para atender às exigências legais e comerciais atuais. Seja você um MEI, um profissional liberal, um locador de imóveis ou apenas alguém precisando de um recibo simples, temos o formato exato que você precisa para gerar seu PDF.
               </p>
             </div>
           </div>
 
-          <div className="mt-16 bg-white rounded-3xl p-8 md:p-12 text-center shadow-sm border border-gray-100">
-            <h3 className="text-2xl font-bold text-emerald-900 mb-4">Como funciona?</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-              <div>
-                <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
-                <h4 className="font-bold text-emerald-900 mb-2">Escolha o Modelo</h4>
-                <p className="text-emerald-800 text-sm">Selecione o tipo de recibo que melhor se adapta à sua necessidade na lista acima.</p>
+          <div className="mt-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Como fazer um recibo online?</h2>
+            <p className="text-gray-600 mb-8 leading-relaxed text-center">
+              Fazer um recibo online nunca foi tão fácil. Nosso gerador de recibos foi projetado para ser intuitivo e rápido, permitindo que você crie documentos com validade comercial em poucos cliques.
+            </p>
+            
+            <div className="bg-white rounded-3xl p-8 md:p-12 text-center shadow-sm border border-gray-100">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                  <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+                  <h4 className="font-bold text-emerald-900 mb-2">Escolha o Modelo</h4>
+                  <p className="text-emerald-800 text-sm">Selecione o tipo de recibo que melhor se adapta à sua necessidade na lista acima (ex: recibo de pagamento, aluguel, prestação de serviços).</p>
+                </div>
+                <div>
+                  <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+                  <h4 className="font-bold text-emerald-900 mb-2">Preencha os Dados</h4>
+                  <p className="text-emerald-800 text-sm">Digite os valores, nomes e documentos. Veja a prévia do recibo sendo montada em tempo real na sua tela.</p>
+                </div>
+                <div>
+                  <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+                  <h4 className="font-bold text-emerald-900 mb-2">Imprima ou Envie</h4>
+                  <p className="text-emerald-800 text-sm">Clique no botão para imprimir, salvar o arquivo em formato PDF ou enviar diretamente via WhatsApp para o seu cliente.</p>
+                </div>
               </div>
-              <div>
-                <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
-                <h4 className="font-bold text-emerald-900 mb-2">Preencha os Dados</h4>
-                <p className="text-emerald-800 text-sm">Digite os valores, nomes e documentos. Veja a prévia do recibo sendo montada em tempo real.</p>
-              </div>
-              <div>
-                <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
-                <h4 className="font-bold text-emerald-900 mb-2">Compartilhe</h4>
-                <p className="text-emerald-800 text-sm">Clique no botão para imprimir, salvar o arquivo em formato PDF ou enviar diretamente via WhatsApp.</p>
-              </div>
+            </div>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="mt-20">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Perguntas Frequentes (FAQ)</h2>
+            <div className="space-y-6">
+              {faqSchema.mainEntity.map((faq, index) => (
+                <div key={index} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{faq.name}</h3>
+                  <p className="text-gray-600 m-0 leading-relaxed">{faq.acceptedAnswer.text}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

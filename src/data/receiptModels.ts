@@ -10,10 +10,10 @@ export const receiptModels = [
     defaultReferenteA: 'Pagamento referente a [descreva o motivo do pagamento].',
     icon: 'FileText',
     seoContent: {
-      h2: 'O que é um Recibo Simples?',
-      p1: 'O recibo simples é o documento mais comum e versátil utilizado para comprovar que uma transação financeira ocorreu entre duas partes. Ele serve como uma declaração formal de que um valor foi pago e recebido, garantindo segurança jurídica básica para o pagador.',
-      h3: 'Quando utilizar o Recibo Simples?',
-      p2: 'Este modelo é ideal para transações cotidianas que não exigem detalhamentos complexos, como a compra de um item usado de um conhecido, o pagamento de uma pequena dívida, ou transações informais onde a emissão de Nota Fiscal não é obrigatória.'
+      h2: 'O que é um Recibo Simples e como ele protege seu dinheiro?',
+      p1: 'O recibo simples é o documento financeiro mais comum e versátil utilizado no Brasil para comprovar que uma transação ocorreu entre duas partes. Ele serve como uma declaração formal e legal de que um valor foi pago por uma pessoa (pagador) e recebido por outra (recebedor). Sem um recibo, transações informais baseiam-se apenas na confiança, o que pode gerar sérias dores de cabeça, cobranças em duplicidade e prejuízos financeiros. Ao utilizar nosso gerador de recibo simples online, você cria um documento padronizado, com validade comercial, pronto para ser impresso ou enviado pelo WhatsApp em formato PDF.',
+      h3: 'Quando utilizar o Recibo Simples em vez da Nota Fiscal?',
+      p2: 'Este modelo é ideal para transações cotidianas que não exigem detalhamentos fiscais complexos. Por exemplo: a compra e venda de um item usado (como um celular ou bicicleta) entre conhecidos, o pagamento de uma pequena dívida, o acerto de uma diária, ou transações informais onde a emissão de Nota Fiscal não é obrigatória por lei (como serviços prestados por pessoas físicas sem CNPJ). Enquanto a Nota Fiscal tem o objetivo de recolher impostos para o governo, o recibo simples tem o objetivo de proteger o cidadão, atestando a quitação de um valor.'
     },
     faqs: [
       {
@@ -41,10 +41,10 @@ export const receiptModels = [
     defaultReferenteA: 'Quitação do pagamento referente a [descreva o produto, serviço ou dívida].',
     icon: 'BadgeDollarSign',
     seoContent: {
-      h2: 'A importância do Recibo de Pagamento',
-      p1: 'O recibo de pagamento é a prova definitiva de que uma obrigação financeira foi cumprida. No direito brasileiro, quem paga tem o direito de exigir a quitação regular, e pode reter o pagamento enquanto o recibo não for fornecido.',
-      h3: 'Como preencher corretamente?',
-      p2: 'Para que o recibo de pagamento tenha validade, é crucial preencher corretamente o valor (em números e por extenso), os dados completos de quem paga e quem recebe (incluindo CPF/CNPJ), a data, o local e, o mais importante, a assinatura do recebedor.'
+      h2: 'A importância do Recibo de Pagamento na quitação de dívidas',
+      p1: 'O recibo de pagamento é a prova definitiva de que uma obrigação financeira foi cumprida. No direito brasileiro (Código Civil), quem paga tem o direito absoluto de exigir a quitação regular, e pode reter o pagamento enquanto o recibo não for fornecido. Emitir um recibo de pagamento online garante que todas as informações essenciais (como valor por extenso, CPF/CNPJ e datas) fiquem registradas de forma clara, evitando fraudes, erros de caligrafia ou perda de comprovantes em papel. É o documento ideal para formalizar pagamentos de prestação de serviços, compras parceladas, honorários e quitação de dívidas entre pessoas físicas ou jurídicas.',
+      h3: 'Como preencher um Recibo de Pagamento com validade legal?',
+      p2: 'Para que o recibo de pagamento tenha validade incontestável, é crucial preencher corretamente o valor (em números e por extenso, para evitar adulterações), os dados completos de quem paga (pagador) e quem recebe (recebedor), incluindo CPF ou CNPJ. A descrição no campo "Referente a" deve ser o mais detalhada possível (ex: "Referente à 2ª parcela da pintura do imóvel X"). Por fim, a data, o local e, o mais importante, a assinatura física ou digital do recebedor são obrigatórios. Nosso gerador de recibo de pagamento em PDF já organiza todos esses campos no formato exigido pela lei.'
     },
     faqs: [
       {

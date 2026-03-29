@@ -182,6 +182,7 @@ export function Layout() {
             <div>
               <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Institucional</h3>
               <ul className="space-y-2 mb-6">
+                <li><Link to="/faq" className="text-sm text-gray-600 hover:text-emerald-600 transition-colors">Perguntas Frequentes (FAQ)</Link></li>
                 <li><Link to="/termos-de-uso" className="text-sm text-gray-600 hover:text-emerald-600 transition-colors">Termos de Uso</Link></li>
                 <li><Link to="/politica-de-privacidade" className="text-sm text-gray-600 hover:text-emerald-600 transition-colors">Política de Privacidade</Link></li>
                 <li><Link to="/contato" className="text-sm text-gray-600 hover:text-emerald-600 transition-colors">Contato</Link></li>

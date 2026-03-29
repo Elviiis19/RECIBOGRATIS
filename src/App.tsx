@@ -12,6 +12,7 @@ import { Termos } from './pages/Termos';
 import { Privacidade } from './pages/Privacidade';
 import { Contato } from './pages/Contato';
 import { PixGenerator } from './pages/PixGenerator';
+import { Faq } from './pages/Faq';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
             <Route path="termos-de-uso" element={<Termos />} />
             <Route path="politica-de-privacidade" element={<Privacidade />} />
             <Route path="contato" element={<Contato />} />
+            <Route path="faq" element={<Faq />} />
             <Route path=":slug" element={<ReceiptPage />} />
           </Route>
         </Routes>

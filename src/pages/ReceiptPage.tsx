@@ -2,7 +2,7 @@ import { useParams, Navigate, Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { ReceiptGenerator } from '../components/ReceiptGenerator';
 import { receiptModels } from '../data/receiptModels';
-import { CheckCircle2, ChevronRight } from 'lucide-react';
+import { CheckCircle2, ChevronRight, FileText } from 'lucide-react';
 
 export function ReceiptPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -178,6 +178,37 @@ export function ReceiptPage() {
             <p className="text-emerald-800 m-0">
               Nossa ferramenta foi desenvolvida para ser a mais rápida e prática do mercado. Não exigimos criação de conta, não guardamos seus dados (tudo é processado no seu navegador) e oferecemos um layout moderno e atualizado.
             </p>
+          </div>
+
+          {/* Related Models (Internal Linking) */}
+          <div className="mt-16 border-t border-gray-100 pt-12">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Veja também outros modelos</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {receiptModels
+                .filter(m => m.id !== model.id)
+                .sort(() => 0.5 - Math.random())
+                .slice(0, 4)
+                .map(relatedModel => (
+                  <Link 
+                    key={relatedModel.id} 
+                    to={`/${relatedModel.slug}`}
+                    className="flex items-center gap-3 p-4 rounded-xl border border-gray-100 hover:border-emerald-200 hover:bg-emerald-50/50 transition-colors group no-underline"
+                  >
+                    <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-200 transition-colors">
+                      <FileText className="w-5 h-5 text-emerald-700" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 text-base m-0 group-hover:text-emerald-700 transition-colors">{relatedModel.title}</h4>
+                      <p className="text-sm text-gray-500 m-0 line-clamp-1">{relatedModel.shortDescription}</p>
+                    </div>
+                  </Link>
+                ))}
+            </div>
+            <div className="text-center mt-8">
+              <Link to="/" className="inline-flex items-center gap-2 text-emerald-600 font-medium hover:text-emerald-700 transition-colors no-underline">
+                Ver todos os 40+ modelos <ChevronRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
