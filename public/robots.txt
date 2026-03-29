@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://recibogratis.com.br/sitemap.xml

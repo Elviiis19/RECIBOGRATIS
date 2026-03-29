@@ -1,0 +1,624 @@
+import React, { useState, useRef, useEffect } from 'react';
+import { useReactToPrint } from 'react-to-print';
+import CurrencyInput from 'react-currency-input-field';
+import { cpf, cnpj } from 'cpf-cnpj-validator';
+import { porExtenso } from 'numero-por-extenso';
+import { Printer, FileText, ChevronRight, ChevronLeft, CheckCircle2, MessageCircle, Upload, QrCode } from 'lucide-react';
+import { QRCodeSVG } from 'qrcode.react';
+import { cn } from '../utils/cn';
+import { generatePixPayload } from '../utils/pix';
+
+interface ReceiptData {
+  valor: string;
+  pagadorNome: string;
+  pagadorDocumento: string;
+  recebedorNome: string;
+  recebedorDocumento: string;
+  referenteA: string;
+  cidade: string;
+  data: string;
+  formaPagamento: string;
+  logo: string;
+  chavePix: string;
+}
+
+interface ReceiptGeneratorProps {
+  title: string;
+  defaultReferenteA?: string;
+}
+
+const STEPS = [
+  { id: 'valor', title: 'Valor e Pagamento' },
+  { id: 'pagador', title: 'Dados do Pagador' },
+  { id: 'recebedor', title: 'Dados do Recebedor' },
+  { id: 'detalhes', title: 'Detalhes do Recibo' },
+  { id: 'concluido', title: 'Finalizar' }
+];
+
+export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGeneratorProps) {
+  const [currentStep, setCurrentStep] = useState(0);
+  const [data, setData] = useState<ReceiptData>({
+    valor: '',
+    pagadorNome: '',
+    pagadorDocumento: '',
+    recebedorNome: '',
+    recebedorDocumento: '',
+    referenteA: defaultReferenteA,
+    cidade: '',
+    data: new Date().toISOString().split('T')[0],
+    formaPagamento: 'Dinheiro',
+    logo: '',
+    chavePix: '',
+  });
+
+  useEffect(() => {
+    const savedData = localStorage.getItem('receiptIssuerData');
+    if (savedData) {
+      try {
+        const parsed = JSON.parse(savedData);
+        setData(prev => ({
+          ...prev,
+          recebedorNome: parsed.recebedorNome || '',
+          recebedorDocumento: parsed.recebedorDocumento || '',
+          cidade: parsed.cidade || '',
+          logo: parsed.logo || '',
+          chavePix: parsed.chavePix || '',
+        }));
+      } catch (e) {
+        console.error('Failed to parse saved issuer data', e);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    const issuerData = {
+      recebedorNome: data.recebedorNome,
+      recebedorDocumento: data.recebedorDocumento,
+      cidade: data.cidade,
+      logo: data.logo,
+      chavePix: data.chavePix,
+    };
+    localStorage.setItem('receiptIssuerData', JSON.stringify(issuerData));
+  }, [data.recebedorNome, data.recebedorDocumento, data.cidade, data.logo, data.chavePix]);
+
+  const [errors, setErrors] = useState<Partial<Record<keyof ReceiptData, string>>>({});
+
+  const componentRef = useRef<HTMLDivElement>(null);
+  const handlePrint = useReactToPrint({
+    contentRef: componentRef,
+    documentTitle: `Recibo_${data.pagadorNome || 'Documento'}`,
+  });
+
+  const validateDocument = (doc: string) => {
+    const cleanDoc = doc.replace(/\D/g, '');
+    if (!cleanDoc) return true; // allow empty while typing
+    if (cleanDoc.length <= 11) {
+      return cpf.isValid(cleanDoc);
+    }
+    return cnpj.isValid(cleanDoc);
+  };
+
+  const formatDocument = (doc: string) => {
+    const cleanDoc = doc.replace(/\D/g, '');
+    if (cleanDoc.length <= 11) {
+      return cpf.format(cleanDoc);
+    }
+    return cnpj.format(cleanDoc);
+  };
+
+  const handleDocumentChange = (field: 'pagadorDocumento' | 'recebedorDocumento', value: string) => {
+    const formatted = formatDocument(value);
+    setData((prev) => ({ ...prev, [field]: formatted }));
+    
+    if (value && !validateDocument(value)) {
+      setErrors((prev) => ({ ...prev, [field]: 'CPF/CNPJ inválido' }));
+    } else {
+      setErrors((prev) => {
+        const newErrors = { ...prev };
+        delete newErrors[field];
+        return newErrors;
+      });
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setData((prev) => ({ ...prev, [name]: value }));
+    // Clear error when user types
+    if (errors[name as keyof ReceiptData]) {
+      setErrors((prev) => {
+        const newErrors = { ...prev };
+        delete newErrors[name as keyof ReceiptData];
+        return newErrors;
+      });
+    }
+  };
+
+  const validateCurrentStep = () => {
+    const newErrors: Partial<Record<keyof ReceiptData, string>> = {};
+    let isValid = true;
+
+    if (currentStep === 0) {
+      if (!data.valor || data.valor === '0,00') {
+        newErrors.valor = 'O valor é obrigatório';
+        isValid = false;
+      }
+    } else if (currentStep === 1) {
+      if (!data.pagadorNome.trim()) {
+        newErrors.pagadorNome = 'O nome do pagador é obrigatório';
+        isValid = false;
+      }
+      if (data.pagadorDocumento && !validateDocument(data.pagadorDocumento)) {
+        newErrors.pagadorDocumento = 'CPF/CNPJ inválido';
+        isValid = false;
+      }
+    } else if (currentStep === 2) {
+      if (!data.recebedorNome.trim()) {
+        newErrors.recebedorNome = 'O nome do recebedor é obrigatório';
+        isValid = false;
+      }
+      if (data.recebedorDocumento && !validateDocument(data.recebedorDocumento)) {
+        newErrors.recebedorDocumento = 'CPF/CNPJ inválido';
+        isValid = false;
+      }
+    } else if (currentStep === 3) {
+      if (!data.referenteA.trim()) {
+        newErrors.referenteA = 'A referência é obrigatória';
+        isValid = false;
+      }
+      if (!data.cidade.trim()) {
+        newErrors.cidade = 'A cidade é obrigatória';
+        isValid = false;
+      }
+      if (!data.data) {
+        newErrors.data = 'A data é obrigatória';
+        isValid = false;
+      }
+    }
+
+    setErrors(prev => ({ ...prev, ...newErrors }));
+    return isValid;
+  };
+
+  const nextStep = () => {
+    if (validateCurrentStep() && currentStep < STEPS.length - 1) {
+      setCurrentStep(prev => prev + 1);
+    }
+  };
+
+  const prevStep = () => {
+    if (currentStep > 0) {
+      setCurrentStep(prev => prev - 1);
+    }
+  };
+
+  const handleWhatsApp = () => {
+    const formattedDate = data.data ? new Date(data.data).toLocaleDateString('pt-BR') : '';
+    const text = `*RECIBO - R$ ${data.valor}*\n\nRecebi(emos) de *${data.pagadorNome}*${data.pagadorDocumento ? ` (CPF/CNPJ: ${data.pagadorDocumento})` : ''}, a importância de *R$ ${data.valor}*.\n\nReferente a: ${data.referenteA}.\nPagamento efetuado através de: ${data.formaPagamento}.\n\n${data.cidade}, ${formattedDate}.\n\nRecebedor: *${data.recebedorNome}*${data.recebedorDocumento ? ` (CPF/CNPJ: ${data.recebedorDocumento})` : ''}\n\n_Gerado gratuitamente em recibogratis.com.br_`;
+    
+    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  const getValorExtenso = (valorStr: string) => {
+    if (!valorStr) return '';
+    try {
+      const numericValue = parseFloat(valorStr.replace(/\./g, '').replace(',', '.'));
+      if (isNaN(numericValue)) return '';
+      return `(${porExtenso(numericValue, porExtenso.estilo.monetario)})`;
+    } catch (e) {
+      return '';
+    }
+  };
+
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+      {/* Form Section - Wizard */}
+      <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
+            <FileText className="text-emerald-600" />
+            Preenchimento Inteligente
+          </h2>
+          <p className="text-gray-500 text-sm">Passo {currentStep + 1} de {STEPS.length}: {STEPS[currentStep].title}</p>
+          
+          {/* Progress Bar */}
+          <div className="w-full bg-gray-100 h-2 rounded-full mt-4 overflow-hidden">
+            <div 
+              className="bg-emerald-500 h-full rounded-full transition-all duration-500 ease-out"
+              style={{ width: `${((currentStep + 1) / STEPS.length) * 100}%` }}
+            />
+          </div>
+        </div>
+
+        <div className="min-h-[280px]">
+          {currentStep === 0 && (
+            <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
+              <div>
+                <label className="block text-sm font-semibold text-gray-900 mb-2">Qual o valor do recibo? <span className="text-red-500">*</span></label>
+                <CurrencyInput
+                  id="valor"
+                  name="valor"
+                  placeholder="0,00"
+                  decimalsLimit={2}
+                  decimalSeparator=","
+                  groupSeparator="."
+                  prefix="R$ "
+                  className={cn(
+                    "w-full px-4 py-3 text-lg border rounded-xl focus:ring-2 outline-none transition-all",
+                    errors.valor ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-emerald-500 focus:border-emerald-500"
+                  )}
+                  onValueChange={(value) => {
+                    setData((prev) => ({ ...prev, valor: value || '' }));
+                    if (errors.valor) setErrors(prev => ({ ...prev, valor: undefined }));
+                  }}
+                  value={data.valor}
+                  autoFocus
+                />
+                {errors.valor && <p className="text-red-500 text-sm mt-2">{errors.valor}</p>}
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-gray-900 mb-2">Como foi feito o pagamento?</label>
+                <select
+                  name="formaPagamento"
+                  value={data.formaPagamento}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all bg-white"
+                >
+                  <option value="Dinheiro">Dinheiro</option>
+                  <option value="PIX">PIX</option>
+                  <option value="Transferência">Transferência</option>
+                  <option value="Cartão de Crédito">Cartão de Crédito</option>
+                  <option value="Cartão de Débito">Cartão de Débito</option>
+                  <option value="Cheque">Cheque</option>
+                </select>
+              </div>
+            </div>
+          )}
+
+          {currentStep === 1 && (
+            <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
+              <div>
+                <label className="block text-sm font-semibold text-gray-900 mb-2">Quem está pagando? (Pagador) <span className="text-red-500">*</span></label>
+                <input
+                  type="text"
+                  name="pagadorNome"
+                  value={data.pagadorNome}
+                  onChange={handleChange}
+                  placeholder="Nome completo ou Razão Social"
+                  className={cn(
+                    "w-full px-4 py-3 text-lg border rounded-xl focus:ring-2 outline-none transition-all",
+                    errors.pagadorNome ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-emerald-500 focus:border-emerald-500"
+                  )}
+                  autoFocus
+                />
+                {errors.pagadorNome && <p className="text-red-500 text-sm mt-2">{errors.pagadorNome}</p>}
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-gray-900 mb-2">CPF ou CNPJ do Pagador</label>
+                <input
+                  type="text"
+                  value={data.pagadorDocumento}
+                  onChange={(e) => handleDocumentChange('pagadorDocumento', e.target.value)}
+                  placeholder="000.000.000-00"
+                  maxLength={18}
+                  className={cn(
+                    "w-full px-4 py-3 text-lg border rounded-xl focus:ring-2 outline-none transition-all",
+                    errors.pagadorDocumento ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-emerald-500 focus:border-emerald-500"
+                  )}
+                />
+                {errors.pagadorDocumento && <p className="text-red-500 text-sm mt-2">{errors.pagadorDocumento}</p>}
+              </div>
+            </div>
+          )}
+
+          {currentStep === 2 && (
+            <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
+              <div>
+                <label className="block text-sm font-semibold text-gray-900 mb-2">Logotipo (Opcional)</label>
+                <div className="flex items-center gap-4">
+                  {data.logo && (
+                    <div className="relative w-16 h-16 rounded-lg border border-gray-200 overflow-hidden bg-white flex-shrink-0">
+                      <img src={data.logo} alt="Logo" className="w-full h-full object-contain" />
+                      <button 
+                        onClick={() => setData(prev => ({ ...prev, logo: '' }))}
+                        className="absolute top-0 right-0 bg-red-500 text-white w-5 h-5 flex items-center justify-center text-xs rounded-bl-lg"
+                      >
+                        ×
+                      </button>
+                    </div>
+                  )}
+                  <label className="flex-1 cursor-pointer">
+                    <div className="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-xl hover:border-emerald-500 hover:bg-emerald-50 transition-all flex items-center justify-center gap-2 text-gray-600">
+                      <Upload className="w-5 h-5" />
+                      <span>{data.logo ? 'Trocar Logo' : 'Fazer upload do Logo'}</span>
+                    </div>
+                    <input 
+                      type="file" 
+                      accept="image/*" 
+                      className="hidden" 
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          const reader = new FileReader();
+                          reader.onloadend = () => {
+                            setData(prev => ({ ...prev, logo: reader.result as string }));
+                          };
+                          reader.readAsDataURL(file);
+                        }
+                      }}
+                    />
+                  </label>
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-gray-900 mb-2">Quem está recebendo? (Recebedor) <span className="text-red-500">*</span></label>
+                <input
+                  type="text"
+                  name="recebedorNome"
+                  value={data.recebedorNome}
+                  onChange={handleChange}
+                  placeholder="Nome completo ou Razão Social"
+                  className={cn(
+                    "w-full px-4 py-3 text-lg border rounded-xl focus:ring-2 outline-none transition-all",
+                    errors.recebedorNome ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-emerald-500 focus:border-emerald-500"
+                  )}
+                  autoFocus
+                />
+                {errors.recebedorNome && <p className="text-red-500 text-sm mt-2">{errors.recebedorNome}</p>}
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">CPF ou CNPJ do Recebedor</label>
+                  <input
+                    type="text"
+                    value={data.recebedorDocumento}
+                    onChange={(e) => handleDocumentChange('recebedorDocumento', e.target.value)}
+                    placeholder="000.000.000-00"
+                    maxLength={18}
+                    className={cn(
+                      "w-full px-4 py-3 text-lg border rounded-xl focus:ring-2 outline-none transition-all",
+                      errors.recebedorDocumento ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-emerald-500 focus:border-emerald-500"
+                    )}
+                  />
+                  {errors.recebedorDocumento && <p className="text-red-500 text-sm mt-2">{errors.recebedorDocumento}</p>}
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">Chave PIX (Opcional)</label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <QrCode className="h-5 w-5 text-gray-400" />
+                    </div>
+                    <input
+                      type="text"
+                      name="chavePix"
+                      value={data.chavePix}
+                      onChange={handleChange}
+                      placeholder="CPF, E-mail, Celular..."
+                      className="w-full pl-10 px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {currentStep === 3 && (
+            <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
+              <div>
+                <label className="block text-sm font-semibold text-gray-900 mb-2">Referente a quê? <span className="text-red-500">*</span></label>
+                <textarea
+                  name="referenteA"
+                  value={data.referenteA}
+                  onChange={handleChange}
+                  rows={3}
+                  placeholder="Ex: Pagamento de aluguel referente ao mês de Março"
+                  className={cn(
+                    "w-full px-4 py-3 text-lg border rounded-xl focus:ring-2 outline-none transition-all resize-none",
+                    errors.referenteA ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-emerald-500 focus:border-emerald-500"
+                  )}
+                  autoFocus
+                />
+                {errors.referenteA && <p className="text-red-500 text-sm mt-2">{errors.referenteA}</p>}
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">Cidade de Emissão <span className="text-red-500">*</span></label>
+                  <input
+                    type="text"
+                    name="cidade"
+                    value={data.cidade}
+                    onChange={handleChange}
+                    placeholder="Sua Cidade"
+                    className={cn(
+                      "w-full px-4 py-3 text-lg border rounded-xl focus:ring-2 outline-none transition-all",
+                      errors.cidade ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-emerald-500 focus:border-emerald-500"
+                    )}
+                  />
+                  {errors.cidade && <p className="text-red-500 text-sm mt-2">{errors.cidade}</p>}
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">Data <span className="text-red-500">*</span></label>
+                  <input
+                    type="date"
+                    name="data"
+                    value={data.data}
+                    onChange={handleChange}
+                    className={cn(
+                      "w-full px-4 py-3 text-lg border rounded-xl focus:ring-2 outline-none transition-all",
+                      errors.data ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-emerald-500 focus:border-emerald-500"
+                    )}
+                  />
+                  {errors.data && <p className="text-red-500 text-sm mt-2">{errors.data}</p>}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {currentStep === 4 && (
+            <div className="space-y-6 animate-in fade-in zoom-in-95 duration-500 text-center py-8">
+              <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle2 className="w-10 h-10 text-emerald-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Recibo Pronto!</h3>
+              <p className="text-gray-600 mb-8 max-w-sm mx-auto">
+                Seu recibo foi gerado com sucesso. Revise a prévia ao lado e escolha como deseja compartilhar.
+              </p>
+              
+              <div className="flex flex-col gap-4 max-w-xs mx-auto">
+                <button
+                  onClick={() => handlePrint()}
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-3 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 text-lg"
+                >
+                  <Printer className="w-6 h-6" />
+                  Imprimir / Salvar PDF
+                </button>
+                
+                <button
+                  onClick={handleWhatsApp}
+                  className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-3 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 text-lg"
+                >
+                  <MessageCircle className="w-6 h-6" />
+                  Enviar por WhatsApp
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Navigation Buttons */}
+        {currentStep < 4 && (
+          <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-100">
+            <button
+              onClick={prevStep}
+              disabled={currentStep === 0}
+              className={cn(
+                "flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-colors",
+                currentStep === 0 
+                  ? "text-gray-300 cursor-not-allowed" 
+                  : "text-gray-600 hover:bg-gray-100"
+              )}
+            >
+              <ChevronLeft className="w-5 h-5" />
+              Voltar
+            </button>
+            <button
+              onClick={nextStep}
+              className="flex items-center gap-2 bg-gray-900 hover:bg-black text-white px-8 py-3 rounded-xl font-medium transition-all shadow-sm hover:shadow-md"
+            >
+              Próximo
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+        )}
+        {currentStep === 4 && (
+          <div className="flex justify-center mt-8 pt-6 border-t border-gray-100">
+             <button
+              onClick={() => setCurrentStep(0)}
+              className="text-emerald-600 hover:text-emerald-700 font-medium underline underline-offset-4"
+            >
+              Editar dados novamente
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Preview Section */}
+      <div className="sticky top-24">
+        <div className="bg-white p-2 rounded-2xl shadow-sm border border-gray-100 mb-4">
+          <div className="bg-gray-50 rounded-xl p-4 flex justify-between items-center">
+            <h3 className="font-semibold text-gray-700">Prévia do Documento</h3>
+            <span className="text-xs bg-emerald-100 text-emerald-800 px-3 py-1.5 rounded-full font-bold tracking-wide uppercase">Padrão Jurídico Atualizado</span>
+          </div>
+        </div>
+
+        {/* The Actual Receipt to Print */}
+        <div className="bg-white shadow-lg border border-gray-200 overflow-hidden rounded-xl" style={{ minHeight: '400px' }}>
+          <div ref={componentRef} className="p-8 md:p-12 bg-white text-black font-sans" style={{ width: '100%', maxWidth: '800px', margin: '0 auto' }}>
+            
+            {/* Receipt Header */}
+            <div className="flex justify-between items-start border-b-2 border-gray-800 pb-6 mb-8">
+              <div className="flex items-center gap-6">
+                {data.logo && (
+                  <img src={data.logo} alt="Logo" className="w-20 h-20 object-contain" />
+                )}
+                <div>
+                  <h1 className="text-3xl font-bold uppercase tracking-wider text-gray-900">RECIBO</h1>
+                  <p className="text-sm text-gray-500 mt-1">Nº {Math.floor(Math.random() * 10000).toString().padStart(4, '0')}</p>
+                </div>
+              </div>
+              <div className="bg-gray-100 px-6 py-3 rounded-lg border border-gray-300">
+                <span className="text-sm font-bold text-gray-500 block uppercase tracking-wider mb-1">Valor</span>
+                <span className="text-2xl font-bold text-gray-900">
+                  R$ {data.valor || '0,00'}
+                </span>
+              </div>
+            </div>
+
+            {/* Receipt Body */}
+            <div className="space-y-6 text-lg leading-relaxed text-gray-800">
+              <p className="text-justify">
+                Recebi(emos) de <span className="font-bold border-b border-gray-400 pb-0.5 px-1">{data.pagadorNome || '________________________________________________'}</span>, 
+                inscrito(a) no CPF/CNPJ sob o nº <span className="font-bold border-b border-gray-400 pb-0.5 px-1">{data.pagadorDocumento || '_________________________'}</span>, 
+                a importância de <span className="font-bold border-b border-gray-400 pb-0.5 px-1">R$ {data.valor || '0,00'} {data.valor ? getValorExtenso(data.valor) : ''}</span>.
+              </p>
+
+              <p className="text-justify">
+                Referente a: <span className="font-bold border-b border-gray-400 pb-0.5 px-1">{data.referenteA || '________________________________________________________________________________________________'}</span>.
+              </p>
+
+              <p className="text-justify">
+                Pagamento efetuado através de: <span className="font-bold border-b border-gray-400 pb-0.5 px-1">{data.formaPagamento}</span>.
+              </p>
+
+              <p className="text-justify">
+                Para maior clareza, firmo(amos) o presente recibo para que produza os seus efeitos legais, dando plena, geral e irrevogável quitação.
+              </p>
+            </div>
+
+            {/* Receipt Footer / Signatures */}
+            <div className="mt-16 pt-8">
+              <div className="text-right mb-12">
+                <span className="font-medium">{data.cidade || '_________________________'}</span>,{' '}
+                <span className="font-medium">
+                  {data.data ? new Date(data.data).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' }) : '___ de _______________ de 20__'}
+                </span>
+              </div>
+
+              <div className="flex flex-col md:flex-row items-center justify-between mt-16 gap-8">
+                <div className="flex-1 flex flex-col items-center justify-center w-full">
+                  <div className="w-80 border-t border-gray-800 mb-2"></div>
+                  <p className="font-bold text-lg">{data.recebedorNome || 'Assinatura do Recebedor'}</p>
+                  {data.recebedorDocumento && (
+                    <p className="text-sm text-gray-600">CPF/CNPJ: {data.recebedorDocumento}</p>
+                  )}
+                </div>
+                
+                {data.chavePix && data.formaPagamento === 'PIX' && (
+                  <div className="flex flex-col items-center p-4 border-2 border-dashed border-gray-300 rounded-xl bg-gray-50">
+                    <p className="text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Pague com PIX</p>
+                    <div className="bg-white p-2 rounded-lg shadow-sm mb-2">
+                      <QRCodeSVG 
+                        value={generatePixPayload(data.chavePix, data.recebedorNome || 'Recebedor', data.cidade || 'Cidade', data.valor)} 
+                        size={100}
+                        level="M"
+                      />
+                    </div>
+                    <p className="text-xs text-gray-500 font-mono break-all text-center max-w-[150px]">
+                      Chave: {data.chavePix}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Watermark / Branding (Optional, small) */}
+            <div className="mt-16 text-center text-xs text-gray-400 border-t border-gray-100 pt-4">
+              Gerado gratuitamente em recibogratis.com.br
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
