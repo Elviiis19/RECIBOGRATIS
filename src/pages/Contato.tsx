@@ -1,16 +1,36 @@
 import { SEO } from '../components/SEO';
+import { AdSense } from '../components/AdSense';
 import { Mail, MessageSquare } from 'lucide-react';
 
 export function Contato() {
   return (
-    <>
+    <div className="min-h-screen bg-gray-50 pb-12">
       <SEO 
-        title="Contato" 
-        description="Entre em contato com a equipe do Recibo Grátis."
+        title="Contato | Fale com a Equipe do Recibo Grátis" 
+        description="Entre em contato com a equipe do Recibo Grátis. Tire suas dúvidas, envie sugestões ou reporte problemas com nosso gerador de recibos online."
       />
       
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">Fale Conosco</h1>
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-emerald-800 via-emerald-600 to-teal-600 text-white py-12 md:py-20 overflow-hidden mb-12">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"></div>
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob" style={{ animationDelay: '2s' }}></div>
+
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center">
+          <div className="inline-flex items-center justify-center p-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl mb-6 shadow-sm">
+            <MessageSquare className="w-8 h-8 text-emerald-50" />
+          </div>
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+            Contato e Suporte
+          </h1>
+          <p className="text-xl md:text-2xl text-emerald-100 max-w-2xl mx-auto">
+            Fale com a equipe do Recibo Grátis. Estamos aqui para ajudar você a emitir seus recibos online sem complicação.
+          </p>
+        </div>
+      </section>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AdSense />
         
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-12">
           <p className="text-lg text-gray-600 mb-8 text-center max-w-2xl mx-auto">
@@ -42,7 +62,8 @@ export function Contato() {
             </div>
           </div>
         </div>
+        <AdSense />
       </div>
-    </>
+    </div>
   );
 }

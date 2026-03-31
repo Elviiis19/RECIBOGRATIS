@@ -3,6 +3,7 @@ import { QRCodeSVG } from 'qrcode.react';
 import CurrencyInput from 'react-currency-input-field';
 import { Copy, CheckCircle2, QrCode, AlertCircle } from 'lucide-react';
 import { SEO } from '../components/SEO';
+import { AdSense } from '../components/AdSense';
 import { cn } from '../utils/cn';
 import { generatePixPayload } from '../utils/pix';
 
@@ -45,7 +46,7 @@ export function PixGenerator() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gray-50 pb-12">
       <SEO 
         title="Gerador de QR Code PIX Grátis - Copia e Cola"
         description="Gere QR Code PIX e link Copia e Cola gratuitamente. Crie plaquinhas PIX para seu negócio, loja ou evento de forma rápida e segura."
@@ -54,18 +55,28 @@ export function PixGenerator() {
         url="https://recibogratis.com.br/gerador-qr-code-pix"
       />
       
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <div className="inline-flex items-center justify-center p-3 bg-emerald-100 rounded-2xl mb-4">
-            <QrCode className="w-8 h-8 text-emerald-600" />
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-emerald-800 via-emerald-600 to-teal-600 text-white py-12 md:py-20 overflow-hidden mb-12">
+        {/* Modern background pattern/glow */}
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"></div>
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob" style={{ animationDelay: '2s' }}></div>
+
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center">
+          <div className="inline-flex items-center justify-center p-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl mb-6 shadow-sm">
+            <QrCode className="w-8 h-8 text-emerald-50" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
             Gerador de QR Code PIX
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-emerald-100 max-w-2xl mx-auto">
             Crie seu QR Code PIX para receber pagamentos de forma rápida. Ideal para imprimir plaquinhas para sua loja ou enviar por WhatsApp.
           </p>
         </div>
+      </section>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AdSense />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Form Section */}
@@ -74,8 +85,9 @@ export function PixGenerator() {
             
             <div className="space-y-5">
               <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-2">Chave PIX <span className="text-red-500">*</span></label>
+                <label htmlFor="chave" className="block text-sm font-semibold text-gray-900 mb-2">Chave PIX <span className="text-red-500">*</span></label>
                 <input
+                  id="chave"
                   type="text"
                   name="chave"
                   value={data.chave}
@@ -86,8 +98,9 @@ export function PixGenerator() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-2">Nome do Recebedor <span className="text-red-500">*</span></label>
+                <label htmlFor="nome" className="block text-sm font-semibold text-gray-900 mb-2">Nome do Recebedor <span className="text-red-500">*</span></label>
                 <input
+                  id="nome"
                   type="text"
                   name="nome"
                   value={data.nome}
@@ -100,8 +113,9 @@ export function PixGenerator() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-2">Cidade <span className="text-red-500">*</span></label>
+                <label htmlFor="cidade" className="block text-sm font-semibold text-gray-900 mb-2">Cidade <span className="text-red-500">*</span></label>
                 <input
+                  id="cidade"
                   type="text"
                   name="cidade"
                   value={data.cidade}
@@ -113,7 +127,7 @@ export function PixGenerator() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-2">Valor (Opcional)</label>
+                <label htmlFor="valor" className="block text-sm font-semibold text-gray-900 mb-2">Valor (Opcional)</label>
                 <CurrencyInput
                   id="valor"
                   name="valor"
@@ -195,6 +209,8 @@ export function PixGenerator() {
             </p>
           </div>
         </div>
+
+        <AdSense />
       </div>
     </div>
   );

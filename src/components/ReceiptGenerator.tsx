@@ -3,8 +3,10 @@ import { useReactToPrint } from 'react-to-print';
 import CurrencyInput from 'react-currency-input-field';
 import { cpf, cnpj } from 'cpf-cnpj-validator';
 import { porExtenso } from 'numero-por-extenso';
-import { Printer, FileText, ChevronRight, ChevronLeft, CheckCircle2, MessageCircle, Upload, QrCode } from 'lucide-react';
+import { Printer, FileText, ChevronRight, ChevronLeft, CheckCircle2, MessageCircle, Upload, QrCode, Download } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
+import html2canvas from 'html2canvas';
+import { jsPDF } from 'jspdf';
 import { cn } from '../utils/cn';
 import { generatePixPayload } from '../utils/pix';
 
@@ -82,6 +84,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
   }, [data.recebedorNome, data.recebedorDocumento, data.cidade, data.logo, data.chavePix]);
 
   const [errors, setErrors] = useState<Partial<Record<keyof ReceiptData, string>>>({});
+  const [duasVias, setDuasVias] = useState(false);
 
   const componentRef = useRef<HTMLDivElement>(null);
   const handlePrint = useReactToPrint({
@@ -192,12 +195,76 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
     }
   };
 
-  const handleWhatsApp = () => {
+  const generatePDFBlob = async () => {
+    if (!componentRef.current) return null;
+    
+    try {
+      const canvas = await html2canvas(componentRef.current, {
+        scale: 2,
+        useCORS: true,
+        logging: false,
+      });
+      
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF({
+        orientation: 'portrait',
+        unit: 'mm',
+        format: 'a4',
+      });
+      
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+      
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      return pdf.output('blob');
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+      return null;
+    }
+  };
+
+  const handleWhatsApp = async () => {
     const formattedDate = data.data ? new Date(data.data).toLocaleDateString('pt-BR') : '';
     const text = `*RECIBO - R$ ${data.valor}*\n\nRecebi(emos) de *${data.pagadorNome}*${data.pagadorDocumento ? ` (CPF/CNPJ: ${data.pagadorDocumento})` : ''}, a importância de *R$ ${data.valor}*.\n\nReferente a: ${data.referenteA}.\nPagamento efetuado através de: ${data.formaPagamento}.\n\n${data.cidade}, ${formattedDate}.\n\nRecebedor: *${data.recebedorNome}*${data.recebedorDocumento ? ` (CPF/CNPJ: ${data.recebedorDocumento})` : ''}\n\n_Gerado gratuitamente em recibogratis.com.br_`;
     
+    // Try to share PDF if supported (mostly mobile)
+    if (navigator.share) {
+      try {
+        const blob = await generatePDFBlob();
+        if (blob) {
+          const file = new File([blob], `Recibo_${data.pagadorNome || 'Documento'}.pdf`, { type: 'application/pdf' });
+          if (navigator.canShare && navigator.canShare({ files: [file] })) {
+            await navigator.share({
+              title: 'Recibo',
+              text: text,
+              files: [file],
+            });
+            return; // Success!
+          }
+        }
+      } catch (e) {
+        console.error('Error sharing file:', e);
+        // Fallback to text
+      }
+    }
+    
+    // Fallback to text-only WhatsApp link (Desktop)
     const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
+  };
+
+  const handleDownloadPDF = async () => {
+    const blob = await generatePDFBlob();
+    if (blob) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Recibo_${data.pagadorNome || 'Documento'}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
   };
 
   const getValorExtenso = (valorStr: string) => {
@@ -235,7 +302,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
           {currentStep === 0 && (
             <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
               <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-2">Qual o valor do recibo? <span className="text-red-500">*</span></label>
+                <label htmlFor="valor" className="block text-sm font-semibold text-gray-900 mb-2">Qual o valor do recibo? <span className="text-red-500">*</span></label>
                 <CurrencyInput
                   id="valor"
                   name="valor"
@@ -258,8 +325,9 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                 {errors.valor && <p className="text-red-500 text-sm mt-2">{errors.valor}</p>}
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-2">Como foi feito o pagamento?</label>
+                <label htmlFor="formaPagamento" className="block text-sm font-semibold text-gray-900 mb-2">Como foi feito o pagamento?</label>
                 <select
+                  id="formaPagamento"
                   name="formaPagamento"
                   value={data.formaPagamento}
                   onChange={handleChange}
@@ -279,8 +347,9 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
           {currentStep === 1 && (
             <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
               <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-2">Quem está pagando? (Pagador) <span className="text-red-500">*</span></label>
+                <label htmlFor="pagadorNome" className="block text-sm font-semibold text-gray-900 mb-2">Quem está pagando? (Pagador) <span className="text-red-500">*</span></label>
                 <input
+                  id="pagadorNome"
                   type="text"
                   name="pagadorNome"
                   value={data.pagadorNome}
@@ -295,8 +364,9 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                 {errors.pagadorNome && <p className="text-red-500 text-sm mt-2">{errors.pagadorNome}</p>}
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-2">CPF ou CNPJ do Pagador</label>
+                <label htmlFor="pagadorDocumento" className="block text-sm font-semibold text-gray-900 mb-2">CPF ou CNPJ do Pagador</label>
                 <input
+                  id="pagadorDocumento"
                   type="text"
                   value={data.pagadorDocumento}
                   onChange={(e) => handleDocumentChange('pagadorDocumento', e.target.value)}
@@ -352,8 +422,9 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-2">Quem está recebendo? (Recebedor) <span className="text-red-500">*</span></label>
+                <label htmlFor="recebedorNome" className="block text-sm font-semibold text-gray-900 mb-2">Quem está recebendo? (Recebedor) <span className="text-red-500">*</span></label>
                 <input
+                  id="recebedorNome"
                   type="text"
                   name="recebedorNome"
                   value={data.recebedorNome}
@@ -369,8 +440,9 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">CPF ou CNPJ do Recebedor</label>
+                  <label htmlFor="recebedorDocumento" className="block text-sm font-semibold text-gray-900 mb-2">CPF ou CNPJ do Recebedor</label>
                   <input
+                    id="recebedorDocumento"
                     type="text"
                     value={data.recebedorDocumento}
                     onChange={(e) => handleDocumentChange('recebedorDocumento', e.target.value)}
@@ -384,12 +456,13 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                   {errors.recebedorDocumento && <p className="text-red-500 text-sm mt-2">{errors.recebedorDocumento}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">Chave PIX (Opcional)</label>
+                  <label htmlFor="chavePix" className="block text-sm font-semibold text-gray-900 mb-2">Chave PIX (Opcional)</label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                       <QrCode className="h-5 w-5 text-gray-400" />
                     </div>
                     <input
+                      id="chavePix"
                       type="text"
                       name="chavePix"
                       value={data.chavePix}
@@ -406,8 +479,9 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
           {currentStep === 3 && (
             <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
               <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-2">Referente a quê? <span className="text-red-500">*</span></label>
+                <label htmlFor="referenteA" className="block text-sm font-semibold text-gray-900 mb-2">Referente a quê? <span className="text-red-500">*</span></label>
                 <textarea
+                  id="referenteA"
                   name="referenteA"
                   value={data.referenteA}
                   onChange={handleChange}
@@ -423,8 +497,9 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">Cidade de Emissão <span className="text-red-500">*</span></label>
+                  <label htmlFor="cidade" className="block text-sm font-semibold text-gray-900 mb-2">Cidade de Emissão <span className="text-red-500">*</span></label>
                   <input
+                    id="cidade"
                     type="text"
                     name="cidade"
                     value={data.cidade}
@@ -438,8 +513,9 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                   {errors.cidade && <p className="text-red-500 text-sm mt-2">{errors.cidade}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">Data <span className="text-red-500">*</span></label>
+                  <label htmlFor="data" className="block text-sm font-semibold text-gray-900 mb-2">Data <span className="text-red-500">*</span></label>
                   <input
+                    id="data"
                     type="date"
                     name="data"
                     value={data.data}
@@ -461,17 +537,38 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                 <CheckCircle2 className="w-10 h-10 text-emerald-600" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Recibo Pronto!</h3>
-              <p className="text-gray-600 mb-8 max-w-sm mx-auto">
+              <p className="text-gray-600 mb-6 max-w-sm mx-auto">
                 Seu recibo foi gerado com sucesso. Revise a prévia ao lado e escolha como deseja compartilhar.
               </p>
               
+              <div className="flex items-center justify-center gap-2 mb-8">
+                <input
+                  type="checkbox"
+                  id="duasVias"
+                  checked={duasVias}
+                  onChange={(e) => setDuasVias(e.target.checked)}
+                  className="w-5 h-5 text-emerald-600 rounded border-gray-300 focus:ring-emerald-500"
+                />
+                <label htmlFor="duasVias" className="text-gray-700 font-medium cursor-pointer">
+                  Imprimir em duas vias (2 cópias)
+                </label>
+              </div>
+
               <div className="flex flex-col gap-4 max-w-xs mx-auto">
                 <button
                   onClick={() => handlePrint()}
                   className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-3 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 text-lg"
                 >
                   <Printer className="w-6 h-6" />
-                  Imprimir / Salvar PDF
+                  Imprimir
+                </button>
+
+                <button
+                  onClick={handleDownloadPDF}
+                  className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-3 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 text-lg"
+                >
+                  <Download className="w-6 h-6" />
+                  Baixar PDF
                 </button>
                 
                 <button
@@ -534,88 +631,185 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
 
         {/* The Actual Receipt to Print */}
         <div className="bg-white shadow-lg border border-gray-200 overflow-hidden rounded-xl" style={{ minHeight: '400px' }}>
-          <div ref={componentRef} className="p-8 md:p-12 bg-white text-black font-sans" style={{ width: '100%', maxWidth: '800px', margin: '0 auto' }}>
+          <div ref={componentRef} className="bg-white text-black font-sans" style={{ width: '100%', maxWidth: '800px', margin: '0 auto' }}>
             
-            {/* Receipt Header */}
-            <div className="flex justify-between items-start border-b-2 border-gray-800 pb-6 mb-8">
-              <div className="flex items-center gap-6">
-                {data.logo && (
-                  <img src={data.logo} alt="Logo" className="w-20 h-20 object-contain" />
-                )}
-                <div>
-                  <h1 className="text-3xl font-bold uppercase tracking-wider text-gray-900">RECIBO</h1>
-                  <p className="text-sm text-gray-500 mt-1">Nº {Math.floor(Math.random() * 10000).toString().padStart(4, '0')}</p>
+            {/* Primeira Via */}
+            <div className="p-8 md:p-12">
+              {/* Receipt Header */}
+              <div className="flex justify-between items-start border-b-2 border-gray-800 pb-6 mb-8">
+                <div className="flex items-center gap-6">
+                  {data.logo && (
+                    <img src={data.logo} alt="Logo" className="w-20 h-20 object-contain" />
+                  )}
+                  <div>
+                    <h1 className="text-3xl font-bold uppercase tracking-wider text-gray-900">RECIBO</h1>
+                    <p className="text-sm text-gray-500 mt-1">Nº {Math.floor(Math.random() * 10000).toString().padStart(4, '0')}</p>
+                  </div>
+                </div>
+                <div className="bg-gray-100 px-6 py-3 rounded-lg border border-gray-300">
+                  <span className="text-sm font-bold text-gray-500 block uppercase tracking-wider mb-1">Valor</span>
+                  <span className="text-2xl font-bold text-gray-900">
+                    R$ {data.valor || '0,00'}
+                  </span>
                 </div>
               </div>
-              <div className="bg-gray-100 px-6 py-3 rounded-lg border border-gray-300">
-                <span className="text-sm font-bold text-gray-500 block uppercase tracking-wider mb-1">Valor</span>
-                <span className="text-2xl font-bold text-gray-900">
-                  R$ {data.valor || '0,00'}
-                </span>
-              </div>
-            </div>
 
-            {/* Receipt Body */}
-            <div className="space-y-6 text-lg leading-relaxed text-gray-800">
-              <p className="text-justify">
-                Recebi(emos) de <span className="font-bold border-b border-gray-400 pb-0.5 px-1">{data.pagadorNome || '________________________________________________'}</span>, 
-                inscrito(a) no CPF/CNPJ sob o nº <span className="font-bold border-b border-gray-400 pb-0.5 px-1">{data.pagadorDocumento || '_________________________'}</span>, 
-                a importância de <span className="font-bold border-b border-gray-400 pb-0.5 px-1">R$ {data.valor || '0,00'} {data.valor ? getValorExtenso(data.valor) : ''}</span>.
-              </p>
+              {/* Receipt Body */}
+              <div className="space-y-6 text-lg leading-relaxed text-gray-800">
+                <p className="text-justify">
+                  Recebi(emos) de <span className="font-bold border-b border-gray-400 pb-0.5 px-1">{data.pagadorNome || '________________________________________________'}</span>, 
+                  inscrito(a) no CPF/CNPJ sob o nº <span className="font-bold border-b border-gray-400 pb-0.5 px-1">{data.pagadorDocumento || '_________________________'}</span>, 
+                  a importância de <span className="font-bold border-b border-gray-400 pb-0.5 px-1">R$ {data.valor || '0,00'} {data.valor ? getValorExtenso(data.valor) : ''}</span>.
+                </p>
 
-              <p className="text-justify">
-                Referente a: <span className="font-bold border-b border-gray-400 pb-0.5 px-1">{data.referenteA || '________________________________________________________________________________________________'}</span>.
-              </p>
+                <p className="text-justify">
+                  Referente a: <span className="font-bold border-b border-gray-400 pb-0.5 px-1">{data.referenteA || '________________________________________________________________________________________________'}</span>.
+                </p>
 
-              <p className="text-justify">
-                Pagamento efetuado através de: <span className="font-bold border-b border-gray-400 pb-0.5 px-1">{data.formaPagamento}</span>.
-              </p>
+                <p className="text-justify">
+                  Pagamento efetuado através de: <span className="font-bold border-b border-gray-400 pb-0.5 px-1">{data.formaPagamento}</span>.
+                </p>
 
-              <p className="text-justify">
-                Para maior clareza, firmo(amos) o presente recibo para que produza os seus efeitos legais, dando plena, geral e irrevogável quitação.
-              </p>
-            </div>
-
-            {/* Receipt Footer / Signatures */}
-            <div className="mt-16 pt-8">
-              <div className="text-right mb-12">
-                <span className="font-medium">{data.cidade || '_________________________'}</span>,{' '}
-                <span className="font-medium">
-                  {data.data ? new Date(data.data).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' }) : '___ de _______________ de 20__'}
-                </span>
+                <p className="text-justify">
+                  Para maior clareza, firmo(amos) o presente recibo para que produza os seus efeitos legais, dando plena, geral e irrevogável quitação.
+                </p>
               </div>
 
-              <div className="flex flex-col md:flex-row items-center justify-between mt-16 gap-8">
-                <div className="flex-1 flex flex-col items-center justify-center w-full">
-                  <div className="w-80 border-t border-gray-800 mb-2"></div>
-                  <p className="font-bold text-lg">{data.recebedorNome || 'Assinatura do Recebedor'}</p>
-                  {data.recebedorDocumento && (
-                    <p className="text-sm text-gray-600">CPF/CNPJ: {data.recebedorDocumento}</p>
+              {/* Receipt Footer / Signatures */}
+              <div className="mt-16 pt-8">
+                <div className="text-right mb-12">
+                  <span className="font-medium">{data.cidade || '_________________________'}</span>,{' '}
+                  <span className="font-medium">
+                    {data.data ? new Date(data.data).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' }) : '___ de _______________ de 20__'}
+                  </span>
+                </div>
+
+                <div className="flex flex-col md:flex-row items-center justify-between mt-16 gap-8">
+                  <div className="flex-1 flex flex-col items-center justify-center w-full">
+                    <div className="w-80 border-t border-gray-800 mb-2"></div>
+                    <p className="font-bold text-lg">{data.recebedorNome || 'Assinatura do Recebedor'}</p>
+                    {data.recebedorDocumento && (
+                      <p className="text-sm text-gray-600">CPF/CNPJ: {data.recebedorDocumento}</p>
+                    )}
+                  </div>
+                  
+                  {data.chavePix && data.formaPagamento === 'PIX' && (
+                    <div className="flex flex-col items-center p-4 border-2 border-dashed border-gray-300 rounded-xl bg-gray-50">
+                      <p className="text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Pague com PIX</p>
+                      <div className="bg-white p-2 rounded-lg shadow-sm mb-2">
+                        <QRCodeSVG 
+                          value={generatePixPayload(data.chavePix, data.recebedorNome || 'Recebedor', data.cidade || 'Cidade', data.valor)} 
+                          size={100}
+                          level="M"
+                        />
+                      </div>
+                      <p className="text-xs text-gray-500 font-mono break-all text-center max-w-[150px]">
+                        Chave: {data.chavePix}
+                      </p>
+                    </div>
                   )}
                 </div>
-                
-                {data.chavePix && data.formaPagamento === 'PIX' && (
-                  <div className="flex flex-col items-center p-4 border-2 border-dashed border-gray-300 rounded-xl bg-gray-50">
-                    <p className="text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Pague com PIX</p>
-                    <div className="bg-white p-2 rounded-lg shadow-sm mb-2">
-                      <QRCodeSVG 
-                        value={generatePixPayload(data.chavePix, data.recebedorNome || 'Recebedor', data.cidade || 'Cidade', data.valor)} 
-                        size={100}
-                        level="M"
-                      />
-                    </div>
-                    <p className="text-xs text-gray-500 font-mono break-all text-center max-w-[150px]">
-                      Chave: {data.chavePix}
-                    </p>
-                  </div>
-                )}
+              </div>
+
+              {/* Watermark / Branding (Optional, small) */}
+              <div className="mt-16 text-center text-xs text-gray-400 border-t border-gray-100 pt-4">
+                Gerado gratuitamente em recibogratis.com.br
               </div>
             </div>
 
-            {/* Watermark / Branding (Optional, small) */}
-            <div className="mt-16 text-center text-xs text-gray-400 border-t border-gray-100 pt-4">
-              Gerado gratuitamente em recibogratis.com.br
-            </div>
+            {/* Segunda Via (Opcional) */}
+            {duasVias && (
+              <>
+                <div className="w-full border-t-2 border-dashed border-gray-400 my-4 relative">
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-4 text-gray-400 text-xs uppercase tracking-widest">
+                    Tesoura / Corte Aqui
+                  </div>
+                </div>
+                
+                <div className="p-8 md:p-12">
+                  {/* Receipt Header */}
+                  <div className="flex justify-between items-start border-b-2 border-gray-800 pb-6 mb-8">
+                    <div className="flex items-center gap-6">
+                      {data.logo && (
+                        <img src={data.logo} alt="Logo" className="w-20 h-20 object-contain" />
+                      )}
+                      <div>
+                        <h1 className="text-3xl font-bold uppercase tracking-wider text-gray-900">RECIBO</h1>
+                        <p className="text-sm text-gray-500 mt-1">Nº {Math.floor(Math.random() * 10000).toString().padStart(4, '0')}</p>
+                      </div>
+                    </div>
+                    <div className="bg-gray-100 px-6 py-3 rounded-lg border border-gray-300">
+                      <span className="text-sm font-bold text-gray-500 block uppercase tracking-wider mb-1">Valor</span>
+                      <span className="text-2xl font-bold text-gray-900">
+                        R$ {data.valor || '0,00'}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Receipt Body */}
+                  <div className="space-y-6 text-lg leading-relaxed text-gray-800">
+                    <p className="text-justify">
+                      Recebi(emos) de <span className="font-bold border-b border-gray-400 pb-0.5 px-1">{data.pagadorNome || '________________________________________________'}</span>, 
+                      inscrito(a) no CPF/CNPJ sob o nº <span className="font-bold border-b border-gray-400 pb-0.5 px-1">{data.pagadorDocumento || '_________________________'}</span>, 
+                      a importância de <span className="font-bold border-b border-gray-400 pb-0.5 px-1">R$ {data.valor || '0,00'} {data.valor ? getValorExtenso(data.valor) : ''}</span>.
+                    </p>
+
+                    <p className="text-justify">
+                      Referente a: <span className="font-bold border-b border-gray-400 pb-0.5 px-1">{data.referenteA || '________________________________________________________________________________________________'}</span>.
+                    </p>
+
+                    <p className="text-justify">
+                      Pagamento efetuado através de: <span className="font-bold border-b border-gray-400 pb-0.5 px-1">{data.formaPagamento}</span>.
+                    </p>
+
+                    <p className="text-justify">
+                      Para maior clareza, firmo(amos) o presente recibo para que produza os seus efeitos legais, dando plena, geral e irrevogável quitação.
+                    </p>
+                  </div>
+
+                  {/* Receipt Footer / Signatures */}
+                  <div className="mt-16 pt-8">
+                    <div className="text-right mb-12">
+                      <span className="font-medium">{data.cidade || '_________________________'}</span>,{' '}
+                      <span className="font-medium">
+                        {data.data ? new Date(data.data).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' }) : '___ de _______________ de 20__'}
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col md:flex-row items-center justify-between mt-16 gap-8">
+                      <div className="flex-1 flex flex-col items-center justify-center w-full">
+                        <div className="w-80 border-t border-gray-800 mb-2"></div>
+                        <p className="font-bold text-lg">{data.recebedorNome || 'Assinatura do Recebedor'}</p>
+                        {data.recebedorDocumento && (
+                          <p className="text-sm text-gray-600">CPF/CNPJ: {data.recebedorDocumento}</p>
+                        )}
+                      </div>
+                      
+                      {data.chavePix && data.formaPagamento === 'PIX' && (
+                        <div className="flex flex-col items-center p-4 border-2 border-dashed border-gray-300 rounded-xl bg-gray-50">
+                          <p className="text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Pague com PIX</p>
+                          <div className="bg-white p-2 rounded-lg shadow-sm mb-2">
+                            <QRCodeSVG 
+                              value={generatePixPayload(data.chavePix, data.recebedorNome || 'Recebedor', data.cidade || 'Cidade', data.valor)} 
+                              size={100}
+                              level="M"
+                            />
+                          </div>
+                          <p className="text-xs text-gray-500 font-mono break-all text-center max-w-[150px]">
+                            Chave: {data.chavePix}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Watermark / Branding (Optional, small) */}
+                  <div className="mt-16 text-center text-xs text-gray-400 border-t border-gray-100 pt-4">
+                    Gerado gratuitamente em recibogratis.com.br
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>

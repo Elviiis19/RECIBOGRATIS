@@ -1,6 +1,7 @@
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { ReceiptGenerator } from '../components/ReceiptGenerator';
+import { AdSense } from '../components/AdSense';
 import { receiptModels } from '../data/receiptModels';
 import { CheckCircle2, ChevronRight, FileText } from 'lucide-react';
 
@@ -81,8 +82,13 @@ export function ReceiptPage() {
       />
       
       {/* Hero Section */}
-      <section className="bg-emerald-600 text-white py-12 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-emerald-800 via-emerald-600 to-teal-600 text-white py-12 md:py-20 overflow-hidden">
+        {/* Modern background pattern/glow */}
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"></div>
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob" style={{ animationDelay: '2s' }}></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           {/* Breadcrumbs */}
           <nav className="flex items-center text-emerald-100 text-sm mb-8" aria-label="Breadcrumb">
             <ol className="flex items-center space-x-2">
@@ -107,15 +113,15 @@ export function ReceiptPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-emerald-50 font-medium">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 bg-black/10 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
                 <CheckCircle2 className="w-5 h-5 text-emerald-300" />
                 <span>100% Gratuito</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 bg-black/10 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
                 <CheckCircle2 className="w-5 h-5 text-emerald-300" />
                 <span>Sem Cadastro</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 bg-black/10 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
                 <CheckCircle2 className="w-5 h-5 text-emerald-300" />
                 <span>Gera PDF na Hora</span>
               </div>
@@ -127,10 +133,12 @@ export function ReceiptPage() {
       {/* Generator Section */}
       <section className="py-12 bg-gray-50 -mt-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AdSense />
           <ReceiptGenerator 
             title={model.title} 
             defaultReferenteA={model.defaultReferenteA}
           />
+          <AdSense />
         </div>
       </section>
 
@@ -179,6 +187,15 @@ export function ReceiptPage() {
               Nossa ferramenta foi desenvolvida para ser a mais rápida e prática do mercado. Não exigimos criação de conta, não guardamos seus dados (tudo é processado no seu navegador) e oferecemos um layout moderno e atualizado.
             </p>
           </div>
+
+          <div className="bg-blue-50 border border-blue-100 rounded-xl p-6 mt-8">
+            <h4 className="text-lg font-bold text-blue-900 mb-2">Dica de Gestão Financeira</h4>
+            <p className="text-blue-800 m-0 text-sm leading-relaxed">
+              Para profissionalizar ainda mais suas vendas e serviços, considere utilizar um <strong>software de gestão (ERP)</strong>, abrir uma <strong>conta PJ</strong> sem taxas ou adquirir uma <strong>maquininha de cartão</strong> com as melhores taxas do mercado. A <strong>contabilidade online</strong> e a emissão de <strong>nota fiscal eletrônica</strong> também são passos fundamentais para o crescimento seguro e escalável da sua empresa.
+            </p>
+          </div>
+
+          <AdSense />
 
           {/* Related Models (Internal Linking) */}
           <div className="mt-16 border-t border-gray-100 pt-12">

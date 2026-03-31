@@ -1,4 +1,5 @@
 import { SEO } from '../components/SEO';
+import { AdSense } from '../components/AdSense';
 import { HelpCircle, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -48,7 +49,7 @@ export function Faq() {
   };
 
   return (
-    <>
+    <div className="min-h-screen bg-gray-50 pb-12">
       <SEO 
         title="Perguntas Frequentes (FAQ) - Recibo Grátis" 
         description="Tire suas dúvidas sobre como gerar recibos online, validade legal, segurança de dados e como salvar em PDF. Suporte completo do Recibo Grátis."
@@ -57,19 +58,27 @@ export function Faq() {
         url="https://recibogratis.com.br/faq"
       />
       
-      <div className="bg-emerald-600 text-white py-12 md:py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <HelpCircle className="w-16 h-16 mx-auto mb-6 text-emerald-200" />
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-emerald-800 via-emerald-600 to-teal-600 text-white py-12 md:py-20 overflow-hidden mb-12">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"></div>
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob" style={{ animationDelay: '2s' }}></div>
+
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center">
+          <div className="inline-flex items-center justify-center p-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl mb-6 shadow-sm">
+            <HelpCircle className="w-8 h-8 text-emerald-50" />
+          </div>
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
             Perguntas Frequentes
           </h1>
-          <p className="text-xl text-emerald-100 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-emerald-100 max-w-2xl mx-auto">
             Tire todas as suas dúvidas sobre a emissão de recibos online, validade jurídica e segurança da nossa plataforma.
           </p>
         </div>
-      </div>
+      </section>
 
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AdSense />
         <div className="space-y-6">
           {faqs.map((faq, index) => (
             <div key={index} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
@@ -91,7 +100,8 @@ export function Faq() {
             Ver Modelos de Recibo <ChevronRight className="w-5 h-5" />
           </Link>
         </div>
+        <AdSense />
       </div>
-    </>
+    </div>
   );
 }

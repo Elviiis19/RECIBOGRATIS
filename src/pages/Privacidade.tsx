@@ -1,15 +1,38 @@
 import { SEO } from '../components/SEO';
+import { AdSense } from '../components/AdSense';
+
+import { Shield } from 'lucide-react';
 
 export function Privacidade() {
   return (
-    <>
+    <div className="min-h-screen bg-gray-50 pb-12">
       <SEO 
-        title="Política de Privacidade" 
-        description="Política de Privacidade do site Recibo Grátis."
+        title="Política de Privacidade | Segurança de Dados no Recibo Grátis" 
+        description="Entenda como o Recibo Grátis protege seus dados. Processamento 100% no navegador (client-side), sem armazenamento de informações sensíveis."
       />
       
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 prose prose-emerald prose-lg">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8">Política de Privacidade</h1>
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-emerald-800 via-emerald-600 to-teal-600 text-white py-12 md:py-20 overflow-hidden mb-12">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"></div>
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob" style={{ animationDelay: '2s' }}></div>
+
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center">
+          <div className="inline-flex items-center justify-center p-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl mb-6 shadow-sm">
+            <Shield className="w-8 h-8 text-emerald-50" />
+          </div>
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+            Política de Privacidade
+          </h1>
+          <p className="text-xl md:text-2xl text-emerald-100 max-w-2xl mx-auto">
+            Transparência e segurança em primeiro lugar. Saiba como garantimos que seus dados e os dados de seus clientes fiquem protegidos.
+          </p>
+        </div>
+      </section>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-12 prose prose-emerald prose-lg max-w-none">
+          <AdSense />
         
         <p>No Recibo Grátis, a sua privacidade é nossa prioridade. Esta Política de Privacidade explica como lidamos com as informações que você insere em nosso site.</p>
         
@@ -28,8 +51,11 @@ export function Privacidade() {
         <h2>5. Alterações nesta Política</h2>
         <p>Podemos atualizar nossa Política de Privacidade periodicamente. Recomendamos que você revise esta página para se manter informado sobre como protegemos sua privacidade.</p>
         
+        <AdSense />
+        
         <p className="mt-8 text-sm text-gray-500">Última atualização: Março de 2024</p>
+        </div>
       </div>
-    </>
+    </div>
   );
 }

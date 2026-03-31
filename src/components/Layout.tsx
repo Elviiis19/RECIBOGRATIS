@@ -1,5 +1,5 @@
 import { Link, Outlet } from 'react-router-dom';
-import { FileText, Menu, X, ChevronDown } from 'lucide-react';
+import { FileText, Menu, X, ChevronDown, Zap } from 'lucide-react';
 import { useState } from 'react';
 import { receiptModels } from '../data/receiptModels';
 
@@ -35,9 +35,9 @@ export function Layout() {
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6">
-              <Link to="/" className="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">
-                Início
-              </Link>
+              <a href="/#modelos" className="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">
+                Modelos
+              </a>
               
               {Object.entries(categories).map(([category, ids]) => (
                 <div key={category} className="relative group">
@@ -69,9 +69,13 @@ export function Layout() {
                 </div>
               ))}
 
-              <Link to="/gerador-qr-code-pix" className="text-sm font-medium text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-full transition-colors whitespace-nowrap">
+              <Link to="/gerador-qr-code-pix" className="text-sm font-medium text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-4 py-2 rounded-full transition-colors whitespace-nowrap flex items-center gap-1">
+                <Zap className="w-4 h-4" />
                 Gerador PIX
               </Link>
+              <a href="/#modelos" className="text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700 px-4 py-2 rounded-full transition-colors whitespace-nowrap shadow-sm hover:shadow-md">
+                Criar Recibo
+              </a>
             </nav>
 
             {/* Mobile Menu Button */}
