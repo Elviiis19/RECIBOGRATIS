@@ -4,7 +4,7 @@ import CurrencyInput from 'react-currency-input-field';
 import { cpf, cnpj } from 'cpf-cnpj-validator';
 import { porExtenso } from 'numero-por-extenso';
 import { Printer, FileText, ChevronRight, ChevronLeft, CheckCircle2, MessageCircle, Upload, QrCode, Download } from 'lucide-react';
-import { QRCodeSVG } from 'qrcode.react';
+import { QRCodeCanvas } from 'qrcode.react';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 import { cn } from '../utils/cn';
@@ -210,9 +210,10 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
         scale: 2,
         useCORS: true,
         logging: false,
+        backgroundColor: '#ffffff',
       });
       
-      const imgData = canvas.toDataURL('image/png');
+      const imgData = canvas.toDataURL('image/jpeg', 0.95);
       const pdfWidth = 210; // Base width in mm
       const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
       
@@ -222,7 +223,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
         format: [pdfWidth, pdfHeight],
       });
       
-      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
       return pdf.output('blob');
     } catch (error) {
       console.error('Error generating PDF:', error);
@@ -703,19 +704,19 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
 
               {/* Receipt Body */}
               <div className="space-y-6 text-[16px] leading-relaxed text-black mt-8">
-                <p className="text-justify">
+                <p className="text-justify indent-12">
                   Recebi(emos) de <span className="font-bold uppercase">{data.pagadorNome || '________________________________________________'}</span>, 
                   inscrito(a) no CPF/CNPJ sob o nº <span className="font-bold">{data.pagadorDocumento || '_________________________'}</span>, 
                   a importância de <span className="font-bold">R$ {data.valor || '0,00'}</span> {data.valor ? `(${getValorExtenso(data.valor)})` : ''}, 
                   referente a <span className="font-bold uppercase">{data.referenteA || '________________________________________________________________________________________________'}</span>.
                 </p>
 
-                <p>
-                  <span className="font-bold">Forma de Pagamento:</span> {data.formaPagamento}
+                <p className="text-justify indent-12">
+                  Para maior clareza, firmo(amos) o presente recibo para que produza os seus efeitos legais, dando plena, rasa e geral quitação pelo valor recebido.
                 </p>
 
-                <p className="text-justify">
-                  Para maior clareza, firmo(amos) o presente recibo, que comprova o recebimento integral do valor mencionado, concedendo quitação plena, geral e irrevogável pela quantia recebida.
+                <p>
+                  <span className="font-bold">Forma de Pagamento:</span> {data.formaPagamento}
                 </p>
               </div>
 
@@ -738,7 +739,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                     <div className="flex flex-col items-center p-3 border-2 border-black rounded-xl bg-gray-50">
                       <p className="text-xs font-bold text-black mb-2 uppercase tracking-wide">Pague com PIX</p>
                       <div className="bg-white p-2 rounded-lg shadow-sm mb-2 border border-gray-300">
-                        <QRCodeSVG 
+                        <QRCodeCanvas 
                           value={generatePixPayload(data.chavePix, data.recebedorNome || 'Recebedor', data.cidade || 'Cidade', data.valor)} 
                           size={80}
                           level="M"
@@ -783,19 +784,19 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
 
                   {/* Receipt Body */}
                   <div className="space-y-6 text-[16px] leading-relaxed text-black mt-8">
-                    <p className="text-justify">
+                    <p className="text-justify indent-12">
                       Recebi(emos) de <span className="font-bold uppercase">{data.pagadorNome || '________________________________________________'}</span>, 
                       inscrito(a) no CPF/CNPJ sob o nº <span className="font-bold">{data.pagadorDocumento || '_________________________'}</span>, 
                       a importância de <span className="font-bold">R$ {data.valor || '0,00'}</span> {data.valor ? `(${getValorExtenso(data.valor)})` : ''}, 
                       referente a <span className="font-bold uppercase">{data.referenteA || '________________________________________________________________________________________________'}</span>.
                     </p>
 
-                    <p>
-                      <span className="font-bold">Forma de Pagamento:</span> {data.formaPagamento}
+                    <p className="text-justify indent-12">
+                      Para maior clareza, firmo(amos) o presente recibo para que produza os seus efeitos legais, dando plena, rasa e geral quitação pelo valor recebido.
                     </p>
 
-                    <p className="text-justify">
-                      Para maior clareza, firmo(amos) o presente recibo, que comprova o recebimento integral do valor mencionado, concedendo quitação plena, geral e irrevogável pela quantia recebida.
+                    <p>
+                      <span className="font-bold">Forma de Pagamento:</span> {data.formaPagamento}
                     </p>
                   </div>
 
@@ -818,7 +819,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                         <div className="flex flex-col items-center p-3 border-2 border-black rounded-xl bg-gray-50">
                           <p className="text-xs font-bold text-black mb-2 uppercase tracking-wide">Pague com PIX</p>
                           <div className="bg-white p-2 rounded-lg shadow-sm mb-2 border border-gray-300">
-                            <QRCodeSVG 
+                            <QRCodeCanvas 
                               value={generatePixPayload(data.chavePix, data.recebedorNome || 'Recebedor', data.cidade || 'Cidade', data.valor)} 
                               size={80}
                               level="M"

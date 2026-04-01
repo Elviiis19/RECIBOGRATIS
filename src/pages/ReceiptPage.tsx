@@ -136,6 +136,7 @@ export function ReceiptPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AdSense />
           <ReceiptGenerator 
+            key={model.slug}
             title={model.title} 
             defaultReferenteA={model.defaultReferenteA}
           />
