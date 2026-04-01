@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import * as rrd from 'react-router-dom';
+const { Link } = rrd.default || rrd;
 import { SEO } from '../components/SEO';
 import { receiptModels } from '../data/receiptModels';
 import { 

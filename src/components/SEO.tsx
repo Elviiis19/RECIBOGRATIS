@@ -1,4 +1,5 @@
-import { Helmet } from 'react-helmet-async';
+import * as rha from 'react-helmet-async';
+const { Helmet } = rha.default || rha;
 
 interface SEOProps {
   title: string;
@@ -9,11 +10,11 @@ interface SEOProps {
 }
 
 export function SEO({ title, description, keywords, schema, url }: SEOProps) {
-  const currentUrl = url || typeof window !== 'undefined' ? window.location.href : 'https://recibogratis.com.br';
+  const currentUrl = url || (typeof window !== 'undefined' ? window.location.href : 'https://recibogratis.com.br');
 
   return (
     <Helmet>
-      <title>{title} | Recibo Grátis</title>
+      <title>{`${title} | Recibo Grátis`}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={currentUrl} />

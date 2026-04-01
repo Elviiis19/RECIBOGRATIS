@@ -1,4 +1,5 @@
-import { useParams, Navigate, Link } from 'react-router-dom';
+import * as rrd from 'react-router-dom';
+const { useParams, Navigate, Link } = rrd.default || rrd;
 import { SEO } from '../components/SEO';
 import { ReceiptGenerator } from '../components/ReceiptGenerator';
 import { AdSense } from '../components/AdSense';

@@ -1,4 +1,5 @@
-import { Link, Outlet } from 'react-router-dom';
+import * as rrd from 'react-router-dom';
+const { Link, Outlet } = rrd.default || rrd;
 import { FileText, Menu, X, ChevronDown, Zap } from 'lucide-react';
 import { useState } from 'react';
 import { receiptModels } from '../data/receiptModels';

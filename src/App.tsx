@@ -3,8 +3,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
+import * as rrd from 'react-router-dom';
+const { BrowserRouter, Routes, Route, StaticRouter } = rrd.default || rrd;
+import * as rha from 'react-helmet-async';
+const { HelmetProvider } = rha.default || rha;
 import { Layout } from './components/Layout';
 import { Home } from './pages/Home';
 import { ReceiptPage } from './pages/ReceiptPage';
@@ -14,10 +16,14 @@ import { Contato } from './pages/Contato';
 import { PixGenerator } from './pages/PixGenerator';
 import { Faq } from './pages/Faq';
 
-export default function App() {
+export default function App({ url }: { url?: string }) {
+  const isServer = typeof window === 'undefined';
+  const Router = isServer ? StaticRouter : BrowserRouter;
+  const routerProps = isServer ? { location: url || '/' } : {};
+
   return (
     <HelmetProvider>
-      <BrowserRouter>
+      <Router {...routerProps}>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
@@ -29,7 +35,7 @@ export default function App() {
             <Route path=":slug" element={<ReceiptPage />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </Router>
     </HelmetProvider>
   );
 }
