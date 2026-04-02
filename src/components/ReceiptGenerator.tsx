@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import CurrencyInput from 'react-currency-input-field';
 import { cpf, cnpj } from 'cpf-cnpj-validator';
-import { porExtenso } from 'numero-por-extenso';
+import { porExtenso, estilo } from 'numero-por-extenso';
 import { Printer, FileText, ChevronRight, ChevronLeft, CheckCircle2, MessageCircle, Upload, QrCode, Download } from 'lucide-react';
 import { QRCodeCanvas } from 'qrcode.react';
 import html2canvas from 'html2canvas';
@@ -26,6 +26,7 @@ interface ReceiptData {
 }
 
 interface ReceiptGeneratorProps {
+  key?: string;
   title: string;
   defaultReferenteA?: string;
 }
@@ -304,7 +305,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
     try {
       const numericValue = parseFloat(valorStr.replace(/\./g, '').replace(',', '.'));
       if (isNaN(numericValue)) return '';
-      return `(${porExtenso(numericValue, porExtenso.estilo.monetario)})`;
+      return `(${porExtenso(numericValue, estilo.monetario)})`;
     } catch (e) {
       return '';
     }
@@ -533,6 +534,11 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                   name="referenteA"
                   value={data.referenteA}
                   onChange={handleChange}
+                  onFocus={(e) => {
+                    if (e.target.value === defaultReferenteA) {
+                      setData(prev => ({ ...prev, referenteA: '' }));
+                    }
+                  }}
                   rows={3}
                   placeholder="Ex: Pagamento de aluguel referente ao mês de Março"
                   className={cn(

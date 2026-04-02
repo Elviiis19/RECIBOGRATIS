@@ -1,8 +1,7 @@
 import { SEO } from '../components/SEO';
 import { AdSense } from '../components/AdSense';
 import { HelpCircle, ChevronRight } from 'lucide-react';
-import * as rrd from 'react-router-dom';
-const { Link } = rrd.default || rrd;
+import { Link } from 'react-router-dom';
 
 export function Faq() {
   const faqs = [

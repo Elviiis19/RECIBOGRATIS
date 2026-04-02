@@ -1,5 +1,4 @@
-import * as rha from 'react-helmet-async';
-const { Helmet } = rha.default || rha;
+import { Helmet } from 'react-helmet-async';
 
 interface SEOProps {
   title: string;
