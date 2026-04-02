@@ -4,6 +4,7 @@
  */
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { StaticRouter } from 'react-router';
 import { HelmetProvider } from 'react-helmet-async';
 import { Layout } from './components/Layout';
 import { Home } from './pages/Home';
@@ -14,10 +15,14 @@ import { Contato } from './pages/Contato';
 import { PixGenerator } from './pages/PixGenerator';
 import { Faq } from './pages/Faq';
 
-export default function App() {
+export default function App({ url }: { url?: string }) {
+  const isServer = typeof window === 'undefined';
+  const Router = isServer ? StaticRouter : BrowserRouter;
+  const routerProps = isServer ? { location: url || '/' } : {};
+
   return (
     <HelmetProvider>
-      <BrowserRouter>
+      <Router {...routerProps}>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
@@ -29,7 +34,7 @@ export default function App() {
             <Route path=":slug" element={<ReceiptPage />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </Router>
     </HelmetProvider>
   );
 }
