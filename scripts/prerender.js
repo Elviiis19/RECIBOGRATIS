@@ -84,6 +84,17 @@ async function prerender() {
       let html = template;
       
       if (helmet) {
+        const originalHeadMatches = html.match(/<head>([\s\S]*?)<\/head>/);
+        let originalHead = originalHeadMatches ? originalHeadMatches[1] : '';
+        
+        // Remove default tags so Helmet can replace them correctly
+        originalHead = originalHead.replace(/<title>.*?<\/title>/g, '');
+        originalHead = originalHead.replace(/<meta name="description".*?>/g, '');
+        originalHead = originalHead.replace(/<meta name="keywords".*?>/g, '');
+        originalHead = originalHead.replace(/<meta property="og:title".*?>/g, '');
+        originalHead = originalHead.replace(/<meta property="og:description".*?>/g, '');
+        originalHead = originalHead.replace(/<meta property="og:type".*?>/g, '');
+
         html = html.replace(
           /<head>[\s\S]*?<\/head>/,
           `<head>
@@ -92,7 +103,7 @@ async function prerender() {
             ${helmet.meta.toString()}
             ${helmet.link.toString()}
             ${helmet.script.toString()}
-            ${html.match(/<head>([\s\S]*?)<\/head>/)[1].replace(/<title>.*?<\/title>/, '')}
+            ${originalHead}
           </head>`
         );
       } else {
@@ -119,8 +130,8 @@ async function prerender() {
 
       // Inject app HTML
       html = html.replace(
-        /<div id="root">[\s\S]*?<\/div>/,
-        `<div id="root">${appHtml}</div>`
+        /<div id="root"[^>]*>[\s\S]*?<\/div>/,
+        `<div id="root" suppressHydrationWarning>${appHtml}</div>`
       );
 
       const outputPath = path.join(routeDir, 'index.html');
