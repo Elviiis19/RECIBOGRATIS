@@ -549,6 +549,8 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                   onFocus={(e) => {
                     if (e.target.value === defaultReferenteA) {
                       setData(prev => ({ ...prev, referenteA: '' }));
+                    } else if (e.target.value.includes('[descreva o motivo do pagamento]')) {
+                      setData(prev => ({ ...prev, referenteA: '' }));
                     }
                   }}
                   rows={3}
@@ -697,13 +699,13 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
         </div>
 
         {/* The Actual Receipt to Print */}
-        <div className="bg-gray-100 p-4 sm:p-8 rounded-2xl flex justify-center overflow-x-auto border border-gray-200" style={{ minHeight: '400px' }}>
+        <div className="bg-gray-100 p-4 rounded-2xl flex justify-center overflow-x-auto border border-gray-200">
           <div ref={componentRef} className="bg-white text-black font-sans shadow-xl overflow-hidden print:shadow-none print:w-full print:max-w-none border-2 border-black" style={{ width: '100%', maxWidth: '800px', margin: '0 auto', WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
             
             {/* Primeira Via */}
-            <div className="p-6 md:p-8 relative">
+            <div className="p-4 md:p-6 relative">
               {/* Receipt Header */}
-              <div className="flex justify-between items-start mb-6 border-b-2 border-black pb-4">
+              <div className="flex justify-between items-start mb-4 border-b-2 border-black pb-3">
                 <div className="flex items-center gap-4 w-1/4">
                   {data.logo && !isReciboSimples && (
                     <img src={data.logo} alt="Logo" className="w-16 h-16 object-contain" />
@@ -721,15 +723,15 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
               </div>
 
               {/* Receipt Body */}
-              <div className="space-y-4 text-[16px] leading-relaxed text-black mt-6">
-                <p className="text-justify indent-12">
+              <div className="space-y-2 text-[15px] md:text-[16px] leading-snug text-black mt-4">
+                <p className="text-justify indent-8">
                   Recebi(emos) de <span className="font-bold uppercase">{data.pagadorNome || '________________________________________________'}</span>, 
                   inscrito(a) no CPF/CNPJ sob o nº <span className="font-bold">{data.pagadorDocumento || '_________________________'}</span>, 
-                  a importância de <span className="font-bold">R$ {formatCurrency(data.valor)}</span> {data.valor ? `(${getValorExtenso(data.valor)})` : ''}, 
+                  a importância de <span className="font-bold">R$ {formatCurrency(data.valor)}</span> {data.valor && data.valor !== '0,00' ? `(${getValorExtenso(data.valor)})` : ''}, 
                   referente a <span className="font-bold uppercase">{data.referenteA || '________________________________________________________________________________________________'}</span>.
                 </p>
 
-                <p className="text-justify indent-12">
+                <p className="text-justify indent-8">
                   Para maior clareza, firmo(amos) o presente recibo para que produza os seus efeitos legais, dando plena, rasa e geral quitação pelo valor recebido.
                 </p>
 
@@ -739,12 +741,12 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
               </div>
 
               {/* Receipt Footer / Signatures */}
-              <div className="mt-8">
-                <div className="text-right mb-8">
-                  <span className="text-[16px]"><span className="font-bold uppercase">{data.cidade || '_________________________'}</span>, {data.data ? formatDate(data.data) : '___/___/20__'}</span>
+              <div className="mt-6">
+                <div className="text-right mb-6">
+                  <span className="text-[15px] md:text-[16px]"><span className="font-bold uppercase">{data.cidade || '_________________________'}</span>, {data.data ? formatDate(data.data) : '___/___/20__'}</span>
                 </div>
 
-                <div className="flex flex-col md:flex-row items-center justify-between mt-8 gap-8">
+                <div className="flex flex-col md:flex-row items-center justify-between mt-6 gap-6">
                   <div className="flex-1 flex flex-col items-center justify-center w-full">
                     <div className="w-80 border-t-2 border-black mb-2"></div>
                     <p className="text-[16px] font-bold uppercase">{data.recebedorNome || 'Assinatura do Recebedor'}</p>
@@ -781,9 +783,9 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                   </div>
                 </div>
                 
-                <div className="p-6 md:p-8 relative">
+                <div className="p-4 md:p-6 relative">
                   {/* Receipt Header */}
-                  <div className="flex justify-between items-start mb-6 border-b-2 border-black pb-4">
+                  <div className="flex justify-between items-start mb-4 border-b-2 border-black pb-3">
                     <div className="flex items-center gap-4 w-1/4">
                       {data.logo && !isReciboSimples && (
                         <img src={data.logo} alt="Logo" className="w-16 h-16 object-contain" />
@@ -801,15 +803,15 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                   </div>
 
                   {/* Receipt Body */}
-                  <div className="space-y-4 text-[16px] leading-relaxed text-black mt-6">
-                    <p className="text-justify indent-12">
+                  <div className="space-y-2 text-[15px] md:text-[16px] leading-snug text-black mt-4">
+                    <p className="text-justify indent-8">
                       Recebi(emos) de <span className="font-bold uppercase">{data.pagadorNome || '________________________________________________'}</span>, 
                       inscrito(a) no CPF/CNPJ sob o nº <span className="font-bold">{data.pagadorDocumento || '_________________________'}</span>, 
-                      a importância de <span className="font-bold">R$ {formatCurrency(data.valor)}</span> {data.valor ? `(${getValorExtenso(data.valor)})` : ''}, 
+                      a importância de <span className="font-bold">R$ {formatCurrency(data.valor)}</span> {data.valor && data.valor !== '0,00' ? `(${getValorExtenso(data.valor)})` : ''}, 
                       referente a <span className="font-bold uppercase">{data.referenteA || '________________________________________________________________________________________________'}</span>.
                     </p>
 
-                    <p className="text-justify indent-12">
+                    <p className="text-justify indent-8">
                       Para maior clareza, firmo(amos) o presente recibo para que produza os seus efeitos legais, dando plena, rasa e geral quitação pelo valor recebido.
                     </p>
 
@@ -819,12 +821,12 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                   </div>
 
                   {/* Receipt Footer / Signatures */}
-                  <div className="mt-8">
-                    <div className="text-right mb-8">
-                      <span className="text-[16px]"><span className="font-bold uppercase">{data.cidade || '_________________________'}</span>, {data.data ? formatDate(data.data) : '___/___/20__'}</span>
+                  <div className="mt-6">
+                    <div className="text-right mb-6">
+                      <span className="text-[15px] md:text-[16px]"><span className="font-bold uppercase">{data.cidade || '_________________________'}</span>, {data.data ? formatDate(data.data) : '___/___/20__'}</span>
                     </div>
 
-                    <div className="flex flex-col md:flex-row items-center justify-between mt-8 gap-8">
+                    <div className="flex flex-col md:flex-row items-center justify-between mt-6 gap-6">
                       <div className="flex-1 flex flex-col items-center justify-center w-full">
                         <div className="w-80 border-t-2 border-black mb-2"></div>
                         <p className="text-[16px] font-bold uppercase">{data.recebedorNome || 'Assinatura do Recebedor'}</p>

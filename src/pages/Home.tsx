@@ -123,11 +123,6 @@ export function Home() {
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob" style={{ animationDelay: '2s' }}></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-8 shadow-sm">
-            <Sparkles className="w-4 h-4 text-emerald-300" />
-            <span className="text-sm font-medium text-emerald-50">A Melhor Plataforma de 2026</span>
-          </div>
-          
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 drop-shadow-sm leading-tight">
             Gerador de Recibos Online<br className="hidden md:block" /> Grátis e com Pix
           </h1>
@@ -136,10 +131,10 @@ export function Home() {
           </h2>
           
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-emerald-900 font-semibold text-lg mb-12">
-            <a href="#modelos" className="bg-white hover:bg-emerald-50 px-8 py-4 rounded-full transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center gap-2 w-full sm:w-auto justify-center">
+            <Link to="/recibo-simples" className="bg-white hover:bg-emerald-50 px-8 py-4 rounded-full transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center gap-2 w-full sm:w-auto justify-center">
               Criar Meu Recibo Agora
               <FileText className="w-5 h-5" />
-            </a>
+            </Link>
             <Link to="/gerador-qr-code-pix" className="bg-emerald-900/40 hover:bg-emerald-900/60 text-white border border-emerald-400/30 px-8 py-4 rounded-full transition-all backdrop-blur-md flex items-center gap-2 w-full sm:w-auto justify-center">
               Gerar QR Code Pix
               <Zap className="w-5 h-5 text-emerald-300" />
@@ -167,12 +162,12 @@ export function Home() {
       <section id="modelos" className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Escolha o Modelo de Recibo</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Modelos de Recibo Mais Usados</h2>
             <p className="text-lg text-gray-600">Selecione abaixo a opção que melhor se adapta à sua transação financeira.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {receiptModels.map((model) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {receiptModels.slice(0, 6).map((model) => (
               <Link 
                 key={model.id} 
                 to={`/${model.slug}`}
@@ -193,6 +188,13 @@ export function Home() {
                 </div>
               </Link>
             ))}
+          </div>
+          
+          <div className="text-center">
+            <Link to="/modelos" className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-8 py-3 rounded-xl font-medium transition-colors">
+              Ver Todos os Modelos
+              <span className="text-xl">→</span>
+            </Link>
           </div>
         </div>
       </section>

@@ -35,9 +35,6 @@ export function Layout() {
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6">
-              <a href="/#modelos" className="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">
-                Modelos
-              </a>
               
               {Object.entries(categories).map(([category, ids]) => (
                 <div key={category} className="relative group">
@@ -73,9 +70,12 @@ export function Layout() {
                 <Zap className="w-4 h-4" />
                 Gerador PIX
               </Link>
-              <a href="/#modelos" className="text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700 px-4 py-2 rounded-full transition-colors whitespace-nowrap shadow-sm hover:shadow-md">
+              <Link to="/modelos" className="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors hover:underline">
+                Todos os Modelos
+              </Link>
+              <Link to="/recibo-simples" className="text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700 px-4 py-2 rounded-full transition-colors whitespace-nowrap shadow-sm hover:shadow-md">
                 Criar Recibo
-              </a>
+              </Link>
             </nav>
 
             {/* Mobile Menu Button */}

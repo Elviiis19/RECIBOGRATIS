@@ -36,6 +36,11 @@ const routes = [
     path: '/faq',
     title: 'Dúvidas Frequentes (FAQ) | Recibo Grátis',
     description: 'Encontre respostas para as perguntas mais comuns sobre como usar nosso gerador de recibos online e QR Code PIX.',
+  },
+  {
+    path: '/modelos',
+    title: 'Todos os Modelos de Recibos | Recibo Grátis',
+    description: 'Confira nossa lista completa com mais de 40 modelos de recibos prontos para preencher e imprimir em PDF gratuitamente.',
   }
 ];
 
@@ -74,29 +79,43 @@ async function prerender() {
         fs.mkdirSync(routeDir, { recursive: true });
       }
 
-      const { html: appHtml } = render(route.path);
+      const { html: appHtml, helmet } = render(route.path);
       
       let html = template;
       
-      // Replace title
-      html = html.replace(
-        /<title>(.*?)<\/title>/,
-        `<title>${route.title}</title>`
-      );
-      html = html.replace(
-        /<meta property="og:title" content="(.*?)" \/>/,
-        `<meta property="og:title" content="${route.title}" />`
-      );
-      
-      // Replace description
-      html = html.replace(
-        /<meta name="description" content="(.*?)" \/>/,
-        `<meta name="description" content="${route.description}" />`
-      );
-      html = html.replace(
-        /<meta property="og:description" content="(.*?)" \/>/,
-        `<meta property="og:description" content="${route.description}" />`
-      );
+      if (helmet) {
+        html = html.replace(
+          /<head>[\s\S]*?<\/head>/,
+          `<head>
+            ${helmet.title.toString()}
+            ${helmet.priority.toString()}
+            ${helmet.meta.toString()}
+            ${helmet.link.toString()}
+            ${helmet.script.toString()}
+            ${html.match(/<head>([\s\S]*?)<\/head>/)[1].replace(/<title>.*?<\/title>/, '')}
+          </head>`
+        );
+      } else {
+        // Fallback Replace title
+        html = html.replace(
+          /<title>(.*?)<\/title>/,
+          `<title>${route.title}</title>`
+        );
+        html = html.replace(
+          /<meta property="og:title" content="(.*?)" \/>/,
+          `<meta property="og:title" content="${route.title}" />`
+        );
+        
+        // Replace description
+        html = html.replace(
+          /<meta name="description" content="(.*?)" \/>/,
+          `<meta name="description" content="${route.description}" />`
+        );
+        html = html.replace(
+          /<meta property="og:description" content="(.*?)" \/>/,
+          `<meta property="og:description" content="${route.description}" />`
+        );
+      }
 
       // Inject app HTML
       html = html.replace(
