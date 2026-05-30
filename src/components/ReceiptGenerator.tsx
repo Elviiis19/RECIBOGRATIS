@@ -211,20 +211,33 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
         scale: 2,
         useCORS: true,
         logging: false,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#ffffff', // Ensures the gap rendering is white
       });
       
       const imgData = canvas.toDataURL('image/jpeg', 0.95);
-      const pdfWidth = 210; // Base width in mm
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
       
       const pdf = new jsPDF({
-        orientation: pdfHeight > pdfWidth ? 'portrait' : 'landscape',
+        orientation: 'portrait',
         unit: 'mm',
-        format: [pdfWidth, pdfHeight],
+        format: 'a4',
       });
+
+      const pdfWidth = 210; // A4 width
+      const pdfHeight = 297; // A4 height
+      const margin = 10;
+      let contentWidth = pdfWidth - margin * 2;
+      let contentHeight = (canvas.height * contentWidth) / canvas.width;
       
-      pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+      // Prevent overflow if the receipt is unusually long
+      if (contentHeight > pdfHeight - margin * 2) {
+        contentHeight = pdfHeight - margin * 2;
+        contentWidth = (canvas.width * contentHeight) / canvas.height;
+      }
+      
+      // Center horizontally if width was scaled down
+      const xPos = margin + (pdfWidth - margin * 2 - contentWidth) / 2;
+      
+      pdf.addImage(imgData, 'JPEG', xPos, margin, contentWidth, contentHeight);
       return pdf.output('blob');
     } catch (error) {
       console.error('Error generating PDF:', error);
@@ -700,10 +713,10 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
 
         {/* The Actual Receipt to Print */}
         <div className="bg-gray-100 p-4 rounded-2xl flex justify-center overflow-x-auto border border-gray-200">
-          <div ref={componentRef} className="bg-white text-black font-sans shadow-xl overflow-hidden print:shadow-none print:w-full print:max-w-none border-2 border-black" style={{ width: '100%', maxWidth: '800px', margin: '0 auto', WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
+          <div ref={componentRef} className="text-black font-sans print:w-full print:max-w-none flex flex-col gap-8" style={{ width: '100%', maxWidth: '800px', margin: '0 auto', WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact', padding: '10px 0' }}>
             
             {/* Primeira Via */}
-            <div className="p-4 md:p-6 relative">
+            <div className="bg-white p-4 md:p-6 relative shadow-xl print:shadow-none border-2 border-black break-inside-avoid">
               {/* Receipt Header */}
               <div className="flex justify-between items-start mb-4 border-b-2 border-black pb-3">
                 <div className="flex items-center gap-4 w-1/4">
@@ -776,15 +789,8 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
 
             {/* Segunda Via (Opcional) */}
             {duasVias && (
-              <>
-                <div className="w-full border-t-2 border-dashed border-gray-400 my-2 relative print:my-6">
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-4 text-gray-400 text-[10px] uppercase tracking-widest">
-                    Tesoura / Corte Aqui
-                  </div>
-                </div>
-                
-                <div className="p-4 md:p-6 relative">
-                  {/* Receipt Header */}
+              <div className="bg-white p-4 md:p-6 relative shadow-xl print:shadow-none border-2 border-black break-inside-avoid">
+                {/* Receipt Header */}
                   <div className="flex justify-between items-start mb-4 border-b-2 border-black pb-3">
                     <div className="flex items-center gap-4 w-1/4">
                       {data.logo && !isReciboSimples && (
@@ -853,7 +859,6 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                     </div>
                   </div>
                 </div>
-              </>
             )}
           </div>
         </div>
