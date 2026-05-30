@@ -285,6 +285,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
     }
     
     // Fallback to text-only WhatsApp link (Desktop)
+    alert('Aviso: O WhatsApp Web (no computador) não permite enviar arquivos PDF diretamente pelo link. O sistema preencherá apenas o texto. Para enviar o documento, por favor, clique em "Baixar PDF" e anexe o arquivo manualmente na conversa.');
     const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -713,7 +714,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
 
         {/* The Actual Receipt to Print */}
         <div className="bg-gray-100 p-4 rounded-2xl flex justify-center overflow-x-auto border border-gray-200">
-          <div ref={componentRef} className="text-black font-sans print:w-full print:max-w-none flex flex-col gap-8" style={{ width: '100%', maxWidth: '800px', margin: '0 auto', WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact', padding: '10px 0' }}>
+          <div ref={componentRef} className="text-black font-sans print:w-full print:max-w-none" style={{ width: '100%', maxWidth: '800px', margin: '0 auto', WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact', padding: '10px 0', backgroundColor: '#ffffff' }}>
             
             {/* Primeira Via */}
             <div className="bg-white p-4 md:p-6 relative shadow-xl print:shadow-none border-2 border-black break-inside-avoid">
@@ -789,7 +790,15 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
 
             {/* Segunda Via (Opcional) */}
             {duasVias && (
-              <div className="bg-white p-4 md:p-6 relative shadow-xl print:shadow-none border-2 border-black break-inside-avoid">
+              <>
+                {/* Divisória Tesoura */}
+                <div className="w-full border-t-2 border-dashed border-gray-400 my-8 relative print:my-10">
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-4 text-gray-400 text-[10px] uppercase tracking-widest font-bold">
+                    Tesoura / Corte Aqui
+                  </div>
+                </div>
+
+                <div className="bg-white p-4 md:p-6 relative shadow-xl print:shadow-none border-2 border-black break-inside-avoid">
                 {/* Receipt Header */}
                   <div className="flex justify-between items-start mb-4 border-b-2 border-black pb-3">
                     <div className="flex items-center gap-4 w-1/4">
@@ -859,6 +868,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                     </div>
                   </div>
                 </div>
+              </>
             )}
           </div>
         </div>
