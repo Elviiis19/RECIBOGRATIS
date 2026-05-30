@@ -79,54 +79,39 @@ async function prerender() {
         fs.mkdirSync(routeDir, { recursive: true });
       }
 
-      const { html: appHtml, helmet } = render(route.path);
+      const { html: rawAppHtml, helmet } = render(route.path);
+      
+      let appHtml = rawAppHtml;
+      let hoistedTags = '';
+
+      // Extract all <title>, <meta>, <link rel="canonical">, <script type="application/ld+json"> from appHtml
+      const tagRegex = /(<title>.*?<\/title>|<meta[^>]*>|<link[^>]*rel="canonical"[^>]*>|<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>)/gi;
+      
+      appHtml = appHtml.replace(tagRegex, (match) => {
+        hoistedTags += match + '\n';
+        return '';
+      });
       
       let html = template;
       
-      if (helmet) {
-        const originalHeadMatches = html.match(/<head>([\s\S]*?)<\/head>/);
-        let originalHead = originalHeadMatches ? originalHeadMatches[1] : '';
-        
-        // Remove default tags so Helmet can replace them correctly
-        originalHead = originalHead.replace(/<title>.*?<\/title>/g, '');
-        originalHead = originalHead.replace(/<meta name="description".*?>/g, '');
-        originalHead = originalHead.replace(/<meta name="keywords".*?>/g, '');
-        originalHead = originalHead.replace(/<meta property="og:title".*?>/g, '');
-        originalHead = originalHead.replace(/<meta property="og:description".*?>/g, '');
-        originalHead = originalHead.replace(/<meta property="og:type".*?>/g, '');
+      const originalHeadMatches = html.match(/<head>([\s\S]*?)<\/head>/);
+      let originalHead = originalHeadMatches ? originalHeadMatches[1] : '';
+      
+      // Remove default tags so we can replace them correctly
+      originalHead = originalHead.replace(/<title>.*?<\/title>/ig, '');
+      originalHead = originalHead.replace(/<meta[^>]*name="description"[^>]*>/ig, '');
+      originalHead = originalHead.replace(/<meta[^>]*name="keywords"[^>]*>/ig, '');
+      originalHead = originalHead.replace(/<meta[^>]*property="og:[^"]+"[^>]*>/ig, '');
+      originalHead = originalHead.replace(/<meta[^>]*name="twitter:[^"]+"[^>]*>/ig, '');
+      originalHead = originalHead.replace(/<link[^>]*rel="canonical"[^>]*>/ig, '');
 
-        html = html.replace(
-          /<head>[\s\S]*?<\/head>/,
-          `<head>
-            ${helmet.title.toString()}
-            ${helmet.priority.toString()}
-            ${helmet.meta.toString()}
-            ${helmet.link.toString()}
-            ${helmet.script.toString()}
-            ${originalHead}
-          </head>`
-        );
-      } else {
-        // Fallback Replace title
-        html = html.replace(
-          /<title>(.*?)<\/title>/,
-          `<title>${route.title}</title>`
-        );
-        html = html.replace(
-          /<meta property="og:title" content="(.*?)" \/>/,
-          `<meta property="og:title" content="${route.title}" />`
-        );
-        
-        // Replace description
-        html = html.replace(
-          /<meta name="description" content="(.*?)" \/>/,
-          `<meta name="description" content="${route.description}" />`
-        );
-        html = html.replace(
-          /<meta property="og:description" content="(.*?)" \/>/,
-          `<meta property="og:description" content="${route.description}" />`
-        );
-      }
+      html = html.replace(
+        /<head>[\s\S]*?<\/head>/i,
+        `<head>
+          ${originalHead}
+          ${hoistedTags}
+        </head>`
+      );
 
       // Inject app HTML
       html = html.replace(

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { receiptModels } from '../data/receiptModels';
@@ -8,7 +8,7 @@ import {
   Heart, Banknote, CheckCircle, Bed, Car, Hammer, Paintbrush, Zap, 
   Wrench, Truck, Settings, Smile, Brain, Activity, Apple, Camera, 
   GraduationCap, Baby, HeartPulse, Scissors, Sofa, Monitor, Leaf, 
-  Building, PenTool, HardHat, Stethoscope, Dog 
+  Building, PenTool, HardHat, Stethoscope, Dog, Search
 } from 'lucide-react';
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -53,6 +53,13 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 export function AllModels() {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredModels = receiptModels.filter(model => 
+    model.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    model.shortDescription.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <>
       <SEO 
@@ -60,36 +67,61 @@ export function AllModels() {
         description="Confira nossa lista completa com mais de 40 modelos de recibos prontos para preencher e imprimir em PDF gratuitamente."
         url="https://recibogratis.com.br/modelos"
       />
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-gray-50 min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Todos os Modelos de Recibo</h1>
-            <p className="text-lg text-gray-600">Encontre o modelo perfeito para sua necessidade de comprovação de pagamento.</p>
+            <p className="text-lg text-gray-600 mb-8">Encontre o modelo perfeito para sua necessidade de comprovação de pagamento.</p>
+            
+            <div className="max-w-xl mx-auto relative">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <Search className="h-5 w-5 text-gray-400" />
+              </div>
+              <input
+                type="text"
+                className="block w-full pl-12 pr-4 py-4 border border-gray-200 rounded-full leading-5 bg-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 sm:text-lg transition-shadow shadow-sm"
+                placeholder="Buscar modelo de recibo..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {receiptModels.map((model) => (
-              <Link 
-                key={model.id} 
-                to={`/${model.slug}`}
-                className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md hover:border-emerald-200 transition-all group flex flex-col h-full"
+          {filteredModels.length === 0 ? (
+            <div className="text-center py-20">
+              <p className="text-xl text-gray-500">Nenhum modelo encontrado para "{searchTerm}".</p>
+              <button 
+                onClick={() => setSearchTerm('')}
+                className="mt-4 text-emerald-600 font-medium hover:text-emerald-700 transition-colors"
               >
-                <div className="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-100 transition-colors">
-                  {iconMap[model.icon] || <FileText className="w-8 h-8 text-emerald-600" />}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors">
-                  {model.title}
-                </h3>
-                <p className="text-gray-600 flex-grow">
-                  {model.shortDescription}
-                </p>
-                <div className="mt-6 text-emerald-600 font-medium flex items-center gap-2">
-                  Gerar Recibo 
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </div>
-              </Link>
-            ))}
-          </div>
+                Limpar busca
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              {filteredModels.map((model) => (
+                <Link 
+                  key={model.id} 
+                  to={`/${model.slug}`}
+                  className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md hover:border-emerald-200 transition-all group flex flex-col h-full"
+                >
+                  <div className="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-100 transition-colors">
+                    {iconMap[model.icon] || <FileText className="w-8 h-8 text-emerald-600" />}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors">
+                    {model.title}
+                  </h3>
+                  <p className="text-gray-600 flex-grow">
+                    {model.shortDescription}
+                  </p>
+                  <div className="mt-6 text-emerald-600 font-medium flex items-center gap-2">
+                    Gerar Recibo 
+                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </>
