@@ -39,11 +39,11 @@ export function ReceiptPage() {
     ]
   };
 
+  const richData = richSeoData[model.id];
+
   const titleLower = model.title.toLowerCase();
   const dynamicTitle = richData?.h1 || `Recibo para ${model.title} | Gerador Online em PDF Grátis`.substring(0, 60);
   const dynamicDesc = `Gere gratuitamente um ${titleLower} online. Preencha, imprima em PDF ou envie por WhatsApp. Rápido, seguro e grátis.`.substring(0, 160);
-
-  const richData = richSeoData[model.id];
 
   const defaultIntro = `O ${titleLower} é um documento fundamental utilizado para comprovar formal e legalmente que uma transação ou serviço foi pago. Ele é emitido por quem recebe o pagamento em favor de quem pagou. Ter um recibo bem estruturado é indispensável para evitar cobranças duplicadas, garantir organização financeira e servir como documento legal caso haja qualquer divergência entre as partes.`;
 
