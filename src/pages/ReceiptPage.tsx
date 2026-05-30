@@ -40,19 +40,23 @@ export function ReceiptPage() {
   };
 
   const titleLower = model.title.toLowerCase();
-  const dynamicTitle = `${model.title} Online Grátis com PDF e PIX`.substring(0, 60);
+  const dynamicTitle = richData?.h1 || `Recibo para ${model.title} | Gerador Online em PDF Grátis`.substring(0, 60);
   const dynamicDesc = `Gere gratuitamente um ${titleLower} online. Preencha, imprima em PDF ou envie por WhatsApp. Rápido, seguro e grátis.`.substring(0, 160);
 
   const richData = richSeoData[model.id];
 
-  const defaultWhatIsText = `O ${titleLower} é um documento fundamental utilizado para comprovar formal e legalmente que uma transação ou serviço foi pago. Ele é emitido por quem recebe o pagamento em favor de quem pagou. Ter um recibo bem estruturado é indispensável para evitar cobranças duplicadas, garantir organização financeira e servir como documento legal caso haja qualquer divergência entre as partes. Seu uso é comum em pagamentos à vista, prestações de serviços autônomos, acordos e quitações cotidianas.`;
+  const defaultIntro = `O ${titleLower} é um documento fundamental utilizado para comprovar formal e legalmente que uma transação ou serviço foi pago. Ele é emitido por quem recebe o pagamento em favor de quem pagou. Ter um recibo bem estruturado é indispensável para evitar cobranças duplicadas, garantir organização financeira e servir como documento legal caso haja qualquer divergência entre as partes.`;
 
-  const defaultWhenToUseList = [
-    'Quando não for possível a emissão de nota fiscal para comprovar o pagamento.',
-    'Na quitação total ou parcial de um serviço prestado de forma autônoma.',
-    'Para registrar transações em dinheiro espécie, transferências ou PIX.',
-    'Na formalização de recebimentos para maior segurança de ambas as partes.'
+  const defaultSpecificDetailsList = [
+    'Separação clara entre valores de materiais (se aplicável) e prestação de serviço.',
+    'Detalhamento preciso do local, formato e circunstância do trabalho prestado.',
+    'Indicação transparente da fase do pagamento (adiantamento, parcial, quitação).',
+    'Menção de registros, conselhos de classe ou alvarás, quando a profissão assim obrigar na emissão de laudos ou atestados.'
   ];
+
+  const defaultLsiText = `Tornar este documento um hábito é um passo de excelência na regularidade das suas atividades, servindo inclusive como suporte financeiro perante a Receita Federal na declaração do IRPF e afastando necessidade de RPA em diversas dinâmicas autônomas isentas.`;
+
+  const defaultCtaText = `Pare de usar folhas soltas ou arquivos antigos em Word. Crie, emprima em PDF e envie este comprovante por WhatsApp imediatamente.`;
 
   const finalFaqs = richData?.faqs || model.faqs || [
     {
@@ -145,10 +149,10 @@ export function ReceiptPage() {
 
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
-              {model.title}
+              {richData?.h1 || dynamicTitle}
             </h1>
             <p className="text-xl md:text-2xl text-emerald-100 max-w-3xl mx-auto mb-10">
-              {model.shortDescription}
+              {richData?.intro || defaultIntro}
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-emerald-50 font-medium">
@@ -186,14 +190,11 @@ export function ReceiptPage() {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-emerald prose-lg">
           
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-8">O que é um {model.title}?</h2>
-          <p className="text-gray-600 mb-6 leading-relaxed">
-            {richData?.whatIsText || defaultWhatIsText}
-          </p>
-          
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-8">Quando utilizar este recibo?</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-8">
+            {richData?.specificDetailsTitle || `O que não pode faltar no ${model.title}`}
+          </h2>
           <ul className="list-disc pl-6 space-y-2 text-gray-600 mb-6">
-            {(richData?.whenToUseList || defaultWhenToUseList).map((item, idx) => (
+            {(richData?.specificDetailsList || defaultSpecificDetailsList).map((item, idx) => (
               <li key={idx}>{item}</li>
             ))}
           </ul>
@@ -203,7 +204,7 @@ export function ReceiptPage() {
             <li><strong>Valor:</strong> Preencha com o valor exato da transação, tanto em numerais quanto por extenso.</li>
             <li><strong>Recebedor:</strong> Nome completo ou Razão Social de quem está recebendo o dinheiro.</li>
             <li><strong>Pagador:</strong> Nome completo ou Razão Social de quem está pagando.</li>
-            <li><strong>CPF/CNPJ:</strong> Essencial para identificação e validade das partes.</li>
+            <li><strong>CPF/CNPJ:</strong> Essencial para identificação e validade das partes (e emissão de nota fiscal se for o caso).</li>
             <li><strong>Referente a:</strong> Relate os pormenores, sem abreviações, com as justificativas da transação ou entrega.</li>
             <li><strong>Data e Local:</strong> Adicione a cidade e a data em que o repasse foi completado.</li>
             <li><strong>Assinatura:</strong> O recebedor necessita obrigatoriamente assinar ao final.</li>
@@ -211,8 +212,22 @@ export function ReceiptPage() {
 
           <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-8">Este recibo tem validade legal?</h2>
           <p className="text-gray-600 mb-6 leading-relaxed">
-            Sim. Quando preenchido corretamente, ele possui ampla <strong>validade jurídica e comercial</strong> perante a justiça comum, relações de consumo e transações privadas no Brasil. É o documento que defende o pagador de ser cobrado duas vezes pelo mesmo fato e comprova as quitações conforme a lei civil enuncia, bastando ter a identificação legível das partes, o valor apurado e o ateste em assinatura do credor do recebimento. Para maior cautela e formalidade fiscal ou contábil, consulte emissores obrigatórios de notas.
+            Sim. {richData?.lsiText || defaultLsiText} Quando preenchido corretamente, ele possui ampla <strong>validade jurídica e comercial</strong> perante a justiça comum, relações de consumo e transações privadas no Brasil. É o documento que defende o pagador de ser cobrado duas vezes pelo mesmo fato e comprova as quitações conforme a lei civil enuncia, bastando ter a identificação legível das partes, o valor apurado e o ateste em assinatura do credor do recebimento. Para maior cautela e formalidade fiscal ou contábil, consulte emissores obrigatórios de notas.
           </p>
+
+          <div className="bg-emerald-50 border border-emerald-500 rounded-xl p-8 mt-12 text-center">
+            <h3 className="text-2xl font-bold text-emerald-900 mb-4">Gere seu Documento Agora</h3>
+            <p className="text-emerald-800 mb-6">
+              {richData?.ctaText || defaultCtaText}
+            </p>
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="inline-flex max-w-sm justify-center items-center w-full px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-full transition-colors text-lg shadow-lg shadow-emerald-200"
+            >
+              <FileText className="w-5 h-5 mr-2" />
+              Preencher Novo Recibo
+            </button>
+          </div>
 
           {/* FAQs Section */}
           {finalFaqs.length > 0 && (
