@@ -115,7 +115,7 @@ export function AllModels() {
                     <p className="text-gray-600 flex-grow">
                       {model.shortDescription}
                     </p>
-                    <div className="mt-6 text-emerald-600 font-medium flex items-center gap-2">
+                    <div className="mt-6 text-emerald-700 font-medium flex items-center gap-2">
                       Gerar Recibo 
                       <span className="group-hover:translate-x-1 transition-transform">→</span>
                     </div>
@@ -137,7 +137,7 @@ export function AllModels() {
               <p className="text-xl text-gray-500">Nenhum modelo encontrado para "{searchTerm}".</p>
               <button 
                 onClick={() => setSearchTerm('')}
-                className="mt-4 text-emerald-600 font-medium hover:text-emerald-700 transition-colors"
+                className="mt-4 text-emerald-700 font-medium hover:text-emerald-800 transition-colors"
               >
                 Limpar busca e ver todos
               </button>
@@ -159,7 +159,7 @@ export function AllModels() {
                   <p className="text-gray-600 flex-grow">
                     {model.shortDescription}
                   </p>
-                  <div className="mt-6 text-emerald-600 font-medium flex items-center gap-2">
+                  <div className="mt-6 text-emerald-700 font-medium flex items-center gap-2">
                     Gerar Recibo 
                     <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </div>

@@ -264,14 +264,14 @@ export function ReceiptPage() {
           )}
 
           <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-6 mt-12">
-            <h4 className="text-lg font-bold text-emerald-900 mb-2">Por que usar o Recibo Grátis?</h4>
+            <h3 className="text-lg font-bold text-emerald-900 mb-2">Por que usar o Recibo Grátis?</h3>
             <p className="text-emerald-800 m-0">
               Nossa ferramenta foi desenvolvida para ser a mais rápida e prática do mercado. Não exigimos criação de conta, não guardamos seus dados (tudo é processado no seu navegador) e oferecemos um layout moderno e atualizado.
             </p>
           </div>
 
           <div className="bg-blue-50 border border-blue-100 rounded-xl p-6 mt-8">
-            <h4 className="text-lg font-bold text-blue-900 mb-2">Dica de Gestão Financeira</h4>
+            <h3 className="text-lg font-bold text-blue-900 mb-2">Dica de Gestão Financeira</h3>
             <p className="text-blue-800 m-0 text-sm leading-relaxed">
               Para profissionalizar ainda mais suas vendas e serviços, considere utilizar um <strong>software de gestão (ERP)</strong>, abrir uma <strong>conta PJ</strong> sem taxas ou adquirir uma <strong>maquininha de cartão</strong> com as melhores taxas do mercado. A <strong>contabilidade online</strong> e a emissão de <strong>nota fiscal eletrônica</strong> também são passos fundamentais para o crescimento seguro e escalável da sua empresa.
             </p>
@@ -297,7 +297,7 @@ export function ReceiptPage() {
                       <FileText className="w-5 h-5 text-emerald-700" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-900 text-base m-0 group-hover:text-emerald-700 transition-colors">{relatedModel.title}</h4>
+                      <h3 className="font-bold text-gray-900 text-base m-0 group-hover:text-emerald-700 transition-colors">{relatedModel.title}</h3>
                       <p className="text-sm text-gray-500 m-0 line-clamp-1">{relatedModel.shortDescription}</p>
                     </div>
                   </Link>

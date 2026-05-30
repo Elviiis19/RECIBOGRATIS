@@ -185,7 +185,7 @@ export function Home() {
                 <p className="text-gray-600 flex-grow">
                   {model.shortDescription}
                 </p>
-                <div className="mt-6 text-emerald-600 font-medium flex items-center gap-2">
+                <div className="mt-6 text-emerald-700 font-medium flex items-center gap-2">
                   Gerar Recibo 
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </div>
@@ -264,17 +264,17 @@ export function Home() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
                   <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
-                  <h4 className="font-bold text-emerald-900 mb-2">Escolha o Modelo</h4>
+                  <h3 className="font-bold text-emerald-900 mb-2">Escolha o Modelo</h3>
                   <p className="text-emerald-800 text-sm">Selecione o tipo de recibo que melhor se adapta à sua necessidade na lista acima (ex: recibo de pagamento, aluguel, prestação de serviços).</p>
                 </div>
                 <div>
                   <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
-                  <h4 className="font-bold text-emerald-900 mb-2">Preencha os Dados</h4>
+                  <h3 className="font-bold text-emerald-900 mb-2">Preencha os Dados</h3>
                   <p className="text-emerald-800 text-sm">Digite os valores, nomes e documentos. Veja a prévia do recibo sendo montada em tempo real na sua tela.</p>
                 </div>
                 <div>
                   <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
-                  <h4 className="font-bold text-emerald-900 mb-2">Imprima ou Envie</h4>
+                  <h3 className="font-bold text-emerald-900 mb-2">Imprima ou Envie</h3>
                   <p className="text-emerald-800 text-sm">Clique no botão para imprimir, salvar o arquivo em formato PDF ou enviar diretamente via WhatsApp para o seu cliente.</p>
                 </div>
               </div>

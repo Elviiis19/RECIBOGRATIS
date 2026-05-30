@@ -78,6 +78,7 @@ export function Layout() {
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-gray-500 hover:text-gray-700 focus:outline-none"
+                aria-label="Menu principal"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -92,19 +93,19 @@ export function Layout() {
               <Link
                 to="/"
                 onClick={() => setIsMenuOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-bold text-emerald-600 hover:bg-emerald-50"
+                className="block px-3 py-2 rounded-md text-base font-bold text-emerald-700 hover:bg-emerald-50"
               >
                 Página Inicial (Todos os Modelos)
               </Link>
               <Link
                 to="/gerador-qr-code-pix"
                 onClick={() => setIsMenuOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-bold text-emerald-600 hover:bg-emerald-50"
+                className="block px-3 py-2 rounded-md text-base font-bold text-emerald-700 hover:bg-emerald-50"
               >
                 Gerador QR Code PIX
               </Link>
               <div className="pt-4 pb-2">
-                <p className="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                <p className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
                   Modelos de Recibo
                 </p>
               </div>
@@ -138,7 +139,7 @@ export function Layout() {
               <p className="text-sm text-gray-500 mb-4 max-w-sm">
                 Gere recibos online de forma rápida, segura e totalmente gratuita. Sem necessidade de cadastro.
               </p>
-              <p className="text-xs text-gray-400 mb-6">
+              <p className="text-xs text-gray-500 mb-6">
                 Idealizado por <strong>Elvis Dias</strong>
               </p>
               
@@ -203,7 +204,7 @@ export function Layout() {
             </div>
           </div>
           <div className="mt-12 border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-gray-500">
               &copy; {new Date().getFullYear()} Recibo Grátis. Todos os direitos reservados.
             </p>
           </div>

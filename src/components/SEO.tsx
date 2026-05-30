@@ -9,7 +9,7 @@ interface SEOProps {
 }
 
 export function SEO({ title, description, keywords, schema, url }: SEOProps) {
-  const currentUrl = url || (typeof window !== 'undefined' ? window.location.href : 'https://recibogratis.com.br');
+  const currentUrl = url || 'https://recibogratis.com.br';
   const fullTitle = title.includes('Recibo Grátis') ? title : `${title} | Recibo Grátis`;
 
   return (

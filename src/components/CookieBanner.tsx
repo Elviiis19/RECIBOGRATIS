@@ -66,7 +66,7 @@ export function CookieBanner() {
                   </span>
                   <span>
                     Utilizamos cookies para melhorar sua experiência. Ao continuar, você concorda com nossa{' '}
-                    <Link to="/politica-de-privacidade" className="text-emerald-600 hover:text-emerald-700 font-medium underline underline-offset-2">
+                    <Link to="/politica-de-privacidade" className="text-emerald-700 hover:text-emerald-800 font-medium underline underline-offset-2">
                       Política de Privacidade
                     </Link>
                     .
@@ -83,7 +83,7 @@ export function CookieBanner() {
                 </button>
                 <button
                   onClick={handleAccept}
-                  className="flex-1 md:flex-none px-3 py-1.5 text-xs md:text-sm rounded-md font-medium text-white bg-emerald-600 hover:bg-emerald-700 transition-colors whitespace-nowrap shadow-sm shadow-emerald-200"
+                  className="flex-1 md:flex-none px-3 py-1.5 text-xs md:text-sm rounded-md font-medium text-white bg-emerald-700 hover:bg-emerald-800 transition-colors whitespace-nowrap shadow-sm shadow-emerald-200"
                 >
                   Aceitar Tudo
                 </button>
