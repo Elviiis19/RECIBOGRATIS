@@ -2,6 +2,7 @@ import { Link, Outlet } from 'react-router-dom';
 import { FileText, Menu, X, ChevronDown, Zap } from 'lucide-react';
 import { useState } from 'react';
 import { receiptModels } from '../data/receiptModels';
+import { CookieBanner } from './CookieBanner';
 
 export function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -214,6 +215,7 @@ export function Layout() {
           </div>
         </div>
       </footer>
+      <CookieBanner />
     </div>
   );
 }

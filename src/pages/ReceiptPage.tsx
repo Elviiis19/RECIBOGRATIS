@@ -42,8 +42,11 @@ export function ReceiptPage() {
   const richData = richSeoData[model.id];
 
   const titleLower = model.title.toLowerCase();
-  const dynamicTitle = richData?.h1 || `Recibo para ${model.title} | Gerador Online em PDF Grátis`.substring(0, 60);
-  const dynamicDesc = `Gere gratuitamente um ${titleLower} online. Preencha, imprima em PDF ou envie por WhatsApp. Rápido, seguro e grátis.`.substring(0, 160);
+  const baseTitle = `${model.title} | Gerador Online em PDF Grátis`;
+  const dynamicTitle = richData?.h1 || baseTitle;
+  const dynamicDesc = richData?.intro || model.seoDescription || `Gere gratuitamente seu ${titleLower} online. Preencha, imprima em PDF ou envie por WhatsApp. Rápido, seguro e grátis.`;
+
+  const heroSubtitle = model.seoDescription || `Gere seu documento de ${titleLower} grátis, preencha online e baixe em PDF na hora. Sem burocracia e sem cadastro.`;
 
   const defaultIntro = `O ${titleLower} é um documento fundamental utilizado para comprovar formal e legalmente que uma transação ou serviço foi pago. Ele é emitido por quem recebe o pagamento em favor de quem pagou. Ter um recibo bem estruturado é indispensável para evitar cobranças duplicadas, garantir organização financeira e servir como documento legal caso haja qualquer divergência entre as partes.`;
 
@@ -148,11 +151,11 @@ export function ReceiptPage() {
           </nav>
 
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 mt-4">
               {richData?.h1 || dynamicTitle}
             </h1>
             <p className="text-xl md:text-2xl text-emerald-100 max-w-3xl mx-auto mb-10">
-              {richData?.intro || defaultIntro}
+              {heroSubtitle}
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-emerald-50 font-medium">
@@ -190,6 +193,10 @@ export function ReceiptPage() {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-emerald prose-lg">
           
+          <p className="lead text-xl text-gray-700 leading-relaxed border-l-4 border-emerald-500 pl-6 mb-12">
+            {richData?.intro || defaultIntro}
+          </p>
+
           <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-8">
             {richData?.specificDetailsTitle || `O que não pode faltar no ${model.title}`}
           </h2>
