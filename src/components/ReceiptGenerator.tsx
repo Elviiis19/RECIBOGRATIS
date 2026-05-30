@@ -5,8 +5,6 @@ import { cpf, cnpj } from 'cpf-cnpj-validator';
 import { porExtenso, estilo } from 'numero-por-extenso';
 import { Printer, FileText, ChevronRight, ChevronLeft, CheckCircle2, MessageCircle, Upload, QrCode, Download } from 'lucide-react';
 import { QRCodeCanvas } from 'qrcode.react';
-import html2canvas from 'html2canvas-pro';
-import { jsPDF } from 'jspdf';
 import { cn } from '../utils/cn';
 import { generatePixPayload } from '../utils/pix';
 
@@ -207,6 +205,14 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
     if (!componentRef.current) return null;
     
     try {
+      // Dynamically import heavy libraries for PDF generation
+      const [html2canvasModule, jsPDFModule] = await Promise.all([
+        import('html2canvas-pro'),
+        import('jspdf')
+      ]);
+      const html2canvas = html2canvasModule.default;
+      const { jsPDF } = jsPDFModule;
+
       // Force element to use desktop width for consistent PDF output
       const originalWidth = componentRef.current.style.width;
       const originalMaxWidth = componentRef.current.style.maxWidth;
