@@ -60,6 +60,9 @@ export function AllModels() {
     model.shortDescription.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const popularModelIds = ['simples', 'pagamento', 'servicos'];
+  const popularModels = receiptModels.filter(model => popularModelIds.includes(model.id)).sort((a, b) => popularModelIds.indexOf(a.id) - popularModelIds.indexOf(b.id));
+
   return (
     <>
       <SEO 
@@ -87,14 +90,56 @@ export function AllModels() {
             </div>
           </div>
 
+          {!searchTerm && (
+            <div className="mb-16">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <Sparkles className="w-6 h-6 text-emerald-500" />
+                Mais Procurados
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {popularModels.map((model) => (
+                  <Link 
+                    key={`popular-${model.id}`} 
+                    to={`/${model.slug}`}
+                    className="bg-white rounded-2xl p-8 shadow-sm border-2 border-emerald-100 hover:border-emerald-300 hover:shadow-md transition-all group flex flex-col h-full relative overflow-hidden"
+                  >
+                    <div className="absolute top-0 right-0 bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-bl-lg">
+                      Popular
+                    </div>
+                    <div className="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-100 transition-colors">
+                      {iconMap[model.icon] || <FileText className="w-8 h-8 text-emerald-600" />}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors">
+                      {model.title}
+                    </h3>
+                    <p className="text-gray-600 flex-grow">
+                      {model.shortDescription}
+                    </p>
+                    <div className="mt-6 text-emerald-600 font-medium flex items-center gap-2">
+                      Gerar Recibo 
+                      <span className="group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold text-gray-900">
+              {searchTerm ? 'Resultados da busca' : 'Todos os Modelos'}
+            </h2>
+          </div>
+
           {filteredModels.length === 0 ? (
-            <div className="text-center py-20">
+            <div className="text-center py-20 bg-white rounded-3xl border border-gray-100 shadow-sm">
+              <Search className="w-12 h-12 text-gray-300 mx-auto mb-4" />
               <p className="text-xl text-gray-500">Nenhum modelo encontrado para "{searchTerm}".</p>
               <button 
                 onClick={() => setSearchTerm('')}
                 className="mt-4 text-emerald-600 font-medium hover:text-emerald-700 transition-colors"
               >
-                Limpar busca
+                Limpar busca e ver todos
               </button>
             </div>
           ) : (

@@ -5,7 +5,7 @@ import { cpf, cnpj } from 'cpf-cnpj-validator';
 import { porExtenso, estilo } from 'numero-por-extenso';
 import { Printer, FileText, ChevronRight, ChevronLeft, CheckCircle2, MessageCircle, Upload, QrCode, Download } from 'lucide-react';
 import { QRCodeCanvas } from 'qrcode.react';
-import html2canvas from 'html2canvas';
+import html2canvas from 'html2canvas-pro';
 import { jsPDF } from 'jspdf';
 import { cn } from '../utils/cn';
 import { generatePixPayload } from '../utils/pix';
