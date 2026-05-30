@@ -207,12 +207,23 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
     if (!componentRef.current) return null;
     
     try {
+      // Force element to use desktop width for consistent PDF output
+      const originalWidth = componentRef.current.style.width;
+      const originalMaxWidth = componentRef.current.style.maxWidth;
+      componentRef.current.style.width = '800px';
+      componentRef.current.style.maxWidth = '800px';
+
       const canvas = await html2canvas(componentRef.current, {
         scale: 2,
         useCORS: true,
         logging: false,
         backgroundColor: '#ffffff', // Ensures the gap rendering is white
+        windowWidth: 800,
       });
+
+      // Restore original styles
+      componentRef.current.style.width = originalWidth;
+      componentRef.current.style.maxWidth = originalMaxWidth;
       
       const imgData = canvas.toDataURL('image/jpeg', 0.95);
       
@@ -224,7 +235,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
 
       const pdfWidth = 210; // A4 width
       const pdfHeight = 297; // A4 height
-      const margin = 10;
+      const margin = 15; // standard print margin
       let contentWidth = pdfWidth - margin * 2;
       let contentHeight = (canvas.height * contentWidth) / canvas.width;
       
