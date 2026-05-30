@@ -4,7 +4,6 @@ import { ReceiptGenerator } from '../components/ReceiptGenerator';
 import { AdSense } from '../components/AdSense';
 import { receiptModels } from '../data/receiptModels';
 import { CheckCircle2, ChevronRight, FileText } from 'lucide-react';
-import { richSeoData } from '../data/richSeoContent';
 
 export function ReceiptPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -39,44 +38,6 @@ export function ReceiptPage() {
     ]
   };
 
-  const titleLower = model.title.toLowerCase();
-  const dynamicTitle = `${model.title} Online Grátis com PDF e PIX`.substring(0, 60);
-  const dynamicDesc = `Gere gratuitamente um ${titleLower} online. Preencha, imprima em PDF ou envie por WhatsApp. Rápido, seguro e grátis.`.substring(0, 160);
-
-  const richData = richSeoData[model.id];
-
-  const defaultWhatIsText = `O ${titleLower} é um documento fundamental utilizado para comprovar formal e legalmente que uma transação ou serviço foi pago. Ele é emitido por quem recebe o pagamento em favor de quem pagou. Ter um recibo bem estruturado é indispensável para evitar cobranças duplicadas, garantir organização financeira e servir como documento legal caso haja qualquer divergência entre as partes. Seu uso é comum em pagamentos à vista, prestações de serviços autônomos, acordos e quitações cotidianas.`;
-
-  const defaultWhenToUseList = [
-    'Quando não for possível a emissão de nota fiscal para comprovar o pagamento.',
-    'Na quitação total ou parcial de um serviço prestado de forma autônoma.',
-    'Para registrar transações em dinheiro espécie, transferências ou PIX.',
-    'Na formalização de recebimentos para maior segurança de ambas as partes.'
-  ];
-
-  const finalFaqs = richData?.faqs || model.faqs || [
-    {
-      question: `Qualquer pessoa pode emitir o ${titleLower}?`,
-      answer: `Sim. Tanto pessoas físicas quanto jurídicas podem emitir o documento, desde que contenha os dados completos (Nome e CPF ou CNPJ) de quem está recebendo e de quem está pagando o valor.`
-    },
-    {
-      question: `O ${titleLower} substitui a Nota Fiscal?`,
-      answer: `Não. O recibo serve apenas como comprovante de pagamento entre as partes. A Nota Fiscal é o documento oficial obrigatório para fins de recolhimento de impostos em atividades comerciais ou empresariais regulamentadas.`
-    },
-    {
-      question: `Quais dados não podem faltar no ${titleLower}?`,
-      answer: `É obrigatório conter: o valor pago (numérico e por extenso), o nome e documento (CPF/CNPJ) do pagador e do recebedor, a descrição exata do que está sendo pago, a data, o local e, imprescindivelmente, a assinatura de quem recebeu o valor.`
-    },
-    {
-      question: `Preciso reconhecer firma neste recibo?`,
-      answer: `Na grande maioria dos casos cotidianos, não é exigido o reconhecimento de firma em cartório. Apenas a assinatura conferindo com o documento de identidade já possui validade como recibo de quitação.`
-    },
-    {
-      question: `O comprovante de PIX serve como recibo?`,
-      answer: `O comprovante de transferência do PIX atesta apenas que o dinheiro saiu de uma conta e foi para outra. Ele não descreve a que o pagamento se refere. Portanto, é altamente recomendado emitir um recibo formal com a descrição precisa do serviço ou produto.`
-    }
-  ];
-
   const softwareSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -88,13 +49,13 @@ export function ReceiptPage() {
       "price": "0",
       "priceCurrency": "BRL"
     },
-    "description": dynamicDesc
+    "description": model.seoDescription
   };
 
-  const faqSchema = finalFaqs.length > 0 ? {
+  const faqSchema = model.faqs && model.faqs.length > 0 ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": finalFaqs.map(faq => ({
+    "mainEntity": model.faqs.map(faq => ({
       "@type": "Question",
       "name": faq.question,
       "acceptedAnswer": {
@@ -113,8 +74,8 @@ export function ReceiptPage() {
   return (
     <>
       <SEO 
-        title={dynamicTitle} 
-        description={dynamicDesc}
+        title={model.seoTitle} 
+        description={model.seoDescription}
         keywords={model.keywords}
         schema={schemaString}
         url={currentUrl}
@@ -185,43 +146,35 @@ export function ReceiptPage() {
       {/* SEO Content Section */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-emerald prose-lg">
-          
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-8">O que é um {model.title}?</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">{model.seoContent.h2}</h2>
           <p className="text-gray-600 mb-6 leading-relaxed">
-            {richData?.whatIsText || defaultWhatIsText}
+            {model.seoContent.p1}
           </p>
           
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-8">Quando utilizar este recibo?</h2>
-          <ul className="list-disc pl-6 space-y-2 text-gray-600 mb-6">
-            {(richData?.whenToUseList || defaultWhenToUseList).map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </ul>
+          <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">{model.seoContent.h3}</h3>
+          <p className="text-gray-600 mb-6 leading-relaxed">
+            {model.seoContent.p2}
+          </p>
 
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-8">Como preencher corretamente</h2>
+          <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Como preencher este recibo corretamente?</h3>
           <ul className="list-disc pl-6 space-y-2 text-gray-600 mb-6">
-            <li><strong>Valor:</strong> Preencha com o valor exato da transação, tanto em numerais quanto por extenso.</li>
+            <li><strong>Valor:</strong> Preencha com o valor exato da transação.</li>
             <li><strong>Recebedor:</strong> Nome completo ou Razão Social de quem está recebendo o dinheiro.</li>
             <li><strong>Pagador:</strong> Nome completo ou Razão Social de quem está pagando.</li>
-            <li><strong>CPF/CNPJ:</strong> Essencial para identificação e validade das partes.</li>
-            <li><strong>Referente a:</strong> Relate os pormenores, sem abreviações, com as justificativas da transação ou entrega.</li>
-            <li><strong>Data e Local:</strong> Adicione a cidade e a data em que o repasse foi completado.</li>
-            <li><strong>Assinatura:</strong> O recebedor necessita obrigatoriamente assinar ao final.</li>
+            <li><strong>CPF/CNPJ:</strong> Documentos de ambas as partes para validade legal.</li>
+            <li><strong>Referente a:</strong> Descreva detalhadamente o motivo do pagamento.</li>
+            <li><strong>Data e Local:</strong> Preencha a cidade e a data em que o pagamento foi realizado.</li>
+            <li><strong>Assinatura:</strong> O recebedor deve assinar o documento após a impressão.</li>
           </ul>
 
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-8">Este recibo tem validade legal?</h2>
-          <p className="text-gray-600 mb-6 leading-relaxed">
-            Sim. Quando preenchido corretamente, ele possui ampla <strong>validade jurídica e comercial</strong> perante a justiça comum, relações de consumo e transações privadas no Brasil. É o documento que defende o pagador de ser cobrado duas vezes pelo mesmo fato e comprova as quitações conforme a lei civil enuncia, bastando ter a identificação legível das partes, o valor apurado e o ateste em assinatura do credor do recebimento. Para maior cautela e formalidade fiscal ou contábil, consulte emissores obrigatórios de notas.
-          </p>
-
           {/* FAQs Section */}
-          {finalFaqs.length > 0 && (
+          {model.faqs && model.faqs.length > 0 && (
             <div className="mt-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Perguntas Frequentes</h2>
+              <h3 className="text-3xl font-bold text-gray-900 mb-8">Perguntas Frequentes</h3>
               <div className="space-y-6">
-                {finalFaqs.map((faq, index) => (
+                {model.faqs.map((faq, index) => (
                   <div key={index} className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{faq.question}</h3>
+                    <h4 className="text-xl font-bold text-gray-900 mb-3">{faq.question}</h4>
                     <p className="text-gray-600 m-0 leading-relaxed">{faq.answer}</p>
                   </div>
                 ))}
@@ -280,3 +233,4 @@ export function ReceiptPage() {
     </>
   );
 }
+
