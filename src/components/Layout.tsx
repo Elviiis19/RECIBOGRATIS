@@ -44,9 +44,9 @@ export function Layout() {
                     <ChevronDown className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" />
                   </button>
                   
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 transition-all duration-200 ease-in-out z-50">
-                    <div className="p-2">
-                      <ul className="space-y-1">
+                  <div className={`absolute top-full ${category === 'Outros' ? 'right-0 w-[420px]' : 'left-1/2 -translate-x-1/2 w-64'} bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 transition-all duration-200 ease-in-out z-50`}>
+                    <div className="p-3 max-h-[75vh] overflow-y-auto custom-scrollbar">
+                      <ul className={category === 'Outros' ? 'grid grid-cols-2 gap-x-2 gap-y-1' : 'space-y-1'}>
                         {ids.map(id => {
                           const model = receiptModels.find(m => m.id === id);
                           if (!model) return null;
@@ -70,12 +70,6 @@ export function Layout() {
               <Link to="/gerador-qr-code-pix" className="text-sm font-medium text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-4 py-2 rounded-full transition-colors whitespace-nowrap flex items-center gap-1">
                 <Zap className="w-4 h-4" />
                 Gerador PIX
-              </Link>
-              <Link to="/modelos" className="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors hover:underline">
-                Todos os Modelos
-              </Link>
-              <Link to="/recibo-simples" className="text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700 px-4 py-2 rounded-full transition-colors whitespace-nowrap shadow-sm hover:shadow-md">
-                Criar Recibo
               </Link>
             </nav>
 

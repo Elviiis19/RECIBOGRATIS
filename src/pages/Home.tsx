@@ -116,32 +116,35 @@ export function Home() {
       />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-emerald-800 via-emerald-600 to-teal-600 text-white py-24 md:py-32 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-emerald-800 via-emerald-600 to-teal-600 text-white py-10 md:py-12 overflow-hidden">
         {/* Modern background pattern/glow */}
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"></div>
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob" style={{ animationDelay: '2s' }}></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 drop-shadow-sm leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-5xl font-extrabold tracking-tight mb-4 drop-shadow-sm leading-tight">
             Gerador de Recibos Online<br className="hidden md:block" /> Grátis e com Pix
           </h1>
-          <h2 className="text-xl md:text-2xl text-emerald-50 max-w-3xl mx-auto mb-10 font-medium leading-relaxed drop-shadow-sm">
+          <h2 className="text-base md:text-lg text-emerald-50 max-w-3xl mx-auto mb-6 font-medium leading-relaxed drop-shadow-sm">
             O Maior Portal de Recibos do Brasil. Simples, rápido e pronto para imprimir ou enviar por WhatsApp.
           </h2>
           
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-emerald-900 font-semibold text-lg mb-12">
-            <Link to="/recibo-simples" className="bg-white hover:bg-emerald-50 px-8 py-4 rounded-full transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center gap-2 w-full sm:w-auto justify-center">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-emerald-900 font-semibold text-sm md:text-base mb-8">
+            <Link to="/recibo-simples" className="bg-white hover:bg-emerald-50 px-5 py-3 rounded-full transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center gap-2 w-full sm:w-auto justify-center">
               Criar Meu Recibo Agora
               <FileText className="w-5 h-5" />
             </Link>
-            <Link to="/gerador-qr-code-pix" className="bg-emerald-900/40 hover:bg-emerald-900/60 text-white border border-emerald-400/30 px-8 py-4 rounded-full transition-all backdrop-blur-md flex items-center gap-2 w-full sm:w-auto justify-center">
+            <Link to="/gerador-qr-code-pix" className="bg-emerald-900/40 hover:bg-emerald-900/60 text-white border border-emerald-400/30 px-5 py-3 rounded-full transition-all backdrop-blur-md flex items-center gap-2 w-full sm:w-auto justify-center">
               Gerar QR Code Pix
               <Zap className="w-5 h-5 text-emerald-300" />
             </Link>
+            <Link to="/modelos" className="bg-emerald-900/40 hover:bg-emerald-900/60 text-white border border-emerald-400/30 px-5 py-3 rounded-full transition-all backdrop-blur-md flex items-center gap-2 w-full sm:w-auto justify-center">
+              Todos os Modelos
+            </Link>
           </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-6 text-emerald-50 font-medium text-sm sm:text-base">
+          <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 text-emerald-50 font-medium text-[11px] sm:text-xs">
             <div className="flex items-center gap-2 bg-black/10 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
               <CheckCircle2 className="w-5 h-5 text-emerald-300" />
               <span>Multiplataforma</span>

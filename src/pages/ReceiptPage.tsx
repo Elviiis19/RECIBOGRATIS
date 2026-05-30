@@ -128,7 +128,7 @@ export function ReceiptPage() {
       />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-emerald-800 via-emerald-600 to-teal-600 text-white py-12 md:py-20 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-emerald-800 via-emerald-600 to-teal-600 text-white py-8 md:py-12 overflow-hidden">
         {/* Modern background pattern/glow */}
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"></div>
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
@@ -136,7 +136,7 @@ export function ReceiptPage() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           {/* Breadcrumbs */}
-          <nav className="flex items-center text-emerald-100 text-sm mb-8" aria-label="Breadcrumb">
+          <nav className="flex items-center text-emerald-100 text-sm mb-6 flex-wrap" aria-label="Breadcrumb">
             <ol className="flex items-center space-x-2">
               <li>
                 <Link to="/" className="hover:text-white transition-colors">Início</Link>
@@ -148,29 +148,41 @@ export function ReceiptPage() {
                 {model.title}
               </li>
             </ol>
+            
+            <div className="hidden sm:flex ml-auto items-center">
+               <Link to="/modelos" className="text-emerald-100 hover:text-white transition-colors flex items-center gap-1 text-sm font-medium bg-black/10 px-3 py-1 rounded-full border border-white/10 backdrop-blur-sm">
+                  Ver Todos os Modelos
+               </Link>
+            </div>
           </nav>
 
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 mt-4">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 mt-2 leading-tight">
               {richData?.h1 || dynamicTitle}
             </h1>
-            <p className="text-xl md:text-2xl text-emerald-100 max-w-3xl mx-auto mb-10">
+            <p className="text-lg md:text-xl text-emerald-50 max-w-3xl mx-auto mb-8 font-medium leading-relaxed drop-shadow-sm">
               {heroSubtitle}
             </p>
             
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-emerald-50 font-medium">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-emerald-50 font-medium text-xs sm:text-sm">
               <div className="flex items-center gap-2 bg-black/10 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
-                <CheckCircle2 className="w-5 h-5 text-emerald-300" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-300" />
                 <span>100% Gratuito</span>
               </div>
               <div className="flex items-center gap-2 bg-black/10 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
-                <CheckCircle2 className="w-5 h-5 text-emerald-300" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-300" />
                 <span>Sem Cadastro</span>
               </div>
               <div className="flex items-center gap-2 bg-black/10 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
-                <CheckCircle2 className="w-5 h-5 text-emerald-300" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-300" />
                 <span>Gera PDF na Hora</span>
               </div>
+            </div>
+            
+            <div className="flex sm:hidden justify-center mt-6">
+               <Link to="/modelos" className="text-emerald-100 hover:text-white transition-colors flex items-center gap-2 text-sm font-medium bg-black/10 px-4 py-2.5 rounded-full border border-white/10 backdrop-blur-sm">
+                  Ver Todos os Modelos
+               </Link>
             </div>
           </div>
         </div>
