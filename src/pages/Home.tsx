@@ -111,7 +111,7 @@ export function Home() {
         title="Gerador de Recibos Online Grátis e com Pix | Recibo Grátis" 
         description="O Maior Portal de Recibos do Brasil. Gerador de recibo online simples, rápido e pronto para imprimir ou enviar por WhatsApp. Multiplataforma e 100% gratuito."
         keywords="gerador de recibo online, recibo online, gerador de recibos, recibo simples, recibo com pix, fazer recibo online, emitir recibo, recibo multiplataforma"
-        schema={JSON.stringify([websiteSchema, faqSchema])}
+        schema={JSON.stringify({ "@context": "https://schema.org", "@graph": [websiteSchema, faqSchema] })}
         url="https://recibogratis.com.br"
       />
       

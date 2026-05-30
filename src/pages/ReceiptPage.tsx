@@ -112,10 +112,13 @@ export function ReceiptPage() {
   } : null;
 
   // Combine schemas into an array
-  const schemas: any[] = [breadcrumbSchema, softwareSchema];
-  if (faqSchema) schemas.push(faqSchema);
+  const schemas: any[] = [{ ...breadcrumbSchema, "@context": undefined }, { ...softwareSchema, "@context": undefined }];
+  if (faqSchema) schemas.push({ ...faqSchema, "@context": undefined });
   
-  const schemaString = JSON.stringify(schemas);
+  const schemaString = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": schemas
+  });
 
   return (
     <>

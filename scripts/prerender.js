@@ -79,18 +79,7 @@ async function prerender() {
         fs.mkdirSync(routeDir, { recursive: true });
       }
 
-      const { html: rawAppHtml, helmet } = render(route.path);
-      
-      let appHtml = rawAppHtml;
-      let hoistedTags = '';
-
-      // Extract all <title>, <meta>, <link rel="canonical">, <script type="application/ld+json"> from appHtml
-      const tagRegex = /(<title>.*?<\/title>|<meta[^>]*>|<link[^>]*rel="canonical"[^>]*>|<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>)/gi;
-      
-      appHtml = appHtml.replace(tagRegex, (match) => {
-        hoistedTags += match + '\n';
-        return '';
-      });
+      const { html: appHtml, helmet } = render(route.path);
       
       let html = template;
       
@@ -109,7 +98,10 @@ async function prerender() {
         /<head>[\s\S]*?<\/head>/i,
         `<head>
           ${originalHead}
-          ${hoistedTags}
+          ${helmet ? helmet.title.toString() : ''}
+          ${helmet ? helmet.meta.toString() : ''}
+          ${helmet ? helmet.link.toString() : ''}
+          ${helmet ? helmet.script.toString() : ''}
         </head>`
       );
 
