@@ -23,6 +23,7 @@ import { DiasUteis } from './pages/tools/DiasUteis';
 import { ConversorHoras } from './pages/tools/ConversorHoras';
 import { ValidadorCpfCnpj } from './pages/tools/ValidadorCpfCnpj';
 import { ConsultadorIbge } from './pages/tools/ConsultadorIbge';
+import { GeradorPixCopiaECola } from './pages/tools/GeradorPixCopiaECola';
 
 export default function App({ url, helmetContext = {} }: { url?: string, helmetContext?: any }) {
   const isServer = typeof window === 'undefined';
@@ -34,6 +35,7 @@ export default function App({ url, helmetContext = {} }: { url?: string, helmetC
         <Route path="gerador-qr-code-pix" element={<PixGenerator />} />
         
         {/* Ferramentas */}
+        <Route path="ferramentas/gerador-pix-copia-e-cola" element={<GeradorPixCopiaECola />} />
         <Route path="ferramentas/valor-por-extenso" element={<ValorPorExtenso />} />
         <Route path="ferramentas/calculadora-retencao-impostos" element={<RetencaoImpostos />} />
         <Route path="ferramentas/calculadora-desconto-multa" element={<DescontosMultas />} />

@@ -20,6 +20,7 @@ while ((match = slugRegex.exec(modelsContent)) !== null) {
 const baseUrl = 'https://recibogratis.com.br';
 
 const ferramentas = [
+  'gerador-pix-copia-e-cola',
   'valor-por-extenso',
   'calculadora-retencao-impostos',
   'calculadora-desconto-multa',

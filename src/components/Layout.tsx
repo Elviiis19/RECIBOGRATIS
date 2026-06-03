@@ -78,8 +78,14 @@ export function Layout() {
                     <ul className="space-y-1">
                       <li>
                         <Link to="/gerador-qr-code-pix" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                          <div className="font-semibold mb-1">QR Code PIX e Cobrança</div>
-                          <div className="text-xs text-gray-400">Gere códigos PIX para pagamentos</div>
+                          <div className="font-semibold mb-1">Gerador QR Code PIX</div>
+                          <div className="text-xs text-gray-400">Gere códigos PIX e plaquinhas</div>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/ferramentas/gerador-pix-copia-e-cola" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
+                          <div className="font-semibold mb-1">PIX Copia e Cola</div>
+                          <div className="text-xs text-gray-400">Gere links de cobrança PIX</div>
                         </Link>
                       </li>
                       <li>
@@ -158,6 +164,7 @@ export function Layout() {
                 </p>
               </div>
               <Link to="/gerador-qr-code-pix" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Gerador QR Code PIX</Link>
+              <Link to="/ferramentas/gerador-pix-copia-e-cola" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Gerador PIX Copia e Cola</Link>
               <Link to="/ferramentas/valor-por-extenso" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Valor por Extenso</Link>
               <Link to="/ferramentas/calculadora-retencao-impostos" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Retenção de Impostos</Link>
               <Link to="/ferramentas/calculadora-desconto-multa" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Calculadora de Descontos e Multas</Link>
