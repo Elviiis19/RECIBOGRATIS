@@ -158,17 +158,64 @@ export function RetencaoImpostos() {
 
         <AdSense />
         
-        <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
-          <h2>Como funcionam as retenções na fonte?</h2>
+        <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
+          <h2>Entendendo a Retenção de Impostos na Fonte</h2>
           <p>
-            A retenção de impostos na fonte ocorre quando a legislação determina que o tomador de um serviço (quem paga)
-            é o responsável por descontar o imposto do prestador (quem recebe) e recolher diretamente ao Governo.
+            A <strong>retenção de impostos na fonte</strong> é uma obrigação tributária onde a fonte pagadora (o cliente ou tomador do serviço) é responsável por descontar o imposto devido no momento do pagamento e recolhê-lo diretamente aos cofres públicos (União ou Município). Isso garante que o governo receba o imposto antecipadamente, reduzindo a sonegação fiscal.
           </p>
-          <p>
-            Para pagamentos entre Pessoas Jurídicas (PJ), serviços como engenharia, limpeza, manutenção, consultoria,
-            softwares ou assemelhados costumam sofrer retenção das Contribuições Sociais (PIS/COFINS/CSLL), IRRF, INSS e ISS.
-          </p>
-          <p className="text-sm text-gray-500 italic mt-4">* As alíquotas simuladas são as comumente praticadas para serviços em geral no Brasil. Recomendamos validação com seu contador.</p>
+          
+          <h3>Principais Impostos Retidos na Prestação de Serviços (PJ)</h3>
+          <ul>
+            <li><strong>IRRF (Imposto de Renda Retido na Fonte):</strong> A alíquota mais comum para serviços de natureza profissional (consultoria, engenharia, medicina, jurídica, honorários) é de <strong>1,5%</strong>. A retenção só é obrigatória se o valor do imposto retido for igual ou superior a R$ 10,00 (Nota fiscal acima de R$ 666,66).</li>
+            <li><strong>CRSF / PIS, COFINS e CSLL (Retenção das Contribuições):</strong> Conhecida pelo percentual aglutinado de <strong>4,65%</strong>. Incide em notas fiscais acima de R$ 215,05 quando prestadas entre pessoas jurídicas cujo serviço envolva limpeza, conservação, manutenção, segurança, entre outros serviços profissionais art. 714 do RIR/2018.</li>
+            <li><strong>ISS (Imposto Sobre Serviços de Qualquer Natureza):</strong> Tributo municipal. As alíquotas variam de <strong>2% a 5%</strong> dependendo da codificação do serviço e do município onde ocorreu. Em certas regras, o tomador retém e paga à prefeitura dele.</li>
+            <li><strong>INSS:</strong> Para Cessão de Mão de Obra ou empreitadas, a retenção padrão costuma ser de <strong>11%</strong> sobre o valor bruto do documento.</li>
+          </ul>
+
+          <h3>Retenção na fonte para RPA (Autônomo Pessoa Física)</h3>
+          <p>Quando uma empresa contrata uma pessoa física e paga através do <strong>RPA (Recibo de Pagamento a Autônomo)</strong>, ela também deve realizar as retenções federais (INSS e IRPF) baseado nas tabelas progressivas vigentes, e do ISS. Nosso sistema fornece uma estimativa de cálculo para fins de projeção do pagamento bruto ao tomador.</p>
+
+          <hr className="my-8" />
+          
+          <h2>Perguntas Frequentes (FAQ)</h2>
+          
+          <div className="space-y-4 not-prose mt-6">
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                Empresas do Simples Nacional sofrem retenção na fonte?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                Na maioria dos casos, <strong>NÃO</strong>. Empresas optantes pelo regime do Simples Nacional são isentas da retenção na fonte do IRRF (1,5%) e das Contribuições (PIS/COFINS/CSLL 4,65%). Contudo, dependendo do tipo de serviço, podem sofrer a retenção do <strong>ISS</strong> de acordo com a legislação do município e algumas retenções pontuais de INSS em cessão de mão de obra.
+              </p>
+            </details>
+            
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                Qual o valor mínimo para reter IRRF na nota fiscal de serviços?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                O Governo Federal isenta retenções cujo DARF a ser pago seja inferior a R$ 10,00. Assim, aplicando a alíquota de 1,5%, a retenção só deve ocorrer em valores de serviço acima de R$ 666,66. Se a nota for de R$ 500, o IRRF de R$ 7,50 não deve ser retido.
+              </p>
+            </details>
+
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                A quem eu cobro os impostos retidos na fonte?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                O imposto retido na fonte é tratado como <strong>antecipação tributária</strong>. O tomador do serviço credita na sua conta o valor líquido, e recolhe os DARFs em nome da sua empresa (CPF/CNPJ). Ao final do mês ou trimestre, na hora em que sua contabilidade apurar o imposto total devido pela sua empresa, aqueles valores retidos devem ser compensados para que você não pague duas vezes.
+              </p>
+            </details>
+          </div>
         </div>
       </div>
     </>

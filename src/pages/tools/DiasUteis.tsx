@@ -106,6 +106,47 @@ export function DiasUteis() {
         </div>
 
         <AdSense />
+        
+        <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
+          <h2>Como funciona a contagem de Prazos, Dias Úteis e Correntes?</h2>
+          <p>Muitos serviços possuem "Acordos de Nível de Serviço" (SLAs de atendimento), prazos formais de postagem e envio no Ecommerce, bem como vencimentos e contagens processuais. É essencial entender a diferença legal e comercial entre um <strong>dia corrido (ou corrente)</strong> e um <strong>dia útil</strong> na matemática que forma a diferença de duas datas de um calendário gregoriano do ano atual e passado.</p>
+
+          <h3>Contagem em Dias Correntes</h3>
+          <p>Os <strong>dias corridos</strong> significam simplesmente a somatória absoluta em lapso temporal, o número contínuo de dias completos de calendário que existem de ontem até hoje ou entre um mês e outro. A contagem de dias correntes não para para fins de semana. Ela corre direto. Essa métrica e esse cronômetro são amplamente utilizados em aluguéis estipulados via diárias, pacotes de telefonia celular, assinaturas de apps (mensalidades padrão do dia 5 até dia 5 contam de 30 a 31 dias correntes ininterruptos, independentemente de um mês ter tido 6 finais de semana).</p>
+          
+          <h3>Contagem de Dias Úteis Comerciais</h3>
+          <p>O <strong>dia útil</strong> compreende de <strong>Segunda-Feira até Sexta-Feira</strong>. As legislações trabalhista, fiscal e de defesas de direito estipulam contagem suspensa de prazos nos dias civis de recesso, tais como o Sábado e o Domingo (onde bancos, tribunais, portos, indústrias e a central pagadora de cheques e boletos fecham ou diminuem operação).</p>
+
+          <hr className="my-8" />
+          
+          <h2>Perguntas Frequentes (FAQ)</h2>
+          
+          <div className="space-y-4 not-prose mt-6">
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                Sábado conta como dia útil?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                <strong>Para pagamentos bancários: NÃO.</strong> Operações de bolsa, encerramento de transferências tipo TED, pagamentos de fatura de boleto comercial com vencimento previso na referida data transferem automaticamente para segunda-feira e não acarretam juros. <strong>Para operações CLT (Consolidação das Leis do Trabalho): SIM.</strong> O Sábado é considerado dia útil pelo artigo 64 da mesma para a contagem de férias de um funcionário por exemplo, bem como prazo para entrega e confecção do pagamento do seu salário (quinto dia útil).
+              </p>
+            </details>
+            
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                A calculadora considera Feriados Nacionais e locais?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                Neste momento o nosso algoritmo apenas desconsidera e fatora de fora os <strong>Sábados</strong> e <strong>Domingos</strong> absolutos num intervalo matemático. O Brasil conta com feriados estaduais, pontes e municipais altamente dinâmicos (Feriado da Consciência Negra, Aniversários de Cidades no ES, BA e MG). Se ocorrer de possuir 2 feriados durante a semana estipulada, favor subtrair mentalmente 2 da casa total exibida pela nossa tela de Úteis.
+              </p>
+            </details>
+          </div>
+        </div>
       </div>
     </>
   );

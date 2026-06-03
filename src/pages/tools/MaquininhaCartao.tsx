@@ -95,6 +95,48 @@ export function MaquininhaCartao() {
         </div>
 
         <AdSense />
+        
+        <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
+          <h2>Como calcular o repasse da taxa da maquininha?</h2>
+          <p>Comerciantes que utilizam maquininhas de cartão (Stone, PagSeguro, Cielo, Mercado Pago, Ton, InfinPay, Rede, etc.) para vender perdem uma pequena parcela por cada transação, conhecida como MDC (Merchant Discount Rate) ou simplesmente <strong>taxa do cartão</strong>. Para pequenos autônomos, prestadores de serviços e oficinas que trabalham com margens de lucro apertadas, repassar esse custo de comodidade diretamente para o cliente se tornou uma saída vitalícia.</p>
+
+          <h3>A fórmula do repasse de taxas na matemática financeira</h3>
+          <p>Um erro comum que os vendedores cometem é simplesmente adicionar a taxa da máquina sobre o valor total. Exemplo errado: se a taxa é 5% e seu serviço é 100 reais, somar os 5% vira 105 reais. No entanto, quando você passar R$ 105 na máquina, ela tirará 5% sobre 105, que dá 5,25. Você acaba recebendo R$ 99,75 (você teve um prejuízo e não recebeu o valor cheio).</p>
+          
+          <p><strong>A fórmula exata e correta de Markup Financeiro:</strong><br/>
+          <code>Valor a ser Cobrado = Valor Líquido / ((100 - Taxa%) / 100)</code><br/>
+          Nossa calculadora utiliza o divisor inverso para descobrir exatamente de quantos reais deve ser o aumento no visor da maquininha para que, quando ela roubar a margem combinada por ela mesma, o que respingue no seu extrato seja cirurgico do zero da direita à esquerda: o seu lucro puro.</p>
+
+          <hr className="my-8" />
+          
+          <h2>Perguntas Frequentes (FAQ)</h2>
+          
+          <div className="space-y-4 not-prose mt-6">
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                É legal (permitido por lei) repassar a taxa da maquininha para o cliente final?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                <strong>Sim.</strong> Desde que a Lei 13.455/2017 entrou em vigor em nosso país, comerciantes e prestadores de serviços estão autorizados formalmente a cobrar preços diferenciados dependendo do meio de pagamento e do prazo ou parcelamento (como crédito, débito, boleto, ou dinheiro/PIX). O lojista contudo, deve informar essa flutuação de forma transparente, geralmente via cartaz sobre o balcão do caixa.
+              </p>
+            </details>
+            
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                Essa calculadora funciona para vendas parceladas no crédito?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                Sim, você basta que você saiba do portal da sua adquirente qual a taxa cumulativa exata total (a taxa da modalidade do crédito parcelado em X vezes somada ao CDI da parcela se por ventura antecipada). Insira o juros total consolidado no campo "%" da nossa calculadora e veja quanto passar na maquineta.
+              </p>
+            </details>
+          </div>
+        </div>
       </div>
     </>
   );

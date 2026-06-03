@@ -166,6 +166,46 @@ export function GeradorPixCopiaECola() {
         </div>
 
         <AdSense />
+        
+        <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
+          <h2>PIX Copia e Cola via Link e BR Code</h2>
+          <p>O ecossistema oficial do PIX administrado e regulamentado pela arquitetura do Banco Central reconfigurou desde sua fundação toda a engrenagem de pagamentos entre pessoas físicas e logistas corporativos varejistas. No lugar da simples transação pela chave nua de CPF, ou as antigas transferências DOC e TED com alta tarifa para caixas, surgiu a solução gratuita das strings consolidadas: O padrão EMV BR Code de cobrança instantânea unificada.</p>
+
+          <h3>Basta preencher seu recebedor e colar no Whatsapp para Cobrar</h3>
+          <p>
+            Ao fornecer este link estruturado de "Copia e Cola" a um devedor, a experiência em tela que essa pessoa usufruirá com o App de seu próprio banco local se tornará mais ágil. Diferente de digitar uma chave telefônica e ser demandado de preencher manualmente um valor aberto: nosso super link já estampa a ele o seu nome original e o valor centavo a centavo na confirmação nativa. Dessa forma o logista impede recebimentos aleatórios equivocados e confusões no balanço ou caixa contábil sem pagar ou faturar os sistemas de API emissores.
+          </p>
+
+          <hr className="my-8" />
+          
+          <h2>Perguntas Frequentes (FAQ)</h2>
+          
+          <div className="space-y-4 not-prose mt-6">
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                Qual a diferença deste Copia e Cola para uma placa de QR Code com câmera?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                Tanto o quadrado preto escaneavel das vitrines QR e esse enorme formato comprido de strings aglutinadas num bloco de cópia textual, eles se equivalem ao mesmo bloco <strong>(Payload em base BR Code do Banco Central)</strong>. Mas os fluxos operacionais diferem fisicamente de usabilidade. Esse padrão de "CopiaCola" serve de maneira fundamental perante compras e pagamentos digitais originados nos smartphones e nos Directs em ambiente virtual — na medida em que a pessoa não pode e se bloqueia a abrir a câmera para pagar num objeto onde ela mesma está consumindo em mãos lendo mensagens no smartphone por e-commerce online ou whatsapp das pequenas agencias de marketing ou recibão particular free lance.
+              </p>
+            </details>
+            
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                O site detém taxas de porcentagem gerando meu pix pra fora da loja?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                <strong>Não cobramos qualquer taxa, tarifa de pedágio ou custo sobre faturamento real da conversão e saque do Brasil.</strong> A base que este utilitário processa serve para gerar na internet de forma pública, local (no browser fechado), um arquivo de configuração de texto cru puro e estático do seu endereço PIX de origem vinculada do banco privado, tal qual ele o enviaremos. Como tal, os reais convertidos nas faturas liquidadas no ambiente digital despontam ininterruptamente até sua baliza originária final com 0% descontos adicionados de comissão financeira pra nosso balanço. 
+              </p>
+            </details>
+          </div>
+        </div>
       </div>
     </>
   );

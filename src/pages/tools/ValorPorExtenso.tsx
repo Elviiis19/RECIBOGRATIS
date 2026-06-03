@@ -99,15 +99,61 @@ export function ValorPorExtenso() {
 
         <AdSense />
         
-        <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+        <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
           <h2>Como funciona o conversor de Valor por Extenso?</h2>
-          <p>O conversor de valor por extenso é uma ferramenta gratuita que transforma automaticamente números financeiros em palavras escritas. Isso é essencial no Brasil, onde documentos que envolvem transações de dinheiro precisam do valor em formato de texto para evitar fraudes ou adulterações numéricas.</p>
-          <h3>Onde devo usar os valores por extenso?</h3>
+          <p>O conversor de valor por extenso é uma ferramenta online e gratuita desenvolvida para transformar automaticamente quantias numéricas (em Reais) na sua forma escrita por extenso. No Brasil, redigir o valor por extenso é uma exigência formal na emissão de documentos com valor legal, como cheques, recibos, contratos, procurações e promissórias.</p>
+
+          <h3>Por que escrever o valor por extenso em documentos?</h3>
+          <p>O preenchimento do valor por extenso é a principal garantia contra rasuras, fraudes e adulterações. Num cheque ou recibo, o valor numérico (ex: R$ 1.500,00) pode ser facilmente adulterado com a adição de um número extra (ex: R$ 11.500,00). Ao descrever o valor como "<strong>um mil e quinhentos reais</strong>", elimina-se a ambiguidade. A legislação brasileira prevê que, em caso de divergência entre o valor em números e o valor por extenso, <strong>o valor por extenso é aquele que tem validade jurídica</strong>.</p>
+
+          <h3>Regras gramaticais e boas práticas para Reais e Centavos</h3>
           <ul>
-            <li><strong>Recibos e Notas Promissórias:</strong> Traz segurança e validação jurídica de que o valor é idôneo.</li>
-            <li><strong>Contratos:</strong> Imprescindível para estipular multas, rescisões e pagamentos em geral.</li>
-            <li><strong>Cheques:</strong> Um cheque no Brasil deve ser sacado prioritariamente respeitando o que foi redigido à mão ou impresso por extenso.</li>
+            <li><strong>Reais e Centavos:</strong> Sempre una os valores com a conjunção "e". Exemplo: <em>cento e vinte reais e cinquenta centavos</em>.</li>
+            <li><strong>Milhares e Centenas:</strong> Não é obrigatório usar "e" entre os milhares e as centenas, mas usa-se entre centenas, dezenas e unidades. Exemplo: <em>dois mil, trezentos e quarenta reais</em>.</li>
+            <li><strong>Cem ou Cento?</strong> Usa-se "cem" quando o valor for exato (ex: cem reais). Usa-se "cento" quando acompanhado de dezenas ou unidades (ex: cento e dez reais).</li>
           </ul>
+
+          <hr className="my-8" />
+          
+          <h2>Perguntas Frequentes (FAQ)</h2>
+          
+          <div className="space-y-4 not-prose mt-6">
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                Qual valor prevalece no cheque: o número ou o extenso?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                De acordo com a Lei do Cheque (Lei nº 7.357/1985), sempre que houver divergência entre a quantia grafada em algarismos numéricos e a escrita por extenso, <strong>prevalecerá a quantia escrita por extenso</strong>. A regra visa evitar fraudes de falsificação no número.
+              </p>
+            </details>
+            
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                Pode colocar parenteses no valor por extenso?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                Sim. Em contratos e recibos judiciais, é uma praxe jurídica colocar o número em algarismos seguido pelo valor escrito por extenso entre parênteses para trazer segurança em dobro. Exemplo: R$ 5.000,00 (cinco mil reais).
+              </p>
+            </details>
+
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                Essa ferramenta funciona offline?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                Sim, nosso gerador funciona integralmente no seu navegador utilizando tecnologia client-side, entregando um cálculo rápido, sem limites de uso e de forma totalmente segura.
+              </p>
+            </details>
+          </div>
         </div>
       </div>
     </>

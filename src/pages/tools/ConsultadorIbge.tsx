@@ -117,6 +117,46 @@ export function ConsultadorIbge() {
         </div>
 
         <AdSense />
+        
+        <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
+          <h2>Entenda o Sistema de Cidades e os Códigos IBGE Oficiais</h2>
+          <p>Ao emitir uma nova documentação tributária e comercial robusta pelo regime da SEFAZ, todas as interfaces federais e estaduais no Brasil para liberação de um lote NF-e, NF-se, NFC-e ou CT-e exigem atitudes precisas geográficas da base contábil envolvida. Nesse cenário o famoso código numérico do <strong>IBGE (Instituto Brasileiro de Geografia e Estatística)</strong> tornou-se a chave primária da emissão de guias do nosso ecossistema e modelo comercial.</p>
+
+          <h3>Por que usar o Código IBGE ao invés do nome da cidade?</h3>
+          <p>
+             Imagine que no Brasil possam existir duas cidades completamente opostas no sul e no norte mas com o exato e irretocável mesmo nome — por exemplo a bela São Domingos que atende por nomenclaturas semelhantes nos crivos estatísticos que cruzam SC, BA e GO. Ao passar dados do Recebedor ou ao referenciar um prestador no XML da Receita Estadual e Federal de Contábeis e Impostos: referenciar pela palavra de string traria sérios travamentos base e conflito. E a base IBGE destrincha a cidade por número de sete dígitos exclusivos sem qualquer duplicidade pra garantir estabilidade fiscal unificada (SPED).
+          </p>
+
+          <hr className="my-8" />
+          
+          <h2>Perguntas Frequentes (FAQ)</h2>
+          
+          <div className="space-y-4 not-prose mt-6">
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                Onde esse código geralmente é utilizado para cadastros?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                As referências absolutas deste gerador servem para inserção na guia e emissões de conhecimento de nota em sites estaduais municipais de emissão fiscal para PJ (MEI ou Limitadas). Eles servem e alimentam as tags exigidas pelo XML universal nacional: o &lt;cMun&gt; numérico contendo as posições de numeração exclusivas para designar origem primária e base de impostos.
+              </p>
+            </details>
+            
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                Os dados aqui desta lista refletem a API original real?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                Sim, os retornos são instantâneos da autoria do sistema central de localizações do servidor brasileiro, trazendo o mesmo padrão da documentação aberta da federação que lista 5.570 posições com extrema pontualidade estatística para suporte à prefeitura. Acessando com pesquisa direta do front end para garantir zero cache obsoleto e garantia para contadores e empreendedores com escritórios modernos online.
+              </p>
+            </details>
+          </div>
+        </div>
       </div>
     </>
   );

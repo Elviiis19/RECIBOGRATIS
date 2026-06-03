@@ -93,6 +93,49 @@ export function ConversorHoras() {
         </div>
 
         <AdSense />
+        
+        <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
+          <h2>Como converter minutos no relógio para cálculo em Reais?</h2>
+          <p>Para trabalhadores cujo modelo comercial envolve venda da produtividade e hora técnica (desenvolvedores, arquitetos de sistema, contadores e jornalistas), fechar um mês faturando a folha tem uma pequena pegadinha. O formato relógio exibe as coisas com base na escala sexagesimal <strong>(do 0 aos 60 minutos)</strong>, no entanto, para multiplicar uma hora pelo salário base (seu rate, em dinheiro decimal), os minutos precisam ser transformados para sua base da "unidade percentual de 0 a 100".</p>
+
+          <h3>Trinta minutos são 0.50. Entendendo o fator</h3>
+          <p>
+             Se você trabalhou por <strong>121 horas e 30 minutos (121:30)</strong> no seu painel de controle (Jira, Trello, Toggl, Rescue Time), e seu valor hora contratado é R$ 25,00, muitas pessoas leigas abrem a calculadora física do celular e fazem na mão erradamente a conta literal <code>121,30 x 25 = R$ 3032,50</code>. Esse cálculo joga dinheiro da sua fatura no lixo!
+          </p>
+          <p>
+             Como meia hora (30 minutos) é precisamente <strong>metade de uma hora (fração 1/2)</strong>, no modelo decimal o 30 vira um ".50" ou "50 na centena" — sendo a forma correqueira o valor correspondente a <code>121,50</code>! Nossa calculadora converte precisamente para gerar seu folha sem perder os centavos devidos.
+          </p>
+
+          <hr className="my-8" />
+          
+          <h2>Perguntas Frequentes (FAQ)</h2>
+          
+          <div className="space-y-4 not-prose mt-6">
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                O que é o rate por hora? Como posso preencher uma promissória com isso?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                O formato e a ferramenta online em nossa página ajuda o profissional a tirar do relógio e faturar seu "RPA" da forma perfeita. Uma vez gerado qual é o dinheiro real da sua contra prestação nos balcões baseada no seu rate (custo por hr contratado da terceirização PJ B2BJ), você deve copiar o texto final em Reais e visitar a sub página do menu de Recibos para de fato emitir o PDF que documenta seu lucro.
+              </p>
+            </details>
+            
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                15 minutos de hora extra equivale a quanto na conversão?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                Na matemática da calculadora de ponto para gerar seu custo hora, uma fração relógio de <strong>15 minutos</strong> corresponde estritamente a um quarto (1/4) da hora. 1 dividido por quatro gera uma fatia base proporcional de <strong>0,25 da unidade</strong> matemática no Brasil. Se seu recibo acusa uma margem de trabalho mensal extra de 52 horas inteiras e mais o quebrado numérico de quinze minutos extra, o input vai ler 52:15, contudo o valor para multíplico final da base de cálculo da CLT é 52,25.
+              </p>
+            </details>
+          </div>
+        </div>
       </div>
     </>
   );

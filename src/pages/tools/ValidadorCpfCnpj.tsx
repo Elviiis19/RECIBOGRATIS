@@ -144,6 +144,50 @@ export function ValidadorCpfCnpj() {
         </div>
 
         <AdSense />
+        
+        <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
+          <h2>Como funciona a formatação e verificação do Dígito Verificador</h2>
+          <p>O Cadastro de Pessoas Físicas (CPF) e o Cadastro Nacional da Pessoa Jurídica (CNPJ) são os identificadores únicos de contribuintes gerenciados pela <strong>Receita Federal do Brasil</strong>. Essa nossa base algorítmica gratuita calcula se o formato e as casas declaradas na última placa matemática coincidem com uma lógica estritamente válida para uso nas integrações e nos bancos de dados do eSocial, DETRAN e bancários.</p>
+
+          <h3>Lógica interna do cálculo Modulo 11 do Documento Brasileiro</h3>
+          <p>
+             Um número de CPF no Brasil possui 11 dígitos expressos na máscara padrão "000.000.000-00", enquanto que o CNPJ dispõe de 14 casas com a máscara "00.000.000/0000-00".
+             Os últimos dois números expressos nestes blocos logísticos são chamados de crivos, ou, oficialmente, de seu <strong>Dígito Verificador (DV)</strong>. 
+          </p>
+          <p>
+             Esses dois algarismos jamais são gerados de forma aleatória: eles são matematicamente o exato resto de uma equação matemática chamada rotineiramente de <em>Módulo 11</em>. Essa fórmula engarrafa todos os algarismos anteriores em multiplicações descendentes sequenciais. Quando um sistema nosso, como o emissor de notas e recibos preenchido aqui no nosso site, aponta como "válido" o documento de cima, é atestado real que ele escapuliu de digitação incorreta — evitando assim travamentos durante o check de envios bancários.
+          </p>
+
+          <hr className="my-8" />
+          
+          <h2>Perguntas Frequentes (FAQ)</h2>
+          
+          <div className="space-y-4 not-prose mt-6">
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                Se o validador indicar CPF Válido garante que a pessoa não possui nome sujo?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                <strong>Não.</strong> O status numérico validado positivo de algarismo <strong>sertifica restrito puramente ao fato de que o bloco preenchido faz sentido prático para os critérios de matemática na engenharia de TI criados pelo SERPRO do governo</strong>. Validar ele aqui no site do Brasil atesta portanto com garantias apenas de que alguém não bateu o dedo errado num botão numérico na hora de você salvar uma venda e do Pix travar — não serve ao propósito ou utilidade para analisar SPC, SEPRASA, situação do SERASA Score ou dívida da União ou Estadual da Receita associado aquela persona real.
+              </p>
+            </details>
+            
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                Vocês armazenam meu documento no servidor quando eu valído?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                <strong>Não. Garantido por nós integralmente.</strong> Os nossos blocos em React convertem e reúnem as engrenagens de verificação (o cálculo Módulo 11) de todo modelo client-side rodando as verificações 100% locadas de volta dentro apenas do JavaScript do seu terminal ou do browser nativo de um navegador celular (Chrome). Seu banco de dados privado não aciona requests aos nossos web servers da nuvem para preenchimento.
+              </p>
+            </details>
+          </div>
+        </div>
       </div>
     </>
   );
