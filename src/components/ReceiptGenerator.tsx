@@ -8,6 +8,8 @@ import { QRCodeCanvas } from 'qrcode.react';
 import { cn } from '../utils/cn';
 import { generatePixPayload } from '../utils/pix';
 
+import { AdSense } from './AdSense';
+
 interface ReceiptData {
   numero: string;
   valor: string;
@@ -96,6 +98,10 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
   const handlePrint = useReactToPrint({
     contentRef: componentRef,
     documentTitle: `Recibo_${data.pagadorNome || 'Documento'}`,
+    onPrintError: (error) => {
+      console.error('Print failed', error);
+      alert('Não foi possível imprimir. Se você estiver no ambiente de visualização, abra o aplicativo em uma nova aba, ou use o botão de baixar PDF.');
+    },
   });
 
   const validateDocument = (doc: string) => {
@@ -354,8 +360,124 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
     }
   };
 
+  const getDocType = () => {
+    const t = title.toLowerCase();
+    if (t.includes('promissória')) return 'promissoria';
+    if (t.includes('orçamento')) return 'orcamento';
+    if (t.includes('ordem de serviço')) return 'os';
+    if (t.includes('termo')) return 'termo';
+    if (t.includes('vale-transporte')) return 'vale';
+    return 'recibo';
+  };
+  const docType = getDocType();
+
+  const getDocTitle = () => {
+    if (docType === 'promissoria') return 'NOTA PROMISSÓRIA';
+    if (docType === 'orcamento') return 'ORÇAMENTO';
+    if (docType === 'os') return 'ORDEM DE SERVIÇO';
+    if (docType === 'termo') return 'TERMO DE PRESTAÇÃO DE SERVIÇO';
+    if (docType === 'vale') return 'VALE-TRANSPORTE';
+    return 'RECIBO';
+  };
+
+  const getDocumentBodyText = () => {
+    switch (docType) {
+      case 'promissoria':
+        return (
+          <>
+            <p className="text-justify indent-8">
+              Aos <span className="font-bold">{data.data ? formatDate(data.data) : '___/___/20__'}</span> pagarei(emos) por esta única via de NOTA PROMISSÓRIA a <span className="font-bold uppercase">{data.recebedorNome || '________________________________________________'}</span>, 
+              inscrito(a) no CPF/CNPJ sob o nº <span className="font-bold">{data.recebedorDocumento || '_________________________'}</span> ou à sua ordem, a quantia de <span className="font-bold">R$ {formatCurrency(data.valor)}</span> {data.valor && data.valor !== '0,00' ? `(${getValorExtenso(data.valor)})` : ''},
+              pagável em <span className="font-bold uppercase">{data.cidade || '_________________________'}</span>.
+            </p>
+            <p className="text-justify indent-8">
+              Esta nota promissória é referente a <span className="font-bold uppercase">{data.referenteA || '________________________________________________________________________________________________'}</span>. 
+              Fica eleito o foro desta referida praça de pagamento para dirimir qualquer dúvida.
+            </p>
+          </>
+        );
+      case 'orcamento':
+      case 'os':
+      case 'termo':
+        return (
+          <>
+            <p className="text-justify indent-8">
+              Empresa / Profissional: <span className="font-bold uppercase">{data.recebedorNome || '________________________________________________'}</span>, inscrito(a) no CPF/CNPJ sob o nº <span className="font-bold">{data.recebedorDocumento || '_________________________'}</span>.
+            </p>
+            <p className="text-justify indent-8">
+              Cliente: <span className="font-bold uppercase">{data.pagadorNome || '________________________________________________'}</span>, inscrito(a) no CPF/CNPJ sob o nº <span className="font-bold">{data.pagadorDocumento || '_________________________'}</span>.
+            </p>
+            <p className="text-justify indent-8 mt-2">
+              Apresentamos o presente {getDocTitle()} no valor total de <span className="font-bold">R$ {formatCurrency(data.valor)}</span> {data.valor && data.valor !== '0,00' ? `(${getValorExtenso(data.valor)})` : ''}, 
+              referente aos seguintes serviços / produtos:
+            </p>
+            <p className="text-justify indent-8 mt-2 italic border border-gray-300 p-2">
+              <span className="font-bold uppercase">{data.referenteA || '________________________________________________________________________________________________'}</span>
+            </p>
+            <p className="mt-4">
+              <span className="font-bold">Forma de Pagamento sugerida/acordada:</span> {data.formaPagamento}
+            </p>
+          </>
+        );
+      case 'vale':
+        return (
+          <>
+            <p className="text-justify indent-8">
+              Recebi(emos) de <span className="font-bold uppercase">{data.pagadorNome || '________________________________________________'}</span>, 
+              inscrito(a) no CPF/CNPJ sob o nº <span className="font-bold">{data.pagadorDocumento || '_________________________'}</span>, 
+              o correspondente a vale-transporte / auxílio deslocamento no valor de <span className="font-bold">R$ {formatCurrency(data.valor)}</span> {data.valor && data.valor !== '0,00' ? `(${getValorExtenso(data.valor)})` : ''}, 
+              referente a <span className="font-bold uppercase">{data.referenteA || '________________________________________________________________________________________________'}</span>.
+            </p>
+
+            <p className="text-justify indent-8">
+              Declaro que os valores recebidos serão utilizados exclusivamente para despesas de deslocamento e assumo a responsabilidade por estas informações.
+            </p>
+          </>
+        );
+      default:
+        // Padrão (Recibo)
+        return (
+          <>
+            <p className="text-justify indent-8">
+              Recebi(emos) de <span className="font-bold uppercase">{data.pagadorNome || '________________________________________________'}</span>, 
+              inscrito(a) no CPF/CNPJ sob o nº <span className="font-bold">{data.pagadorDocumento || '_________________________'}</span>, 
+              a importância de <span className="font-bold">R$ {formatCurrency(data.valor)}</span> {data.valor && data.valor !== '0,00' ? `(${getValorExtenso(data.valor)})` : ''}, 
+              referente a <span className="font-bold uppercase">{data.referenteA || '________________________________________________________________________________________________'}</span>.
+            </p>
+
+            <p className="text-justify indent-8">
+              Para maior clareza, firmo(amos) o presente documento para que produza os seus efeitos legais, dando plena, rasa e geral quitação pelo valor acima recebido.
+            </p>
+
+            <p>
+              <span className="font-bold">Forma de Pagamento:</span> {data.formaPagamento}
+            </p>
+          </>
+        );
+    }
+  };
+
+  const getSignatureTitle = () => {
+    if (docType === 'promissoria') return 'Assinatura do Emitente (Pagador)';
+    if (docType === 'orcamento' || docType === 'os') return 'Assinatura do Profissional / Empresa';
+    if (docType === 'vale') return 'Assinatura do Beneficiário';
+    return 'Assinatura do Recebedor';
+  };
+
+  const getSignatureName = () => {
+    if (docType === 'promissoria') return data.pagadorNome || getSignatureTitle();
+    return data.recebedorNome || getSignatureTitle();
+  };
+  
+  const getSignatureDoc = () => {
+    if (docType === 'promissoria') return data.pagadorDocumento;
+    return data.recebedorDocumento;
+  };
+
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+    <>
+      <AdSense key={`top-${currentStep}`} />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mt-8">
       {/* Form Section - Wizard */}
       <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
         <div className="mb-8">
@@ -437,7 +559,13 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
           {currentStep === 1 && (
             <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
               <div>
-                <label htmlFor="pagadorNome" className="block text-sm font-semibold text-gray-900 mb-2">Quem está pagando? (Pagador) <span className="text-red-500">*</span></label>
+                <label htmlFor="pagadorNome" className="block text-sm font-semibold text-gray-900 mb-2">
+                  {docType === 'promissoria' ? 'Nome do Emitente (Quem vai pagar)' : 
+                   (docType === 'orcamento' || docType === 'os' || docType === 'termo') ? 'Nome do Cliente' : 
+                   (docType === 'vale' ? 'Nome do Funcionário/Beneficiário' : 
+                   'Quem está pagando? (Pagador)')}
+                   <span className="text-red-500">*</span>
+                </label>
                 <input
                   id="pagadorNome"
                   type="text"
@@ -454,7 +582,11 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                 {errors.pagadorNome && <p className="text-red-500 text-sm mt-2">{errors.pagadorNome}</p>}
               </div>
               <div>
-                <label htmlFor="pagadorDocumento" className="block text-sm font-semibold text-gray-900 mb-2">CPF ou CNPJ do Pagador</label>
+                <label htmlFor="pagadorDocumento" className="block text-sm font-semibold text-gray-900 mb-2">
+                  {docType === 'promissoria' ? 'CPF ou CNPJ do Emitente' : 
+                   (docType === 'orcamento' || docType === 'os' || docType === 'termo') ? 'CPF ou CNPJ do Cliente' : 
+                   'CPF ou CNPJ do Pagador'}
+                </label>
                 <input
                   id="pagadorDocumento"
                   type="text"
@@ -514,7 +646,13 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                 </div>
               )}
               <div>
-                <label htmlFor="recebedorNome" className="block text-sm font-semibold text-gray-900 mb-2">Quem está recebendo? (Recebedor) <span className="text-red-500">*</span></label>
+                <label htmlFor="recebedorNome" className="block text-sm font-semibold text-gray-900 mb-2">
+                  {docType === 'promissoria' ? 'Nome do Credor / Beneficiário' : 
+                   (docType === 'orcamento' || docType === 'os' || docType === 'termo') ? 'Nome do Profissional ou Empresa' : 
+                   (docType === 'vale' ? 'Nome da Empresa Empregadora' : 
+                   'Quem está recebendo? (Recebedor)')}
+                   <span className="text-red-500">*</span>
+                </label>
                 <input
                   id="recebedorNome"
                   type="text"
@@ -532,7 +670,11 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="recebedorDocumento" className="block text-sm font-semibold text-gray-900 mb-2">CPF ou CNPJ do Recebedor</label>
+                  <label htmlFor="recebedorDocumento" className="block text-sm font-semibold text-gray-900 mb-2">
+                    {docType === 'promissoria' ? 'CPF ou CNPJ do Credor' : 
+                     (docType === 'orcamento' || docType === 'os' || docType === 'termo') ? 'CNPJ ou CPF do Profissional' : 
+                     'CPF ou CNPJ do Recebedor'}
+                  </label>
                   <input
                     id="recebedorDocumento"
                     type="text"
@@ -571,7 +713,12 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
           {currentStep === 3 && (
             <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
               <div>
-                <label htmlFor="referenteA" className="block text-sm font-semibold text-gray-900 mb-2">Referente a quê? <span className="text-red-500">*</span></label>
+                <label htmlFor="referenteA" className="block text-sm font-semibold text-gray-900 mb-2">
+                  {docType === 'promissoria' ? 'Termos e acordos do pagamento' : 
+                   (docType === 'orcamento' || docType === 'os') ? 'Descrição dos serviços orçados/executados' : 
+                   'Referente a quê (Serviços/Produtos)?'} 
+                   <span className="text-red-500">*</span>
+                </label>
                 <textarea
                   id="referenteA"
                   name="referenteA"
@@ -612,7 +759,11 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                   {errors.cidade && <p className="text-red-500 text-sm mt-2">{errors.cidade}</p>}
                 </div>
                 <div>
-                  <label htmlFor="data" className="block text-sm font-semibold text-gray-900 mb-2">Data <span className="text-red-500">*</span></label>
+                  <label htmlFor="data" className="block text-sm font-semibold text-gray-900 mb-2">
+                    {docType === 'promissoria' ? 'Data de Vencimento / Pagamento' : 
+                     (docType === 'orcamento') ? 'Data de Validade (Ou Emissão)' : 
+                     'Data de Emissão'} <span className="text-red-500">*</span>
+                  </label>
                   <input
                     id="data"
                     type="date"
@@ -743,7 +894,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                   )}
                 </div>
                 <div className="w-2/4 text-center">
-                  <h1 className="text-3xl font-bold uppercase tracking-widest text-black">RECIBO</h1>
+                  <h1 className="text-3xl font-bold uppercase tracking-widest text-black">{getDocTitle()}</h1>
                   <p className="text-sm font-bold mt-1">Nº {data.numero || '001'}</p>
                 </div>
                 <div className="w-1/4 flex justify-end">
@@ -755,20 +906,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
 
               {/* Receipt Body */}
               <div className="space-y-2 text-[15px] md:text-[16px] leading-snug text-black mt-4">
-                <p className="text-justify indent-8">
-                  Recebi(emos) de <span className="font-bold uppercase">{data.pagadorNome || '________________________________________________'}</span>, 
-                  inscrito(a) no CPF/CNPJ sob o nº <span className="font-bold">{data.pagadorDocumento || '_________________________'}</span>, 
-                  a importância de <span className="font-bold">R$ {formatCurrency(data.valor)}</span> {data.valor && data.valor !== '0,00' ? `(${getValorExtenso(data.valor)})` : ''}, 
-                  referente a <span className="font-bold uppercase">{data.referenteA || '________________________________________________________________________________________________'}</span>.
-                </p>
-
-                <p className="text-justify indent-8">
-                  Para maior clareza, firmo(amos) o presente recibo para que produza os seus efeitos legais, dando plena, rasa e geral quitação pelo valor recebido.
-                </p>
-
-                <p>
-                  <span className="font-bold">Forma de Pagamento:</span> {data.formaPagamento}
-                </p>
+                {getDocumentBodyText()}
               </div>
 
               {/* Receipt Footer / Signatures */}
@@ -780,9 +918,9 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                 <div className="flex flex-col md:flex-row items-center justify-between mt-6 gap-6">
                   <div className="flex-1 flex flex-col items-center justify-center w-full">
                     <div className="w-80 border-t-2 border-black mb-2"></div>
-                    <p className="text-[16px] font-bold uppercase">{data.recebedorNome || 'Assinatura do Recebedor'}</p>
-                    {data.recebedorDocumento && (
-                      <p className="text-[14px]">CPF/CNPJ: {data.recebedorDocumento}</p>
+                    <p className="text-[16px] font-bold uppercase">{getSignatureName()}</p>
+                    {getSignatureDoc() && (
+                      <p className="text-[14px]">CPF/CNPJ: {getSignatureDoc()}</p>
                     )}
                   </div>
                   
@@ -824,7 +962,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                       )}
                     </div>
                     <div className="w-2/4 text-center">
-                      <h1 className="text-3xl font-bold uppercase tracking-widest text-black">RECIBO</h1>
+                      <h1 className="text-3xl font-bold uppercase tracking-widest text-black">{getDocTitle()}</h1>
                       <p className="text-sm font-bold mt-1">Nº {data.numero || '001'}</p>
                     </div>
                     <div className="w-1/4 flex justify-end">
@@ -836,20 +974,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
 
                   {/* Receipt Body */}
                   <div className="space-y-2 text-[15px] md:text-[16px] leading-snug text-black mt-4">
-                    <p className="text-justify indent-8">
-                      Recebi(emos) de <span className="font-bold uppercase">{data.pagadorNome || '________________________________________________'}</span>, 
-                      inscrito(a) no CPF/CNPJ sob o nº <span className="font-bold">{data.pagadorDocumento || '_________________________'}</span>, 
-                      a importância de <span className="font-bold">R$ {formatCurrency(data.valor)}</span> {data.valor && data.valor !== '0,00' ? `(${getValorExtenso(data.valor)})` : ''}, 
-                      referente a <span className="font-bold uppercase">{data.referenteA || '________________________________________________________________________________________________'}</span>.
-                    </p>
-
-                    <p className="text-justify indent-8">
-                      Para maior clareza, firmo(amos) o presente recibo para que produza os seus efeitos legais, dando plena, rasa e geral quitação pelo valor recebido.
-                    </p>
-
-                    <p>
-                      <span className="font-bold">Forma de Pagamento:</span> {data.formaPagamento}
-                    </p>
+                    {getDocumentBodyText()}
                   </div>
 
                   {/* Receipt Footer / Signatures */}
@@ -861,9 +986,9 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                     <div className="flex flex-col md:flex-row items-center justify-between mt-6 gap-6">
                       <div className="flex-1 flex flex-col items-center justify-center w-full">
                         <div className="w-80 border-t-2 border-black mb-2"></div>
-                        <p className="text-[16px] font-bold uppercase">{data.recebedorNome || 'Assinatura do Recebedor'}</p>
-                        {data.recebedorDocumento && (
-                          <p className="text-[14px]">CPF/CNPJ: {data.recebedorDocumento}</p>
+                        <p className="text-[16px] font-bold uppercase">{getSignatureName()}</p>
+                        {getSignatureDoc() && (
+                          <p className="text-[14px]">CPF/CNPJ: {getSignatureDoc()}</p>
                         )}
                       </div>
                       
@@ -891,5 +1016,6 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
         </div>
       </div>
     </div>
+    </>
   );
 }

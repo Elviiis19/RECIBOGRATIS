@@ -48,16 +48,16 @@ export function ReceiptPage() {
 
   const heroSubtitle = model.seoDescription || `Gere seu documento de ${titleLower} grátis, preencha online e baixe em PDF na hora. Sem burocracia e sem cadastro.`;
 
-  const defaultIntro = `O ${titleLower} é um documento fundamental utilizado para comprovar formal e legalmente que uma transação ou serviço foi pago. Ele é emitido por quem recebe o pagamento em favor de quem pagou. Ter um recibo bem estruturado é indispensável para evitar cobranças duplicadas, garantir organização financeira e servir como documento legal caso haja qualquer divergência entre as partes.`;
+  const defaultIntro = `O ${titleLower} é um documento fundamental utilizado para comprovar formal e legalmente que uma transação ou serviço financeiro foi pago. Ele é emitido por quem recebe o pagamento em favor de quem pagou. Ter um recibo bem estruturado é indispensável para evitar cobranças duplicadas, manter o controle de caixa, garantir a organização financeira da sua empresa e servir como documento contábil para o seu faturamento mensal, além de evitar qualquer divergência entre as partes.`;
 
   const defaultSpecificDetailsList = [
-    'Separação clara entre valores de materiais (se aplicável) e prestação de serviço.',
-    'Detalhamento preciso do local, formato e circunstância do trabalho prestado.',
-    'Indicação transparente da fase do pagamento (adiantamento, parcial, quitação).',
-    'Menção de registros, conselhos de classe ou alvarás, quando a profissão assim obrigar na emissão de laudos ou atestados.'
+    'Separação clara entre valores de orçamento, descontos financeiros e prestação de serviço.',
+    'Detalhamento preciso do local, formato e circunstância do trabalho prestado para sua contabilidade.',
+    'Indicação transparente da fase do pagamento (adiantamento p/ controle de caixa, parcial, quitação).',
+    'Menção de registros, conselhos de classe ou alvarás, ajudando no balanço patrimonial e tributário.'
   ];
 
-  const defaultLsiText = `Tornar este documento um hábito é um passo de excelência na regularidade das suas atividades, servindo inclusive como suporte financeiro perante a Receita Federal na declaração do IRPF e afastando necessidade de RPA em diversas dinâmicas autônomas isentas.`;
+  const defaultLsiText = `Tornar este documento um hábito é um passo de excelência na gestão financeira e regularidade das suas atividades comerciais, servindo inclusive como suporte contábil perante a Receita Federal na declaração do IRPF e afastando necessidade de RPA em diversas dinâmicas autônomas isentas. Manter seu fluxo de caixa documentado é essencial para planejamento financeiro e linhas de crédito.`;
 
   const defaultCtaText = `Pare de usar folhas soltas ou arquivos antigos em Word. Crie, emprima em PDF e envie este comprovante por WhatsApp imediatamente.`;
 
@@ -194,13 +194,11 @@ export function ReceiptPage() {
       {/* Generator Section */}
       <section className="py-12 bg-gray-50 -mt-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AdSense />
           <ReceiptGenerator 
             key={model.slug}
             title={model.title} 
             defaultReferenteA={model.defaultReferenteA}
           />
-          <AdSense />
         </div>
       </section>
 
@@ -276,7 +274,26 @@ export function ReceiptPage() {
           <div className="bg-blue-50 border border-blue-100 rounded-xl p-6 mt-8">
             <h3 className="text-lg font-bold text-blue-900 mb-2">Dica de Gestão Financeira</h3>
             <p className="text-blue-800 m-0 text-sm leading-relaxed">
-              Para profissionalizar ainda mais suas vendas e serviços, considere utilizar um <strong>software de gestão (ERP)</strong>, abrir uma <strong>conta PJ</strong> sem taxas ou adquirir uma <strong>maquininha de cartão</strong> com as melhores taxas do mercado. A <strong>contabilidade online</strong> e a emissão de <strong>nota fiscal eletrônica</strong> também são passos fundamentais para o crescimento seguro e escalável da sua empresa.
+              Para profissionalizar ainda mais suas vendas e serviços, considere utilizar um <strong>software de gestão (ERP)</strong>, abrir uma <strong>conta PJ</strong> sem taxas ou adquirir uma <strong>maquininha de cartão</strong> com as melhores taxas do mercado. A <strong>contabilidade online</strong> e a emissão de <strong>nota fiscal eletrônica</strong> também são passos fundamentais para o crescimento seguro e escalável da sua receita, melhorando o controle de fluxo de caixa e o retorno financeiro.
+            </p>
+          </div>
+
+          {/* Cross-linking SEO context */}
+          <div className="text-gray-500 text-sm mt-8 pb-4 border-b border-gray-100">
+            <p className="leading-relaxed">
+              <span>Também precisa emitir documentos financeiros para outros serviços? Veja nossas ferramentas relacionadas: </span>
+              {receiptModels
+                .filter(m => m.id !== model.id)
+                .sort(() => 0.5 - Math.random()) // Sort randomly for now
+                .slice(0, 3)
+                .map((relatedModel, idx, arr) => (
+                  <span key={relatedModel.id}>
+                    <Link to={`/${relatedModel.slug}`} className="text-emerald-600 hover:underline hover:text-emerald-700">
+                      {relatedModel.title}
+                    </Link>
+                    {idx < arr.length - 1 ? ', ' : '.'}
+                  </span>
+                ))}
             </p>
           </div>
 

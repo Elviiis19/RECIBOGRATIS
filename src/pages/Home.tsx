@@ -108,10 +108,16 @@ export function Home() {
   return (
     <>
       <SEO 
-        title="Gerador de Recibos Online Grátis e com Pix | Recibo Grátis" 
-        description="O Maior Portal de Recibos do Brasil. Gerador de recibo online simples, rápido e pronto para imprimir ou enviar por WhatsApp. Multiplataforma e 100% gratuito."
-        keywords="gerador de recibo online, recibo online, gerador de recibos, recibo simples, recibo com pix, fazer recibo online, emitir recibo, recibo multiplataforma"
-        schema={JSON.stringify({ "@context": "https://schema.org", "@graph": [websiteSchema, faqSchema] })}
+        title="Recibo Online Grátis | Gerador de Recibo Simples em Segundos"
+        description="Gere recibos online grátis em segundos. Sem cadastro e sem instalação. Modelos profissionais de recibo simples, pagamento, PIX, aluguel, salário e muito mais."
+        keywords="recibo simples, recibo online grátis, gerador de recibo online, recibo simples preencher, recibo de pagamento, emitir recibo online, recibo pronto imprimir"
+        schema={JSON.stringify({ 
+          "@context": "https://schema.org", 
+          "@graph": [
+            { ...websiteSchema, "@context": undefined }, 
+            { ...faqSchema, "@context": undefined }
+          ] 
+        })}
         url="https://recibogratis.com.br"
       />
       
@@ -124,10 +130,10 @@ export function Home() {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <h1 className="text-4xl md:text-5xl lg:text-5xl font-extrabold tracking-tight mb-4 drop-shadow-sm leading-tight">
-            Gerador de Recibos Online<br className="hidden md:block" /> Grátis e com Pix
+            Gerador de Recibo Simples<br className="hidden md:block" /> Grátis e com Pix
           </h1>
           <h2 className="text-base md:text-lg text-emerald-50 max-w-3xl mx-auto mb-6 font-medium leading-relaxed drop-shadow-sm">
-            O Maior Portal de Recibos do Brasil. Simples, rápido e pronto para imprimir ou enviar por WhatsApp.
+            Crie recibos online profissionais em segundos. Sem cadastro, sem instalação. Pronto para imprimir baixar PDF ou enviar por WhatsApp.
           </h2>
           
           <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-emerald-900 font-semibold text-sm md:text-base mb-8">

@@ -827,5 +827,93 @@ export const receiptModels = [
         answer: 'Uma vez aprovado, o orçamento obriga os contraentes. O prestador de serviço não pode cobrar um valor maior, a não ser que haja um acordo prévio com o consumidor sobre acréscimos imprevistos devidamente justificados.'
       }
     ]
+  },
+  {
+    id: 'prestacao-de-servico-com-logo',
+    slug: 'prestacao-de-servico-com-logo',
+    title: 'Prestação de Serviço com Logo',
+    shortDescription: 'Ideal para profissionais que desejam adicionar sua marca ao recibo.',
+    seoTitle: 'Recibo de Prestação de Serviço com Logo Personalizado em PDF',
+    seoDescription: 'Gere online um recibo de prestação de serviços incluindo seu logotipo. Demonstre mais profissionalismo e credibilidade com seu cliente, totalmente grátis.',
+    keywords: 'recibo de prestacao de servico com logo, recibo personalizado, recibo com marca, gerador de recibo com foto',
+    defaultReferenteA: 'Pagamento referente aos serviços prestados conforme combinado.',
+    icon: 'Briefcase'
+  },
+  {
+    id: 'prestacao-com-garantia-e-logo',
+    slug: 'prestacao-com-garantia-e-logo',
+    title: 'Prestação Com Garantia e Logo',
+    shortDescription: 'Gere seu documento de prestação com garantia declarada na observação.',
+    seoTitle: 'Recibo e Termo de Prestação com Garantia e Logo - Grátis PDF',
+    seoDescription: 'Emita seu termo de prestação de serviço com prazo de garantia e logotipo integrado. Ferramenta grátis para preencher e baixar a documentação em PDF.',
+    keywords: 'recibo com garantia e logo, prestacao de servico com garantia, documento com garantia legal',
+    defaultReferenteA: 'Serviços prestados. Prazo de garantia de 90 dias contra defeitos de execução.',
+    icon: 'ShieldCheck'
+  },
+  {
+    id: 'recibo-de-salario-com-logo',
+    slug: 'recibo-de-salario-com-logo',
+    title: 'Recibo de Salário com Logo',
+    shortDescription: 'Documento contábil formatado para comprovar o pagamento mensal.',
+    seoTitle: 'Recibo de Salário com Logo e Assinatura - Gerar PDF Grátis',
+    seoDescription: 'Crie online o recibo de pagamento de salário dos seus prestadores e colaboradores em formato PDF, com espaço dedicado para a sua logomarca ou selo da empresa.',
+    keywords: 'recibo de salario com logo, recibo de pagamento salario, holerite simples, recibo para funcionario',
+    defaultReferenteA: 'Pagamento de salário / serviços referente ao mês correspondente.',
+    icon: 'Wallet'
+  },
+  {
+    id: 'recibo-de-aluguel-com-logo',
+    slug: 'recibo-de-aluguel-com-logo',
+    title: 'Recibo de Aluguel Com Logo',
+    shortDescription: 'Feito para imobiliárias e corretores, destacando sua marca.',
+    seoTitle: 'Recibo de Aluguel com Logo - Modelo para Imobiliária Grátis',
+    seoDescription: 'Corretor e locador, emita seu recibo de aluguel completo com possibilidade de adicionar o logotipo da sua corretora. Gera PDF grátis e pronto para impressão.',
+    keywords: 'recibo de aluguel com logo, modelo recibo aluguel imobiliaria, recibo de corretor',
+    defaultReferenteA: 'Pagamento do aluguel / taxas do imóvel referente ao mês atual.',
+    icon: 'Home'
+  },
+  {
+    id: 'ordem-de-servico-com-logo',
+    slug: 'ordem-de-servico-com-logo',
+    title: 'Ordem de Serviço com Logo',
+    shortDescription: 'Abra chamados para assistência técnica e reparos com logo personalizável.',
+    seoTitle: 'Gerador de Ordem de Serviço com Logo (OS) - Online PDF',
+    seoDescription: 'Gere uma ordem de serviço (OS) completa, personalizando com a logomarca da sua empresa. Faça orçamentos, diagnósticos e controle de equipamentos rápido e fácil.',
+    keywords: 'ordem de servico com logo, os com logo, gerador de ordem de servico, assistencia tecnica',
+    defaultReferenteA: 'Reparo / diagnóstico / abertura de chamado técnico. Detalhes: [preencha as condições].',
+    icon: 'Wrench'
+  },
+  {
+    id: 'nota-promissoria-com-avalista',
+    slug: 'nota-promissoria-com-avalista',
+    title: 'Nota Promissória com Avalista',
+    shortDescription: 'Especifique a promessa de pagamento em termo seguro e atualizado.',
+    seoTitle: 'Modelo de Nota Promissória com Avalista Pronto - Baixe em PDF',
+    seoDescription: 'O gerador mais seguro de nota promissória. Promessa de pagamento simplificada. Preencha online e tenha o PDF formatado com base nos critérios da lei.',
+    keywords: 'nota promissoria com avalista, fazer nota promissoria, preencher nota promissoria online, promissoria gratis',
+    defaultReferenteA: 'Esta nota é vinculada ao negócio / bem / serviço [descreva aqui]. Caso atrase o pagamento, as condições se aplicam solidariamente ao avalista designado.',
+    icon: 'FileSignature'
+  },
+  {
+    id: 'termo-de-prestacao-de-servico',
+    slug: 'termo-de-prestacao-de-servico',
+    title: 'Termo de Prestação de Serviço',
+    shortDescription: 'Formalize um acordo simples de execução determinando direitos e valores.',
+    seoTitle: 'Termo de Prestação de Serviço Simples - Gere em PDF Online',
+    seoDescription: 'Quer formalizar um pequeno serviço? Gere um termo de prestação de serviços com clareza. Ferramenta online formata seu documento e exporta gratuito em instantes.',
+    keywords: 'termo de prestacao de servico, contrato simples de prestacao de servico, documento de garantia de servico',
+    defaultReferenteA: 'Execução das seguintes tarefas: [descreva a lista de serviços ou objetivos]. Validado por assinatura dupla.',
+    icon: 'FileLock'
+  },
+  {
+    id: 'vale-transporte',
+    slug: 'vale-transporte',
+    title: 'Vale-Transporte',
+    shortDescription: 'Recibo e ateste do repasse de valores ou bilhetagem aos funcionários.',
+    seoTitle: 'Recibo Declaração de Vale-Transporte / Auxílio Transporte - Grátis',
+    seoDescription: 'Gere recibo de VT ou declaração de ajuda de custo e deslocamento para prestadores e trabalhadores domésticos em poucos cliques. Arquivo em PDF gratuito.',
+    keywords: 'recibo de vale transporte, declaracao de vale transporte, auxilio combustivel recibo, folha de vt',
+    defaultReferenteA: 'Custeio de passagens e deslocamentos para executar atividades pertinentes durante [período de tempo].',
+    icon: 'Bus'
   }
 ];

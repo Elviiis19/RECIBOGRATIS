@@ -29,7 +29,7 @@ export function SEO({ title, description, keywords, schema, url }: SEOProps) {
       <meta name="twitter:description" content={description} />
       
       {schema && (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schema }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schema }} data-rh="true" />
       )}
     </Helmet>
   );
