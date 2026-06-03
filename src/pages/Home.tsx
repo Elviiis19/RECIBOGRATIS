@@ -108,9 +108,9 @@ export function Home() {
   return (
     <>
       <SEO 
-        title="Recibo Online Grátis | Gerador de Recibo Simples em Segundos"
-        description="Gere recibos online grátis em segundos. Sem cadastro e sem instalação. Modelos profissionais de recibo simples, pagamento, PIX, aluguel, salário e muito mais."
-        keywords="recibo simples, recibo online grátis, gerador de recibo online, recibo simples preencher, recibo de pagamento, emitir recibo online, recibo pronto imprimir"
+        title="Gerador de Recibos, Declarações e Documentos Online Grátis em PDF"
+        description="Crie recibos, declarações e notas promissórias online grátis. Escolha o modelo, preencha no navegador e baixe PDF. Sem cadastro e sem instalação."
+        keywords="recibo simples, recibo online grátis, gerador de recibos, gerador de documentos online, nota promissória, declaração, emitir recibo online, recibo fácil preencher"
         schema={JSON.stringify({ 
           "@context": "https://schema.org", 
           "@graph": [
@@ -130,10 +130,10 @@ export function Home() {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <h1 className="text-4xl md:text-5xl lg:text-5xl font-extrabold tracking-tight mb-4 drop-shadow-sm leading-tight">
-            Gerador de Recibo Simples<br className="hidden md:block" /> Grátis e com Pix
+            Gerador de Recibos e Documentos Online<br className="hidden md:block" /> Grátis e com Pix
           </h1>
           <h2 className="text-base md:text-lg text-emerald-50 max-w-3xl mx-auto mb-6 font-medium leading-relaxed drop-shadow-sm">
-            Crie recibos online profissionais em segundos. Sem cadastro, sem instalação. Pronto para imprimir baixar PDF ou enviar por WhatsApp.
+            Crie recibos, declarações, notas promissórias e contratos profissionais em segundos. Escolha o modelo, preencha no navegador e baixe em PDF sem cadastro.
           </h2>
           
           <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-emerald-900 font-semibold text-sm md:text-base mb-8">
@@ -263,25 +263,30 @@ export function Home() {
           <div className="mt-24">
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 text-center tracking-tight">Como fazer um recibo online?</h2>
             <p className="text-xl text-gray-600 mb-12 leading-relaxed text-center max-w-3xl mx-auto">
-              Fazer um recibo online nunca foi tão fácil. Nosso gerador de recibos foi projetado para ser intuitivo e rápido, permitindo que você crie documentos com validade comercial em poucos cliques.
+              Fazer um recibo ou documento online nunca foi tão simples. Nosso gerador foi projetado para ser intuitivo e rápido, permitindo que você crie dezenas de documentos com validade comercial em poucos cliques.
             </p>
             
             <div className="bg-white rounded-3xl p-8 md:p-12 text-center shadow-sm border border-gray-100">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                   <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
-                  <h3 className="font-bold text-emerald-900 mb-2">Escolha o Modelo</h3>
-                  <p className="text-emerald-800 text-sm">Selecione o tipo de recibo que melhor se adapta à sua necessidade na lista acima (ex: recibo de pagamento, aluguel, prestação de serviços).</p>
+                  <h3 className="font-bold text-emerald-900 mb-2">Escolha o Documento</h3>
+                  <p className="text-emerald-800 text-sm">Selecione o tipo de modelo ideal (recibo, declaração, promissória, termo ou OS).</p>
                 </div>
                 <div>
                   <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
                   <h3 className="font-bold text-emerald-900 mb-2">Preencha os Dados</h3>
-                  <p className="text-emerald-800 text-sm">Digite os valores, nomes e documentos. Veja a prévia do recibo sendo montada em tempo real na sua tela.</p>
+                  <p className="text-emerald-800 text-sm">Digite os valores e os dados requeridos e continue passo a passo.</p>
                 </div>
                 <div>
                   <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
-                  <h3 className="font-bold text-emerald-900 mb-2">Imprima ou Envie</h3>
-                  <p className="text-emerald-800 text-sm">Clique no botão para imprimir, salvar o arquivo em formato PDF ou enviar diretamente via WhatsApp para o seu cliente.</p>
+                  <h3 className="font-bold text-emerald-900 mb-2">Pré-visualize</h3>
+                  <p className="text-emerald-800 text-sm">Veja a prévia do documento sendo montada em tempo real na sua tela, exatamente como será impresso.</p>
+                </div>
+                <div>
+                  <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">4</div>
+                  <h3 className="font-bold text-emerald-900 mb-2">Baixe em PDF ou Imprima</h3>
+                  <p className="text-emerald-800 text-sm">Pronto! Salve o documento em PDF de graça, mande por WhatsApp ou imprima já.</p>
                 </div>
               </div>
             </div>

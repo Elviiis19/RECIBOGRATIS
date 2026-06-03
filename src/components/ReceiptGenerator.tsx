@@ -476,7 +476,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
 
   return (
     <>
-      <AdSense key={`top-${currentStep}`} />
+      <AdSense key={`ad-${currentStep}-${Date.now()}`} />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mt-8">
       {/* Form Section - Wizard */}
       <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">

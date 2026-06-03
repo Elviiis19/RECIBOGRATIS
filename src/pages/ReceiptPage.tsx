@@ -48,16 +48,16 @@ export function ReceiptPage() {
 
   const heroSubtitle = model.seoDescription || `Gere seu documento de ${titleLower} grátis, preencha online e baixe em PDF na hora. Sem burocracia e sem cadastro.`;
 
-  const defaultIntro = `O ${titleLower} é um documento fundamental utilizado para comprovar formal e legalmente que uma transação ou serviço financeiro foi pago. Ele é emitido por quem recebe o pagamento em favor de quem pagou. Ter um recibo bem estruturado é indispensável para evitar cobranças duplicadas, manter o controle de caixa, garantir a organização financeira da sua empresa e servir como documento contábil para o seu faturamento mensal, além de evitar qualquer divergência entre as partes.`;
+  const defaultIntro = `O ${titleLower} é um instrumento contábil fundamental utilizado para comprovar formalmente e legalmente que uma transação, investimento ou serviço financeiro foi pago e quitado. Emitido por quem recebe os fundos em favor do pagador, sua guarda garante segurança patrimonial. Ter um recibo bem estruturado é indispensável para evitar dupla tributação e cobranças indevidas, além de manter o controle rigoroso de fluxo de caixa, garantir a organização contábil da sua empresa e servir como lastro documental para o faturamento mensal.`;
 
   const defaultSpecificDetailsList = [
-    'Separação clara entre valores de orçamento, descontos financeiros e prestação de serviço.',
-    'Detalhamento preciso do local, formato e circunstância do trabalho prestado para sua contabilidade.',
-    'Indicação transparente da fase do pagamento (adiantamento p/ controle de caixa, parcial, quitação).',
-    'Menção de registros, conselhos de classe ou alvarás, ajudando no balanço patrimonial e tributário.'
+    'Separação explícita entre custos operacionais, juros, descontos financeiros e o valor principal da prestação de serviço.',
+    'Detalhamento fiduciário do local, formato e circunstâncias da operação para transparência da contabilidade.',
+    'Indicação transparente da fase de liquidação de pagamento (sinal, parcela bancária, quitação de dívida ou adiantamento).',
+    'Menção de cadastros, conselhos de classe ou alvarás, ajudando no balanço patrimonial e apuração tributária (IRPF e IRPJ).'
   ];
 
-  const defaultLsiText = `Tornar este documento um hábito é um passo de excelência na gestão financeira e regularidade das suas atividades comerciais, servindo inclusive como suporte contábil perante a Receita Federal na declaração do IRPF e afastando necessidade de RPA em diversas dinâmicas autônomas isentas. Manter seu fluxo de caixa documentado é essencial para planejamento financeiro e linhas de crédito.`;
+  const defaultLsiText = `Integrar a emissão deste documento ao seu planejamento financeiro diário é um passo de excelência na gestão orçamentária e regularidade fiscal das suas atividades comerciais. O documento serve como suporte contábil robusto perante a Receita Federal durante a declaração do Imposto de Renda e afasta a necessidade de controles paralelos de contabilidade, blindando sua receita contra multas. Manter o histórico de operações de caixa 100% documentado facilita a aprovação de linhas de crédito, obtenção de empréstimos e consolidação do crédito bancário e financeiro da empresa.`;
 
   const defaultCtaText = `Pare de usar folhas soltas ou arquivos antigos em Word. Crie, emprima em PDF e envie este comprovante por WhatsApp imediatamente.`;
 
