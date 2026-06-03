@@ -6,7 +6,20 @@ import { createServer } from 'vite';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const ferramentasRoutes = [
+  { path: '/ferramentas/valor-por-extenso', title: 'Calculadora de Valor por Extenso | Recibo Grátis', description: 'O conversor de valor por extenso é uma ferramenta online e gratuita...' },
+  { path: '/ferramentas/calculadora-retencao-impostos', title: 'Calculadora Retenção de Impostos | Recibo Grátis', description: '...' },
+  { path: '/ferramentas/calculadora-desconto-multa', title: 'Calculadora de Desconto e Multa | Recibo Grátis', description: '...' },
+  { path: '/ferramentas/calculadora-maquininha-cartao', title: 'Calculadora Taxas da Maquininha | Recibo Grátis', description: '...' },
+  { path: '/ferramentas/calculadora-dias-uteis', title: 'Calculadora de Dias Úteis | Recibo Grátis', description: '...' },
+  { path: '/ferramentas/conversor-horas-trabalhadas', title: 'Conversor de Horas | Recibo Grátis', description: '...' },
+  { path: '/ferramentas/validador-formatador-cpf-cnpj', title: 'Validador CPF/CNPJ | Recibo Grátis', description: '...' },
+  { path: '/ferramentas/consultador-codigo-ibge', title: 'Consultador IBGE | Recibo Grátis', description: '...' },
+  { path: '/ferramentas/gerador-pix-copia-e-cola', title: 'Gerador PIX Copia e Cola | Recibo Grátis', description: '...' }
+];
+
 const routes = [
+  ...ferramentasRoutes,
   {
     path: '/',
     title: 'Gerador de Recibos Online Grátis e com Pix | Recibo Grátis',

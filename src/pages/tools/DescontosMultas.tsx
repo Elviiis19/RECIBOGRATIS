@@ -111,14 +111,14 @@ export function DescontosMultas() {
         <AdSense />
         
         <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
-          <h2>Como calcular Descontos, Acréscimos e Multas?</h2>
-          <p>Seja para aplicar uma promoção na venda do seu produto corporativo, ou para aplicar <strong>multas por atraso</strong> no pagamento de aluguéis e boletos, nossa calculadora resolve a matemática da porcentagem de forma instantânea sem precisar de fórmulas em planilhas do Excel.</p>
+          <h2>Como calcular descontos, acréscimos, juros e multas online?</h2>
+          <p>Seja para aplicar uma promoção na venda do seu produto corporativo, ou para calcular facilmente <strong>multas por atraso</strong> no pagamento de aluguéis e boletos de condomínio, nossa calculadora resolve a matemática da porcentagem e juros simples instantaneamente sem que você precise montar fórmulas ou usar planilhas de Excel. Insira o <strong>Valor Inicial</strong>, digite a taxa da <strong>Porcentagem (%)</strong>, e escolha se deseja abater ou aumentar a quantia acionando a chave de Desconto ou Acréscimo.</p>
 
-          <h3>Cálculo de Desconto Comercial</h3>
-          <p>Dar desconto é uma prática excelente de marketing e retenção. Se você vende uma consultoria ou produto por <strong>R$ 1.500,00</strong>, e deseja aplicar uma condição à vista concedendo um desconto de <strong>15%</strong>. A calculadora mostrará exatamente o valor final: a dedução será de R$ 225,00, gerando um pagamento líquido para você de R$ 1.275,00.</p>
+          <h3>Cálculo de Desconto Comercial à vista</h3>
+          <p>Dar ou conceder desconto é uma prática excelente de marketing e retenção para antecipar recebíveis. Se você vende uma consultoria jurídica, ou um pacote de roupas por <strong>R$ 1.500,00</strong>, e deseja aplicar uma condição forte à vista em Pix ou Dinheiro concedendo um desconto fechado de <strong>15%</strong>. A calculadora desvendará e mostrará integralmente o valor final: a dedução será exata de R$ 225,00, formatando e gerando um pagamento líquido direto e claro para você de R$ 1.275,00.</p>
 
-          <h3>Cálculo de Multas em Boletos ou Recibos em Atraso</h3>
-          <p>Por lei (Código de Defesa do Consumidor brasileiro), a multa máxima por atraso em boletos e faturas de cartão de crédito e mensalidades escolares, referentes a fornecimento regular de produtos e serviços <strong>não pode exceder a marca de 2% do valor da prestação</strong>. O juros de mora usual costuma ser limitado a 1% ao mês (aplicado pro-rata dependendo dos dias de atraso). Ao utilizar a calculadora para Multa (Acréscimo), você tem plena segurança de gerar o boleto corrigido correto para seu cliente sem ferir leis de proteção e combate a usura.</p>
+          <h3>Cálculo de Multas em Boletos ou Recibos em Atraso por dia</h3>
+          <p>Por lei federal no Brasil (via Código de Defesa do Consumidor brasileiro nas premissas contratuais), a multa punitiva máxima admissível de atraso em boletos e faturas de cartão de crédito e mensalidades referentes a fornecimento regular contínuo de produtos e serviços básicos <strong>não pode exceder em tese a marca de 2% do valor original daquela prestação</strong>. O juros de mora financeiro usual estipulado pelo Banco Central costuma ser majoritariamente limitado a 1% ao mês civil de 30 dias (aplicado diariamente calculando pro-rata dependendo do acréscimo de dias decorridos no atraso do título). Ao utilizar a nossa calculadora para cômputo de Multa ou Acréscimo cumulativo, você encontra plena segurança matemática para gerar o novo boleto atualizado e corrigido e emitir o recibo para seu cliente ou inquilino sem chance alguma de cobrar errado, lesar ou ferir as rígidas leis de proteção financeira ou amargar penas de usura.</p>
 
           <hr className="my-8" />
           
@@ -127,25 +127,25 @@ export function DescontosMultas() {
           <div className="space-y-4 not-prose mt-6">
             <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                Qual a diferença entre Acréscimo e Juros?
+                Qual a diferença financeira legal entre Acréscimo Fixo, Multa de Atraso e Juros de Mora?
                 <span className="transition group-open:rotate-180">
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
               <p className="mt-4 text-gray-600 leading-relaxed">
-                Um <strong>acréscimo</strong> ou <strong>multa</strong> geralmente é fixo – incide assim que a data passou. Já os <strong>juros moratórios</strong> são variáveis de acordo com o tempo (a taxa vai aumentando, ex: juros diários). Para calcular a multa fixa de um boleto de aluguel por exemplo (10%), basta na nossa calculadora digitar o valor daquele mês e aplicar acréscimo "10".
+                A <strong>multa por atraso imperativa (cláusula penal de atraso)</strong> tem natureza punitiva sancionatória financeira. Geralmente é cobrada numa pancada e é uma taxa fixa estanque — incide pesadamente no topo da cabeça do título no instante exato e no primeiro dia em que a data pactuada passou em branco sem quitação. Já os <strong>juros moratórios</strong> detêm flagrante caráter indenizatório e temporal pela indisponibilidade prolongada do recurso privado e são variáveis de acordo estritamente com o tempo excedido (a taxa vai esticando e aumentando, ex: juros diários fracionados de 0,033% ao dia multiplicados). Para calcular livremente o tamanho da multa fixa pre-combinada de um boleto comercial (10% na cabeça), preencha em nossa matriz interativa o fator do valor bruto inadimplente daquele mês isolado e aplique a operação Acréscimo ditando a alíquota em "10".
               </p>
             </details>
             
             <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                Posso cobrar multa acima de 2% no Brasil?
+                Posso cobrar e inserir em contrato uma multa por atraso acima de 2% no Brasil?
                 <span className="transition group-open:rotate-180">
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
               <p className="mt-4 text-gray-600 leading-relaxed">
-                Segundo o Código de Defesa do Consumidor (Art. 52, § 1º), nas relações de consumo gerais (escola, internet, plano de saúde), as multas de mora não poderão ser superiores a <strong>2% (dois por cento)</strong>. Excetuam-se contratos específicos (como taxa condominial que tem regra própria no Código Civil onde a multa pode ser estipulada diferentemente) e locações de imóveis, que se regem pela Lei do Inquilinato (onde a multa moratória pactuada em contrato – como os comuns 10% – prevalece e é permitida, já que não é relação de consumo).
+                Via de regra majoritária, nos casos subordinados às diretrizes de consumo amparados pelo Código de Defesa do Consumidor puro (Art. 52, § 1º) — como nas situações de faturas de telefonia fixa ou celular, internet e até mensalidade das escolas particulares — as multas sancionatórias instituídas obrigatoriamente não poderão jamais ser estipuladas fixando valores superiores ao teto de <strong>2% (dois por cento completos)</strong>.<br/><br/>Contudo se o seu ofício recair, ou você for credor de nichos e contratos civis privados (como taxas de condomínio, regido por balizas específicas da convenção imersa no Código Civil) - e principalmente nos contratos formalizados de locações urbanas e imóveis residenciais cíveis blindados sob a robustez da Lei do Inquilinato estrita, a multa moratória pactuada em contrato (que flutua comumente nos implacáveis e tradicionais 10% cobrados na quitação do título tardio) é tida historicamente e considerada incontestável, permitida de livre pactuação judicial, fundamentalmente por não se tratar de uma relação clássica hierárquica típica de balcão de prateleira de consumo amparada no CDC.
               </p>
             </details>
           </div>

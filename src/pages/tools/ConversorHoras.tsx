@@ -95,15 +95,15 @@ export function ConversorHoras() {
         <AdSense />
         
         <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
-          <h2>Como converter minutos no relógio para cálculo em Reais?</h2>
-          <p>Para trabalhadores cujo modelo comercial envolve venda da produtividade e hora técnica (desenvolvedores, arquitetos de sistema, contadores e jornalistas), fechar um mês faturando a folha tem uma pequena pegadinha. O formato relógio exibe as coisas com base na escala sexagesimal <strong>(do 0 aos 60 minutos)</strong>, no entanto, para multiplicar uma hora pelo salário base (seu rate, em dinheiro decimal), os minutos precisam ser transformados para sua base da "unidade percentual de 0 a 100".</p>
+          <h2>Como calcular horas trabalhadas para Reais online?</h2>
+          <p>Para profissionais e freelancers cujo modelo comercial envolve venda da produtividade baseada na carga de <strong>hora técnica</strong> (desenvolvedores de software, profissionais de TI PJ, arquitetos, contadores, redatores e designers), fechar o final de um mês de expediente e gerar e faturar a nota da folha de pagamento exige uma correção matemática para não operar fora e perder os quebra-cabeças da conta. O formato relógio exibe e entrega o balanço baseada fidedignamente na mecânica da escala sexagesimal <strong>(fechada rígida do 0 aos 60 minutos de vida)</strong>, no entanto, para multiplicar financeiramente essa "hora gasta de vida" pelo salário base hora acordado (o seu "rate" monetário contratual ou valor hora, fixado sempre em dinheiro base decimal e real fiduciário da grade), os resíduos em minutos de relógio precisam ser perfeitamente emparelhados e transformados e desdobrados de fração para sua base financeira correspondente pura da "unidade percentual de 0 a 100". Ao utilizar o nosso <strong>conversor de horas trabalhadas no formato simples e enxuto</strong>, você ganha rapidez cravando apenas o <strong>tempo bruto e o Valor da Hora (R$)</strong>.</p>
 
-          <h3>Trinta minutos são 0.50. Entendendo o fator</h3>
+          <h3>Trinta minutos no relógio são iguais a 0.50 (meio porcento). Entendendo o fator</h3>
           <p>
-             Se você trabalhou por <strong>121 horas e 30 minutos (121:30)</strong> no seu painel de controle (Jira, Trello, Toggl, Rescue Time), e seu valor hora contratado é R$ 25,00, muitas pessoas leigas abrem a calculadora física do celular e fazem na mão erradamente a conta literal <code>121,30 x 25 = R$ 3032,50</code>. Esse cálculo joga dinheiro da sua fatura no lixo!
+             Se você logou e labutou a exata porção e métrica de <strong>121 horas cheias e mais 30 minutos pendurados (121:30)</strong> atreladas no seu relógio ou no sumário do painel de controle (ferramentas como Jira, Trello, Toggl Track relatórios, Rescue Time ou Clockify), e o seu polpudo valor de margem de hora contratado negociado bate fechado exatos R$ 25,00, muitas pessoas desesperadas, apressadas e até empresários de longo tempo abrem a tradicional calculadora de bolso ou do próprio menu do celular e operam na mão crua e de forma erradamente imperdoável a conta contábil literal montando <code>121,30 vezes x 25 = Faturamento Gerando de R$ 3.032,50</code>. Esse erro infantil amador contábil de soma base, joga literalmente fatia do suor do seu rico dinheiro oriundo da sua fatura no lixo de forma invisível mês a mês!
           </p>
           <p>
-             Como meia hora (30 minutos) é precisamente <strong>metade de uma hora (fração 1/2)</strong>, no modelo decimal o 30 vira um ".50" ou "50 na centena" — sendo a forma correqueira o valor correspondente a <code>121,50</code>! Nossa calculadora converte precisamente para gerar seu folha sem perder os centavos devidos.
+             Na matemática real da fração, como meia hora gasta (esses 30 minutos de relógio rodando cronômetro) são precisamente no mundo físico e palpável a <strong>metade de uma hora redonda viva na Terra (fração pura 1/2)</strong>, então no modelo do arranjo matemático real decimal o balanço do número 30 vira imperativamente e sobe encorpando a carga de rate no extrato final para ser um ".50" ou então dito "50 partes quebradas na imensa centena percentual cravada" — sendo nesse caso a forma correqueira o valor efetivo e real financeiro o correspondente estrito e puro atrelado montado numericamente em <code>121,50</code> (onde multiplicando gera limpos R$ 3.037,50 de caixa para o seu bolso, ganho de de exatos R$ 5 reais resgatados num único fardo simples varrido em questão de mero crivo). Nossa <strong>calculadora de conversor de hora relógio para hora centesimal comercial</strong> reverte fidedignamente esse fator embutindo precisamente o conversor para gerar a pré-visualização real do extrato bruto e holerite da sua suada folha na tela central sem comer ou que você perder a poeira os valiosos centavos devidos atrelados aos seus parcos minutos trabalhados fora da curva redonda.
           </p>
 
           <hr className="my-8" />
@@ -113,25 +113,25 @@ export function ConversorHoras() {
           <div className="space-y-4 not-prose mt-6">
             <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                O que é o rate por hora? Como posso preencher uma promissória com isso?
+                O que significa horas In Itinere?
                 <span className="transition group-open:rotate-180">
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
               <p className="mt-4 text-gray-600 leading-relaxed">
-                O formato e a ferramenta online em nossa página ajuda o profissional a tirar do relógio e faturar seu "RPA" da forma perfeita. Uma vez gerado qual é o dinheiro real da sua contra prestação nos balcões baseada no seu rate (custo por hr contratado da terceirização PJ B2BJ), você deve copiar o texto final em Reais e visitar a sub página do menu de Recibos para de fato emitir o PDF que documenta seu lucro.
+                As conhecidas horas "in itinere" referem-se ao tempo gasto pelo trabalhador no deslocamento entre sua residência e o local de trabalho. Com a Reforma Trabalhista (Lei nº 13.467/2017), o tempo de deslocamento não é mais computado na jornada de trabalho, por não ser mais considerado tempo à disposição do empregador.
               </p>
             </details>
             
             <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                15 minutos de hora extra equivale a quanto na conversão?
+                Como 15 minutos de hora extra equivalem a quanto na conversão matemática?
                 <span className="transition group-open:rotate-180">
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
               <p className="mt-4 text-gray-600 leading-relaxed">
-                Na matemática da calculadora de ponto para gerar seu custo hora, uma fração relógio de <strong>15 minutos</strong> corresponde estritamente a um quarto (1/4) da hora. 1 dividido por quatro gera uma fatia base proporcional de <strong>0,25 da unidade</strong> matemática no Brasil. Se seu recibo acusa uma margem de trabalho mensal extra de 52 horas inteiras e mais o quebrado numérico de quinze minutos extra, o input vai ler 52:15, contudo o valor para multíplico final da base de cálculo da CLT é 52,25.
+                Na matemática da calculadora corporativa, uma fração de <strong>15 minutos</strong> corresponde estritamente a um quarto (1/4) de hora. Simplificando: a fração relógio 15 equivale, financeiramente, à base 0,25. Se o seu holerite indica 52 horas e 15 minutos extras (52:15 relógio), o input a ser utilizado pelo RH ou no seu multiplicador contábil para gerar reais será 52,25 horas.
               </p>
             </details>
           </div>

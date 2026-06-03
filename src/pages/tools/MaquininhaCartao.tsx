@@ -97,15 +97,18 @@ export function MaquininhaCartao() {
         <AdSense />
         
         <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
-          <h2>Como calcular o repasse da taxa da maquininha?</h2>
-          <p>Comerciantes que utilizam maquininhas de cartão (Stone, PagSeguro, Cielo, Mercado Pago, Ton, InfinPay, Rede, etc.) para vender perdem uma pequena parcela por cada transação, conhecida como MDC (Merchant Discount Rate) ou simplesmente <strong>taxa do cartão</strong>. Para pequenos autônomos, prestadores de serviços e oficinas que trabalham com margens de lucro apertadas, repassar esse custo de comodidade diretamente para o cliente se tornou uma saída vitalícia.</p>
+          <h2>Como usar a Calculadora da Taxa da Maquininha para Repasse?</h2>
+          <p>Se você precisa garantir um valor líquido na sua conta após a venda e quer repassar os custos da maquininha para o cliente final, nossa <strong>calculadora de repasse de taxas online</strong> realiza a engenharia reversa instantaneamente. Insira primeiramente o <strong>Valor Líquido Desejado (R$)</strong> (ou seja, quanto você quer que efetivamente caia no seu extrato). Logo abaixo, insira a <strong>Taxa da Maquininha (%)</strong> aplicável àquela transação (débito, crédito à vista ou a soma do parcelamento embutido do seu equipamento Mercado Pago, PagSeguro, Stone, Ton, etc).</p>
 
-          <h3>A fórmula do repasse de taxas na matemática financeira</h3>
-          <p>Um erro comum que os vendedores cometem é simplesmente adicionar a taxa da máquina sobre o valor total. Exemplo errado: se a taxa é 5% e seu serviço é 100 reais, somar os 5% vira 105 reais. No entanto, quando você passar R$ 105 na máquina, ela tirará 5% sobre 105, que dá 5,25. Você acaba recebendo R$ 99,75 (você teve um prejuízo e não recebeu o valor cheio).</p>
+          <h2>Como calcular corretamente o repasse da taxa da maquininha?</h2>
+          <p>Saber calcular as taxas de juros de pagamento não é uma mera questão de somar o percentual. Comerciantes que utilizam maquininhas de cartão de crédito e débito (Cielo, InfinityPay, SumUp, Rede, SafraPay, etc.) para vender perdem uma pequena parcela por cada transação, conhecida no jargão técnico como MDR (Merchant Discount Rate) ou simplesmente a <strong>taxa fixa do cartão</strong>. Para pequenos autônomos, prestadores de serviços, pintores e oficinas que trabalham cravados com apertadas margens de lucro restritas, repassar pontualmente esse custo invisível de comodidade do dinheiro de plástico diretamente embutido para o cliente final se tornou uma saída vitalícia de sobrevivência.</p>
+
+          <h3>Qual a fórmula correta do repasse de taxas na matemática financeira pura?</h3>
+          <p>Muitos empreendedores quebram quando erram a lógica aqui e acham que um erro é simples adição básica. Exemplo errado cruelmente comum: se a taxa acordada do seu POS é 5% e seu serviço vale na tabela exatos 100 reais, muitos vendedores decidem somar diretamente os 5% que vira R$ 105,00 que são cobrados visualmente na tela da maquineta. No entanto, o sistema opera retirando a taxa por dentro: quando você passar R$ 105 ali, ela tirará 5% sobre 105 (e não sobre 100), o que desconta na tela dela R$ 5,25. Desse modo enviesado, você acaba recebendo R$ 99,75 (você teve um prejuízo residual oculto de R$ 0,25 e não recebeu o valor cheio).</p>
           
-          <p><strong>A fórmula exata e correta de Markup Financeiro:</strong><br/>
-          <code>Valor a ser Cobrado = Valor Líquido / ((100 - Taxa%) / 100)</code><br/>
-          Nossa calculadora utiliza o divisor inverso para descobrir exatamente de quantos reais deve ser o aumento no visor da maquininha para que, quando ela roubar a margem combinada por ela mesma, o que respingue no seu extrato seja cirurgico do zero da direita à esquerda: o seu lucro puro.</p>
+          <p><strong>A fórmula exata e indestrutível de Markup Financeiro Inverso (Markup-Divisor):</strong><br/>
+          <code>Valor Idealizado a ser Cobrado no Visor = Valor Líquido / ((100 - Taxa%) / 100)</code><br/>
+          Nossa calculadora utiliza silenciosamente nos bastidores esse divisor matemático inverso para descobrir com extrema precisão cibernética de quantos centavos extras o alvo deve subir o preço exposto na máquina para que, quando a credenciadora deduzir, arrancar e abocanhar a margem percentual comissionada por ela mesma, o restolho que respingue glorioso no seu extrato seja absoluto do zero: apenas o seu lucro íntegro combinado de balcão.</p>
 
           <hr className="my-8" />
           
@@ -114,25 +117,25 @@ export function MaquininhaCartao() {
           <div className="space-y-4 not-prose mt-6">
             <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                É legal (permitido por lei) repassar a taxa da maquininha para o cliente final?
+                É estritamente legal (permitido por lei) repassar escancaradamente a taxa da maquininha para o cliente final pagador?
                 <span className="transition group-open:rotate-180">
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
               <p className="mt-4 text-gray-600 leading-relaxed">
-                <strong>Sim.</strong> Desde que a Lei 13.455/2017 entrou em vigor em nosso país, comerciantes e prestadores de serviços estão autorizados formalmente a cobrar preços diferenciados dependendo do meio de pagamento e do prazo ou parcelamento (como crédito, débito, boleto, ou dinheiro/PIX). O lojista contudo, deve informar essa flutuação de forma transparente, geralmente via cartaz sobre o balcão do caixa.
+                <strong>Sim, é perfeitamente lícito e ancorado em robusta regulamentação federal.</strong> Desde que a polêmica Lei Federal nº 13.455 entrou definitivamente em pleno vigor no Brasil no longínquo 2017, comerciantes gigantes ou nano prestadores de serviços de rua estão expressamente autorizados a cobrar deliberadamente e livremente preços diferenciados flutuando a precificação baseada dependendo do meio ou da roupagem do trâmite de pagamento exigido e amparado do eventual prazo ou alongamento de parcelamento (como crédito crivado, débito líquido, boleto rotineiro, vale-alimentação subsidiado ou Pix/Dinheiro vivo). O lojista contudo, por respeito basilar ao Código de Defesa das massas do Consumidor, deve apenas garantir informar e pregar essa alteração flutuante de forma didática e transparente prévia (nunca de emboscada), divulgando geralmente via placa, adesivo ou cartaz vistoso pendurado sobreposto a estrutura frontal do balcão de negociação do caixa.
               </p>
             </details>
             
             <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                Essa calculadora funciona para vendas parceladas no crédito?
+                Essa calculadora aqui funciona ou serve para as robustas vendas faturadas que são muito parceladas em carnê pelo cartão de crédito (Ex: de 10x ou 12x)?
                 <span className="transition group-open:rotate-180">
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
               <p className="mt-4 text-gray-600 leading-relaxed">
-                Sim, você basta que você saiba do portal da sua adquirente qual a taxa cumulativa exata total (a taxa da modalidade do crédito parcelado em X vezes somada ao CDI da parcela se por ventura antecipada). Insira o juros total consolidado no campo "%" da nossa calculadora e veja quanto passar na maquineta.
+                A matemática dela aceita rigorosamente qualquer teto fracionado, logo essa suíte atua na resolução em bloco sim! No entanto preste uma máxima e dupla atenção em um enorme detalhe prático: você tem que procurar ou entrar antecipadamente no seu portal painel virtual dentro da sua adquirente/processadora e enxergar cirurgicamente com lupa "Qual a tabela de taxa cumulativa percentual cheia, absoluta total deduzida no apanhado dos doze meses" (essa seria a mescla agressiva combinando o MDR tradicional flat da simples modalidade do cartão crédito daquele banco emissor somada aos corrosivos juros da linha de crédito para antecipar a rodagem diária via D+1 e receber amanhã à vista o valor daquelas 12 esticadas parcelas que vão pingar distantes). Ao encontrar que esse pacotão maciço lhe corrói por exemplo 19,5% engloabado de tudo, basta cravar de primeira esse duro numeral aglutinado 19,5 cru no campo neutro '%' solitário da nossa calculadora para arrancar com maestria o seu veredito isolado.
               </p>
             </details>
           </div>
