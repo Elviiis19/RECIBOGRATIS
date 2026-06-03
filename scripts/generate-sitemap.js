@@ -19,6 +19,17 @@ while ((match = slugRegex.exec(modelsContent)) !== null) {
 
 const baseUrl = 'https://recibogratis.com.br';
 
+const ferramentas = [
+  'valor-por-extenso',
+  'calculadora-retencao-impostos',
+  'calculadora-desconto-multa',
+  'calculadora-maquininha-cartao',
+  'calculadora-dias-uteis',
+  'conversor-horas-trabalhadas',
+  'validador-formatador-cpf-cnpj',
+  'consultador-codigo-ibge'
+];
+
 const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -31,6 +42,11 @@ const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+${ferramentas.map(slug => `  <url>
+    <loc>${baseUrl}/ferramentas/${slug}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>`).join('\n')}
   <url>
     <loc>${baseUrl}/termos-de-uso</loc>
     <changefreq>monthly</changefreq>

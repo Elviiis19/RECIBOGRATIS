@@ -67,10 +67,65 @@ export function Layout() {
                 </div>
               ))}
 
-              <Link to="/gerador-qr-code-pix" className="text-sm font-medium text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-4 py-2 rounded-full transition-colors whitespace-nowrap flex items-center gap-1">
-                <Zap className="w-4 h-4" />
-                Gerador PIX
-              </Link>
+              <div className="relative group">
+                <button className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors py-5">
+                  <Zap className="w-4 h-4 text-emerald-600" />
+                  Ferramentas
+                  <ChevronDown className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" />
+                </button>
+                <div className="absolute top-full right-0 w-80 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 transition-all duration-200 ease-in-out z-50">
+                  <div className="p-3 max-h-[75vh] overflow-y-auto custom-scrollbar">
+                    <ul className="space-y-1">
+                      <li>
+                        <Link to="/gerador-qr-code-pix" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
+                          <div className="font-semibold mb-1">QR Code PIX e Cobrança</div>
+                          <div className="text-xs text-gray-400">Gere códigos PIX para pagamentos</div>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/ferramentas/valor-por-extenso" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
+                          Valor por Extenso
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/ferramentas/calculadora-retencao-impostos" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
+                          Calculadora de Retenção de Impostos
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/ferramentas/calculadora-desconto-multa" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
+                          Calculadora de Descontos e Multas
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/ferramentas/calculadora-maquininha-cartao" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
+                          Calculadora de Taxas de Maquininha
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/ferramentas/calculadora-dias-uteis" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
+                          Calculadora de Dias Úteis
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/ferramentas/conversor-horas-trabalhadas" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
+                          Conversor de Horas p/ Valor Mensal
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/ferramentas/validador-formatador-cpf-cnpj" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
+                          Formatador e Validador de CPF/CNPJ
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/ferramentas/consultador-codigo-ibge" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
+                          Consultador de Código IBGE
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -97,13 +152,20 @@ export function Layout() {
               >
                 Página Inicial (Todos os Modelos)
               </Link>
-              <Link
-                to="/gerador-qr-code-pix"
-                onClick={() => setIsMenuOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-bold text-emerald-700 hover:bg-emerald-50"
-              >
-                Gerador QR Code PIX
-              </Link>
+              <div className="pt-4 pb-2">
+                <p className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                  Ferramentas
+                </p>
+              </div>
+              <Link to="/gerador-qr-code-pix" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Gerador QR Code PIX</Link>
+              <Link to="/ferramentas/valor-por-extenso" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Valor por Extenso</Link>
+              <Link to="/ferramentas/calculadora-retencao-impostos" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Retenção de Impostos</Link>
+              <Link to="/ferramentas/calculadora-desconto-multa" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Calculadora de Descontos e Multas</Link>
+              <Link to="/ferramentas/calculadora-maquininha-cartao" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Taxas de Maquininha</Link>
+              <Link to="/ferramentas/calculadora-dias-uteis" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Dias Úteis</Link>
+              <Link to="/ferramentas/conversor-horas-trabalhadas" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Horas p/ Valor Monetário</Link>
+              <Link to="/ferramentas/validador-formatador-cpf-cnpj" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Validador de CPF/CNPJ</Link>
+              <Link to="/ferramentas/consultador-codigo-ibge" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Consultador Código IBGE</Link>
               <div className="pt-4 pb-2">
                 <p className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
                   Modelos de Recibo
@@ -147,9 +209,13 @@ export function Layout() {
               <ul className="space-y-2">
                 <li>
                   <Link to="/gerador-qr-code-pix" className="text-sm font-medium text-emerald-600 hover:text-emerald-700 flex items-center gap-1">
-                    Gerador de QR Code PIX <span className="bg-emerald-100 text-emerald-800 text-[10px] px-1.5 py-0.5 rounded uppercase font-bold">Novo</span>
+                    Gerador de QR Code PIX
                   </Link>
                 </li>
+                <li><Link to="/ferramentas/valor-por-extenso" className="text-sm text-gray-600 hover:text-emerald-600 transition-colors">Valor por Extenso</Link></li>
+                <li><Link to="/ferramentas/calculadora-retencao-impostos" className="text-sm text-gray-600 hover:text-emerald-600 transition-colors">Calculadora de Retenção de Impostos</Link></li>
+                <li><Link to="/ferramentas/calculadora-desconto-multa" className="text-sm text-gray-600 hover:text-emerald-600 transition-colors">Descontos e Multas</Link></li>
+                <li><Link to="/ferramentas/calculadora-maquininha-cartao" className="text-sm text-gray-600 hover:text-emerald-600 transition-colors">Taxas de Maquininha</Link></li>
               </ul>
             </div>
             
