@@ -251,17 +251,33 @@ export function ReceiptPage() {
           )}
 
           <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-8">Este recibo tem validade legal?</h2>
-          <div className="text-gray-600 mb-6 leading-relaxed space-y-4">
-            <p>
-              Sim. {richData?.lsiText || defaultLsiText}
-            </p>
-            <p>
-              Quando preenchido corretamente, ele funciona como a sua defesa contra cobranças duplicadas perante a justiça e o Procon.
-            </p>
-            <p className="text-sm bg-gray-50 p-4 rounded-lg border border-gray-200">
-              <strong>Atenção:</strong> O recibo tem ampla validade civil, mas não substitui a emissão da Nota Fiscal (NF) para empresas que precisam declarar recolhimento de impostos ao Governo.
-            </p>
-          </div>
+          {richData?.legalText ? (
+            <div className="text-gray-600 mb-6 leading-relaxed space-y-4">
+              {richData.legalText.map((p, i) => {
+                const isAttention = p.startsWith('Atenção:');
+                if (isAttention) {
+                  return (
+                    <p key={i} className="text-sm bg-gray-50 p-4 rounded-lg border border-gray-200">
+                      <strong>Atenção:</strong> {p.replace(/^Atenção:\s*/i, '')}
+                    </p>
+                  );
+                }
+                return <p key={i}>{p}</p>;
+              })}
+            </div>
+          ) : (
+            <div className="text-gray-600 mb-6 leading-relaxed space-y-4">
+              <p>
+                Sim. {richData?.lsiText || defaultLsiText}
+              </p>
+              <p>
+                Quando preenchido corretamente, ele funciona como a sua defesa contra cobranças duplicadas perante a justiça e o Procon.
+              </p>
+              <p className="text-sm bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <strong>Atenção:</strong> O recibo tem ampla validade civil, mas não substitui a emissão da Nota Fiscal (NF) para empresas que precisam declarar recolhimento de impostos ao Governo.
+              </p>
+            </div>
+          )}
 
           <div className="bg-emerald-50 border border-emerald-500 rounded-xl p-8 mt-12 text-center">
             <h3 className="text-2xl font-bold text-emerald-900 mb-4">Gere seu Documento Agora</h3>

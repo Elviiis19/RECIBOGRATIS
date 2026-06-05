@@ -4,6 +4,7 @@ export interface RichSEOContent {
   specificDetailsTitle: string;
   specificDetailsList: string[];
   lsiText: string;
+  legalText?: string[];
   faqs: { question: string; answer: string }[];
   ctaText: string;
 }
@@ -11,17 +12,19 @@ export interface RichSEOContent {
 export const richSeoData: Record<string, RichSEOContent> = {
   'pagamento': {
     h1: 'Recibo de Pagamento Online | Gerador com Download em PDF',
-    intro: 'O recibo de pagamento é o documento financeiro mais comum e versátil utilizado no Brasil. Ele serve como uma declaração formal de que um valor foi pago por uma pessoa e recebido por outra. Sem esse comprovante, transações informais baseiam-se apenas na confiança e podem gerar dores de cabeça ou cobranças duplicadas.',
-    specificDetailsTitle: 'Como preencher seu comprovante',
+    intro: 'O recibo de pagamento é o comprovante definitivo de que um serviço ou produto foi quitado. Ele é a garantia prática de que quem pagou não será cobrado duas vezes, além de formalizar a transação para o controle financeiro do profissional autônomo ou prestador que recebeu o valor.',
+    specificDetailsTitle: 'Como preencher seu recibo passo a passo',
     specificDetailsList: [
-      'Valor: Preencha com a quantia exata da transação, tanto em números quanto por extenso, para evitar adulterações.',
-      'Pagador e Recebedor: Insira o Nome Completo ou a Razão Social de quem está pagando e de quem está recebendo o dinheiro.',
-      'CPF ou CNPJ: Essencial para identificar perfeitamente as partes.',
-      'Referente a: Nunca escreva genericamente. Detalhe exatamente qual objeto foi vendido ou qual serviço foi prestado.',
-      'Local e Data: A cidade e o dia exato em que o repasse do dinheiro foi concluído.',
-      'Assinatura: O recebedor deve obrigatoriamente assinar ao final, confirmando que o dinheiro está em mãos.'
+      'Valor: Preencha a quantia exata em números e também por extenso para evitar qualquer tipo de adulteração.',
+      'Dados das Partes: Insira o Nome Completo e o CPF/CNPJ de quem está pagando (o cliente) e de quem está recebendo (o prestador).',
+      'Referente a (Descrição): Seja o mais detalhista possível. Em vez de escrever apenas "serviço prestado", detalhe o que foi entregue, como "serviço de pintura residencial", "criação de site" ou "manutenção elétrica".',
+      'Local, Data e Assinatura: Finalize com a cidade, a data do acerto e a assinatura obrigatória de quem recebeu o dinheiro.'
     ],
     lsiText: 'Esse modelo é ideal e totalmente válido para transações do dia a dia, como pagamentos de pequenas dívidas, diárias informais, vendas particulares e repasses familiares.',
+    legalText: [
+      'Sim. Quando preenchido corretamente e assinado por quem recebeu o valor, o documento possui ampla validade civil. Ele funciona como uma prova robusta para proteger as partes contra cobranças indevidas na justiça comum e no Procon.',
+      'Atenção: O recibo atesta a quitação financeira entre as partes, mas não substitui a emissão da Nota Fiscal (NF) caso o profissional ou a empresa tenham a obrigação tributária de declará-la ao Governo.'
+    ],
     faqs: [
       { question: 'O recibo de pagamento tem validade legal igual a nota fiscal?', answer: 'O recibo atesta a quitação da dívida entre as partes com ampla validade civil, mas NÃO substitui a exigência tributária da Nota Fiscal para empresas (CNPJ).' },
       { question: 'Preciso reconhecer firma no cartório?', answer: 'Para 99% das demandas rotineiras, não é necessário. Apenas a assinatura conferindo com o RG ou documento oficial é suficiente.' },
@@ -42,6 +45,11 @@ export const richSeoData: Record<string, RichSEOContent> = {
       'Assinatura: O recebedor deve obrigatoriamente assinar ao final, confirmando que o dinheiro está em mãos.'
     ],
     lsiText: 'Esse modelo é ideal e totalmente válido para transações do dia a dia, como pagamentos de pequenas dívidas, diárias informais, vendas particulares e repasses familiares.',
+    legalText: [
+      'Sim. Esse modelo é ideal e totalmente válido para transações do dia a dia, como pagamentos de pequenas dívidas, diárias informais, vendas particulares e repasses familiares.',
+      'Quando preenchido corretamente, ele funciona como a sua defesa contra cobranças duplicadas perante a justiça e o Procon.',
+      'Atenção: O recibo tem ampla validade civil, mas não substitui a emissão da Nota Fiscal (NF) para empresas que precisam declarar recolhimento de impostos ao Governo.'
+    ],
     faqs: [
       { question: 'O recibo simples tem validade legal igual a nota fiscal?', answer: 'O recibo atesta a quitação da dívida entre as partes com ampla validade civil, mas NÃO substitui a exigência tributária da Nota Fiscal para empresas (CNPJ).' },
       { question: 'Preciso reconhecer firma no cartório?', answer: 'Para 99% das demandas rotineiras, não é necessário. Apenas a assinatura conferindo com o RG ou documento oficial é suficiente.' },
