@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { SEO } from '../../components/SEO';
 import { AdSense } from '../../components/AdSense';
 import { FileText, Copy, Check } from 'lucide-react';

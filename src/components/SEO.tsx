@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 
 interface SEOProps {
   title: string;
@@ -9,7 +10,26 @@ interface SEOProps {
 }
 
 export function SEO({ title, description, keywords, schema, url }: SEOProps) {
-  const currentUrl = url || 'https://recibogratis.com.br';
+  let pathname = '';
+  try {
+    const location = useLocation();
+    pathname = location.pathname;
+  } catch (e) {
+    // In case SEO is used outside of Router
+  }
+  
+  const basePath = typeof window !== 'undefined' ? window.location.pathname : pathname;
+  
+  // Clean trailing slash
+  const cleanPath = basePath !== '/' && basePath.endsWith('/') 
+    ? basePath.slice(0, -1) 
+    : basePath;
+
+  const currentUrl = url || `https://recibogratis.com.br${cleanPath}`;
+  const normalizedUrl = currentUrl.length > 29 && currentUrl.endsWith('/') 
+    ? currentUrl.slice(0, -1) 
+    : currentUrl;
+  
   const fullTitle = title.includes('Recibo Grátis') ? title : `${title} | Recibo Grátis`;
 
   return (
@@ -17,12 +37,12 @@ export function SEO({ title, description, keywords, schema, url }: SEOProps) {
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
-      <link rel="canonical" href={currentUrl} />
+      <link rel="canonical" href={normalizedUrl} />
       
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content={currentUrl} />
+      <meta property="og:url" content={normalizedUrl} />
       
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />

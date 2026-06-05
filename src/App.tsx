@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { StaticRouter } from 'react-router-dom/server';
 import { HelmetProvider } from 'react-helmet-async';
 import { Layout } from './components/Layout';
@@ -63,9 +63,19 @@ export default function App({ url, helmetContext = {} }: { url?: string, helmetC
         </StaticRouter>
       ) : (
         <BrowserRouter>
+          <RemoveTrailingSlash />
           {ApplicationRoutes}
         </BrowserRouter>
       )}
     </HelmetProvider>
   );
 }
+
+function RemoveTrailingSlash() {
+  const location = useLocation();
+  if (location.pathname !== '/' && location.pathname.endsWith('/')) {
+    return <Navigate to={{ ...location, pathname: location.pathname.slice(0, -1) }} replace />;
+  }
+  return null;
+}
+

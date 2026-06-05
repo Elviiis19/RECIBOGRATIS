@@ -43,7 +43,7 @@ export function ReceiptPage() {
 
   const titleLower = model.title.toLowerCase();
   const baseTitle = `${model.title} | Gerador Online em PDF Grátis`;
-  const dynamicTitle = richData?.h1 || baseTitle;
+  const dynamicTitle = richData?.h1 || model.seoTitle || baseTitle;
   const dynamicDesc = richData?.intro || model.seoDescription || `Gere gratuitamente seu ${titleLower} online. Preencha, imprima em PDF ou envie por WhatsApp. Rápido, seguro e grátis.`;
 
   const heroSubtitle = model.seoDescription || `Gere seu documento de ${titleLower} grátis, preencha online e baixe em PDF na hora. Sem burocracia e sem cadastro.`;
@@ -207,33 +207,61 @@ export function ReceiptPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-emerald prose-lg">
           
           <p className="lead text-xl text-gray-700 leading-relaxed border-l-4 border-emerald-500 pl-6 mb-12">
-            {richData?.intro || defaultIntro}
+            {richData?.intro || model.seoContent?.p1 || defaultIntro}
           </p>
 
           <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-8">
-            {richData?.specificDetailsTitle || `O que não pode faltar no ${model.title}`}
+            {richData?.specificDetailsTitle || model.seoContent?.h2 || `O que não pode faltar no ${model.title}`}
           </h2>
-          <ul className="list-disc pl-6 space-y-2 text-gray-600 mb-6">
-            {(richData?.specificDetailsList || defaultSpecificDetailsList).map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </ul>
-
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-8">Como preencher corretamente</h2>
-          <ul className="list-disc pl-6 space-y-2 text-gray-600 mb-6">
-            <li><strong>Valor:</strong> Preencha com o valor exato da transação, tanto em numerais quanto por extenso.</li>
-            <li><strong>Recebedor:</strong> Nome completo ou Razão Social de quem está recebendo o dinheiro.</li>
-            <li><strong>Pagador:</strong> Nome completo ou Razão Social de quem está pagando.</li>
-            <li><strong>CPF/CNPJ:</strong> Essencial para identificação e validade das partes (e emissão de nota fiscal se for o caso).</li>
-            <li><strong>Referente a:</strong> Relate os pormenores, sem abreviações, com as justificativas da transação ou entrega.</li>
-            <li><strong>Data e Local:</strong> Adicione a cidade e a data em que o repasse foi completado.</li>
-            <li><strong>Assinatura:</strong> O recebedor necessita obrigatoriamente assinar ao final.</li>
-          </ul>
+          
+          {richData?.specificDetailsList ? (
+            <div className="mb-6 space-y-4">
+              <p className="text-gray-600">Para garantir a segurança da sua negociação, preencha os campos com atenção:</p>
+              <ul className="list-disc pl-6 space-y-2 text-gray-600">
+                {richData.specificDetailsList.map((item, idx) => {
+                  const parts = item.split(':');
+                  if (parts.length > 1) {
+                    return (
+                      <li key={idx}><strong>{parts[0]}:</strong>{parts.slice(1).join(':')}</li>
+                    );
+                  }
+                  return <li key={idx}>{item}</li>;
+                })}
+              </ul>
+            </div>
+          ) : model.seoContent?.p2 ? (
+            <p className="text-gray-600 mb-6 text-lg">
+              {model.seoContent.p2} <strong>{model.seoContent.h3}</strong>
+            </p>
+          ) : (
+            <div className="mb-6 space-y-4">
+              <p className="text-gray-600">Para garantir a segurança da sua negociação, preencha os campos com atenção:</p>
+              <ul className="list-disc pl-6 space-y-2 text-gray-600">
+                {defaultSpecificDetailsList.map((item, idx) => {
+                  const parts = item.split(':');
+                  if (parts.length > 1) {
+                    return (
+                      <li key={idx}><strong>{parts[0]}:</strong>{parts.slice(1).join(':')}</li>
+                    );
+                  }
+                  return <li key={idx}>{item}</li>;
+                })}
+              </ul>
+            </div>
+          )}
 
           <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-8">Este recibo tem validade legal?</h2>
-          <p className="text-gray-600 mb-6 leading-relaxed">
-            Sim. {richData?.lsiText || defaultLsiText} Quando preenchido corretamente, ele possui ampla <strong>validade jurídica e comercial</strong> perante a justiça comum, relações de consumo e transações privadas no Brasil. É o documento que defende o pagador de ser cobrado duas vezes pelo mesmo fato e comprova as quitações conforme a lei civil enuncia, bastando ter a identificação legível das partes, o valor apurado e o ateste em assinatura do credor do recebimento. Para maior cautela e formalidade fiscal ou contábil, consulte emissores obrigatórios de notas.
-          </p>
+          <div className="text-gray-600 mb-6 leading-relaxed space-y-4">
+            <p>
+              Sim. {richData?.lsiText || defaultLsiText}
+            </p>
+            <p>
+              Quando preenchido corretamente, ele funciona como a sua defesa contra cobranças duplicadas perante a justiça e o Procon.
+            </p>
+            <p className="text-sm bg-gray-50 p-4 rounded-lg border border-gray-200">
+              <strong>Atenção:</strong> O recibo tem ampla validade civil, mas não substitui a emissão da Nota Fiscal (NF) para empresas que precisam declarar recolhimento de impostos ao Governo.
+            </p>
+          </div>
 
           <div className="bg-emerald-50 border border-emerald-500 rounded-xl p-8 mt-12 text-center">
             <h3 className="text-2xl font-bold text-emerald-900 mb-4">Gere seu Documento Agora</h3>
