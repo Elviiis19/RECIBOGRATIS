@@ -9,6 +9,26 @@ export interface RichSEOContent {
 }
 
 export const richSeoData: Record<string, RichSEOContent> = {
+  'pagamento': {
+    h1: 'Recibo de Pagamento Online | Gerador com Download em PDF',
+    intro: 'O recibo de pagamento é o documento financeiro mais comum e versátil utilizado no Brasil. Ele serve como uma declaração formal de que um valor foi pago por uma pessoa e recebido por outra. Sem esse comprovante, transações informais baseiam-se apenas na confiança e podem gerar dores de cabeça ou cobranças duplicadas.',
+    specificDetailsTitle: 'Como preencher seu comprovante',
+    specificDetailsList: [
+      'Valor: Preencha com a quantia exata da transação, tanto em números quanto por extenso, para evitar adulterações.',
+      'Pagador e Recebedor: Insira o Nome Completo ou a Razão Social de quem está pagando e de quem está recebendo o dinheiro.',
+      'CPF ou CNPJ: Essencial para identificar perfeitamente as partes.',
+      'Referente a: Nunca escreva genericamente. Detalhe exatamente qual objeto foi vendido ou qual serviço foi prestado.',
+      'Local e Data: A cidade e o dia exato em que o repasse do dinheiro foi concluído.',
+      'Assinatura: O recebedor deve obrigatoriamente assinar ao final, confirmando que o dinheiro está em mãos.'
+    ],
+    lsiText: 'Esse modelo é ideal e totalmente válido para transações do dia a dia, como pagamentos de pequenas dívidas, diárias informais, vendas particulares e repasses familiares.',
+    faqs: [
+      { question: 'O recibo de pagamento tem validade legal igual a nota fiscal?', answer: 'O recibo atesta a quitação da dívida entre as partes com ampla validade civil, mas NÃO substitui a exigência tributária da Nota Fiscal para empresas (CNPJ).' },
+      { question: 'Preciso reconhecer firma no cartório?', answer: 'Para 99% das demandas rotineiras, não é necessário. Apenas a assinatura conferindo com o RG ou documento oficial é suficiente.' },
+      { question: 'Pessoa física pode dar recibo?', answer: 'Sim. O recibo de pagamento é justamente o documento correto para pessoas físicas (sem CNPJ) formalizarem seus repasses financeiros.' }
+    ],
+    ctaText: 'Gere agora o documento padronizado, pronto para ser impresso ou enviado pelo WhatsApp em formato PDF direto do seu navegador, sem necessidade de cadastro.'
+  },
   'simples': {
     h1: 'Recibo Simples Online | Gerador com Download em PDF',
     intro: 'O recibo simples é o documento financeiro mais comum e versátil utilizado no Brasil. Ele serve como uma declaração formal de que um valor foi pago por uma pessoa e recebido por outra. Sem esse comprovante, transações informais baseiam-se apenas na confiança e podem gerar dores de cabeça ou cobranças duplicadas.',
