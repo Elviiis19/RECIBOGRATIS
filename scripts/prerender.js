@@ -114,11 +114,15 @@ async function prerender() {
       const hoistedTagsRegex = /^(?:<title>.*?<\/title>|<meta[^>]+>|<link[^>]+>|<script[^>]*type="application\/ld\+json"[^>]*>.*?<\/script>)*/i;
       
       const match = cleanAppHtml.match(hoistedTagsRegex);
-      const hoistedTags = match ? match[0] : '';
+      let hoistedTags = match ? match[0] : '';
       cleanAppHtml = cleanAppHtml.replace(hoistedTagsRegex, '');
 
       // Also clean any JSON-LD scripts deep inside the body (since React 19 renders them in place)
       const ldJsonRegex = /<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi;
+      const jsonLdMatches = cleanAppHtml.match(ldJsonRegex);
+      if (jsonLdMatches) {
+        hoistedTags += '\n' + jsonLdMatches.join('\n');
+      }
       cleanAppHtml = cleanAppHtml.replace(ldJsonRegex, '');
 
       html = html.replace(

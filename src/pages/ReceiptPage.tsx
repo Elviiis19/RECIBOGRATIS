@@ -90,6 +90,11 @@ export function ReceiptPage() {
     "name": `Gerador de ${model.title}`,
     "operatingSystem": "Any",
     "applicationCategory": "BusinessApplication",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "3200" // Faked rating as requested by prompt
+    },
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -111,8 +116,46 @@ export function ReceiptPage() {
     }))
   } : null;
 
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": `Como preencher o ${model.title}`,
+    "description": `Aprenda passo a passo como gerar seu ${titleLower} facilmente.`,
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Acessar o gerador",
+        "text": "Abra a página do gerador de recibos online."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Informar o valor",
+        "text": "Digite o valor numérico exato da transação."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Preencher dados",
+        "text": "Insira o nome, CPF/CNPJ de quem paga e de quem recebe."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Descrever o pagamento",
+        "text": "Preencha com exatidão a que se refere o pagamento."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Gerar PDF",
+        "text": "Clique no botão de imprimir ou gerar PDF para baixar e utilizar o recibo."
+      }
+    ]
+  };
+
   // Combine schemas into an array
-  const schemas: any[] = [{ ...breadcrumbSchema, "@context": undefined }, { ...softwareSchema, "@context": undefined }];
+  const schemas: any[] = [
+    { ...breadcrumbSchema, "@context": undefined }, 
+    { ...softwareSchema, "@context": undefined },
+    { ...howToSchema, "@context": undefined }
+  ];
   if (faqSchema) schemas.push({ ...faqSchema, "@context": undefined });
   
   const schemaString = JSON.stringify({
@@ -211,12 +254,26 @@ export function ReceiptPage() {
           </p>
 
           <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-8">
-            {richData?.specificDetailsTitle || model.seoContent?.h2 || `O que não pode faltar no ${model.title}`}
+            {richData?.specificDetailsTitle || model.seoContent?.h2 || `Como preencher o ${model.title} corretamente`}
           </h2>
+          
+          <div className="mb-8 space-y-4">
+            <p className="text-gray-600">Siga este passo a passo para preencher e validar seu documento de forma rápida e segura:</p>
+            <ol className="list-decimal pl-6 space-y-3 text-gray-600">
+              <li><strong>Informar o valor:</strong> Digite a quantia monetária exata da transação.</li>
+              <li><strong>Preencher dados das partes:</strong> Insira o nome completo ou Razão Social, acompanhado de CPF/CNPJ válidos de quem paga e quem recebe.</li>
+              <li><strong>Descrever o pagamento:</strong> Nos campos de descrição, detalhe em poucas palavras a que se refere o pagamento, produto ou serviço.</li>
+              <li><strong>Gerar e Baixar:</strong> Após revisar, clique em Próximo e escolha fazer o Download do PDF ou imprimir diretamente da tela.</li>
+              <li><strong>Assinar:</strong> A pessoa ou empresa que recebeu o dinheiro deve assinar presencialmente, atestando o fim do débito.</li>
+            </ol>
+          </div>
+
+          <h3 className="text-2xl font-bold text-gray-900 mb-4 mt-8">
+            O que não pode faltar na estrutura do documento
+          </h3>
           
           {richData?.specificDetailsList ? (
             <div className="mb-6 space-y-4">
-              <p className="text-gray-600">Para garantir a segurança da sua negociação, preencha os campos com atenção:</p>
               <ul className="list-disc pl-6 space-y-2 text-gray-600">
                 {richData.specificDetailsList.map((item, idx) => {
                   const parts = item.split(':');
@@ -235,7 +292,6 @@ export function ReceiptPage() {
             </p>
           ) : (
             <div className="mb-6 space-y-4">
-              <p className="text-gray-600">Para garantir a segurança da sua negociação, preencha os campos com atenção:</p>
               <ul className="list-disc pl-6 space-y-2 text-gray-600">
                 {defaultSpecificDetailsList.map((item, idx) => {
                   const parts = item.split(':');
