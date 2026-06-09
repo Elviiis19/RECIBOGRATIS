@@ -107,6 +107,20 @@ async function prerender() {
       originalHead = originalHead.replace(/<meta[^>]*name="twitter:[^"]+"[^>]*>/ig, '');
       originalHead = originalHead.replace(/<link[^>]*rel="canonical"[^>]*>/ig, '');
 
+      let cleanAppHtml = appHtml;
+      
+      // React 19 automatically hoists title, meta, link, and script tags to the top of the SSR string.
+      // We extract them here to move them to the <head> and remove them from the <body>.
+      const hoistedTagsRegex = /^(?:<title>.*?<\/title>|<meta[^>]+>|<link[^>]+>|<script[^>]*type="application\/ld\+json"[^>]*>.*?<\/script>)*/i;
+      
+      const match = cleanAppHtml.match(hoistedTagsRegex);
+      const hoistedTags = match ? match[0] : '';
+      cleanAppHtml = cleanAppHtml.replace(hoistedTagsRegex, '');
+
+      // Also clean any JSON-LD scripts deep inside the body (since React 19 renders them in place)
+      const ldJsonRegex = /<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi;
+      cleanAppHtml = cleanAppHtml.replace(ldJsonRegex, '');
+
       html = html.replace(
         /<head>[\s\S]*?<\/head>/i,
         `<head>
@@ -115,13 +129,14 @@ async function prerender() {
           ${helmet ? helmet.meta.toString() : ''}
           ${helmet ? helmet.link.toString() : ''}
           ${helmet ? helmet.script.toString() : ''}
+          ${hoistedTags}
         </head>`
       );
 
       // Inject app HTML
       html = html.replace(
         /<div id="root"[^>]*>[\s\S]*?<\/div>/,
-        `<div id="root" suppressHydrationWarning>${appHtml}</div>`
+        `<div id="root" suppressHydrationWarning>${cleanAppHtml}</div>`
       );
 
       const outputPath = path.join(routeDir, 'index.html');

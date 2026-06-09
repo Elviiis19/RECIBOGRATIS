@@ -894,7 +894,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                   )}
                 </div>
                 <div className="w-2/4 text-center">
-                  <h1 className="text-3xl font-bold uppercase tracking-widest text-black">{getDocTitle()}</h1>
+                  <div className="text-3xl font-bold uppercase tracking-widest text-black">{getDocTitle()}</div>
                   <p className="text-sm font-bold mt-1">Nº {data.numero || '001'}</p>
                 </div>
                 <div className="w-1/4 flex justify-end">
@@ -962,7 +962,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                       )}
                     </div>
                     <div className="w-2/4 text-center">
-                      <h1 className="text-3xl font-bold uppercase tracking-widest text-black">{getDocTitle()}</h1>
+                      <div className="text-3xl font-bold uppercase tracking-widest text-black">{getDocTitle()}</div>
                       <p className="text-sm font-bold mt-1">Nº {data.numero || '001'}</p>
                     </div>
                     <div className="w-1/4 flex justify-end">
