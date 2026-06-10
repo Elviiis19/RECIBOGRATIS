@@ -103,19 +103,6 @@ export function ReceiptPage() {
     "description": dynamicDesc
   };
 
-  const faqSchema = finalFaqs.length > 0 ? {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": finalFaqs.map(faq => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer
-      }
-    }))
-  } : null;
-
   const howToSchema = {
     "@context": "https://schema.org",
     "@type": "HowTo",
@@ -156,7 +143,6 @@ export function ReceiptPage() {
     { ...softwareSchema, "@context": undefined },
     { ...howToSchema, "@context": undefined }
   ];
-  if (faqSchema) schemas.push({ ...faqSchema, "@context": undefined });
   
   const schemaString = JSON.stringify({
     "@context": "https://schema.org",
@@ -419,22 +405,14 @@ export function ReceiptPage() {
             </div>
           </div>
 
-          {/* FAQs Section */}
-          {finalFaqs.length > 0 && (
-            <div className="mt-20">
-              <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-8 border-b border-gray-100 pb-4">
-                Perguntas Frequentes
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {finalFaqs.map((faq, index) => (
-                  <div key={index} className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-emerald-200 transition-colors">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{faq.question}</h3>
-                    <p className="text-gray-600 leading-relaxed m-0">{faq.answer}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+          {/* Link to FAQ Page */}
+          <div className="mt-20 text-center">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Tem alguma dúvida?</h2>
+            <p className="text-gray-600 mb-6">Consulte nossa página de Perguntas Frequentes para saber mais sobre validade legal e uso da ferramenta.</p>
+            <Link to="/faq" className="inline-flex items-center gap-2 bg-white border border-emerald-200 text-emerald-700 hover:bg-emerald-50 px-6 py-3 rounded-xl font-medium transition-colors">
+              Acessar FAQ <CheckCircle2 className="w-5 h-5" />
+            </Link>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
             <div className="bg-emerald-50/50 border border-emerald-100 rounded-2xl p-8">
