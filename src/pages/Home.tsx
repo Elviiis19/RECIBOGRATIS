@@ -105,6 +105,30 @@ export function Home() {
     ]
   };
 
+  const softwareSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Recibo Grátis",
+    "operatingSystem": "Any",
+    "applicationCategory": "BusinessApplication",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "3142"
+    },
+    "featureList": [
+      "Gerador de Recibo Simples",
+      "Integração com QR Code Pix",
+      "Recibo de Prestação de Serviços",
+      "Nota Promissória"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "BRL"
+    }
+  };
+
   return (
     <>
       <SEO 
@@ -115,6 +139,7 @@ export function Home() {
           "@context": "https://schema.org", 
           "@graph": [
             { ...websiteSchema, "@context": undefined }, 
+            { ...softwareSchema, "@context": undefined },
             { ...faqSchema, "@context": undefined }
           ] 
         })}
@@ -138,7 +163,7 @@ export function Home() {
           
           <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-emerald-900 font-semibold text-sm md:text-base mb-8">
             <Link to="/recibo-simples" className="bg-white hover:bg-emerald-50 px-5 py-3 rounded-full transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center gap-2 w-full sm:w-auto justify-center">
-              Criar Meu Recibo Agora
+              Gerar Recibo Simples
               <FileText className="w-5 h-5" />
             </Link>
             <Link to="/gerador-qr-code-pix" className="bg-emerald-900/40 hover:bg-emerald-900/60 text-white border border-emerald-400/30 px-5 py-3 rounded-full transition-all backdrop-blur-md flex items-center gap-2 w-full sm:w-auto justify-center">

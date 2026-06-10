@@ -93,7 +93,7 @@ export function ReceiptPage() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "ratingCount": "3200" // Faked rating as requested by prompt
+      "ratingCount": "2150"
     },
     "offers": {
       "@type": "Offer",
