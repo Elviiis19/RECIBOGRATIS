@@ -33,7 +33,7 @@ export const richSeoData: Record<string, RichSEOContent> = {
     ctaText: 'Gere agora o documento padronizado, pronto para ser impresso ou enviado pelo WhatsApp em formato PDF direto do seu navegador, sem necessidade de cadastro.'
   },
   'simples': {
-    h1: 'Recibo Simples Online | Gerador com Download em PDF',
+    h1: 'Recibo Simples, visualize na hora que preenche e baixe em PDF',
     intro: 'O recibo simples é o documento financeiro mais comum e versátil utilizado no Brasil. Ele serve como uma declaração formal de que um valor foi pago por uma pessoa e recebido por outra. Sem esse comprovante, transações informais baseiam-se apenas na confiança e podem gerar dores de cabeça ou cobranças duplicadas.',
     specificDetailsTitle: 'Como preencher o recibo corretamente',
     specificDetailsList: [

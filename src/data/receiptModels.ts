@@ -4,7 +4,7 @@ export const receiptModels = [
     slug: 'recibo-simples',
     title: 'Recibo Simples',
     shortDescription: 'Modelo básico e versátil para comprovação de pagamentos diversos no dia a dia.',
-    seoTitle: 'Recibo Simples em PDF - Gerador Online e Grátis',
+    seoTitle: 'Recibo Simples - Gere em segundos',
     seoDescription: 'Gere um recibo simples online em PDF. Preencha os dados, baixe e imprima na hora. Ideal para qualquer tipo de pagamento. 100% gratuito.',
     keywords: 'recibo simples, recibo online, gerar recibo, recibo pdf, recibo para imprimir, modelo de recibo simples, preencher recibo online',
     defaultReferenteA: 'Pagamento referente a [descreva o motivo do pagamento].',
