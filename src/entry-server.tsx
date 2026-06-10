@@ -10,7 +10,7 @@ export function render(url: string) {
     </StrictMode>
   );
   
-  const { helmet } = helmetContext;
+  console.log("Helmet context after render:", Object.keys(helmetContext));
 
-  return { html, helmet };
+  return { html, helmet: helmetContext.helmet };
 }

@@ -39,7 +39,11 @@ export function Layout() {
               
               {Object.entries(categories).map(([category, ids]) => (
                 <div key={category} className="relative group">
-                  <button className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors py-5">
+                  <button 
+                    className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors py-5"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
                     {category}
                     <ChevronDown className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" />
                   </button>
@@ -68,7 +72,11 @@ export function Layout() {
               ))}
 
               <div className="relative group">
-                <button className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors py-5">
+                <button 
+                  className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors py-5"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
                   <Zap className="w-4 h-4 text-emerald-600" />
                   Ferramentas
                   <ChevronDown className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" />

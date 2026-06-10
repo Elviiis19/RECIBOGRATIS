@@ -163,6 +163,17 @@ export function ReceiptPage() {
     "@graph": schemas
   });
 
+  const rawH1 = richData?.h1 || dynamicTitle;
+  const renderH1WithBreak = () => {
+    const parts = rawH1.split(' | ');
+    return parts.map((part, i) => (
+      <span key={i}>
+        {part}
+        {i < parts.length - 1 && <br className="hidden md:block" />}
+      </span>
+    ));
+  };
+
   return (
     <>
       <SEO 
@@ -176,7 +187,7 @@ export function ReceiptPage() {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-emerald-800 via-emerald-600 to-teal-600 text-white py-8 md:py-12 overflow-hidden">
         {/* Modern background pattern/glow */}
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-[url('/cubes.png')] opacity-5 mix-blend-overlay"></div>
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob" style={{ animationDelay: '2s' }}></div>
 
@@ -203,8 +214,8 @@ export function ReceiptPage() {
           </nav>
 
           <div className="text-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 mt-2 leading-tight">
-              {richData?.h1 || dynamicTitle}
+            <h1 className="text-3xl md:text-5xl lg:text-5xl font-extrabold tracking-tight mb-4 mt-2 leading-tight">
+              {renderH1WithBreak()}
             </h1>
             <p className="text-lg md:text-xl text-emerald-50 max-w-3xl mx-auto mb-8 font-medium leading-relaxed drop-shadow-sm">
               {heroSubtitle}
@@ -246,136 +257,199 @@ export function ReceiptPage() {
       </section>
 
       {/* SEO Content Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-emerald prose-lg">
+      <section className="py-16 md:py-24 bg-white border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <p className="lead text-xl text-gray-700 leading-relaxed border-l-4 border-emerald-500 pl-6 mb-12">
-            {richData?.intro || model.seoContent?.p1 || defaultIntro}
-          </p>
-
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-8">
-            {richData?.specificDetailsTitle || model.seoContent?.h2 || `Como preencher o ${model.title} corretamente`}
-          </h2>
-          
-          <div className="mb-8 space-y-4">
-            <p className="text-gray-600">Siga este passo a passo para preencher e validar seu documento de forma rápida e segura:</p>
-            <ol className="list-decimal pl-6 space-y-3 text-gray-600">
-              <li><strong>Informar o valor:</strong> Digite a quantia monetária exata da transação.</li>
-              <li><strong>Preencher dados das partes:</strong> Insira o nome completo ou Razão Social, acompanhado de CPF/CNPJ válidos de quem paga e quem recebe.</li>
-              <li><strong>Descrever o pagamento:</strong> Nos campos de descrição, detalhe em poucas palavras a que se refere o pagamento, produto ou serviço.</li>
-              <li><strong>Gerar e Baixar:</strong> Após revisar, clique em Próximo e escolha fazer o Download do PDF ou imprimir diretamente da tela.</li>
-              <li><strong>Assinar:</strong> A pessoa ou empresa que recebeu o dinheiro deve assinar presencialmente, atestando o fim do débito.</li>
-            </ol>
+          <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-6 md:p-8 border border-emerald-100 mb-12 shadow-sm">
+            <p className="text-lg md:text-xl text-emerald-900 leading-relaxed font-medium m-0">
+              {richData?.intro || model.seoContent?.p1 || defaultIntro}
+            </p>
           </div>
 
-          <h3 className="text-2xl font-bold text-gray-900 mb-4 mt-8">
-            O que não pode faltar na estrutura do documento
-          </h3>
-          
-          {richData?.specificDetailsList ? (
-            <div className="mb-6 space-y-4">
-              <ul className="list-disc pl-6 space-y-2 text-gray-600">
-                {richData.specificDetailsList.map((item, idx) => {
-                  const parts = item.split(':');
-                  if (parts.length > 1) {
-                    return (
-                      <li key={idx}><strong>{parts[0]}:</strong>{parts.slice(1).join(':')}</li>
-                    );
-                  }
-                  return <li key={idx}>{item}</li>;
-                })}
-              </ul>
-            </div>
-          ) : model.seoContent?.p2 ? (
-            <p className="text-gray-600 mb-6 text-lg">
-              {model.seoContent.p2} <strong>{model.seoContent.h3}</strong>
-            </p>
-          ) : (
-            <div className="mb-6 space-y-4">
-              <ul className="list-disc pl-6 space-y-2 text-gray-600">
-                {defaultSpecificDetailsList.map((item, idx) => {
-                  const parts = item.split(':');
-                  if (parts.length > 1) {
-                    return (
-                      <li key={idx}><strong>{parts[0]}:</strong>{parts.slice(1).join(':')}</li>
-                    );
-                  }
-                  return <li key={idx}>{item}</li>;
-                })}
-              </ul>
-            </div>
-          )}
+          <div className="space-y-16">
+            <article>
+              <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-6 flex items-center gap-3">
+                <CheckCircle2 className="w-8 h-8 text-emerald-500 flex-shrink-0" />
+                {richData?.specificDetailsTitle || model.seoContent?.h2 || `Como preencher o ${model.title} corretamente`}
+              </h2>
+              
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden mb-12">
+                <div className="p-6 md:p-8 bg-gray-50/80 border-b border-gray-200">
+                  <p className="text-gray-700 text-lg font-medium m-0">Siga este passo a passo para preencher e validar seu documento de forma rápida e segura:</p>
+                </div>
+                <div className="p-6 md:p-8">
+                  <ul className="space-y-6">
+                    <li className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">1</div>
+                      <div>
+                        <strong className="block text-gray-900 text-lg mb-1">Informar o valor</strong>
+                        <span className="text-gray-600 leading-relaxed block">Digite a quantia monetária exata da transação.</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">2</div>
+                      <div>
+                        <strong className="block text-gray-900 text-lg mb-1">Preencher dados das partes</strong>
+                        <span className="text-gray-600 leading-relaxed block">Insira o nome completo ou Razão Social, acompanhado de CPF/CNPJ válidos de quem paga e quem recebe.</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">3</div>
+                      <div>
+                        <strong className="block text-gray-900 text-lg mb-1">Descrever o pagamento</strong>
+                        <span className="text-gray-600 leading-relaxed block">Nos campos de descrição, detalhe em poucas palavras a que se refere o pagamento, produto ou serviço.</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">4</div>
+                      <div>
+                        <strong className="block text-gray-900 text-lg mb-1">Gerar e Baixar</strong>
+                        <span className="text-gray-600 leading-relaxed block">Após revisar, clique em Próximo e escolha fazer o Download do PDF ou imprimir diretamente da tela.</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">5</div>
+                      <div>
+                        <strong className="block text-gray-900 text-lg mb-1">Assinar</strong>
+                        <span className="text-gray-600 leading-relaxed block">A pessoa ou empresa que recebeu o dinheiro deve assinar presencialmente, atestando o fim do débito.</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
 
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-8">Este recibo tem validade legal?</h2>
-          {richData?.legalText ? (
-            <div className="text-gray-600 mb-6 leading-relaxed space-y-4">
-              {richData.legalText.map((p, i) => {
-                const isAttention = p.startsWith('Atenção:');
-                if (isAttention) {
-                  return (
-                    <p key={i} className="text-sm bg-gray-50 p-4 rounded-lg border border-gray-200">
-                      <strong>Atenção:</strong> {p.replace(/^Atenção:\s*/i, '')}
+            <article>
+              <h3 className="text-2xl tracking-tight font-bold text-gray-900 mb-6 flex items-center gap-3">
+                <FileText className="w-7 h-7 text-emerald-500 flex-shrink-0" />
+                O que não pode faltar na estrutura do documento
+              </h3>
+              
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
+                {richData?.specificDetailsList ? (
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {richData.specificDetailsList.map((item, idx) => {
+                      const parts = item.split(':');
+                      if (parts.length > 1) {
+                        return (
+                          <li key={idx} className="flex flex-col">
+                            <strong className="text-gray-900 mb-1 text-lg">{parts[0]}</strong>
+                            <span className="text-gray-600 leading-relaxed">{parts.slice(1).join(':')}</span>
+                          </li>
+                        );
+                      }
+                      return <li key={idx} className="text-gray-600 leading-relaxed">{item}</li>;
+                    })}
+                  </ul>
+                ) : model.seoContent?.p2 ? (
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    {model.seoContent.p2} <strong>{model.seoContent.h3}</strong>
+                  </p>
+                ) : (
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {defaultSpecificDetailsList.map((item, idx) => {
+                      const parts = item.split(':');
+                      if (parts.length > 1) {
+                        return (
+                          <li key={idx} className="flex flex-col">
+                            <strong className="text-gray-900 mb-1 text-lg">{parts[0]}</strong>
+                            <span className="text-gray-600 leading-relaxed">{parts.slice(1).join(':')}</span>
+                          </li>
+                        );
+                      }
+                      return <li key={idx} className="text-gray-600 leading-relaxed">{item}</li>;
+                    })}
+                  </ul>
+                )}
+              </div>
+            </article>
+
+            <article>
+              <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-6 flex items-center gap-3">
+                <CheckCircle2 className="w-8 h-8 text-emerald-500 flex-shrink-0" />
+                Este recibo tem validade legal?
+              </h2>
+              
+              <div className="text-gray-600 text-lg leading-relaxed max-w-none">
+                {richData?.legalText ? (
+                  <div className="space-y-6">
+                    {richData.legalText.map((p, i) => {
+                      const isAttention = p.startsWith('Atenção:');
+                      if (isAttention) {
+                        return (
+                          <div key={i} className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-xl">
+                            <p className="m-0 text-amber-900"><strong className="font-bold">Atenção:</strong> {p.replace(/^Atenção:\s*/i, '')}</p>
+                          </div>
+                        );
+                      }
+                      return <p key={i}>{p}</p>;
+                    })}
+                  </div>
+                ) : (
+                  <div className="space-y-6">
+                    <p>
+                      <strong className="text-gray-900">Sim.</strong> {richData?.lsiText || defaultLsiText}
                     </p>
-                  );
-                }
-                return <p key={i}>{p}</p>;
-              })}
-            </div>
-          ) : (
-            <div className="text-gray-600 mb-6 leading-relaxed space-y-4">
-              <p>
-                Sim. {richData?.lsiText || defaultLsiText}
-              </p>
-              <p>
-                Quando preenchido corretamente, ele funciona como a sua defesa contra cobranças duplicadas perante a justiça e o Procon.
-              </p>
-              <p className="text-sm bg-gray-50 p-4 rounded-lg border border-gray-200">
-                <strong>Atenção:</strong> O recibo tem ampla validade civil, mas não substitui a emissão da Nota Fiscal (NF) para empresas que precisam declarar recolhimento de impostos ao Governo.
-              </p>
-            </div>
-          )}
+                    <p>
+                      Quando preenchido corretamente, ele funciona como a sua defesa contra cobranças duplicadas perante a justiça e o Procon.
+                    </p>
+                    <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-xl mt-8">
+                      <p className="m-0 text-amber-900"><strong className="font-bold">Atenção:</strong> O recibo tem ampla validade civil, mas não substitui a emissão da Nota Fiscal (NF) para empresas que precisam declarar recolhimento de impostos ao Governo.</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </article>
+          </div>
 
-          <div className="bg-emerald-50 border border-emerald-500 rounded-xl p-8 mt-12 text-center">
-            <h3 className="text-2xl font-bold text-emerald-900 mb-4">Gere seu Documento Agora</h3>
-            <p className="text-emerald-800 mb-6">
-              {richData?.ctaText || defaultCtaText}
-            </p>
-            <button 
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="inline-flex max-w-sm justify-center items-center w-full px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-full transition-colors text-lg shadow-lg shadow-emerald-200"
-            >
-              <FileText className="w-5 h-5 mr-2" />
-              Preencher Novo Recibo
-            </button>
+          <div className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-3xl p-8 md:p-12 mt-16 text-center shadow-xl shadow-emerald-900/10 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl -mx-20 -my-20 pointer-events-none"></div>
+            <div className="relative z-10">
+              <h3 className="text-3xl font-extrabold text-white mb-4 tracking-tight">Gere seu Documento Agora</h3>
+              <p className="text-emerald-50 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+                {richData?.ctaText || defaultCtaText}
+              </p>
+              <button 
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="inline-flex justify-center items-center px-8 py-4 bg-white hover:bg-gray-50 text-emerald-700 font-bold rounded-full transition-colors text-lg shadow-lg hover:shadow-xl"
+              >
+                <FileText className="w-5 h-5 mr-2 text-emerald-600" />
+                Preencher Novo Recibo
+              </button>
+            </div>
           </div>
 
           {/* FAQs Section */}
           {finalFaqs.length > 0 && (
-            <div className="mt-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Perguntas Frequentes</h2>
-              <div className="space-y-6">
+            <div className="mt-20">
+              <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-8 border-b border-gray-100 pb-4">
+                Perguntas Frequentes
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {finalFaqs.map((faq, index) => (
-                  <div key={index} className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                  <div key={index} className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-emerald-200 transition-colors">
                     <h3 className="text-xl font-bold text-gray-900 mb-3">{faq.question}</h3>
-                    <p className="text-gray-600 m-0 leading-relaxed">{faq.answer}</p>
+                    <p className="text-gray-600 leading-relaxed m-0">{faq.answer}</p>
                   </div>
                 ))}
               </div>
             </div>
           )}
 
-          <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-6 mt-12">
-            <h3 className="text-lg font-bold text-emerald-900 mb-2">Por que usar o Recibo Grátis?</h3>
-            <p className="text-emerald-800 m-0">
-              Nossa ferramenta foi desenvolvida para ser a mais rápida e prática do mercado. Não exigimos criação de conta, não guardamos seus dados (tudo é processado no seu navegador) e oferecemos um layout moderno e atualizado.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
+            <div className="bg-emerald-50/50 border border-emerald-100 rounded-2xl p-8">
+              <h3 className="text-xl font-bold text-emerald-900 mb-3">Por que usar o Recibo Grátis?</h3>
+              <p className="text-emerald-800/80 leading-relaxed m-0">
+                Nossa ferramenta foi desenvolvida para ser a mais rápida e prática do mercado. Não exigimos criação de conta, não guardamos seus dados (tudo é processado no seu navegador) e oferecemos um layout moderno e atualizado.
+              </p>
+            </div>
 
-          <div className="bg-blue-50 border border-blue-100 rounded-xl p-6 mt-8">
-            <h3 className="text-lg font-bold text-blue-900 mb-2">Dica de Gestão Financeira</h3>
-            <p className="text-blue-800 m-0 text-sm leading-relaxed">
-              Para profissionalizar ainda mais suas vendas e serviços, considere utilizar um <strong>software de gestão (ERP)</strong>, abrir uma <strong>conta PJ</strong> sem taxas ou adquirir uma <strong>maquininha de cartão</strong> com as melhores taxas do mercado. A <strong>contabilidade online</strong> e a emissão de <strong>nota fiscal eletrônica</strong> também são passos fundamentais para o crescimento seguro e escalável da sua receita, melhorando o controle de fluxo de caixa e o retorno financeiro.
-            </p>
+            <div className="bg-blue-50/50 border border-blue-100 rounded-2xl p-8">
+              <h3 className="text-xl font-bold text-blue-900 mb-3">Dica de Gestão Financeira</h3>
+              <p className="text-blue-800/80 leading-relaxed text-sm m-0">
+                Para profissionalizar ainda mais suas vendas e serviços, considere utilizar um <strong>software de gestão (ERP)</strong>, abrir uma <strong>conta PJ</strong> sem taxas ou adquirir uma <strong>maquininha de cartão</strong>. A <strong>contabilidade online</strong> e a emissão de <strong>nota fiscal eletrônica</strong> também são passos fundamentais.
+              </p>
+            </div>
           </div>
 
           {/* Cross-linking SEO context */}

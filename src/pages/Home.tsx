@@ -133,8 +133,8 @@ export function Home() {
     <>
       <SEO 
         title="Recibo Online Grátis | Crie seu PDF em Segundos"
-        description="Crie recibos, declarações e notas promissórias online grátis. Escolha o modelo, preencha no navegador e baixe PDF. Sem cadastro e sem instalação."
-        keywords="recibo simples, recibo online grátis, gerador de recibos, gerador de documentos online, nota promissória, declaração, emitir recibo online, recibo fácil preencher"
+        description="Crie recibos online grátis. Escolha o modelo, preencha no navegador e baixe PDF. Sem cadastro e sem instalação."
+        keywords="recibo simples, recibo online grátis, recibo de pagamento, recibo de pedreiro, recibo de pintor, emitir recibo online, gerador de recibos, recibo fácil preencher"
         schema={JSON.stringify({ 
           "@context": "https://schema.org", 
           "@graph": [
@@ -149,13 +149,13 @@ export function Home() {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-emerald-800 via-emerald-600 to-teal-600 text-white py-10 md:py-12 overflow-hidden">
         {/* Modern background pattern/glow */}
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-[url('/cubes.png')] opacity-5 mix-blend-overlay"></div>
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob" style={{ animationDelay: '2s' }}></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <h1 className="text-4xl md:text-5xl lg:text-5xl font-extrabold tracking-tight mb-4 drop-shadow-sm leading-tight">
-            Gere recibo simples e profissional em segundos
+            Gere recibo simples e profissional <br className="hidden md:block" />em segundos
           </h1>
           <h2 className="text-base md:text-lg text-emerald-50 max-w-3xl mx-auto mb-6 font-medium leading-relaxed drop-shadow-sm">
             Preencha e visualize na hora. Imprima ou baixe seu recibo em PDF sem precisar de cadastro. Totalmente grátis e com opção de cobrança via Pix.
@@ -298,7 +298,7 @@ export function Home() {
                 <div>
                   <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
                   <h3 className="font-bold text-emerald-900 mb-2">Escolha o Documento</h3>
-                  <p className="text-emerald-800 text-sm">Selecione o tipo de modelo ideal (recibo, declaração, promissória, termo ou OS).</p>
+                  <p className="text-emerald-800 text-sm">Selecione o tipo de modelo ideal (recibo simples, pagamento, MEI, aluguel ou promissória).</p>
                 </div>
                 <div>
                   <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>

@@ -129,10 +129,6 @@ async function prerender() {
         /<head>[\s\S]*?<\/head>/i,
         `<head>
           ${originalHead}
-          ${helmet ? helmet.title.toString() : ''}
-          ${helmet ? helmet.meta.toString() : ''}
-          ${helmet ? helmet.link.toString() : ''}
-          ${helmet ? helmet.script.toString() : ''}
           ${hoistedTags}
         </head>`
       );
