@@ -132,7 +132,7 @@ export function Home() {
   return (
     <>
       <SEO 
-        title="Gerador de Recibos, Declarações e Documentos Online Grátis em PDF"
+        title="Recibo Online Grátis | Crie seu PDF em Segundos"
         description="Crie recibos, declarações e notas promissórias online grátis. Escolha o modelo, preencha no navegador e baixe PDF. Sem cadastro e sem instalação."
         keywords="recibo simples, recibo online grátis, gerador de recibos, gerador de documentos online, nota promissória, declaração, emitir recibo online, recibo fácil preencher"
         schema={JSON.stringify({ 
@@ -155,10 +155,10 @@ export function Home() {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <h1 className="text-4xl md:text-5xl lg:text-5xl font-extrabold tracking-tight mb-4 drop-shadow-sm leading-tight">
-            Gerador de Recibos e Documentos Online<br className="hidden md:block" /> Grátis e com Pix
+            Gere recibo simples e profissional em segundos
           </h1>
           <h2 className="text-base md:text-lg text-emerald-50 max-w-3xl mx-auto mb-6 font-medium leading-relaxed drop-shadow-sm">
-            Crie recibos, declarações, notas promissórias e contratos profissionais em segundos. Escolha o modelo, preencha no navegador e baixe em PDF sem cadastro.
+            Preencha e visualize na hora. Imprima ou baixe seu recibo em PDF sem precisar de cadastro. Totalmente grátis e com opção de cobrança via Pix.
           </h2>
           
           <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-emerald-900 font-semibold text-sm md:text-base mb-8">
@@ -166,12 +166,8 @@ export function Home() {
               Gerar Recibo Simples
               <FileText className="w-5 h-5" />
             </Link>
-            <Link to="/gerador-qr-code-pix" className="bg-emerald-900/40 hover:bg-emerald-900/60 text-white border border-emerald-400/30 px-5 py-3 rounded-full transition-all backdrop-blur-md flex items-center gap-2 w-full sm:w-auto justify-center">
-              Gerar QR Code Pix
-              <Zap className="w-5 h-5 text-emerald-300" />
-            </Link>
             <Link to="/modelos" className="bg-emerald-900/40 hover:bg-emerald-900/60 text-white border border-emerald-400/30 px-5 py-3 rounded-full transition-all backdrop-blur-md flex items-center gap-2 w-full sm:w-auto justify-center">
-              Todos os Modelos
+              Escolher modelo
             </Link>
           </div>
 
@@ -188,6 +184,12 @@ export function Home() {
               <CheckCircle2 className="w-5 h-5 text-emerald-300" />
               <span>100% Seguro</span>
             </div>
+          </div>
+          
+          <div className="mt-5 text-emerald-100 text-[11px] sm:text-xs font-medium tracking-wide flex justify-center items-center opacity-90 transition-opacity flex-wrap gap-1">
+            <Scale className="w-3.5 h-3.5 mr-1" />
+            Documentos conforme Código Civil Brasileiro (art. 319-326) <span className="mx-1 sm:mx-2 hidden sm:inline">•</span> 
+            <Link to="/politica-de-privacidade" className="underline underline-offset-2 hover:text-white mt-1 sm:mt-0">LGPD Compliance</Link>
           </div>
         </div>
       </section>

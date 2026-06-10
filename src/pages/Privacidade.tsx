@@ -1,14 +1,44 @@
 import { SEO } from '../components/SEO';
 import { AdSense } from '../components/AdSense';
-
 import { Shield } from 'lucide-react';
 
 export function Privacidade() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "Política de Privacidade e Proteção de Dados (LGPD) | Recibo Grátis",
+        "description": "Entenda como o Recibo Grátis protege seus dados em conformidade com a LGPD. Nosso sistema opera 100% no navegador (client-side) para segurança absoluta.",
+        "url": "https://recibogratis.com.br/politica-de-privacidade"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Início",
+            "item": "https://recibogratis.com.br"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Política de Privacidade",
+            "item": "https://recibogratis.com.br/politica-de-privacidade"
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 pb-12">
       <SEO 
-        title="Política de Privacidade | Segurança de Dados no Recibo Grátis" 
-        description="Entenda como o Recibo Grátis protege seus dados. Processamento 100% no navegador (client-side), sem armazenamento de informações sensíveis."
+        title="Política de Privacidade e LGPD | Recibo Grátis" 
+        description="Entenda como o Recibo Grátis protege seus dados. Processamento 100% no navegador (client-side), sem armazenamento de informações sensíveis e em conformidade estrita com a LGPD."
+        keywords="política de privacidade, lgpd, proteção de dados, segurança da informação, privacidade de dados"
+        schema={JSON.stringify(jsonLd)}
       />
       
       {/* Hero Section */}
@@ -31,29 +61,84 @@ export function Privacidade() {
       </section>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-12 prose prose-emerald prose-lg max-w-none">
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-12 max-w-none">
           <AdSense />
         
-        <p>No Recibo Grátis, a sua privacidade é nossa prioridade. Esta Política de Privacidade explica como lidamos com as informações que você insere em nosso site.</p>
-        
-        <h2>1. Coleta de Dados Pessoais</h2>
-        <p><strong>Nós NÃO coletamos, armazenamos ou transmitimos nenhum dado pessoal inserido nos formulários de recibo.</strong> Todo o processamento dos dados (nomes, CPFs, valores, endereços) é realizado exclusivamente no seu navegador (client-side). Quando você fecha a aba ou atualiza a página, os dados são perdidos.</p>
-        
-        <h2>2. Uso de Cookies e Analytics</h2>
-        <p>Podemos utilizar cookies de terceiros (como Google Analytics) apenas para entender o tráfego do nosso site, páginas mais visitadas e melhorar a experiência do usuário. Esses dados são anônimos e agregados.</p>
-        
-        <h2>3. Compartilhamento de Informações</h2>
-        <p>Como não armazenamos seus dados pessoais, não temos o que compartilhar com terceiros. A segurança da sua informação está garantida pelo fato de ela nunca sair do seu dispositivo.</p>
-        
-        <h2>4. Links para Terceiros</h2>
-        <p>Nosso site contém links para outros sites do nosso ecossistema (Declaração Online, Gera Contrato). Recomendamos que você leia as políticas de privacidade desses sites ao visitá-los.</p>
-        
-        <h2>5. Alterações nesta Política</h2>
-        <p>Podemos atualizar nossa Política de Privacidade periodicamente. Recomendamos que você revise esta página para se manter informado sobre como protegemos sua privacidade.</p>
-        
-        <AdSense />
-        
-        <p className="mt-8 text-sm text-gray-500">Última atualização: Março de 2024</p>
+          <div className="space-y-6">
+            <p className="text-lg text-gray-700 leading-relaxed font-medium mb-8">
+              No Recibo Grátis, a sua privacidade é nossa prioridade absoluta. Esta Política de Privacidade explica detalhadamente como lidamos com as informações que você insere em nosso sistema, nossa conformidade com a LGPD e o uso de dados de terceiros.
+            </p>
+            
+            <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4 pb-2 border-b border-gray-100">1. Coleta de Dados Pessoais e LGPD</h2>
+            <p className="text-gray-600 leading-relaxed">
+              <strong className="text-gray-900">Nós NÃO coletamos, armazenamos ou transmitimos nenhum dado pessoal inserido nos formulários de recibo.</strong> A nossa ferramenta foi concebida sob o princípio de <em>Privacy by Design</em>. Todo o processamento dos dados (como nomes, CPFs/CNPJs, valores, endereços e assinaturas) é realizado exclusivamente de maneira local, diretamente no navegador do usuário (client-side).
+            </p>
+            
+            <h3 className="text-xl font-semibold text-gray-800 mt-8 mb-3">1.1. Processamento Local (Client-side)</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Diferente de sistemas web tradicionais, nosso gerador emite o documento em PDF utilizando o próprio poder de processamento do seu computador ou celular. Quando você finaliza o preenchimento, imprime ou fecha a aba, todos os dados digitados são automaticamente descartados da memória da sua máquina. Não possuímos e não utilizamos estruturas de banco de dados em nossos servidores para recepcionar ou armazenar as informações presentes nos recibos.
+            </p>
+
+            <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4 pb-2 border-b border-gray-100">2. Conformidade com a LGPD (Lei Geral de Proteção de Dados)</h2>
+            <p className="text-gray-600 leading-relaxed">
+              O <strong>Recibo Grátis</strong> atua em estrita conformidade com e respeito à <strong>Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 - LGPD)</strong> no Brasil. Dado que estruturamos nosso modelo de forma "stateless" (sem retenção de estado/sessão) para os formulários de documentos:
+            </p>
+            <ul className="list-none space-y-3 mt-4 mb-6">
+              <li className="flex items-start">
+                <span className="text-emerald-500 mr-2 mt-1">✓</span>
+                <span className="text-gray-600 leading-relaxed">Não figuramos e não atuamos como "Controladores" nem como "Operadores" (conforme definido na LGPD) dos dados pessoais de terceiros informados nos campos do recibo.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-emerald-500 mr-2 mt-1">✓</span>
+                <span className="text-gray-600 leading-relaxed">Não exigimos criação de conta, formulários de cadastro, login ou senhas.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-emerald-500 mr-2 mt-1">✓</span>
+                <span className="text-gray-600 leading-relaxed">Não solicitamos, sob nenhuma hipótese, dados bancários como contas, agências ou números de cartão de crédito.</span>
+              </li>
+            </ul>
+            
+            <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4 pb-2 border-b border-gray-100">3. Uso de Cookies, Analytics e Anúncios</h2>
+            <p className="text-gray-600 leading-relaxed">
+              Enquanto o preenchimento dos recibos ocorre de modo invisível para nós, nosso site utiliza serviços de infraestrutura de terceiros que podem posicionar e ler rastreadores (cookies) no seu navegador, estritamente para o funcionamento técnico, análise de métricas de visitação e exibição de anúncios contextuais relevantes.
+            </p>
+            
+            <h3 className="text-xl font-semibold text-gray-800 mt-8 mb-3">3.1. Google Analytics</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Utilizamos a solução estatística Google Analytics operando de forma anonimizada para entender nosso volume de tráfego, identificar as páginas mais acessadas, horários de pico e melhorar continuamente a velocidade e navegabilidade das nossas ferramentas.
+            </p>
+            
+            <h3 className="text-xl font-semibold text-gray-800 mt-8 mb-3">3.2. Google AdSense (Publicidade)</h3>
+            <p className="text-gray-600 leading-relaxed mb-4">
+              Para custear nossos servidores e manter o <strong>Gerador de Recibo Online</strong> totalmente gratuito para você (para sempre e livre de taxas), exibimos espaços publicitários geridos pelo ecossistema do Google (Rede de Display e parceiros).
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              O fornecedor terceirizado Google emprega tecnologias de cookies (como o cookie DART) para processar métricas e veicular anúncios com base em visitas anteriores dos usuários ao nosso site e a outras páginas na web. Caso deseje, você pode optar ativamente por desativar o uso de cookies para fins de publicidade personalizada diretamente no painel de <a href="https://myadcenter.google.com/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 font-medium hover:text-emerald-700 hover:underline">Configurações de anúncios do Google</a>.
+            </p>
+            
+            <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4 pb-2 border-b border-gray-100">4. Links Internos e para Sites de Terceiros</h2>
+            <p className="text-gray-600 leading-relaxed">
+              Para agregar valor de utilidade pública e prover uma experiência aprimorada para o ecossistema brasileiro de empreendedores, profissionais autônomos e trabalhadores, nosso site apresenta ferramentas úteis e pode vir a exibir hiperlinks apontando para portais governamentais oficiais (e.g. IBGE, Ministério da Fazenda) ou para outros geradores complementares ou de parceiros. Salientamos textualmente que o fato de dispormos tais atalhos não pressupõe responsabilidade ou controle editorial, legal nem sobre as práticas autônomas de privacidade governando esses endereços externos.
+            </p>
+            
+            <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4 pb-2 border-b border-gray-100">5. Atualizações em nossas Diretrizes de Segurança</h2>
+            <p className="text-gray-600 leading-relaxed">
+              Detemos e reservamo-nos no direito de proceder à revisão e evolução dos textos que compõem esta Política de Privacidade a qualquer tempo, com o propósito contínuo de abranger de forma diligente eventuais aprimoramentos técnicos implementados em nossos serviços ou em resposta ao cenário normativo pátrio. Instruímos aos nossos utilizadores regulares o acompanhamento consultivo desta mesma página para a manutenção de seu estado de plena ciência de proteção digital.
+            </p>
+
+            <div className="mt-10 mb-8">
+              <AdSense />
+            </div>
+            
+            <div className="mt-12 pt-6 border-t border-gray-100 flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-emerald-100 text-emerald-600">
+                <Shield className="w-4 h-4" />
+              </span>
+              <p className="text-sm font-semibold tracking-wide text-gray-500 uppercase">
+                Última atualização: <span className="text-emerald-700">09 de Junho de 2026</span>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
