@@ -53,7 +53,11 @@ export function SEO({ title, description, keywords, schema, url }: SEOProps) {
       <meta name="twitter:description" content={description} />
       
       {isServer && schema && (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schema }} />
+        <script 
+          type="application/ld+json" 
+          dangerouslySetInnerHTML={{ __html: schema }} 
+          data-schema-ssr="true" /* We only render schema on SSR to prevent hydration issues and allow our prerender script to hoist it cleanly to <head> without duplicates */
+        />
       )}
     </>
   );
