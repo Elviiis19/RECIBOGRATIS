@@ -11,7 +11,7 @@ export interface RichSEOContent {
 
 export const richSeoData: Record<string, RichSEOContent> = {
   'pagamento': {
-    h1: 'Recibo de Pagamento Online | Gerador com Download em PDF',
+    h1: 'Recibo de Pagamento, preencha e gere em questão de segundos',
     intro: 'O recibo de pagamento é o comprovante definitivo de que um serviço ou produto foi quitado. Ele é a garantia prática de que quem pagou não será cobrado duas vezes, além de formalizar a transação para o controle financeiro do profissional autônomo ou prestador que recebeu o valor.',
     specificDetailsTitle: 'Como preencher seu recibo passo a passo',
     specificDetailsList: [

@@ -35,7 +35,7 @@ export const receiptModels = [
     slug: 'recibo-de-pagamento',
     title: 'Recibo de Pagamento',
     shortDescription: 'Comprovante padrão para quitação de dívidas, compras ou acordos financeiros.',
-    seoTitle: 'Recibo de Pagamento em PDF - Gerar e Imprimir Online',
+    seoTitle: 'Recibo de Pagamento - Faça em segundos',
     seoDescription: 'Crie seu recibo de pagamento online. Ferramenta gratuita para gerar comprovantes de quitação em PDF. Rápido, seguro e sem cadastro.',
     keywords: 'recibo de pagamento, comprovante de pagamento, gerar recibo de pagamento, recibo de quitação, modelo recibo pagamento',
     defaultReferenteA: 'Quitação do pagamento referente a [descreva o produto, serviço ou dívida].',

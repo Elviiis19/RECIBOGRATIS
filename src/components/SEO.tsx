@@ -30,8 +30,7 @@ export function SEO({ title, description, keywords, schema, url }: SEOProps) {
     ? currentUrl.slice(0, -1) 
     : currentUrl;
   
-  const hasSuffix = title.includes('Recibo Grátis') || title.includes('Recibo Online Grátis') || title.includes('Recibo grátis');
-  const fullTitle = hasSuffix ? title : `${title} | Recibo Grátis`;
+  const fullTitle = title;
 
   return (
     <Helmet>

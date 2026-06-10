@@ -61,28 +61,7 @@ export function ReceiptPage() {
 
   const defaultCtaText = `Pare de usar folhas soltas ou arquivos antigos em Word. Crie, emprima em PDF e envie este comprovante por WhatsApp imediatamente.`;
 
-  const finalFaqs = richData?.faqs || model.faqs || [
-    {
-      question: `Qualquer pessoa pode emitir o ${titleLower}?`,
-      answer: `Sim. Tanto pessoas físicas quanto jurídicas podem emitir o documento, desde que contenha os dados completos (Nome e CPF ou CNPJ) de quem está recebendo e de quem está pagando o valor.`
-    },
-    {
-      question: `O ${titleLower} substitui a Nota Fiscal?`,
-      answer: `Não. O recibo serve apenas como comprovante de pagamento entre as partes. A Nota Fiscal é o documento oficial obrigatório para fins de recolhimento de impostos em atividades comerciais ou empresariais regulamentadas.`
-    },
-    {
-      question: `Quais dados não podem faltar no ${titleLower}?`,
-      answer: `É obrigatório conter: o valor pago (numérico e por extenso), o nome e documento (CPF/CNPJ) do pagador e do recebedor, a descrição exata do que está sendo pago, a data, o local e, imprescindivelmente, a assinatura de quem recebeu o valor.`
-    },
-    {
-      question: `Preciso reconhecer firma neste recibo?`,
-      answer: `Na grande maioria dos casos cotidianos, não é exigido o reconhecimento de firma em cartório. Apenas a assinatura conferindo com o documento de identidade já possui validade como recibo de quitação.`
-    },
-    {
-      question: `O comprovante de PIX serve como recibo?`,
-      answer: `O comprovante de transferência do PIX atesta apenas que o dinheiro saiu de uma conta e foi para outra. Ele não descreve a que o pagamento se refere. Portanto, é altamente recomendado emitir um recibo formal com a descrição precisa do serviço ou produto.`
-    }
-  ];
+  const finalFaqs = richData?.faqs || model.faqs || [];
 
   const softwareSchema = {
     "@context": "https://schema.org",
@@ -137,12 +116,26 @@ export function ReceiptPage() {
     ]
   };
 
+  const faqSchema = finalFaqs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": finalFaqs.map((faq: {question: string, answer: string}) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  } : null;
+
   // Combine schemas into an array
   const schemas: any[] = [
     { ...breadcrumbSchema, "@context": undefined }, 
     { ...softwareSchema, "@context": undefined },
     { ...howToSchema, "@context": undefined }
   ];
+  if (faqSchema) schemas.push({ ...faqSchema, "@context": undefined });
   
   const schemaString = JSON.stringify({
     "@context": "https://schema.org",
@@ -405,14 +398,30 @@ export function ReceiptPage() {
             </div>
           </div>
 
-          {/* Link to FAQ Page */}
-          <div className="mt-20 text-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Tem alguma dúvida?</h2>
-            <p className="text-gray-600 mb-6">Consulte nossa página de Perguntas Frequentes para saber mais sobre validade legal e uso da ferramenta.</p>
-            <Link to="/faq" className="inline-flex items-center gap-2 bg-white border border-emerald-200 text-emerald-700 hover:bg-emerald-50 px-6 py-3 rounded-xl font-medium transition-colors">
-              Acessar FAQ <CheckCircle2 className="w-5 h-5" />
-            </Link>
-          </div>
+          {/* FAQs Section */}
+          {finalFaqs.length > 0 ? (
+            <div className="mt-20">
+              <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-8 border-b border-gray-100 pb-4">
+                Perguntas Frequentes
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {finalFaqs.map((faq, index) => (
+                  <div key={index} className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-emerald-200 transition-colors">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{faq.question}</h3>
+                    <p className="text-gray-600 leading-relaxed m-0">{faq.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="mt-20 text-center">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Tem alguma dúvida?</h2>
+              <p className="text-gray-600 mb-6">Consulte nossa página de Perguntas Frequentes para saber mais sobre validade legal e uso da ferramenta.</p>
+              <Link to="/faq" className="inline-flex items-center gap-2 bg-white border border-emerald-200 text-emerald-700 hover:bg-emerald-50 px-6 py-3 rounded-xl font-medium transition-colors">
+                Acessar FAQ <CheckCircle2 className="w-5 h-5" />
+              </Link>
+            </div>
+          )}
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
             <div className="bg-emerald-50/50 border border-emerald-100 rounded-2xl p-8">
