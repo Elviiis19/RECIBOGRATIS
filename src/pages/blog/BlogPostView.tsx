@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, CheckCircle2, User, FileSignature, ArrowRight } from 'lucide-react';
 import { blogPosts } from '../../data/blogPosts';
 import { blogCategories } from '../../data/blogTypes';
 import { AdSenseBlock } from '../../components/AdSenseBlock';
+import { SEO } from '../../components/SEO';
 
 export const BlogPostView = () => {
   const { slug } = useParams();
@@ -58,12 +58,12 @@ export const BlogPostView = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{post.seoTitle}</title>
-        <meta name="description" content={post.seoDescription} />
-        <link rel="canonical" href={`https://recibogratis.com.br/blog/${post.slug}`} />
-        <script type="application/ld+json">{schemaString}</script>
-      </Helmet>
+      <SEO 
+        title={post.seoTitle}
+        description={post.seoDescription}
+        url={`https://recibogratis.com.br/blog/${post.slug}`}
+        schema={schemaString}
+      />
 
       <article className="min-h-screen bg-gray-50 pb-20">
         {/* Header Block */}

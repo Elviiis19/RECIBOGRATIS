@@ -76,12 +76,38 @@ async function prerender() {
   try {
     const { render } = await vite.ssrLoadModule('/src/entry-server.tsx');
     const { receiptModels } = await vite.ssrLoadModule('/src/data/receiptModels.ts');
+    const { blogPosts } = await vite.ssrLoadModule('/src/data/blogPosts.ts');
+    const { blogCategories } = await vite.ssrLoadModule('/src/data/blogTypes.ts');
 
     for (const model of receiptModels) {
       routes.push({
         path: `/${model.slug}`,
-        title: model.seoTitle || `${model.title} | Recibo Grátis`,
+        title: model.seoTitle || `${model.title} | Gerador Online em PDF Grátis`,
         description: model.seoDescription || model.shortDescription,
+      });
+    }
+
+    routes.push({
+      path: '/blog',
+      title: 'Blog - Dicas de Financeiro e MEI | Recibo Grátis',
+      description: 'Acompanhe nosso blog e fique por dentro das melhores dicas de gestão financeira, MEI, legislação simplificada e recibos com validade legal.'
+    });
+
+    for (const post of blogPosts) {
+      if (post.slug !== 'financas-pessoais') {
+        routes.push({
+          path: `/blog/${post.slug}`,
+          title: post.seoTitle || post.title,
+          description: post.seoDescription,
+        });
+      }
+    }
+
+    for (const cat of blogCategories) {
+      routes.push({
+        path: `/blog/categoria/${cat.slug}`,
+        title: `Blog - ${cat.name} | Recibo Grátis`,
+        description: `Leia os melhores artigos sobre ${cat.name.toLowerCase()}. Dicas práticas, legislação simplificada e gestão para autônomos e MEI.`,
       });
     }
 

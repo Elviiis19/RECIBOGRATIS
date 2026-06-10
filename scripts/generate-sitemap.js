@@ -17,6 +17,26 @@ while ((match = slugRegex.exec(modelsContent)) !== null) {
   slugs.push(match[1]);
 }
 
+// Read blog slugs
+const blogFilePath = path.join(__dirname, '../src/data/blogPosts.ts');
+const blogContent = fs.readFileSync(blogFilePath, 'utf-8');
+const blogSlugRegex = /"slug":\s*"([^"]+)"/g;
+const blogSlugs = [];
+while ((match = blogSlugRegex.exec(blogContent)) !== null) {
+  if (match[1] !== "financas-pessoais") { // simple ignore
+    blogSlugs.push(match[1]);
+  }
+}
+
+// Read blog categories
+const blogTypesFilePath = path.join(__dirname, '../src/data/blogTypes.ts');
+const blogTypesContent = fs.readFileSync(blogTypesFilePath, 'utf-8');
+const categorySlugRegex = /slug:\s*'([^']+)'/g;
+const blogCategorySlugs = [];
+while ((match = categorySlugRegex.exec(blogTypesContent)) !== null) {
+  blogCategorySlugs.push(match[1]);
+}
+
 const baseUrl = 'https://recibogratis.com.br';
 
 const ferramentas = [
@@ -67,6 +87,21 @@ ${slugs.map(slug => `  <url>
     <loc>${baseUrl}/${slug}</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>`).join('\n')}
+  <url>
+    <loc>${baseUrl}/blog</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+${blogSlugs.map(slug => `  <url>
+    <loc>${baseUrl}/blog/${slug}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>`).join('\n')}
+${blogCategorySlugs.map(slug => `  <url>
+    <loc>${baseUrl}/blog/categoria/${slug}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>`).join('\n')}
 </urlset>`;
 

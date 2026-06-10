@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 interface AdSenseBlockProps {
   slot?: string;
@@ -6,18 +6,26 @@ interface AdSenseBlockProps {
   className?: string;
 }
 
-export const AdSenseBlock: React.FC<AdSenseBlockProps> = ({ slot, format = 'auto', className = '' }) => {
+export const AdSenseBlock: React.FC<AdSenseBlockProps> = ({ slot = '1234567890', format = 'auto', className = '' }) => {
+  useEffect(() => {
+    try {
+      // @ts-ignore
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (err) {
+      console.error('AdSense error', err);
+    }
+  }, []);
+
   return (
-    <div className={`my-8 bg-gray-50 border border-gray-100 rounded-xl p-4 flex items-center justify-center min-h-[100px] text-gray-400 text-sm italic ${className}`}>
-      {/* 
-        Google AdSense Placeholder
-        Replace this with your Google AdSense <ins> block later.
-        Ensure it matches the site layout.
-      */}
-      <div className="text-center">
-        <span className="block font-semibold">Espaço Publicitário</span>
-        <span className="text-xs">Otimizado para RPM/CPC (AdSense)</span>
-      </div>
+    <div className={`my-8 min-h-[100px] flex items-center justify-center overflow-hidden ${className}`}>
+      <ins 
+        className="adsbygoogle"
+        style={{ display: 'block', width: '100%' }}
+        data-ad-client="ca-pub-XXXXXXXXXXXXX" // Substitua pelo seu ID ('ca-pub-...")
+        data-ad-slot={slot}
+        data-ad-format={format}
+        data-full-width-responsive="true"
+      ></ins>
     </div>
   );
 };

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link, useParams } from 'react-router-dom';
 import { FileText, ArrowRight, BookOpen, Clock } from 'lucide-react';
 import { blogPosts } from '../../data/blogPosts';
 import { blogCategories } from '../../data/blogTypes';
+import { SEO } from '../../components/SEO';
 
 export const BlogIndex = () => {
   const { category: categorySlug } = useParams();
@@ -26,11 +26,11 @@ export const BlogIndex = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={desc} />
-        <link rel="canonical" href={`https://recibogratis.com.br/blog${categorySlug ? `/categoria/${categorySlug}` : ''}`} />
-      </Helmet>
+      <SEO 
+        title={title}
+        description={desc}
+        url={`https://recibogratis.com.br/blog${categorySlug ? `/categoria/${categorySlug}` : ''}`}
+      />
 
       {/* Hero Header */}
       <section className="pt-24 pb-12 bg-emerald-900 border-b border-emerald-800 text-white relative flex flex-col items-center">
