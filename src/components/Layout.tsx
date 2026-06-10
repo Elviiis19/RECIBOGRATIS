@@ -205,41 +205,38 @@ export function Layout() {
         <Outlet />
       </main>
 
-      <footer className="bg-white border-t border-gray-200 mt-auto">
+      <footer className="bg-emerald-950 border-t border-emerald-900 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             <div className="lg:col-span-2">
-              <Link to="/" className="flex items-center gap-2 text-emerald-600 mb-4">
+              <Link to="/" className="flex items-center gap-2 text-emerald-400 mb-4">
                 <FileText className="h-6 w-6" />
                 <span className="font-bold text-lg">Recibo Grátis</span>
               </Link>
-              <p className="text-sm text-gray-500 mb-4 max-w-sm">
+              <p className="text-sm text-emerald-100/70 mb-6 max-w-sm">
                 Gere recibos online de forma rápida, segura e totalmente gratuita. Sem necessidade de cadastro.
               </p>
-              <p className="text-xs text-gray-500 mb-6">
-                Idealizado por <strong>Elvis Dias</strong>
-              </p>
               
-              <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Ferramentas Extras</h3>
+              <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">Ferramentas Extras</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link to="/gerador-qr-code-pix" className="text-sm font-medium text-emerald-600 hover:text-emerald-700 flex items-center gap-1">
+                  <Link to="/gerador-qr-code-pix" className="text-sm font-medium text-emerald-400 hover:text-white flex items-center gap-1 transition-colors">
                     Gerador de QR Code PIX
                   </Link>
                 </li>
-                <li><Link to="/ferramentas/valor-por-extenso" className="text-sm text-gray-600 hover:text-emerald-600 transition-colors">Valor por Extenso</Link></li>
-                <li><Link to="/ferramentas/calculadora-retencao-impostos" className="text-sm text-gray-600 hover:text-emerald-600 transition-colors">Calculadora de Retenção de Impostos</Link></li>
-                <li><Link to="/ferramentas/calculadora-desconto-multa" className="text-sm text-gray-600 hover:text-emerald-600 transition-colors">Descontos e Multas</Link></li>
-                <li><Link to="/ferramentas/calculadora-maquininha-cartao" className="text-sm text-gray-600 hover:text-emerald-600 transition-colors">Taxas de Maquininha</Link></li>
+                <li><Link to="/ferramentas/valor-por-extenso" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Valor por Extenso</Link></li>
+                <li><Link to="/ferramentas/calculadora-retencao-impostos" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Calculadora de Retenção de Impostos</Link></li>
+                <li><Link to="/ferramentas/calculadora-desconto-multa" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Descontos e Multas</Link></li>
+                <li><Link to="/ferramentas/calculadora-maquininha-cartao" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Taxas de Maquininha</Link></li>
               </ul>
             </div>
             
             <div>
-              <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Mais Usados</h3>
+              <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">Mais Usados</h3>
               <ul className="space-y-2">
                 {footerLinks.slice(0, 8).map((link) => (
                   <li key={link.path}>
-                    <Link to={link.path} className="text-sm text-gray-600 hover:text-emerald-600 transition-colors">
+                    <Link to={link.path} className="text-sm text-emerald-100/70 hover:text-white transition-colors">
                       {link.name}
                     </Link>
                   </li>
@@ -248,11 +245,11 @@ export function Layout() {
             </div>
 
             <div>
-              <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Profissionais</h3>
+              <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">Profissionais</h3>
               <ul className="space-y-2">
                 {footerLinks.slice(8, 16).map((link) => (
                   <li key={link.path}>
-                    <Link to={link.path} className="text-sm text-gray-600 hover:text-emerald-600 transition-colors">
+                    <Link to={link.path} className="text-sm text-emerald-100/70 hover:text-white transition-colors">
                       {link.name}
                     </Link>
                   </li>
@@ -261,33 +258,37 @@ export function Layout() {
             </div>
 
             <div>
-              <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Institucional</h3>
+              <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">Institucional</h3>
               <ul className="space-y-2 mb-6">
-                <li><Link to="/faq" className="text-sm text-gray-600 hover:text-emerald-600 transition-colors">Perguntas Frequentes (FAQ)</Link></li>
-                <li><Link to="/termos-de-uso" className="text-sm text-gray-600 hover:text-emerald-600 transition-colors">Termos de Uso</Link></li>
-                <li><Link to="/politica-de-privacidade" className="text-sm text-gray-600 hover:text-emerald-600 transition-colors">Política de Privacidade</Link></li>
-                <li><Link to="/contato" className="text-sm text-gray-600 hover:text-emerald-600 transition-colors">Contato</Link></li>
+                <li><Link to="/faq" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Perguntas Frequentes (FAQ)</Link></li>
+                <li><Link to="/termos-de-uso" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Termos de Uso</Link></li>
+                <li><Link to="/politica-de-privacidade" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Política de Privacidade</Link></li>
+                <li><Link to="/contato" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Contato</Link></li>
               </ul>
 
-              <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Nosso Ecossistema</h3>
+              <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">Nosso Ecossistema</h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="https://declaracaoonline.com.br" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-600 hover:text-emerald-600 transition-colors">
+                  <a href="https://declaracaoonline.com.br" target="_blank" rel="noopener noreferrer" className="text-sm text-emerald-100/70 hover:text-white transition-colors">
                     Declaração Online
                   </a>
                 </li>
                 <li>
-                  <a href="https://geracontrato.com.br" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-600 hover:text-emerald-600 transition-colors">
+                  <a href="https://geracontrato.com.br" target="_blank" rel="noopener noreferrer" className="text-sm text-emerald-100/70 hover:text-white transition-colors">
                     Gera Contrato
                   </a>
                 </li>
               </ul>
             </div>
           </div>
-          <div className="mt-12 border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-500">
-              &copy; {new Date().getFullYear()} Recibo Grátis. Todos os direitos reservados.
+          <div className="mt-12 border-t border-emerald-900/50 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <p className="text-sm text-emerald-100/60">
+              &copy; 2024 - {new Date().getFullYear()} Recibo Grátis. Todos os direitos reservados.
             </p>
+            <div className="text-sm text-emerald-100/60 md:text-right">
+              <p>Gerido por <strong className="text-emerald-50">Elvis Dias</strong></p>
+              <p>CNPJ: 43.027.941/0001-21 | Contato: (69) 98103-9664</p>
+            </div>
           </div>
         </div>
       </footer>

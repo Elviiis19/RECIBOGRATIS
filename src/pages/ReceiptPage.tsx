@@ -367,7 +367,7 @@ export function ReceiptPage() {
             <article>
               <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <CheckCircle2 className="w-8 h-8 text-emerald-500 flex-shrink-0" />
-                Este recibo tem validade legal?
+                Importância do Comprovante e Validade Jurídica
               </h2>
               
               <div className="text-gray-600 text-lg leading-relaxed max-w-none">
@@ -388,7 +388,7 @@ export function ReceiptPage() {
                 ) : (
                   <div className="space-y-6">
                     <p>
-                      <strong className="text-gray-900">Sim.</strong> {richData?.lsiText || defaultLsiText}
+                      {richData?.lsiText || defaultLsiText}
                     </p>
                     <p>
                       Quando preenchido corretamente, ele funciona como a sua defesa contra cobranças duplicadas perante a justiça e o Procon.
