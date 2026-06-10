@@ -15,6 +15,8 @@ import { Contato } from './pages/Contato';
 import { PixGenerator } from './pages/PixGenerator';
 import { Faq } from './pages/Faq';
 import { AllModels } from './pages/AllModels';
+import { BlogIndex } from './pages/blog/BlogIndex';
+import { BlogPostView } from './pages/blog/BlogPostView';
 import { ValorPorExtenso } from './pages/tools/ValorPorExtenso';
 import { RetencaoImpostos } from './pages/tools/RetencaoImpostos';
 import { DescontosMultas } from './pages/tools/DescontosMultas';
@@ -50,6 +52,9 @@ export default function App({ url, helmetContext = {} }: { url?: string, helmetC
         <Route path="contato" element={<Contato />} />
         <Route path="faq" element={<Faq />} />
         <Route path="modelos" element={<AllModels />} />
+        <Route path="blog" element={<BlogIndex />} />
+        <Route path="blog/categoria/:category" element={<BlogIndex />} />
+        <Route path="blog/:slug" element={<BlogPostView />} />
         <Route path=":slug" element={<ReceiptPage />} />
       </Route>
     </Routes>

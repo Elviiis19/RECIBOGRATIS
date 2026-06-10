@@ -70,6 +70,13 @@ export function Layout() {
                   </div>
                 </div>
               ))}
+              
+              <Link 
+                to="/blog" 
+                className="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors py-5"
+              >
+                Blog
+              </Link>
 
               <div className="relative group">
                 <button 
@@ -166,6 +173,13 @@ export function Layout() {
               >
                 Página Inicial (Todos os Modelos)
               </Link>
+              <Link
+                to="/blog"
+                onClick={() => setIsMenuOpen(false)}
+                className="block px-3 py-2 rounded-md text-base font-bold text-emerald-700 hover:bg-emerald-50"
+              >
+                Nosso Blog
+              </Link>
               <div className="pt-4 pb-2">
                 <p className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
                   Ferramentas
@@ -260,6 +274,7 @@ export function Layout() {
             <div>
               <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">Institucional</h3>
               <ul className="space-y-2 mb-6">
+                <li><Link to="/blog" className="text-sm inline-flex items-center gap-1 font-bold text-emerald-400 hover:text-white transition-colors">Nosso Blog</Link></li>
                 <li><Link to="/faq" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Perguntas Frequentes (FAQ)</Link></li>
                 <li><Link to="/termos-de-uso" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Termos de Uso</Link></li>
                 <li><Link to="/politica-de-privacidade" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Política de Privacidade</Link></li>
