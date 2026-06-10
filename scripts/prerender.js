@@ -118,7 +118,7 @@ async function prerender() {
         fs.mkdirSync(routeDir, { recursive: true });
       }
 
-      const { html: appHtml, helmet } = render(route.path);
+      const { html: appHtml } = render(route.path);
       
       let html = template;
       

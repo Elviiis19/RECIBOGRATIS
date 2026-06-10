@@ -3,14 +3,11 @@ import { renderToString } from 'react-dom/server';
 import App from './App';
 
 export function render(url: string) {
-  const helmetContext: any = {};
   const html = renderToString(
     <StrictMode>
-      <App url={url} helmetContext={helmetContext} />
+      <App url={url} />
     </StrictMode>
   );
-  
-  console.log("Helmet context after render:", Object.keys(helmetContext));
 
-  return { html, helmet: helmetContext.helmet };
+  return { html };
 }

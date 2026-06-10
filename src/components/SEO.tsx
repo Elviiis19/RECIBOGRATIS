@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 
 interface SEOProps {
@@ -33,7 +32,7 @@ export function SEO({ title, description, keywords, schema, url }: SEOProps) {
   const fullTitle = title;
 
   return (
-    <Helmet>
+    <>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
@@ -53,10 +52,8 @@ export function SEO({ title, description, keywords, schema, url }: SEOProps) {
       <meta name="twitter:description" content={description} />
       
       {schema && (
-        <script type="application/ld+json">
-          {schema}
-        </script>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schema }} />
       )}
-    </Helmet>
+    </>
   );
 }

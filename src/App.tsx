@@ -5,7 +5,6 @@
 
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { StaticRouter } from 'react-router-dom/server';
-import { HelmetProvider } from 'react-helmet-async';
 import { Layout } from './components/Layout';
 import { Home } from './pages/Home';
 import { ReceiptPage } from './pages/ReceiptPage';
@@ -27,7 +26,7 @@ import { ValidadorCpfCnpj } from './pages/tools/ValidadorCpfCnpj';
 import { ConsultadorIbge } from './pages/tools/ConsultadorIbge';
 import { GeradorPixCopiaECola } from './pages/tools/GeradorPixCopiaECola';
 
-export default function App({ url, helmetContext = {} }: { url?: string, helmetContext?: any }) {
+export default function App({ url }: { url?: string }) {
   const isServer = typeof window === 'undefined';
 
   const ApplicationRoutes = (
@@ -61,7 +60,7 @@ export default function App({ url, helmetContext = {} }: { url?: string, helmetC
   );
 
   return (
-    <HelmetProvider context={helmetContext}>
+    <>
       {isServer ? (
         <StaticRouter location={url || '/'}>
           {ApplicationRoutes}
@@ -72,7 +71,7 @@ export default function App({ url, helmetContext = {} }: { url?: string, helmetC
           {ApplicationRoutes}
         </BrowserRouter>
       )}
-    </HelmetProvider>
+    </>
   );
 }
 
