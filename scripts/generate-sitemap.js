@@ -20,7 +20,7 @@ while ((match = slugRegex.exec(modelsContent)) !== null) {
 // Read blog slugs
 const blogFilePath = path.join(__dirname, '../src/data/blogPosts.ts');
 const blogContent = fs.readFileSync(blogFilePath, 'utf-8');
-const blogSlugRegex = /"slug":\s*"([^"]+)"/g;
+const blogSlugRegex = /slug:\s*['"]([^'"]+)['"]/g;
 const blogSlugs = [];
 while ((match = blogSlugRegex.exec(blogContent)) !== null) {
   if (match[1] !== "financas-pessoais") { // simple ignore

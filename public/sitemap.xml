@@ -330,7 +330,36 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
-
+  <url>
+    <loc>https://recibogratis.com.br/blog/como-provar-renda-sendo-autonomo-o-guia-do-recibo-perfeito</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/blog/recibo-simples-substitui-nota-fiscal-para-mei</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/blog/contrato-verbal-de-aluguel-e-seguro</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/blog/PIX-vs-recibo-qual-e-mais-seguro</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/blog/recibo-da-diarista-seguranca-juridica-no-lar</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/blog/como-separar-o-dinheiro-pessoal-do-negocio-sendo-mei</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://recibogratis.com.br/blog/categoria/financas-pessoais</loc>
     <changefreq>weekly</changefreq>
