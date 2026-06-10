@@ -61,7 +61,7 @@ export function ReceiptPage() {
 
   const defaultCtaText = `Pare de usar folhas soltas ou arquivos antigos em Word. Crie, emprima em PDF e envie este comprovante por WhatsApp imediatamente.`;
 
-  const finalFaqs = richData?.faqs || model.faqs || [];
+  const finalFaqs = model.faqs || [];
 
   const softwareSchema = {
     "@context": "https://schema.org",
