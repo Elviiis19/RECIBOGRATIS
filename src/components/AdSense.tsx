@@ -16,7 +16,7 @@ export function AdSense() {
   }, []);
 
   return (
-    <div className="w-full flex flex-col items-center justify-center my-8 overflow-hidden">
+    <div className="w-full flex flex-col items-center justify-center my-8 overflow-hidden min-h-[280px]">
       <span className="text-[10px] text-gray-400 uppercase tracking-widest mb-2 block">- Publicidade -</span>
       <ins
         className="adsbygoogle"

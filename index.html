@@ -6,15 +6,41 @@
     <meta name="author" content="Elvis Dias" />
     <link rel="preload" as="image" href="/cubes.png" />
     <meta name="robots" content="index, follow" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4064231456386943" crossorigin="anonymous"></script>
-    <!-- Google tag (gtag.js) -->
-    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-DK03NDV0QM"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      (function() {
+        var scriptsLoaded = false;
+        function loadScripts() {
+          if (scriptsLoaded) return;
+          scriptsLoaded = true;
 
-      gtag('config', 'G-DK03NDV0QM');
+          // AdSense
+          var adsScript = document.createElement('script');
+          adsScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4064231456386943";
+          adsScript.async = true;
+          adsScript.crossOrigin = "anonymous";
+          document.head.appendChild(adsScript);
+
+          // Google Tag Manager
+          var gtagScript = document.createElement('script');
+          gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-DK03NDV0QM";
+          gtagScript.async = true;
+          document.head.appendChild(gtagScript);
+
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-DK03NDV0QM');
+        }
+
+        // Lazy load on interaction
+        var events = ['scroll', 'mousemove', 'mousedown', 'touchstart', 'keydown'];
+        events.forEach(function(event) {
+          window.addEventListener(event, loadScripts, { once: true, passive: true });
+        });
+
+        // Fallback
+        setTimeout(loadScripts, 5000);
+      })();
     </script>
   </head>
   <body>

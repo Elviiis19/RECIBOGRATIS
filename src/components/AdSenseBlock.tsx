@@ -23,7 +23,7 @@ export const AdSenseBlock: React.FC<AdSenseBlockProps> = ({ slot = '1234567890',
   }, []);
 
   return (
-    <div className={`my-8 min-h-[100px] flex items-center justify-center overflow-hidden ${className}`}>
+    <div className={`my-8 min-h-[280px] flex items-center justify-center overflow-hidden bg-gray-50/50 rounded-xl ${className}`}>
       <ins 
         ref={adRef}
         className="adsbygoogle"
