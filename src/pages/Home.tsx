@@ -66,45 +66,6 @@ export function Home() {
     }
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "O Recibo Grátis tem validade legal?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sim. Desde que preenchido corretamente com os dados de quem paga (pagador), de quem recebe (recebedor), valores, data e, principalmente, a assinatura do recebedor, o recibo gerado tem total validade legal como comprovante de pagamento no Brasil."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Preciso de CNPJ para emitir um recibo?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Não. Pessoas físicas (usando o CPF) podem emitir recibos normalmente para comprovar o recebimento de valores por prestação de serviços eventuais, vendas de bens, aluguéis, entre outros."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Como salvar o recibo em PDF?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Após preencher os dados no gerador, clique no botão 'Imprimir / Salvar PDF'. Na tela de impressão do seu navegador, altere o destino de 'Impressora' para 'Salvar como PDF' e confirme."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "É seguro colocar meus dados e do meu cliente no site?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sim, é 100% seguro. O Recibo Grátis funciona inteiramente no seu navegador (client-side). Nós não possuímos banco de dados e nenhuma informação digitada é enviada ou salva em nossos servidores."
-        }
-      }
-    ]
-  };
-
   const softwareSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -139,8 +100,7 @@ export function Home() {
           "@context": "https://schema.org", 
           "@graph": [
             { ...websiteSchema, "@context": undefined }, 
-            { ...softwareSchema, "@context": undefined },
-            { ...faqSchema, "@context": undefined }
+            { ...softwareSchema, "@context": undefined }
           ] 
         })}
         url="https://recibogratis.com.br"
@@ -319,17 +279,13 @@ export function Home() {
             </div>
           </div>
 
-          {/* FAQ Section */}
-          <div className="mt-20">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Perguntas Frequentes (FAQ)</h2>
-            <div className="space-y-6">
-              {faqSchema.mainEntity.map((faq, index) => (
-                <div key={index} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{faq.name}</h3>
-                  <p className="text-gray-600 m-0 leading-relaxed">{faq.acceptedAnswer.text}</p>
-                </div>
-              ))}
-            </div>
+          {/* Link to FAQ Page */}
+          <div className="mt-20 text-center">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Tem alguma dúvida?</h2>
+            <p className="text-gray-600 mb-6">Consulte nossa página de Perguntas Frequentes para saber mais sobre validade legal e uso da ferramenta.</p>
+            <Link to="/faq" className="inline-flex items-center gap-2 bg-white border border-emerald-200 text-emerald-700 hover:bg-emerald-50 px-6 py-3 rounded-xl font-medium transition-colors">
+              Acessar FAQ <CheckCircle2 className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </section>
