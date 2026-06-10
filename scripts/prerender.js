@@ -143,22 +143,13 @@ async function prerender() {
       let hoistedTags = match ? match[0] : '';
       cleanAppHtml = cleanAppHtml.replace(hoistedTagsRegex, '');
 
-      // Parse JSON-LD out of hoistedTags to know what we already have
-      const existingLdJsons = new Set();
-      const hoistedLdRegex = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
-      let ldMatch;
-      while ((ldMatch = hoistedLdRegex.exec(hoistedTags)) !== null) {
-        existingLdJsons.add(ldMatch[1].trim());
-      }
-
-      // Find and extract JSON-LD body tags to move to head, avoiding duplicates
+      // Also extract any stray JSON-LD scripts deep inside the body (in case it didn't get hoisted)
       const ldJsonRegex = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
       const jsonLdMatches = [];
       let bodyLdMatch;
       while ((bodyLdMatch = ldJsonRegex.exec(cleanAppHtml)) !== null) {
-        const content = bodyLdMatch[1].trim();
-        if (!existingLdJsons.has(content)) {
-          existingLdJsons.add(content);
+        // Prevent duplication if it's already in hoistedTags
+        if (!hoistedTags.includes(bodyLdMatch[1].trim())) {
           jsonLdMatches.push(bodyLdMatch[0]);
         }
       }
@@ -167,7 +158,7 @@ async function prerender() {
         hoistedTags += '\n' + jsonLdMatches.join('\n');
       }
 
-      // Finally, scrub all JSON-LD tags from the body text
+      // Scrub all JSON-LD tags from the body text
       cleanAppHtml = cleanAppHtml.replace(/<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, '');
 
       html = html.replace(

@@ -18,6 +18,7 @@ export function SEO({ title, description, keywords, schema, url }: SEOProps) {
   }
   
   const basePath = typeof window !== 'undefined' ? window.location.pathname : pathname;
+  const isServer = typeof window === 'undefined';
   
   // Clean trailing slash
   const cleanPath = basePath !== '/' && basePath.endsWith('/') 
@@ -51,7 +52,7 @@ export function SEO({ title, description, keywords, schema, url }: SEOProps) {
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       
-      {schema && (
+      {isServer && schema && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schema }} />
       )}
     </>
