@@ -607,75 +607,96 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
     const nTitulo = total > 1 ? `Nº ${String(index + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}` : `Nº 01 / 01`;
 
     return (
-      <div key={`promissoria-${index}`} className="bg-white p-4 md:p-6 relative shadow-xl print:shadow-none border-2 border-black break-inside-avoid w-full mb-8 print:mb-8 font-sans">
-        <div className="flex justify-between items-center border-b-2 border-black pb-4 mb-4">
+      <div key={`promissoria-${index}`} className="bg-[#FFFFE0] p-4 relative shadow-xl print:shadow-none border-2 border-black break-inside-avoid w-full mb-6 print:mb-4 font-sans">
+        
+        {/* Avalista Sidebar (Classic yellow style) */}
+        {isComAvalista && (
+          <div className="absolute left-0 top-0 bottom-0 w-8 border-r-2 border-black flex items-center justify-center writing-vertical-lr rotate-180">
+            <span className="text-xs font-bold tracking-widest uppercase">Avalista(s)</span>
+          </div>
+        )}
+
+        <div className={`flex justify-between items-center border-b border-black pb-2 mb-3 ${isComAvalista ? 'ml-10' : ''}`}>
           <div className="w-1/3">
-            <p className="text-xl font-bold">{nTitulo}</p>
-            <p className="font-semibold text-sm mt-1 uppercase">Vencimento: {currentVencimento}</p>
+            <p className="text-lg font-bold">{nTitulo}</p>
+            <p className="font-semibold text-xs mt-1 uppercase">Vencimento: <span className="bg-white border text-sm border-black px-2 py-1 inline-block min-w-[120px] text-center ml-2">{currentVencimento}</span></p>
           </div>
           <div className="w-1/3 text-center">
-            <h1 className="text-2xl md:text-3xl font-bold uppercase tracking-widest leading-tight">
-              NOTA<br />PROMISSÓRIA
+            <h1 className="text-xl font-bold uppercase tracking-widest leading-tight">
+              NOTA PROMISSÓRIA
             </h1>
           </div>
           <div className="w-1/3 flex justify-end">
-             <div className="border-2 border-black px-4 py-2 rounded bg-gray-100 flex items-center">
-               <span className="text-xl font-bold">R$ {formatCurrency(data.valor)}</span>
+             <div className="flex items-center text-lg font-bold">
+               <span className="mr-2">R$</span>
+               <div className="bg-white border text-xl border-black px-4 py-1 min-w-[150px] text-right">
+                 {formatCurrency(data.valor)}
+               </div>
              </div>
           </div>
         </div>
 
-        <div className="space-y-4 text-[15px] md:text-[16px] leading-relaxed text-black">
-          <p className="text-justify indent-8">
-            Aos <span className="font-bold">{currentVencimento}</span> pagarei(emos) por esta única via de NOTA PROMISSÓRIA a <span className="font-bold uppercase">{data.recebedorNome || '________________________________________________'}</span>, 
-            CPF/CNPJ nº <span className="font-bold">{data.recebedorDocumento || '_________________________'}</span>, ou à sua ordem, a quantia de <span className="font-bold">R$ {formatCurrency(data.valor)}</span> {data.valor && data.valor !== '0,00' ? `(${getValorExtenso(data.valor)})` : ''},
-            em moeda corrente deste país, pagável em <span className="font-bold uppercase">{data.cidade || '_________________________'}</span>.
+        <div className={`space-y-3 text-[13px] leading-relaxed text-black ${isComAvalista ? 'ml-10' : ''}`}>
+          <p className="text-justify indent-8 tracking-tight">
+            Aos <span className="font-bold underline px-1">{currentVencimento}</span> pagarei(emos) por esta única via de NOTA PROMISSÓRIA a <span className="font-bold uppercase underline px-1">{data.recebedorNome || '________________________________________________'}</span>, 
+            CPF/CNPJ <span className="font-bold underline px-1">{data.recebedorDocumento || '_________________________'}</span>, ou à sua ordem, a quantia de <span className="font-bold bg-gray-200 border border-gray-400 px-2 inline-block"> {data.valor && data.valor !== '0,00' ? getValorExtenso(data.valor) : '____________________________________________________'} </span>,
+            em moeda corrente deste país, pagável em <span className="font-bold uppercase underline px-1">{data.cidade || '_________________________'}</span>.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-t border-black pt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 border-t border-black pt-2">
             <div>
-              <p className="font-bold uppercase mb-2">Dados do Devedor (Emitente):</p>
-              <p>Nome: <span className="uppercase">{data.pagadorNome || '_________________________'}</span></p>
-              <p>CPF/CNPJ: {data.pagadorDocumento || '_________________________'}</p>
-              <p>Endereço: {data.devedorEndereco || '_________________________'}, {data.devedorNumero || '___'} {data.devedorComplemento ? `- ${data.devedorComplemento}` : ''}</p>
-              <p>Bairro: {data.devedorBairro || '______________'} - CEP: {data.devedorCep || '________-___'}</p>
-              <p>Cidade: {data.devedorCidade || '______________'} / UF: {data.devedorUf || '__'}</p>
+              <p className="font-bold text-[11px] uppercase mb-1">Emitente (Devedor):</p>
+              <div className="text-xs space-y-1">
+                <p>Nome: <span className="uppercase border-b border-black border-dotted block w-full">{data.pagadorNome || ''}</span></p>
+                <div className="flex gap-2">
+                  <p className="w-1/2">CPF/CNPJ: <span className="border-b border-black border-dotted block w-full">{data.pagadorDocumento || ''}</span></p>
+                  <p className="w-1/2">Data Emissão: <span className="border-b border-black border-dotted block w-full">{data.data ? formatDate(data.data) : ''}</span></p>
+                </div>
+                <p>Endereço: <span className="uppercase border-b border-black border-dotted block w-full">{data.devedorEndereco ? `${data.devedorEndereco}, ${data.devedorNumero} ${data.devedorComplemento ? '- ' + data.devedorComplemento : ''}` : ''}</span></p>
+              </div>
             </div>
-            {isComAvalista && (
+            {isComAvalista ? (
               <div>
-                <p className="font-bold uppercase mb-2">Dados do Avalista:</p>
-                <p>Nome: <span className="uppercase">{data.avalistaNome || '_________________________'}</span></p>
-                <p>CPF/CNPJ: {data.avalistaDocumento || '_________________________'}</p>
-                {data.avalistaTelefone && <p>Telefone: {data.avalistaTelefone}</p>}
-                {!data.avalistaTelefone && <p>Telefone: _________________________</p>}
-                <p>Endereço: _____________________________________</p>
+                <p className="font-bold text-[11px] uppercase mb-1">Avalista:</p>
+                <div className="text-xs space-y-1">
+                  <p>Nome: <span className="uppercase border-b border-black border-dotted block w-full">{data.avalistaNome || ''}</span></p>
+                  <div className="flex gap-2">
+                    <p className="w-1/2">CPF/CNPJ: <span className="border-b border-black border-dotted block w-full">{data.avalistaDocumento || ''}</span></p>
+                    <p className="w-1/2">Telefone: <span className="border-b border-black border-dotted block w-full">{data.avalistaTelefone || ''}</span></p>
+                  </div>
+                  <p>Endereço: <span className="uppercase border-b border-black border-dotted block w-full"></span></p>
+                </div>
+              </div>
+            ) : (
+              <div className="flex items-end justify-end">
+                 <div className="text-xs flex flex-col items-center w-[250px]">
+                   <div className="w-full border-t border-black border-dashed mb-1"></div>
+                   <p className="font-bold uppercase text-[10px]">Assinatura do Emitente</p>
+                 </div>
               </div>
             )}
           </div>
 
-          <div className="flex justify-between items-end mt-8 border-t border-black pt-4">
-             <div>
-               <p className="font-bold uppercase">Praça de Pagamento:</p>
-               <p>{data.cidade || '_________________________'} , {data.data ? formatDate(data.data) : '___/___/20__'}</p>
-               {data.observacao && <p className="mt-2 text-sm max-w-sm">Obs: {data.observacao}</p>}
-             </div>
-             
-             <div className="flex gap-8">
-               <div className="flex flex-col items-center">
-                 <div className="w-64 border-t-2 border-black mb-2"></div>
-                 <p className="text-sm font-bold uppercase">{data.pagadorNome || 'Assinatura do Devedor'}</p>
-                 <p className="text-xs">Emitente</p>
+          {isComAvalista && (
+            <div className="flex justify-between items-end mt-4 pt-2">
+               <div className="text-xs w-1/3">
+                 <p className="font-bold text-[10px] uppercase">Praça Pagamento:</p>
+                 <p className="border-b border-black border-dotted">{data.cidade || ''}</p>
                </div>
-
-               {isComAvalista && (
-                 <div className="flex flex-col items-center">
-                   <div className="w-64 border-t-2 border-black mb-2"></div>
-                   <p className="text-sm font-bold uppercase">{data.avalistaNome || 'Assinatura do Avalista'}</p>
-                   <p className="text-xs">Avalista</p>
+               
+               <div className="flex gap-4 w-2/3 justify-end">
+                 <div className="flex flex-col items-center w-[200px]">
+                   <div className="w-full border-t border-black mb-1"></div>
+                   <p className="text-[10px] font-bold uppercase">{data.pagadorNome || 'Assinatura Emitente'}</p>
                  </div>
-               )}
-             </div>
-          </div>
+
+                 <div className="flex flex-col items-center w-[200px]">
+                   <div className="w-full border-t border-black mb-1"></div>
+                   <p className="text-[10px] font-bold uppercase">{data.avalistaNome || 'Assinatura Avalista'}</p>
+                 </div>
+               </div>
+            </div>
+          )}
         </div>
       </div>
     );

@@ -1,5 +1,5 @@
 import { Link, Outlet } from 'react-router-dom';
-import { FileText, Menu, X, ChevronDown, Zap } from 'lucide-react';
+import { FileText, Menu, X, ChevronDown, Zap, Youtube, Instagram } from 'lucide-react';
 import { useState } from 'react';
 import { receiptModels } from '../data/receiptModels';
 import { CookieBanner } from './CookieBanner';
@@ -230,6 +230,15 @@ export function Layout() {
               <p className="text-sm text-emerald-100/70 mb-6 max-w-sm">
                 Gere recibos online de forma rápida, segura e totalmente gratuita. Sem necessidade de cadastro.
               </p>
+
+              <div className="flex items-center gap-4 mb-6">
+                <a href="https://www.youtube.com/@Recibogratis" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-white transition-colors flex items-center justify-center p-2 rounded-full bg-emerald-900/50 hover:bg-emerald-800" aria-label="Canal do Youtube">
+                  <Youtube className="w-5 h-5" />
+                </a>
+                <a href="https://www.instagram.com/recibogratis" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-white transition-colors flex items-center justify-center p-2 rounded-full bg-emerald-900/50 hover:bg-emerald-800" aria-label="Nosso Instagram">
+                  <Instagram className="w-5 h-5" />
+                </a>
+              </div>
               
               <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">Ferramentas Extras</h3>
               <ul className="space-y-2">
