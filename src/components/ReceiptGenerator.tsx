@@ -23,6 +23,34 @@ interface ReceiptData {
   formaPagamento: string;
   logo: string;
   chavePix: string;
+  // Novos campos para Aluguel
+  aluguelMesRef?: string;
+  aluguelAnoRef?: string;
+  aluguelCep?: string;
+  aluguelEndereco?: string;
+  aluguelNumero?: string;
+  aluguelBairro?: string;
+  aluguelComplemento?: string;
+  aluguelCidade?: string;
+  aluguelUf?: string;
+  aluguelTipo?: string;
+  observacao?: string;
+  pagamentoDetalhes?: string; // Para conta, chave pix específica, etc.
+  
+  // Novos campos para Promissória
+  vencimento?: string;
+  quantidadeParcelas?: string;
+  periodicidade?: 'mensal' | 'anual';
+  avalistaNome?: string;
+  avalistaDocumento?: string;
+  avalistaTelefone?: string;
+  devedorCep?: string;
+  devedorEndereco?: string;
+  devedorNumero?: string;
+  devedorBairro?: string;
+  devedorComplemento?: string;
+  devedorCidade?: string;
+  devedorUf?: string;
 }
 
 interface ReceiptGeneratorProps {
@@ -30,14 +58,6 @@ interface ReceiptGeneratorProps {
   title: string;
   defaultReferenteA?: string;
 }
-
-const STEPS = [
-  { id: 'valor', title: 'Valor e Pagamento' },
-  { id: 'pagador', title: 'Dados do Pagador' },
-  { id: 'recebedor', title: 'Dados do Recebedor' },
-  { id: 'detalhes', title: 'Detalhes do Recibo' },
-  { id: 'concluido', title: 'Finalizar' }
-];
 
 export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGeneratorProps) {
   const [currentStep, setCurrentStep] = useState(0);
@@ -58,6 +78,37 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
     formaPagamento: 'Dinheiro',
     logo: '',
     chavePix: '',
+    aluguelMesRef: 'Janeiro',
+    aluguelAnoRef: new Date().getFullYear().toString(),
+    aluguelCep: '',
+    aluguelEndereco: '',
+    aluguelNumero: '',
+    aluguelBairro: '',
+    aluguelComplemento: '',
+    aluguelCidade: '',
+    aluguelUf: '',
+    aluguelTipo: '',
+    observacao: '',
+    pagamentoDetalhes: '',
+    
+    // Default Promissória
+    vencimento: (() => {
+      const today = new Date();
+      today.setMonth(today.getMonth() + 1);
+      return `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+    })(),
+    quantidadeParcelas: '1',
+    periodicidade: 'mensal',
+    avalistaNome: '',
+    avalistaDocumento: '',
+    avalistaTelefone: '',
+    devedorCep: '',
+    devedorEndereco: '',
+    devedorNumero: '',
+    devedorBairro: '',
+    devedorComplemento: '',
+    devedorCidade: '',
+    devedorUf: '',
   });
 
   useEffect(() => {
@@ -94,6 +145,38 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
   const [duasVias, setDuasVias] = useState(false);
   const isReciboSimples = title.toLowerCase().includes('simples');
 
+  const getDocType = () => {
+    const t = title.toLowerCase();
+    if (t.includes('promissória')) return 'promissoria';
+    if (t.includes('orçamento')) return 'orcamento';
+    if (t.includes('ordem de serviço')) return 'os';
+    if (t.includes('termo')) return 'termo';
+    if (t.includes('vale-transporte')) return 'vale';
+    if (t.includes('aluguel') || t.includes('locação')) return 'aluguel';
+    return 'recibo';
+  };
+  const docType = getDocType();
+
+  const isSemLogo = isReciboSimples || (docType === 'aluguel' && !title.toLowerCase().includes('logo')) || docType === 'promissoria';
+  const isComAvalista = title.toLowerCase().includes('avalista');
+
+  const steps = docType === 'promissoria' 
+    ? [
+        { id: 'valor', title: 'Valores e Vencimento' },
+        { id: 'credor', title: 'Dados do Credor' },
+        { id: 'devedor', title: 'Dados do Devedor' },
+        ...(isComAvalista ? [{ id: 'avalista', title: 'Dados do Avalista' }] : []),
+        { id: 'detalhes', title: 'Praça de Pagamento' },
+        { id: 'concluido', title: 'Finalizar' }
+      ]
+    : [
+        { id: 'valor', title: 'Valor e Pagamento' },
+        { id: 'pagador', title: docType === 'aluguel' ? 'Dados do Locatário' : 'Dados do Pagador' },
+        { id: 'recebedor', title: docType === 'aluguel' ? 'Dados do Locador' : 'Dados do Recebedor' },
+        { id: 'detalhes', title: 'Detalhes do Recibo' },
+        { id: 'concluido', title: 'Finalizar' }
+      ];
+
   const componentRef = useRef<HTMLDivElement>(null);
   const handlePrint = useReactToPrint({
     contentRef: componentRef,
@@ -121,7 +204,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
     return cnpj.format(cleanDoc);
   };
 
-  const handleDocumentChange = (field: 'pagadorDocumento' | 'recebedorDocumento', value: string) => {
+  const handleDocumentChange = (field: 'pagadorDocumento' | 'recebedorDocumento' | 'avalistaDocumento', value: string) => {
     const formatted = formatDocument(value);
     setData((prev) => ({ ...prev, [field]: formatted }));
     
@@ -152,32 +235,46 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
   const validateCurrentStep = () => {
     const newErrors: Partial<Record<keyof ReceiptData, string>> = {};
     let isValid = true;
+    const stepId = steps[currentStep].id;
 
-    if (currentStep === 0) {
-      if (!data.valor || data.valor === '0,00') {
+    if (stepId === 'valor') {
+      if (!data.valor || data.valor === '0,00' || data.valor === '0' || data.valor === '') {
         newErrors.valor = 'O valor é obrigatório';
         isValid = false;
       }
-    } else if (currentStep === 1) {
+      if (docType === 'promissoria' && (!data.quantidadeParcelas || Number(data.quantidadeParcelas) < 1)) {
+        newErrors.quantidadeParcelas = 'Quantia inválida';
+        isValid = false;
+      }
+      if (docType === 'promissoria' && !data.vencimento) {
+        newErrors.vencimento = 'Vencimento obrigatório';
+        isValid = false;
+      }
+    } else if (stepId === 'pagador' || stepId === 'devedor') {
       if (!data.pagadorNome.trim()) {
-        newErrors.pagadorNome = 'O nome do pagador é obrigatório';
+        newErrors.pagadorNome = 'Nome é obrigatório';
         isValid = false;
       }
       if (data.pagadorDocumento && !validateDocument(data.pagadorDocumento)) {
         newErrors.pagadorDocumento = 'CPF/CNPJ inválido';
         isValid = false;
       }
-    } else if (currentStep === 2) {
+    } else if (stepId === 'recebedor' || stepId === 'credor') {
       if (!data.recebedorNome.trim()) {
-        newErrors.recebedorNome = 'O nome do recebedor é obrigatório';
+        newErrors.recebedorNome = 'Nome é obrigatório';
         isValid = false;
       }
       if (data.recebedorDocumento && !validateDocument(data.recebedorDocumento)) {
         newErrors.recebedorDocumento = 'CPF/CNPJ inválido';
         isValid = false;
       }
-    } else if (currentStep === 3) {
-      if (!data.referenteA.trim()) {
+    } else if (stepId === 'avalista') {
+      if (!data.avalistaNome?.trim()) {
+        newErrors.avalistaNome = 'Nome do avalista é obrigatório';
+        isValid = false;
+      }
+    } else if (stepId === 'detalhes') {
+      if (docType !== 'aluguel' && docType !== 'promissoria' && !data.referenteA.trim()) {
         newErrors.referenteA = 'A referência é obrigatória';
         isValid = false;
       }
@@ -196,7 +293,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
   };
 
   const nextStep = () => {
-    if (validateCurrentStep() && currentStep < STEPS.length - 1) {
+    if (validateCurrentStep() && currentStep < steps.length - 1) {
       setCurrentStep(prev => prev + 1);
     }
   };
@@ -284,7 +381,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
 
   const handleWhatsApp = async () => {
     const formattedDate = data.data ? formatDate(data.data) : '';
-    const text = `*RECIBO - R$ ${formatCurrency(data.valor)}*\n\nRecebi(emos) de *${data.pagadorNome}*${data.pagadorDocumento ? ` (CPF/CNPJ: ${data.pagadorDocumento})` : ''}, a importância de *R$ ${formatCurrency(data.valor)}*.\n\nReferente a: ${data.referenteA}.\nPagamento efetuado através de: ${data.formaPagamento}.\n\n${data.cidade}, ${formattedDate}.\n\nRecebedor: *${data.recebedorNome}*${data.recebedorDocumento ? ` (CPF/CNPJ: ${data.recebedorDocumento})` : ''}\n\n_Gerado gratuitamente em recibogratis.com.br_`;
+    const text = `*${getDocTitle()} - R$ ${formatCurrency(data.valor)}*\n\nRecebi(emos) de *${data.pagadorNome}*${data.pagadorDocumento ? ` (CPF/CNPJ: ${data.pagadorDocumento})` : ''}, a importância de *R$ ${formatCurrency(data.valor)}*.\n\n${docType === 'aluguel' ? 'Referente ao pagamento do aluguel do imóvel.' : `Referente a: ${data.referenteA}.`}\nPagamento efetuado através de: ${data.formaPagamento}${data.pagamentoDetalhes ? ` - ${data.pagamentoDetalhes}` : ''}.\n\n${data.cidade}, ${formattedDate}.\n\nRecebedor: *${data.recebedorNome}*${data.recebedorDocumento ? ` (CPF/CNPJ: ${data.recebedorDocumento})` : ''}\n\n_Gerado gratuitamente em recibogratis.com.br_`;
     
     // Try to share PDF if supported (mostly mobile)
     if (navigator.share) {
@@ -340,8 +437,9 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
   const getValorExtenso = (valorStr: string) => {
     if (!valorStr) return '';
     try {
-      // react-currency-input-field returns unformatted value like "1500.50"
-      const numericValue = parseFloat(valorStr.replace(',', '.'));
+      // Remove dots (thousands separators) and replace comma with dot
+      const cleanStr = valorStr.replace(/\./g, '').replace(',', '.');
+      const numericValue = parseFloat(cleanStr);
       if (isNaN(numericValue)) return '';
       return porExtenso(numericValue, estilo.monetario);
     } catch (e) {
@@ -352,7 +450,9 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
   const formatCurrency = (valorStr: string) => {
     if (!valorStr) return '0,00';
     try {
-      const numericValue = parseFloat(valorStr.replace(',', '.'));
+      // Remove dots (thousands separators) and replace comma with dot
+      const cleanStr = valorStr.replace(/\./g, '').replace(',', '.');
+      const numericValue = parseFloat(cleanStr);
       if (isNaN(numericValue)) return '0,00';
       return numericValue.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     } catch (e) {
@@ -360,23 +460,13 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
     }
   };
 
-  const getDocType = () => {
-    const t = title.toLowerCase();
-    if (t.includes('promissória')) return 'promissoria';
-    if (t.includes('orçamento')) return 'orcamento';
-    if (t.includes('ordem de serviço')) return 'os';
-    if (t.includes('termo')) return 'termo';
-    if (t.includes('vale-transporte')) return 'vale';
-    return 'recibo';
-  };
-  const docType = getDocType();
-
   const getDocTitle = () => {
     if (docType === 'promissoria') return 'NOTA PROMISSÓRIA';
     if (docType === 'orcamento') return 'ORÇAMENTO';
     if (docType === 'os') return 'ORDEM DE SERVIÇO';
     if (docType === 'termo') return 'TERMO DE PRESTAÇÃO DE SERVIÇO';
     if (docType === 'vale') return 'VALE-TRANSPORTE';
+    if (docType === 'aluguel') return 'RECIBO DE ALUGUEL';
     return 'RECIBO';
   };
 
@@ -415,7 +505,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
               <span className="font-bold uppercase">{data.referenteA || '________________________________________________________________________________________________'}</span>
             </p>
             <p className="mt-4">
-              <span className="font-bold">Forma de Pagamento sugerida/acordada:</span> {data.formaPagamento}
+              <span className="font-bold">Forma de Pagamento sugerida/acordada:</span> {data.formaPagamento} {data.pagamentoDetalhes ? ` - ${data.pagamentoDetalhes}` : ''}
             </p>
           </>
         );
@@ -434,6 +524,31 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
             </p>
           </>
         );
+      case 'aluguel':
+        return (
+          <>
+            <p className="text-justify indent-8">
+              Recebi(emos) de <span className="font-bold uppercase">{data.pagadorNome || '________________________________________________'}</span>, 
+              inscrito(a) no CPF/CNPJ sob o nº <span className="font-bold">{data.pagadorDocumento || '_________________________'}</span>, 
+              a importância de <span className="font-bold">R$ {formatCurrency(data.valor)}</span> {data.valor && data.valor !== '0,00' ? `(${getValorExtenso(data.valor)})` : ''}, 
+              referente ao pagamento do aluguel do imóvel localizado em: <span className="font-bold">{data.aluguelEndereco || '______________________'}, {data.aluguelNumero || '___'} {data.aluguelComplemento ? ` - ${data.aluguelComplemento}` : ''} - {data.aluguelBairro || '______________'} - {data.aluguelCidade || '______________'}/{data.aluguelUf || '__'} - CEP: {data.aluguelCep || '________-___'} - {data.aluguelTipo || '_____________'}</span>,
+              competência / mês de referência: <span className="font-bold uppercase">{data.aluguelMesRef || '_____'} / {data.aluguelAnoRef || '____'}</span>.
+            </p>
+
+            <p className="text-justify indent-8">
+              Para maior clareza, firmo(amos) o presente documento para que produza os seus efeitos legais, dando plena, rasa e geral quitação pelo valor acima recebido.
+            </p>
+
+            <p>
+              <span className="font-bold">Forma de Pagamento:</span> {data.formaPagamento} {data.pagamentoDetalhes ? ` - ${data.pagamentoDetalhes}` : ''}
+            </p>
+            {data.observacao && (
+              <p className="mt-2 text-justify">
+                <span className="font-bold">Observação:</span> {data.observacao}
+              </p>
+            )}
+          </>
+        );
       default:
         // Padrão (Recibo)
         return (
@@ -450,7 +565,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
             </p>
 
             <p>
-              <span className="font-bold">Forma de Pagamento:</span> {data.formaPagamento}
+              <span className="font-bold">Forma de Pagamento:</span> {data.formaPagamento} {data.pagamentoDetalhes ? ` - ${data.pagamentoDetalhes}` : ''}
             </p>
           </>
         );
@@ -474,6 +589,98 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
     return data.recebedorDocumento;
   };
 
+  const renderPromissoria = (index: number, total: number) => {
+    // Calculando a data de vencimento da parcela atual
+    let currentVencimento = '';
+    if (data.vencimento) {
+      const vDate = new Date(data.vencimento + 'T12:00:00'); // Evitar problemas de timezone
+      if (data.periodicidade === 'mensal') {
+        vDate.setMonth(vDate.getMonth() + index);
+      } else if (data.periodicidade === 'anual') {
+        vDate.setFullYear(vDate.getFullYear() + index);
+      }
+      currentVencimento = formatDate(vDate.toISOString().split('T')[0]);
+    } else {
+      currentVencimento = '___/___/20__';
+    }
+
+    const nTitulo = total > 1 ? `Nº ${String(index + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}` : `Nº 01 / 01`;
+
+    return (
+      <div key={`promissoria-${index}`} className="bg-white p-4 md:p-6 relative shadow-xl print:shadow-none border-2 border-black break-inside-avoid w-full mb-8 print:mb-8 font-sans">
+        <div className="flex justify-between items-center border-b-2 border-black pb-4 mb-4">
+          <div className="w-1/3">
+            <p className="text-xl font-bold">{nTitulo}</p>
+            <p className="font-semibold text-sm mt-1 uppercase">Vencimento: {currentVencimento}</p>
+          </div>
+          <div className="w-1/3 text-center">
+            <h1 className="text-2xl md:text-3xl font-bold uppercase tracking-widest leading-tight">
+              NOTA<br />PROMISSÓRIA
+            </h1>
+          </div>
+          <div className="w-1/3 flex justify-end">
+             <div className="border-2 border-black px-4 py-2 rounded bg-gray-100 flex items-center">
+               <span className="text-xl font-bold">R$ {formatCurrency(data.valor)}</span>
+             </div>
+          </div>
+        </div>
+
+        <div className="space-y-4 text-[15px] md:text-[16px] leading-relaxed text-black">
+          <p className="text-justify indent-8">
+            Aos <span className="font-bold">{currentVencimento}</span> pagarei(emos) por esta única via de NOTA PROMISSÓRIA a <span className="font-bold uppercase">{data.recebedorNome || '________________________________________________'}</span>, 
+            CPF/CNPJ nº <span className="font-bold">{data.recebedorDocumento || '_________________________'}</span>, ou à sua ordem, a quantia de <span className="font-bold">R$ {formatCurrency(data.valor)}</span> {data.valor && data.valor !== '0,00' ? `(${getValorExtenso(data.valor)})` : ''},
+            em moeda corrente deste país, pagável em <span className="font-bold uppercase">{data.cidade || '_________________________'}</span>.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-t border-black pt-4">
+            <div>
+              <p className="font-bold uppercase mb-2">Dados do Devedor (Emitente):</p>
+              <p>Nome: <span className="uppercase">{data.pagadorNome || '_________________________'}</span></p>
+              <p>CPF/CNPJ: {data.pagadorDocumento || '_________________________'}</p>
+              <p>Endereço: {data.devedorEndereco || '_________________________'}, {data.devedorNumero || '___'} {data.devedorComplemento ? `- ${data.devedorComplemento}` : ''}</p>
+              <p>Bairro: {data.devedorBairro || '______________'} - CEP: {data.devedorCep || '________-___'}</p>
+              <p>Cidade: {data.devedorCidade || '______________'} / UF: {data.devedorUf || '__'}</p>
+            </div>
+            {isComAvalista && (
+              <div>
+                <p className="font-bold uppercase mb-2">Dados do Avalista:</p>
+                <p>Nome: <span className="uppercase">{data.avalistaNome || '_________________________'}</span></p>
+                <p>CPF/CNPJ: {data.avalistaDocumento || '_________________________'}</p>
+                {data.avalistaTelefone && <p>Telefone: {data.avalistaTelefone}</p>}
+                {!data.avalistaTelefone && <p>Telefone: _________________________</p>}
+                <p>Endereço: _____________________________________</p>
+              </div>
+            )}
+          </div>
+
+          <div className="flex justify-between items-end mt-8 border-t border-black pt-4">
+             <div>
+               <p className="font-bold uppercase">Praça de Pagamento:</p>
+               <p>{data.cidade || '_________________________'} , {data.data ? formatDate(data.data) : '___/___/20__'}</p>
+               {data.observacao && <p className="mt-2 text-sm max-w-sm">Obs: {data.observacao}</p>}
+             </div>
+             
+             <div className="flex gap-8">
+               <div className="flex flex-col items-center">
+                 <div className="w-64 border-t-2 border-black mb-2"></div>
+                 <p className="text-sm font-bold uppercase">{data.pagadorNome || 'Assinatura do Devedor'}</p>
+                 <p className="text-xs">Emitente</p>
+               </div>
+
+               {isComAvalista && (
+                 <div className="flex flex-col items-center">
+                   <div className="w-64 border-t-2 border-black mb-2"></div>
+                   <p className="text-sm font-bold uppercase">{data.avalistaNome || 'Assinatura do Avalista'}</p>
+                   <p className="text-xs">Avalista</p>
+                 </div>
+               )}
+             </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <>
       <AdSense key={`ad-${currentStep}-${Date.now()}`} />
@@ -485,51 +692,176 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
             <FileText className="text-emerald-600" />
             Preenchimento Inteligente
           </h2>
-          <p className="text-gray-500 text-sm">Passo {currentStep + 1} de {STEPS.length}: {STEPS[currentStep].title}</p>
+          <p className="text-gray-500 text-sm">Passo {currentStep + 1} de {steps.length}: {steps[currentStep].title}</p>
           
           {/* Progress Bar */}
           <div className="w-full bg-gray-100 h-2 rounded-full mt-4 overflow-hidden">
             <div 
               className="bg-emerald-500 h-full rounded-full transition-all duration-500 ease-out"
-              style={{ width: `${((currentStep + 1) / STEPS.length) * 100}%` }}
+              style={{ width: `${((currentStep + 1) / steps.length) * 100}%` }}
             />
           </div>
         </div>
 
         <div className="min-h-[280px]">
-          {currentStep === 0 && (
+          {steps[currentStep].id === 'valor' && (
             <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="numero" className="block text-sm font-semibold text-gray-900 mb-2">Número do Recibo</label>
-                  <input
-                    id="numero"
-                    type="text"
-                    name="numero"
-                    value={data.numero}
-                    onChange={handleChange}
-                    placeholder="001"
-                    className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="formaPagamento" className="block text-sm font-semibold text-gray-900 mb-2">Como foi feito o pagamento?</label>
-                  <select
+              {docType === 'promissoria' ? (
+                <>
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+                    <div className="md:col-span-2">
+                      <label htmlFor="quantidadeParcelas" className="block text-sm font-semibold text-gray-900 mb-2">Quantas?</label>
+                      <input
+                        id="quantidadeParcelas"
+                        type="number"
+                        min="1"
+                        max="120"
+                        name="quantidadeParcelas"
+                        value={data.quantidadeParcelas}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition-all"
+                      />
+                    </div>
+                    <div className="md:col-span-4">
+                      <label htmlFor="valor-promissoria" className="block text-sm font-semibold text-gray-900 mb-2">Valor <span className="text-red-500">*</span></label>
+                      <CurrencyInput
+                         id="valor-promissoria"
+                         name="valor"
+                         placeholder="0,00"
+                         decimalsLimit={2}
+                         decimalSeparator=","
+                         groupSeparator="."
+                         prefix="R$ "
+                         className={cn(
+                           "w-full px-4 py-3 text-lg border rounded-xl focus:ring-2 outline-none transition-all",
+                           errors.valor ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-emerald-500 focus:border-emerald-500"
+                         )}
+                         onValueChange={(value) => {
+                           setData((prev) => ({ ...prev, valor: value || '' }));
+                           if (errors.valor) setErrors(prev => ({ ...prev, valor: undefined }));
+                         }}
+                         value={data.valor}
+                       />
+                       {errors.valor && <p className="text-red-500 text-sm mt-2">{errors.valor}</p>}
+                    </div>
+                    <div className="md:col-span-4">
+                      <label htmlFor="vencimento" className="block text-sm font-semibold text-gray-900 mb-2">Vencimento <span className="text-red-500">*</span></label>
+                      <input
+                        id="vencimento"
+                        type="date"
+                        name="vencimento"
+                        value={data.vencimento}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none transition-all"
+                      />
+                    </div>
+                    <div className="md:col-span-2 pb-2">
+                      <div className="flex flex-col gap-2">
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="periodicidade" value="mensal" checked={data.periodicidade === 'mensal'} onChange={handleChange} className="text-emerald-600 focus:ring-emerald-500 w-4 h-4" />
+                          <span className="text-sm font-medium">mensal</span>
+                        </label>
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="periodicidade" value="anual" checked={data.periodicidade === 'anual'} onChange={handleChange} className="text-emerald-600 focus:ring-emerald-500 w-4 h-4" />
+                          <span className="text-sm font-medium">anual</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="numero" className="block text-sm font-semibold text-gray-900 mb-2">Número do Recibo</label>
+                      <input
+                        id="numero"
+                        type="text"
+                        name="numero"
+                        value={data.numero}
+                        onChange={handleChange}
+                        placeholder="001"
+                        className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="formaPagamento" className="block text-sm font-semibold text-gray-900 mb-2">Como foi feito o pagamento?</label>
+                      <select
                     id="formaPagamento"
                     name="formaPagamento"
                     value={data.formaPagamento}
-                    onChange={handleChange}
+                    onChange={(e) => {
+                      handleChange(e);
+                      setData(prev => ({ ...prev, pagamentoDetalhes: '' })); // clear on change
+                    }}
                     className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all bg-white"
                   >
                     <option value="Dinheiro">Dinheiro</option>
                     <option value="PIX">PIX</option>
-                    <option value="Transferência">Transferência</option>
+                    <option value="Transferência">Transferência / Depósito</option>
                     <option value="Cartão de Crédito">Cartão de Crédito</option>
                     <option value="Cartão de Débito">Cartão de Débito</option>
                     <option value="Cheque">Cheque</option>
                   </select>
                 </div>
               </div>
+              
+              {(data.formaPagamento === 'PIX' || data.formaPagamento.includes('Transferência') || data.formaPagamento.includes('Cartão') || data.formaPagamento === 'Cheque') && (
+                <div className="animate-in fade-in slide-in-from-top-2 duration-300">
+                  <label htmlFor="pagamentoDetalhes" className="block text-sm font-semibold text-gray-900 mb-2">
+                    {data.formaPagamento === 'PIX' && 'Qual a chave PIX utilizada? (Opcional)'}
+                    {data.formaPagamento.includes('Transferência') && 'Banco, Agência e Conta (Opcional)'}
+                    {data.formaPagamento.includes('Cartão') && 'Bandeira e/ou 4 últimos dígitos (Opcional)'}
+                    {data.formaPagamento === 'Cheque' && 'Número do Cheque / Banco (Opcional)'}
+                  </label>
+                  <input
+                    id="pagamentoDetalhes"
+                    type="text"
+                    name="pagamentoDetalhes"
+                    value={data.pagamentoDetalhes}
+                    onChange={handleChange}
+                    placeholder={
+                      data.formaPagamento === 'PIX' ? 'Ex: (11) 99999-9999' :
+                      data.formaPagamento.includes('Transferência') ? 'Ex: Banco Itaú, Ag 1234, Cc 12345-6' :
+                      data.formaPagamento.includes('Cartão') ? 'Ex: Visa final 1234' :
+                      'Ex: Cheque nº 000001 Banco Bradesco'
+                    }
+                    className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                  />
+                </div>
+              )}
+
+              {docType === 'aluguel' && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                  <div>
+                    <label htmlFor="aluguelMesRef" className="block text-sm font-semibold text-gray-900 mb-2">Mês de ref.:</label>
+                    <select
+                      id="aluguelMesRef"
+                      name="aluguelMesRef"
+                      value={data.aluguelMesRef}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all bg-white"
+                    >
+                      {['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'].map(mes => (
+                        <option key={mes} value={mes}>{mes}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="aluguelAnoRef" className="block text-sm font-semibold text-gray-900 mb-2">Ano:</label>
+                    <input
+                      id="aluguelAnoRef"
+                      type="text"
+                      name="aluguelAnoRef"
+                      value={data.aluguelAnoRef}
+                      onChange={handleChange}
+                      maxLength={4}
+                      className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                    />
+                  </div>
+                </div>
+              )}
+              
               <div>
                 <label htmlFor="valor" className="block text-sm font-semibold text-gray-900 mb-2">Qual o valor do recibo? <span className="text-red-500">*</span></label>
                 <CurrencyInput
@@ -553,17 +885,20 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                 />
                 {errors.valor && <p className="text-red-500 text-sm mt-2">{errors.valor}</p>}
               </div>
-            </div>
+            </>
           )}
+        </div>
+      )}
 
-          {currentStep === 1 && (
+          {(steps[currentStep].id === 'pagador' || steps[currentStep].id === 'devedor') && (
             <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
               <div>
                 <label htmlFor="pagadorNome" className="block text-sm font-semibold text-gray-900 mb-2">
                   {docType === 'promissoria' ? 'Nome do Emitente (Quem vai pagar)' : 
                    (docType === 'orcamento' || docType === 'os' || docType === 'termo') ? 'Nome do Cliente' : 
                    (docType === 'vale' ? 'Nome do Funcionário/Beneficiário' : 
-                   'Quem está pagando? (Pagador)')}
+                   (docType === 'aluguel' ? 'Locatário(a)' : 
+                   'Quem está pagando? (Pagador)'))}
                    <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -585,7 +920,8 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                 <label htmlFor="pagadorDocumento" className="block text-sm font-semibold text-gray-900 mb-2">
                   {docType === 'promissoria' ? 'CPF ou CNPJ do Emitente' : 
                    (docType === 'orcamento' || docType === 'os' || docType === 'termo') ? 'CPF ou CNPJ do Cliente' : 
-                   'CPF ou CNPJ do Pagador'}
+                   (docType === 'aluguel' ? 'CPF ou CNPJ (Opcional)' : 
+                   'CPF ou CNPJ do Pagador')}
                 </label>
                 <input
                   id="pagadorDocumento"
@@ -601,12 +937,47 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                 />
                 {errors.pagadorDocumento && <p className="text-red-500 text-sm mt-2">{errors.pagadorDocumento}</p>}
               </div>
+
+              {docType === 'promissoria' && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                  <div>
+                    <label htmlFor="devedorCep" className="block text-sm font-semibold text-gray-900 mb-2">CEP</label>
+                    <input id="devedorCep" name="devedorCep" value={data.devedorCep} onChange={handleChange} placeholder="00000-000" className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500" />
+                  </div>
+                  <div>
+                    <label htmlFor="devedorEndereco" className="block text-sm font-semibold text-gray-900 mb-2">Endereço</label>
+                    <input id="devedorEndereco" name="devedorEndereco" value={data.devedorEndereco} onChange={handleChange} placeholder="Rua, Avenida..." className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500" />
+                  </div>
+                  <div>
+                    <label htmlFor="devedorNumero" className="block text-sm font-semibold text-gray-900 mb-2">Número</label>
+                    <input id="devedorNumero" name="devedorNumero" value={data.devedorNumero} onChange={handleChange} className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500" />
+                  </div>
+                  <div>
+                    <label htmlFor="devedorBairro" className="block text-sm font-semibold text-gray-900 mb-2">Bairro</label>
+                    <input id="devedorBairro" name="devedorBairro" value={data.devedorBairro} onChange={handleChange} className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500" />
+                  </div>
+                  <div>
+                    <label htmlFor="devedorComplemento" className="block text-sm font-semibold text-gray-900 mb-2">Complemento</label>
+                    <input id="devedorComplemento" name="devedorComplemento" value={data.devedorComplemento} onChange={handleChange} className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500" />
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div>
+                      <label htmlFor="devedorCidade" className="block text-sm font-semibold text-gray-900 mb-2">Cidade</label>
+                      <input id="devedorCidade" name="devedorCidade" value={data.devedorCidade} onChange={handleChange} className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500" />
+                    </div>
+                    <div>
+                      <label htmlFor="devedorUf" className="block text-sm font-semibold text-gray-900 mb-2">UF</label>
+                      <input id="devedorUf" name="devedorUf" value={data.devedorUf} onChange={handleChange} maxLength={2} className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 uppercase" />
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           )}
 
-          {currentStep === 2 && (
+          {(steps[currentStep].id === 'recebedor' || steps[currentStep].id === 'credor') && (
             <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
-              {!isReciboSimples && (
+              {!isSemLogo && (
                 <div>
                   <label className="block text-sm font-semibold text-gray-900 mb-2">Logotipo (Opcional)</label>
                   <div className="flex items-center gap-4">
@@ -650,7 +1021,8 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                   {docType === 'promissoria' ? 'Nome do Credor / Beneficiário' : 
                    (docType === 'orcamento' || docType === 'os' || docType === 'termo') ? 'Nome do Profissional ou Empresa' : 
                    (docType === 'vale' ? 'Nome da Empresa Empregadora' : 
-                   'Quem está recebendo? (Recebedor)')}
+                   (docType === 'aluguel' ? 'Locador(a)' : 
+                   'Quem está recebendo? (Recebedor)'))}
                    <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -673,7 +1045,8 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                   <label htmlFor="recebedorDocumento" className="block text-sm font-semibold text-gray-900 mb-2">
                     {docType === 'promissoria' ? 'CPF ou CNPJ do Credor' : 
                      (docType === 'orcamento' || docType === 'os' || docType === 'termo') ? 'CNPJ ou CPF do Profissional' : 
-                     'CPF ou CNPJ do Recebedor'}
+                     (docType === 'aluguel' ? 'CPF ou CNPJ (Opcional)' : 
+                     'CPF ou CNPJ do Recebedor')}
                   </label>
                   <input
                     id="recebedorDocumento"
@@ -710,47 +1083,142 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
             </div>
           )}
 
-          {currentStep === 3 && (
+          {steps[currentStep].id === 'avalista' && (
             <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
+              <h3 className="font-bold text-gray-900 border-b pb-2 mb-4 uppercase text-sm">Dados do Avalista</h3>
               <div>
-                <label htmlFor="referenteA" className="block text-sm font-semibold text-gray-900 mb-2">
-                  {docType === 'promissoria' ? 'Termos e acordos do pagamento' : 
-                   (docType === 'orcamento' || docType === 'os') ? 'Descrição dos serviços orçados/executados' : 
-                   'Referente a quê (Serviços/Produtos)?'} 
-                   <span className="text-red-500">*</span>
-                </label>
-                <textarea
-                  id="referenteA"
-                  name="referenteA"
-                  value={data.referenteA}
+                <label htmlFor="avalistaNome" className="block text-sm font-semibold text-gray-900 mb-2">Nome <span className="text-red-500">*</span></label>
+                <input
+                  id="avalistaNome"
+                  type="text"
+                  name="avalistaNome"
+                  value={data.avalistaNome}
                   onChange={handleChange}
-                  onFocus={(e) => {
-                    if (e.target.value === defaultReferenteA) {
-                      setData(prev => ({ ...prev, referenteA: '' }));
-                    } else if (e.target.value.includes('[descreva o motivo do pagamento]')) {
-                      setData(prev => ({ ...prev, referenteA: '' }));
-                    }
-                  }}
-                  rows={3}
-                  placeholder="Ex: Pagamento de aluguel referente ao mês de Março"
-                  className={cn(
-                    "w-full px-4 py-3 text-lg border rounded-xl focus:ring-2 outline-none transition-all resize-none",
-                    errors.referenteA ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-emerald-500 focus:border-emerald-500"
-                  )}
+                  placeholder="Nome do avalista"
                   autoFocus
+                  className={cn(
+                    "w-full px-4 py-3 text-lg border rounded-xl focus:ring-2 outline-none transition-all",
+                    errors.avalistaNome ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-emerald-500 focus:border-emerald-500"
+                  )}
                 />
-                {errors.referenteA && <p className="text-red-500 text-sm mt-2">{errors.referenteA}</p>}
+                {errors.avalistaNome && <p className="text-red-500 text-sm mt-2">{errors.avalistaNome}</p>}
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="cidade" className="block text-sm font-semibold text-gray-900 mb-2">Cidade de Emissão <span className="text-red-500">*</span></label>
+                  <label htmlFor="avalistaDocumento" className="block text-sm font-semibold text-gray-900 mb-2">CPF ou CNPJ</label>
+                  <input
+                    id="avalistaDocumento"
+                    type="text"
+                    value={data.avalistaDocumento}
+                    onChange={(e) => handleDocumentChange('avalistaDocumento', e.target.value)}
+                    placeholder="000.000.000-00"
+                    maxLength={18}
+                    className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="avalistaTelefone" className="block text-sm font-semibold text-gray-900 mb-2">Telefone (opcional)</label>
+                  <input
+                    id="avalistaTelefone"
+                    type="text"
+                    name="avalistaTelefone"
+                    value={data.avalistaTelefone}
+                    onChange={handleChange}
+                    placeholder="(00) 00000-0000"
+                    className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+
+          {steps[currentStep].id === 'detalhes' && (
+            <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
+              {docType === 'aluguel' ? (
+                <>
+                  <h3 className="font-bold text-gray-900 border-b pb-2 mb-4 uppercase text-sm">Endereço do Imóvel Locado</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="aluguelCep" className="block text-sm font-semibold text-gray-900 mb-2">CEP</label>
+                      <input id="aluguelCep" name="aluguelCep" value={data.aluguelCep} onChange={handleChange} placeholder="00000-000" className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500" />
+                    </div>
+                    <div>
+                      <label htmlFor="aluguelEndereco" className="block text-sm font-semibold text-gray-900 mb-2">Endereço</label>
+                      <input id="aluguelEndereco" name="aluguelEndereco" value={data.aluguelEndereco} onChange={handleChange} placeholder="Rua, Avenida..." className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500" />
+                    </div>
+                    <div>
+                      <label htmlFor="aluguelNumero" className="block text-sm font-semibold text-gray-900 mb-2">Número</label>
+                      <input id="aluguelNumero" name="aluguelNumero" value={data.aluguelNumero} onChange={handleChange} className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500" />
+                    </div>
+                    <div>
+                      <label htmlFor="aluguelBairro" className="block text-sm font-semibold text-gray-900 mb-2">Bairro</label>
+                      <input id="aluguelBairro" name="aluguelBairro" value={data.aluguelBairro} onChange={handleChange} className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500" />
+                    </div>
+                    <div>
+                      <label htmlFor="aluguelComplemento" className="block text-sm font-semibold text-gray-900 mb-2">Complemento</label>
+                      <input id="aluguelComplemento" name="aluguelComplemento" value={data.aluguelComplemento} onChange={handleChange} className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500" />
+                    </div>
+                    <div>
+                      <label htmlFor="aluguelCidade" className="block text-sm font-semibold text-gray-900 mb-2">Cidade do Imóvel</label>
+                      <input id="aluguelCidade" name="aluguelCidade" value={data.aluguelCidade} onChange={handleChange} className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500" />
+                    </div>
+                    <div>
+                      <label htmlFor="aluguelUf" className="block text-sm font-semibold text-gray-900 mb-2">UF</label>
+                      <input id="aluguelUf" name="aluguelUf" value={data.aluguelUf} onChange={handleChange} maxLength={2} className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 uppercase" />
+                    </div>
+                    <div>
+                      <label htmlFor="aluguelTipo" className="block text-sm font-semibold text-gray-900 mb-2">Tipo Imóvel</label>
+                      <input id="aluguelTipo" name="aluguelTipo" value={data.aluguelTipo} onChange={handleChange} placeholder="Ex: Apartamento, Casa, Sala..." className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500" />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="observacao" className="block text-sm font-semibold text-gray-900 mb-2">Observação (Opcional)</label>
+                    <textarea id="observacao" name="observacao" value={data.observacao} onChange={handleChange} rows={2} className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 resize-none" />
+                  </div>
+                </>
+              ) : (
+                <div>
+                  <label htmlFor="referenteA" className="block text-sm font-semibold text-gray-900 mb-2">
+                    {docType === 'promissoria' ? 'Termos e acordos do pagamento' : 
+                     (docType === 'orcamento' || docType === 'os') ? 'Descrição dos serviços orçados/executados' : 
+                     'Referente a quê (Serviços/Produtos)?'} 
+                     <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    id="referenteA"
+                    name="referenteA"
+                    value={data.referenteA}
+                    onChange={handleChange}
+                    onFocus={(e) => {
+                      if (e.target.value === defaultReferenteA) {
+                        setData(prev => ({ ...prev, referenteA: '' }));
+                      } else if (e.target.value.includes('[descreva o motivo do pagamento]')) {
+                        setData(prev => ({ ...prev, referenteA: '' }));
+                      }
+                    }}
+                    rows={3}
+                    placeholder="Ex: Pagamento de aluguel referente ao mês de Março"
+                    className={cn(
+                      "w-full px-4 py-3 text-lg border rounded-xl focus:ring-2 outline-none transition-all resize-none",
+                      errors.referenteA ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-emerald-500 focus:border-emerald-500"
+                    )}
+                    autoFocus
+                  />
+                  {errors.referenteA && <p className="text-red-500 text-sm mt-2">{errors.referenteA}</p>}
+                </div>
+              )}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="cidade" className="block text-sm font-semibold text-gray-900 mb-2">
+                    {docType === 'promissoria' ? 'Cidade/Estado (Praça)' : 'Cidade de Emissão'} <span className="text-red-500">*</span>
+                  </label>
                   <input
                     id="cidade"
                     type="text"
                     name="cidade"
                     value={data.cidade}
                     onChange={handleChange}
-                    placeholder="Sua Cidade"
+                    placeholder={docType === 'promissoria' ? "Ex: Anitápolis/SC" : "Sua Cidade"}
                     className={cn(
                       "w-full px-4 py-3 text-lg border rounded-xl focus:ring-2 outline-none transition-all",
                       errors.cidade ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-emerald-500 focus:border-emerald-500"
@@ -760,7 +1228,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                 </div>
                 <div>
                   <label htmlFor="data" className="block text-sm font-semibold text-gray-900 mb-2">
-                    {docType === 'promissoria' ? 'Data de Vencimento / Pagamento' : 
+                    {docType === 'promissoria' ? 'Data de Emissão' : 
                      (docType === 'orcamento') ? 'Data de Validade (Ou Emissão)' : 
                      'Data de Emissão'} <span className="text-red-500">*</span>
                   </label>
@@ -778,10 +1246,23 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                   {errors.data && <p className="text-red-500 text-sm mt-2">{errors.data}</p>}
                 </div>
               </div>
+              {docType === 'promissoria' && (
+                <div>
+                  <label htmlFor="observacao" className="block text-sm font-semibold text-gray-900 mb-2">Observação (Opcional)</label>
+                  <textarea
+                    id="observacao"
+                    name="observacao"
+                    value={data.observacao}
+                    onChange={handleChange}
+                    rows={2}
+                    className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 resize-none"
+                  />
+                </div>
+              )}
             </div>
           )}
 
-          {currentStep === 4 && (
+          {steps[currentStep].id === 'concluido' && (
             <div className="space-y-6 animate-in fade-in zoom-in-95 duration-500 text-center py-8">
               <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle2 className="w-10 h-10 text-emerald-600" />
@@ -859,7 +1340,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
             </button>
           </div>
         )}
-        {currentStep === 4 && (
+        {steps[currentStep].id === 'concluido' && (
           <div className="flex justify-center mt-8 pt-6 border-t border-gray-100">
              <button
               onClick={() => setCurrentStep(0)}
@@ -884,80 +1365,33 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
         <div className="bg-gray-100 p-4 rounded-2xl flex justify-center overflow-x-auto border border-gray-200">
           <div ref={componentRef} className="text-black font-sans print:w-full print:max-w-none" style={{ width: '100%', maxWidth: '800px', margin: '0 auto', WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact', padding: '10px 0', backgroundColor: '#ffffff' }}>
             
-            {/* Primeira Via */}
-            <div className="bg-white p-4 md:p-6 relative shadow-xl print:shadow-none border-2 border-black break-inside-avoid">
-              {/* Receipt Header */}
-              <div className="flex justify-between items-start mb-4 border-b-2 border-black pb-3">
-                <div className="flex items-center gap-4 w-1/4">
-                  {data.logo && !isReciboSimples && (
-                    <img src={data.logo} alt="Logo" className="w-16 h-16 object-contain" />
-                  )}
-                </div>
-                <div className="w-2/4 text-center">
-                  <div className="text-3xl font-bold uppercase tracking-widest text-black">{getDocTitle()}</div>
-                  <p className="text-sm font-bold mt-1">Nº {data.numero || '001'}</p>
-                </div>
-                <div className="w-1/4 flex justify-end">
-                  <span className="text-xl font-bold text-black bg-gray-100 px-4 py-2 rounded border-2 border-black whitespace-nowrap">
-                    VALOR: R$ {formatCurrency(data.valor)}
-                  </span>
-                </div>
-              </div>
+            {docType === 'promissoria' ? (
+              Array.from({ length: Number(data.quantidadeParcelas || 1) }).map((_, i) => {
+                const totalParcelas = Number(data.quantidadeParcelas || 1);
+                const isLast = i === totalParcelas - 1;
+                const isLastOnPage = (i + 1) % 3 === 0;
 
-              {/* Receipt Body */}
-              <div className="space-y-2 text-[15px] md:text-[16px] leading-snug text-black mt-4">
-                {getDocumentBodyText()}
-              </div>
-
-              {/* Receipt Footer / Signatures */}
-              <div className="mt-6">
-                <div className="text-right mb-6">
-                  <span className="text-[15px] md:text-[16px]"><span className="font-bold uppercase">{data.cidade || '_________________________'}</span>, {data.data ? formatDate(data.data) : '___/___/20__'}</span>
-                </div>
-
-                <div className="flex flex-col md:flex-row items-center justify-between mt-6 gap-6">
-                  <div className="flex-1 flex flex-col items-center justify-center w-full">
-                    <div className="w-80 border-t-2 border-black mb-2"></div>
-                    <p className="text-[16px] font-bold uppercase">{getSignatureName()}</p>
-                    {getSignatureDoc() && (
-                      <p className="text-[14px]">CPF/CNPJ: {getSignatureDoc()}</p>
+                return (
+                  <div key={i} className={isLastOnPage ? "print:break-after-page" : ""}>
+                    {renderPromissoria(i, totalParcelas)}
+                    {!isLast && !isLastOnPage && (
+                      <div className="w-full border-t-2 border-dashed border-gray-400 my-8 relative print:my-8 hidden print:block">
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-4 text-gray-400 text-[10px] uppercase tracking-widest font-bold">
+                          Tesoura / Corte Aqui
+                        </div>
+                      </div>
                     )}
                   </div>
-                  
-                  {data.chavePix && data.formaPagamento === 'PIX' && (
-                    <div className="flex flex-col items-center p-3 border-2 border-black rounded-xl bg-gray-50">
-                      <p className="text-xs font-bold text-black mb-2 uppercase tracking-wide">Pague com PIX</p>
-                      <div className="bg-white p-2 rounded-lg shadow-sm mb-2 border border-gray-300">
-                        <QRCodeCanvas 
-                          value={generatePixPayload(data.chavePix, data.recebedorNome || 'Recebedor', data.cidade || 'Cidade', data.valor)} 
-                          size={80}
-                          level="M"
-                        />
-                      </div>
-                      <p className="text-[10px] text-black font-mono break-all text-center max-w-[120px]">
-                        Chave: {data.chavePix}
-                      </p>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            {/* Segunda Via (Opcional) */}
-            {duasVias && (
+                );
+              })
+            ) : (
               <>
-                {/* Divisória Tesoura */}
-                <div className="w-full border-t-2 border-dashed border-gray-400 my-8 relative print:my-10">
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-4 text-gray-400 text-[10px] uppercase tracking-widest font-bold">
-                    Tesoura / Corte Aqui
-                  </div>
-                </div>
-
+                {/* Primeira Via */}
                 <div className="bg-white p-4 md:p-6 relative shadow-xl print:shadow-none border-2 border-black break-inside-avoid">
-                {/* Receipt Header */}
+                  {/* Receipt Header */}
                   <div className="flex justify-between items-start mb-4 border-b-2 border-black pb-3">
                     <div className="flex items-center gap-4 w-1/4">
-                      {data.logo && !isReciboSimples && (
+                      {data.logo && !isSemLogo && (
                         <img src={data.logo} alt="Logo" className="w-16 h-16 object-contain" />
                       )}
                     </div>
@@ -1010,6 +1444,76 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
                     </div>
                   </div>
                 </div>
+
+                {/* Segunda Via (Opcional) */}
+                {duasVias && (
+                  <>
+                    {/* Divisória Tesoura */}
+                    <div className="w-full border-t-2 border-dashed border-gray-400 my-8 relative print:my-10">
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-4 text-gray-400 text-[10px] uppercase tracking-widest font-bold">
+                        Tesoura / Corte Aqui
+                      </div>
+                    </div>
+
+                    <div className="bg-white p-4 md:p-6 relative shadow-xl print:shadow-none border-2 border-black break-inside-avoid">
+                    {/* Receipt Header */}
+                      <div className="flex justify-between items-start mb-4 border-b-2 border-black pb-3">
+                        <div className="flex items-center gap-4 w-1/4">
+                          {data.logo && !isSemLogo && (
+                            <img src={data.logo} alt="Logo" className="w-16 h-16 object-contain" />
+                          )}
+                        </div>
+                        <div className="w-2/4 text-center">
+                          <div className="text-3xl font-bold uppercase tracking-widest text-black">{getDocTitle()}</div>
+                          <p className="text-sm font-bold mt-1">Nº {data.numero || '001'}</p>
+                        </div>
+                        <div className="w-1/4 flex justify-end">
+                          <span className="text-xl font-bold text-black bg-gray-100 px-4 py-2 rounded border-2 border-black whitespace-nowrap">
+                            VALOR: R$ {formatCurrency(data.valor)}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Receipt Body */}
+                      <div className="space-y-2 text-[15px] md:text-[16px] leading-snug text-black mt-4">
+                        {getDocumentBodyText()}
+                      </div>
+
+                      {/* Receipt Footer / Signatures */}
+                      <div className="mt-6">
+                        <div className="text-right mb-6">
+                          <span className="text-[15px] md:text-[16px]"><span className="font-bold uppercase">{data.cidade || '_________________________'}</span>, {data.data ? formatDate(data.data) : '___/___/20__'}</span>
+                        </div>
+
+                        <div className="flex flex-col md:flex-row items-center justify-between mt-6 gap-6">
+                          <div className="flex-1 flex flex-col items-center justify-center w-full">
+                            <div className="w-80 border-t-2 border-black mb-2"></div>
+                            <p className="text-[16px] font-bold uppercase">{getSignatureName()}</p>
+                            {getSignatureDoc() && (
+                              <p className="text-[14px]">CPF/CNPJ: {getSignatureDoc()}</p>
+                            )}
+                          </div>
+                          
+                          {data.chavePix && data.formaPagamento === 'PIX' && (
+                            <div className="flex flex-col items-center p-3 border-2 border-black rounded-xl bg-gray-50">
+                              <p className="text-xs font-bold text-black mb-2 uppercase tracking-wide">Pague com PIX</p>
+                              <div className="bg-white p-2 rounded-lg shadow-sm mb-2 border border-gray-300">
+                                <QRCodeCanvas 
+                                  value={generatePixPayload(data.chavePix, data.recebedorNome || 'Recebedor', data.cidade || 'Cidade', data.valor)} 
+                                  size={80}
+                                  level="M"
+                                />
+                              </div>
+                              <p className="text-[10px] text-black font-mono break-all text-center max-w-[120px]">
+                                Chave: {data.chavePix}
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
               </>
             )}
           </div>
