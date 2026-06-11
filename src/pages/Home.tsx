@@ -91,37 +91,6 @@ export function Home() {
     }
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "O recibo online tem validade legal?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sim! O recibo online, quando devidamente preenchido e assinado (comprovante de transação comercial), funciona como um comprovante com validade legal plena, atendendo aos requisitos do Código Civil Brasileiro. Ele serve para organização de caixa, quitação de dívidas e declaração de imposto de renda (IRPF/IRPJ)."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Posso usar o recibo simples como nota fiscal avulsa ou RPA?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "O recibo simples atua como comprovante de pagamento entre pessoas físicas ou profissionais autônomos sem CNPJ. Para contabilidade pesada empresarial, a nota fiscal é ideal, mas o recibo simples preenchido com seu CPF atua como um excelente substituto (estilo RPA) para pequenos trabalhos e transações B2C."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Vocês armazenam meus dados ou do meu cliente?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Não. Nosso gerador opera via preenchimento automático pelo navegador (client-side). Nós não temos um banco de dados que salva as informações dos recibos que você gera, garantindo total privacidade e conformidade com a LGPD."
-        }
-      }
-    ]
-  };
-
   return (
     <>
       <SEO 
@@ -132,8 +101,7 @@ export function Home() {
           "@context": "https://schema.org", 
           "@graph": [
             { ...websiteSchema, "@context": undefined }, 
-            { ...softwareSchema, "@context": undefined },
-            { ...faqSchema, "@context": undefined }
+            { ...softwareSchema, "@context": undefined }
           ] 
         })}
         url="https://recibogratis.com.br"
