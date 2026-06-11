@@ -283,6 +283,7 @@ export function Layout() {
             <div>
               <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">Institucional</h3>
               <ul className="space-y-2 mb-6">
+                <li><Link to="/como-funciona" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Como Funciona</Link></li>
                 <li><Link to="/blog" className="text-sm inline-flex items-center gap-1 font-bold text-emerald-400 hover:text-white transition-colors">Nosso Blog</Link></li>
                 <li><Link to="/faq" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Perguntas Frequentes (FAQ)</Link></li>
                 <li><Link to="/termos-de-uso" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Termos de Uso</Link></li>

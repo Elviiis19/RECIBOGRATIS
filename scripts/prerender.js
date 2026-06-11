@@ -41,6 +41,11 @@ const routes = [
     description: 'Saiba como protegemos seus dados. Nossa política de privacidade garante que suas informações estão seguras e não são armazenadas em nossos servidores.',
   },
   {
+    path: '/como-funciona',
+    title: 'Como Funciona | Recibo Grátis',
+    description: 'Entenda como funciona o nosso gerador de recibos online. Processo simples, 100% gratuito, seguro e em conformidade com a LGPD.',
+  },
+  {
     path: '/contato',
     title: 'Contato | Recibo Grátis',
     description: 'Entre em contato com a equipe do Recibo Grátis para dúvidas, sugestões ou parcerias.',

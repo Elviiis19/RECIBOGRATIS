@@ -79,6 +79,11 @@ ${ferramentas.map(slug => `  <url>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>${baseUrl}/como-funciona</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>${baseUrl}/contato</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

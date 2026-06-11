@@ -59,6 +59,34 @@ export function SEO({ title, description, keywords, schema, url }: SEOProps) {
           data-schema-ssr="true" /* We only render schema on SSR to prevent hydration issues and allow our prerender script to hoist it cleanly to <head> without duplicates */
         />
       )}
+      
+      {isServer && (
+        <script 
+          type="application/ld+json" 
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": ["Organization", "LocalBusiness"],
+            "name": "Recibo Grátis",
+            "url": "https://recibogratis.com.br",
+            "logo": "https://recibogratis.com.br/logo.png",
+            "founder": {
+              "@type": "Person",
+              "name": "Elvis Dias"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+55-69-98103-9664",
+              "contactType": "customer service"
+            },
+            "identifier": {
+              "@type": "PropertyValue",
+              "name": "CNPJ",
+              "value": "43.027.941/0001-21"
+            }
+          }) }} 
+          data-schema-org-ssr="true"
+        />
+      )}
     </>
   );
 }

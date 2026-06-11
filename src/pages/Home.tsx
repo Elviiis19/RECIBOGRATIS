@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { receiptModels } from '../data/receiptModels';
+import { blogPosts } from '../data/blogPosts';
 import { 
   CheckCircle2, FileText, BadgeDollarSign, Briefcase, Home as HomeIcon, 
   ShoppingCart, Store, Sparkles, HeartHandshake, Scale, HandCoins, 
   Heart, Banknote, CheckCircle, Bed, Car, Hammer, Paintbrush, Zap, 
   Wrench, Truck, Settings, Smile, Brain, Activity, Apple, Camera, 
   GraduationCap, Baby, HeartPulse, Scissors, Sofa, Monitor, Leaf, 
-  Building, PenTool, HardHat, Stethoscope, Dog 
+  Building, PenTool, HardHat, Stethoscope, Dog, ChevronDown, ChevronRight
 } from 'lucide-react';
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -242,15 +243,15 @@ export function Home() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Mais de 40 Modelos</h3>
               <p className="text-gray-600 leading-relaxed text-lg">
-                Temos o formato exato que você precisa. Desde recibo simples, aluguel, prestação de serviços até modelos específicos para médicos, pedreiros e MEIs.
+                Temos o formato exato que você precisa. Desde <Link to="/recibo-simples" className="text-emerald-700 hover:text-emerald-800 font-medium underline underline-offset-2">recibo simples</Link>, <Link to="/recibo-de-aluguel" className="text-emerald-700 hover:text-emerald-800 font-medium underline underline-offset-2">aluguel</Link>, <Link to="/recibo-de-prestacao-de-servicos" className="text-emerald-700 hover:text-emerald-800 font-medium underline underline-offset-2">prestação de serviços</Link> até modelos específicos para médicos, pedreiros e MEIs.
               </p>
             </div>
           </div>
 
           <div className="mt-24">
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 text-center tracking-tight">Como fazer um recibo online?</h2>
-            <p className="text-xl text-gray-600 mb-12 leading-relaxed text-center max-w-3xl mx-auto">
-              Fazer um recibo ou documento online nunca foi tão simples. Nosso gerador foi projetado para ser intuitivo e rápido, permitindo que você crie dezenas de documentos com validade comercial em poucos cliques.
+            <p className="text-xl text-gray-600 mb-12 leading-relaxed text-center max-w-4xl mx-auto">
+              Fazer um recibo, nota fiscal avulsa ou documento online nunca foi tão simples. Nosso sistema de RPA e emissão foi projetado para ser intuitivo, permitindo criar um comprovante de transação comercial com preenchimento automático. São recibos 100% válidos para declaração de IRPF e controle contábil, prontos para coletar a assinatura.
             </p>
             
             <div className="bg-white rounded-3xl p-8 md:p-12 text-center shadow-sm border border-gray-100">
@@ -279,13 +280,91 @@ export function Home() {
             </div>
           </div>
 
-          {/* Link to FAQ Page */}
-          <div className="mt-20 text-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Tem alguma dúvida?</h2>
-            <p className="text-gray-600 mb-6">Consulte nossa página de Perguntas Frequentes para saber mais sobre validade legal e uso da ferramenta.</p>
-            <Link to="/faq" className="inline-flex items-center gap-2 bg-white border border-emerald-200 text-emerald-700 hover:bg-emerald-50 px-6 py-3 rounded-xl font-medium transition-colors">
-              Acessar FAQ <CheckCircle2 className="w-5 h-5" />
-            </Link>
+          <div className="mt-24 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center tracking-tight">Perguntas Frequentes</h2>
+            <div className="space-y-4">
+              <details className="group bg-gray-50 border border-gray-100 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-gray-900 font-semibold">
+                  <h3 className="text-lg">O recibo online tem validade legal?</h3>
+                  <span className="shrink-0 rounded-full bg-white p-1.5 text-emerald-900 group-open:-rotate-180 transition-transform">
+                    <ChevronDown className="w-5 h-5" />
+                  </span>
+                </summary>
+                <div className="p-6 pt-0 leading-relaxed text-gray-600">
+                  Sim! O recibo online, quando devidamente preenchido e assinado (comprovante de transação comercial), funciona como um comprovante com validade legal plena, atendendo aos requisitos do Código Civil Brasileiro. Ele serve para organização de caixa, quitação de dívidas e declaração de imposto de renda (IRPF/IRPJ).
+                </div>
+              </details>
+
+              <details className="group bg-gray-50 border border-gray-100 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-gray-900 font-semibold">
+                  <h3 className="text-lg">Posso usar o recibo simples como nota fiscal avulsa ou RPA?</h3>
+                  <span className="shrink-0 rounded-full bg-white p-1.5 text-emerald-900 group-open:-rotate-180 transition-transform">
+                    <ChevronDown className="w-5 h-5" />
+                  </span>
+                </summary>
+                <div className="p-6 pt-0 leading-relaxed text-gray-600">
+                  O recibo simples atua como comprovante de pagamento entre pessoas físicas ou profissionais autônomos sem CNPJ. Para contabilidade pesada empresarial, a nota fiscal é ideal, mas o recibo simples preenchido com seu CPF atua como um excelente substituto (estilo RPA) para pequenos trabalhos e transações B2C.
+                </div>
+              </details>
+
+              <details className="group bg-gray-50 border border-gray-100 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-gray-900 font-semibold">
+                  <h3 className="text-lg">Vocês armazenam meus dados ou do meu cliente?</h3>
+                  <span className="shrink-0 rounded-full bg-white p-1.5 text-emerald-900 group-open:-rotate-180 transition-transform">
+                    <ChevronDown className="w-5 h-5" />
+                  </span>
+                </summary>
+                <div className="p-6 pt-0 leading-relaxed text-gray-600">
+                  Não. Nosso gerador opera via preenchimento automático pelo navegador (client-side). Nós não temos um banco de dados que salva as informações dos recibos que você gera, garantindo total privacidade e conformidade com a LGPD.
+                </div>
+              </details>
+            </div>
+            
+            <div className="mt-8 text-center">
+              <Link to="/faq" className="inline-flex items-center gap-2 text-emerald-700 hover:text-emerald-800 font-medium transition-colors">
+                Ver todas as perguntas frequentes <ChevronRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Blog Section */}
+          <div className="mt-24 px-4 sm:px-6 lg:px-8 border-t border-gray-100 pt-20">
+            <div className="max-w-7xl mx-auto">
+              <div className="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4">
+                <div>
+                  <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight">Últimos artigos sobre MEI e Contabilidade</h2>
+                  <p className="text-gray-600 mt-2">Dicas e guias práticos atualizados para organizar a vida financeira.</p>
+                </div>
+                <Link to="/blog" className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium transition-colors whitespace-nowrap">
+                  Ir para o Blog <ChevronRight className="w-5 h-5" />
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {blogPosts.slice(0, 3).map((post) => (
+                  <Link
+                    key={post.slug}
+                    to={`/blog/${post.slug}`}
+                    className="bg-white group rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md hover:border-emerald-200 transition-all flex flex-col"
+                  >
+                    <div className="p-8 flex flex-col flex-grow">
+                      <div className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full uppercase tracking-wider mb-4 w-max">
+                        {post.category === 'financas' ? 'Finanças' : post.category === 'mei' ? 'MEI' : 'Autônomos'}
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-700 transition-colors line-clamp-2">
+                        {post.title}
+                      </h3>
+                      <p className="text-gray-600 line-clamp-3 text-sm leading-relaxed mb-6 flex-grow">
+                        {post.seoDescription}
+                      </p>
+                      <div className="text-emerald-600 font-semibold text-sm flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
+                        Ler artigo <ChevronRight className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

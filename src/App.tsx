@@ -11,6 +11,7 @@ import { ReceiptPage } from './pages/ReceiptPage';
 import { Termos } from './pages/Termos';
 import { Privacidade } from './pages/Privacidade';
 import { Contato } from './pages/Contato';
+import { ComoFunciona } from './pages/ComoFunciona';
 import { PixGenerator } from './pages/PixGenerator';
 import { Faq } from './pages/Faq';
 import { AllModels } from './pages/AllModels';
@@ -50,6 +51,7 @@ export default function App({ url }: { url?: string }) {
         <Route path="politica-de-privacidade" element={<Privacidade />} />
         <Route path="contato" element={<Contato />} />
         <Route path="faq" element={<Faq />} />
+        <Route path="como-funciona" element={<ComoFunciona />} />
         <Route path="modelos" element={<AllModels />} />
         <Route path="blog" element={<BlogIndex />} />
         <Route path="blog/categoria/:category" element={<BlogIndex />} />
