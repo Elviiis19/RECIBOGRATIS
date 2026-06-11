@@ -3,8 +3,9 @@ import { SEO } from '../components/SEO';
 import { ReceiptGenerator } from '../components/ReceiptGenerator';
 import { AdSense } from '../components/AdSense';
 import { receiptModels } from '../data/receiptModels';
-import { CheckCircle2, ChevronRight, FileText } from 'lucide-react';
+import { CheckCircle2, ChevronRight, FileText, Video } from 'lucide-react';
 import { richSeoData } from '../data/richSeoContent';
+import { YoutubeEmbed } from '../components/YoutubeEmbed';
 
 export function ReceiptPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -84,7 +85,7 @@ export function ReceiptPage() {
     "description": dynamicDesc
   };
 
-  const howToSchema = {
+  const howToSchema: any = {
     "@context": "https://schema.org",
     "@type": "HowTo",
     "name": `Como preencher o ${model.title}`,
@@ -117,6 +118,27 @@ export function ReceiptPage() {
       }
     ]
   };
+
+  if (model.id === 'simples') {
+    howToSchema.video = {
+      "@type": "VideoObject",
+      "name": "Como preencher recibo simples online passo a passo",
+      "description": "Aprenda a preencher e gerar um recibo simples ou recibo comercial online com nosso gerador gratuito em PDF.",
+      "thumbnailUrl": "https://img.youtube.com/vi/l4102DNZ0NE/maxresdefault.jpg",
+      "contentUrl": "https://www.youtube.com/watch?v=l4102DNZ0NE",
+      "embedUrl": "https://www.youtube.com/embed/l4102DNZ0NE",
+      "uploadDate": "2024-01-01T08:00:00+08:00",
+      "duration": "PT2M",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Recibo Grátis",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://recibogratis.com.br/logo.png"
+        }
+      }
+    };
+  }
 
   const faqSchema = finalFaqs.length > 0 ? {
     "@context": "https://schema.org",
@@ -259,6 +281,17 @@ export function ReceiptPage() {
                   <p className="text-gray-700 text-lg font-medium m-0">Siga este passo a passo para preencher e validar seu documento de forma rápida e segura:</p>
                 </div>
                 <div className="p-6 md:p-8">
+                  {model.id === 'simples' && (
+                    <div className="mb-10">
+                      <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <Video className="w-6 h-6 text-emerald-500" />
+                        Vídeo Tutorial: Como preencher Recibo Simples
+                      </h3>
+                      <YoutubeEmbed videoId="l4102DNZ0NE" title="Como preencher recibo simples online passo a passo" />
+                      <p className="text-sm text-gray-500 mt-3 text-center">Assista ao vídeo para tirar suas dúvidas ou siga o passo a passo abaixo.</p>
+                    </div>
+                  )}
+
                   <ul className="space-y-6">
                     <li className="flex items-start gap-4">
                       <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">1</div>
