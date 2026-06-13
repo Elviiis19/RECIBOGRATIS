@@ -140,31 +140,38 @@ async function prerender() {
 
       let cleanAppHtml = appHtml;
       
-      // React 19 automatically hoists title, meta, link, and script tags to the top of the SSR string.
-      // We extract them here to move them to the <head> and remove them from the <body>.
-      const hoistedTagsRegex = /^(?:<title>.*?<\/title>|<meta[^>]+>|<link[^>]+>|<script[^>]*type="application\/ld\+json"[^>]*>.*?<\/script>)*/i;
-      
-      const match = cleanAppHtml.match(hoistedTagsRegex);
-      let hoistedTags = match ? match[0] : '';
-      cleanAppHtml = cleanAppHtml.replace(hoistedTagsRegex, '');
+      let hoistedTags = '';
 
-      // Also extract any stray JSON-LD scripts deep inside the body (in case it didn't get hoisted)
-      const ldJsonRegex = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
-      const jsonLdMatches = [];
-      let bodyLdMatch;
-      while ((bodyLdMatch = ldJsonRegex.exec(cleanAppHtml)) !== null) {
-        // Prevent duplication if it's already in hoistedTags
-        if (!hoistedTags.includes(bodyLdMatch[1].trim())) {
-          jsonLdMatches.push(bodyLdMatch[0]);
-        }
+      // Extract Title
+      const titleMatch = cleanAppHtml.match(/<title[^>]*>.*?<\/title>/i);
+      if (titleMatch) {
+         hoistedTags += titleMatch[0] + '\n';
+         cleanAppHtml = cleanAppHtml.replace(/<title[^>]*>.*?<\/title>/i, '');
       }
 
-      if (jsonLdMatches.length > 0) {
-        hoistedTags += '\n' + jsonLdMatches.join('\n');
+      // Extract all Meta
+      const metaRegex = /<meta[^>]+>/ig;
+      let metaMatch;
+      while ((metaMatch = metaRegex.exec(cleanAppHtml)) !== null) {
+          hoistedTags += metaMatch[0] + '\n';
       }
+      cleanAppHtml = cleanAppHtml.replace(/<meta[^>]+>/ig, '');
 
-      // Scrub all JSON-LD tags from the body text
-      cleanAppHtml = cleanAppHtml.replace(/<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, '');
+      // Extract canonical links
+      const linkRegex = /<link[^>]+rel="canonical"[^>]*>/ig;
+      let linkMatch;
+      while ((linkMatch = linkRegex.exec(cleanAppHtml)) !== null) {
+          hoistedTags += linkMatch[0] + '\n';
+      }
+      cleanAppHtml = cleanAppHtml.replace(/<link[^>]+rel="canonical"[^>]*>/ig, '');
+
+      // Extract JSON-LD
+      const ldJsonRegex = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/ig;
+      let ldJsonMatch;
+      while ((ldJsonMatch = ldJsonRegex.exec(cleanAppHtml)) !== null) {
+          hoistedTags += ldJsonMatch[0] + '\n';
+      }
+      cleanAppHtml = cleanAppHtml.replace(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/ig, '');
 
       html = html.replace(
         /<head>[\s\S]*?<\/head>/i,
