@@ -5,7 +5,7 @@ export const receiptModels = [
     title: 'Recibo Simples',
     shortDescription: 'Gere seu recibo simples em segundos. Preencha os dados online, visualize na tela e baixe seu comprovante em PDF na hora. 100% grátis e sem cadastro!',
     seoTitle: 'Recibo Simples - Gere em segundos',
-    seoDescription: 'Gere seu recibo simples em segundos. Preencha os dados online, visualize na tela e baixe seu comprovante em PDF na hora. 100% grátis e sem cadastro!',
+    seoDescription: 'Gere recibos simples online grátis. É Rápido, fácil e Sem cadastro, sem instalação. Preencha os dados, baixe em PDF ou imprima',
     keywords: 'recibo simples, recibo online, gerar recibo, recibo pdf, recibo para imprimir, modelo de recibo simples, preencher recibo online',
     defaultReferenteA: 'Pagamento referente a [descreva o motivo do pagamento].',
     icon: 'FileText',
@@ -18,15 +18,27 @@ export const receiptModels = [
     faqs: [
       {
         question: 'O recibo simples tem validade legal?',
-        answer: 'Sim, o recibo simples tem validade legal como comprovante de pagamento, desde que contenha as informações essenciais: valor, nome e CPF/CNPJ de quem paga e de quem recebe, data, local e a assinatura do recebedor.'
+        answer: 'Sim. Quando devidamente preenchido e assinado, ele tem validade civil e jurídica garantida pela legislação brasileira como comprovante irrefutável de quitação de dívida, impedindo cobranças indevidas futuras ou duplicadas.'
       },
       {
-        question: 'Preciso reconhecer firma no recibo simples?',
-        answer: 'Na maioria das transações cotidianas, não é obrigatório reconhecer firma. Apenas a assinatura do recebedor já é suficiente. O reconhecimento de firma é recomendado apenas para transações de alto valor ou que envolvam riscos maiores.'
+        question: 'A emissão do recibo substitui a Nota Fiscal?',
+        answer: 'Não. O recibo serve apenas para atestar a transferência do dinheiro. A Nota Fiscal (NF) é exigência fiscal de recolhimento de impostos junto ao Governo. Prestadores Pessoa Física (sem CNPJ) devem emitir recibo; empresas devem emitir NF, podendo também dar recibo conjunto para controle em dinheiro vivo.'
       },
       {
-        question: 'O recibo substitui a Nota Fiscal?',
-        answer: 'Não. O recibo apenas comprova o pagamento, enquanto a Nota Fiscal comprova a transação comercial e recolhe impostos. Empresas são obrigadas a emitir Nota Fiscal, mas podem usar o recibo como um comprovante adicional de quitação.'
+        question: 'Precisa de CNPJ para emitir um recibo simples?',
+        answer: 'De forma nenhuma. O recibo simples é a ferramenta máxima do cidadão Pessoa Física (PF). Você não precisa ter empresa ou CNPJ; usando apenas o seu CPF, nome e preenchendo os dados da transação com exatidão, o documento vale integralmente em qualquer negociação.'
+      },
+      {
+        question: 'Qual o prazo de validade jurídica recomendado?',
+        answer: 'Sob a ótica do Código Civil e órgãos de defesa do consumidor, todas as partes (pagador e recebedor) devem arquivar os recibos comerciais por pelo menos 5 (cinco) anos. Esse intervalo é o tempo onde juridicamente a maior parte de cobranças pode ser ajuizada no Brasil.'
+      },
+      {
+        question: 'Posso usar o mesmo modelo para vários dos meus clientes?',
+        answer: 'Com certeza! Essa é a grande utilidade do nosso aplicativo online grátis. A estrutura deste gerador adota as normas padrão; portanto, você pode visitar nossa página sempre que fechar um contrato e emitir um recibo padronizado alterando somente as informações e os montantes para o novo cliente.'
+      },
+      {
+        question: 'Qual a diferença entre recibo simples e recibo de pagamento?',
+        answer: 'Juridicamente eles possuem eficácia comprovatória idêntica. A variante no nome se dá por costume: "Recibo simples" é rotineiramente invocado para negociações informais, bens de consumo e diárias. "Recibo de pagamento" costuma ser usado para salários ou prestações prolongadas.'
       }
     ]
   },

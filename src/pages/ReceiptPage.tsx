@@ -378,6 +378,33 @@ export function ReceiptPage() {
               </div>
             </article>
 
+            {richData?.useCasesList && richData.useCasesList.length > 0 && (
+              <article>
+                <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-6 flex items-center gap-3">
+                  <CheckCircle2 className="w-8 h-8 text-emerald-500 flex-shrink-0" />
+                  {richData?.useCasesTitle || 'Casos de Uso'}
+                </h2>
+                
+                <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
+                  <ul className="space-y-4">
+                    {richData.useCasesList.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <div className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 mt-0.5 text-sm font-bold">
+                          {idx + 1}
+                        </div>
+                        <span className="text-gray-700 text-lg leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  {richData?.useCasesConclusion && (
+                    <div className="mt-6 p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+                      <p className="text-emerald-800 m-0 font-medium">{richData.useCasesConclusion}</p>
+                    </div>
+                  )}
+                </div>
+              </article>
+            )}
+
             <article>
               <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <CheckCircle2 className="w-8 h-8 text-emerald-500 flex-shrink-0" />

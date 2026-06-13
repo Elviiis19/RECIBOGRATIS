@@ -1,6 +1,9 @@
 export interface RichSEOContent {
   h1: string;
   intro: string;
+  useCasesTitle?: string;
+  useCasesList?: string[];
+  useCasesConclusion?: string;
   specificDetailsTitle: string;
   specificDetailsList: string[];
   lsiText: string;
@@ -28,23 +31,33 @@ export const richSeoData: Record<string, RichSEOContent> = {
   },
   'simples': {
     h1: 'Recibo Simples, visualize na hora que preenche e baixe em PDF',
-    intro: 'O recibo simples é o documento financeiro mais comum e versátil utilizado no Brasil. Ele serve como uma declaração formal de que um valor foi pago por uma pessoa e recebido por outra. Sem esse comprovante, transações informais baseiam-se apenas na confiança e podem gerar dores de cabeça ou cobranças duplicadas.',
+    intro: 'O recibo simples é o instrumento financeiro e jurídico mais utilizado no Brasil para atestar transações cotidianas. Trata-se de uma declaração formal, assinada por quem recebe o dinheiro, afirmando que uma dívida foi integralmente ou parcialmente quitada por quem pagou. Transações informais ou verbais que dependem apenas da confiança são perigosas e frequentemente resultam em severas dores de cabeça, perda financeira ou processos de cobrança em duplicidade.',
+    useCasesTitle: 'Quando você deve usar este documento? Veja os 6 principais casos de uso:',
+    useCasesList: [
+      'Compra e Venda de bens usados de grande valor (veículos, eletrônicos, móveis) entre Pessoas Físicas;',
+      'Pagamento de pequenos serviços eventuais e informais que não exijam emissão obrigatória de Nota Fiscal;',
+      'Quitação de transações de aluguéis de temporada, equipamentos ou imóveis por proprietário sem CNPJ;',
+      'Pagamento de diárias para profissionais autônomos e liberais que operem via CPF;',
+      'Trabalhos de honorários artísticos ou manuais realizados por freelancers não legalizados como MEI;',
+      'Repasses familiares e adiantamentos corporativos informais que necessitem ficar documentados.'
+    ],
+    useCasesConclusion: 'Proteja o seu direito, afaste as chances de fraude, e formalize qualquer repasse em um documento validado, limpo e estruturado.',
     specificDetailsTitle: 'Como preencher o recibo corretamente',
     specificDetailsList: [
-      'Valor: Preencha com a quantia exata da transação, tanto em números quanto por extenso, para evitar adulterações.',
-      'Pagador e Recebedor: Insira o Nome Completo ou a Razão Social de quem está pagando e de quem está recebendo o dinheiro.',
-      'CPF ou CNPJ: Essencial para identificar perfeitamente as partes.',
-      'Referente a: Nunca escreva genericamente. Detalhe exatamente qual objeto foi vendido ou qual serviço foi prestado.',
-      'Local e Data: A cidade e o dia exato em que o repasse do dinheiro foi concluído.',
-      'Assinatura: O recebedor deve obrigatoriamente assinar ao final, confirmando que o dinheiro está em mãos.'
+      '1. Valor Numérico e Por Extenso: Escreva a quantia exata da transação com clareza. Digitar por extenso ("Cem reais") além do número é obrigatório para inviabilizar fraudes ou adulteração em caneta por má-fé do recebedor.',
+      '2. O Pagador e o Recebedor: Identifique a pessoa que está efetuando o pagamento (pagador) e quem figura como beneficiário (recebedor). Fuja do uso de apelidos e sempre insira os nomes que contam nos documentos oficiais.',
+      '3. Requisito de CPF ou CNPJ: Exclusivamente através do CPF ou CNPJ formal é que o Código Civil liga o débito com o cidadão. Nunca emita um recibo vazio; o preenchimento amarra o documento judicialmente na identificação civil das partes envolvidas.',
+      '4. Motivo na aba "Referente a": Este é o coração do atestado. Jamais use sentenças genéricas como "serviços prestados". Restrinja o escopo descrevendo a ação. Exemplo: "pagamento da compra à vista de celular X, modelo Y". O nível de detalhe cessa contestações futuras.',
+      '5. As Margens de Local e Data: Para registrar a validade e o rastro histórico de que o fato financeiro consumou-se no mundo real, assinale com segurança a data de repasse do valor junto com a respectiva cidade celebrada.',
+      '6. A Assinatura do Cedente: Um recibo possui nula validade sem a assinatura do favorecido constando de caneta ou em vias fidedignamente digitais sobre a folha documentando os ditos honorários repassados. Quem cede e emite este deve certificar fisicamente.'
     ],
     lsiText: 'Esse modelo é ideal e totalmente válido para transações do dia a dia, como pagamentos de pequenas dívidas, diárias informais, vendas particulares e repasses familiares.',
     legalText: [
-      'Sim. Esse modelo é ideal e totalmente válido para transações do dia a dia, como pagamentos de pequenas dívidas, diárias informais, vendas particulares e repasses familiares.',
-      'Quando preenchido corretamente, ele funciona como a sua defesa contra cobranças duplicadas perante a justiça e o Procon.',
-      'Atenção: O recibo tem ampla validade civil, mas não substitui a emissão da Nota Fiscal (NF) para empresas que precisam declarar recolhimento de impostos ao Governo.'
+      'Verdade incontestável: O repassador garante de forma legal sua defesa imune mediante esse repasse documental assinado atestando liquidação. É instrumento indispensável para o arquivamento em fóruns amparando litigantes de processos civis nos despachos com o Procon, no rastreamento fiscal sobre deduções lícitas do imposto de acertos em pensões ou quitações generalizadas.',
+      'No ditame legal em face dos pagadores do Brasil, cabe a você como sujeito devedor que despende o seu dinheiro, pedir vigorosamente por direito legal do Código civil, o recebimento autêntico deste instrumento com plena força de absolvição final. Se o requerente insistir em obstar este simples repasse do recibo em PDF assinado, você assume perante a norma o direito de não faturar a operação enquanto a prova de quitação não transitar integralmente na posse de arquivamento.',
+      'Atenção: É inegável e assinalado sempre que, enquanto este modelo formal seja a blindagem oficial para sujeitos físicos (PF) desvinculados contra terceiros, o mesmo documento não extingue jamais alíquotas devidas a Secretaria de Fazenda Estadual impetradas através do porte de pessoa jurídica (CNPJ MEI ou Superiores) cuja legalidade imperiosa impõe a confecção adjunta de uma NF-e Nota Fiscal de Serviço atestada sem ressalvas.'
     ],
-    ctaText: 'Gere agora o documento padronizado, pronto para ser impresso ou enviado pelo WhatsApp em formato PDF direto do seu navegador, sem necessidade de cadastro.'
+    ctaText: 'Produza sem qualquer burocracia um documento padronizado, dotado de formatação lícita e validade jurídica, pronto para arquivar, imprimir ou enviar diretamente no formato PDF.'
   },
   'pintor': {
     h1: 'Recibo para Pintor | Gerador Online com PDF Grátis',

@@ -1,11 +1,24 @@
 import { Link, Outlet } from 'react-router-dom';
-import { FileText, Menu, X, ChevronDown, Zap, Youtube, Instagram } from 'lucide-react';
-import { useState } from 'react';
+import { FileText, Menu, X, ChevronDown, Zap, Youtube, Instagram, Search } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { receiptModels } from '../data/receiptModels';
 import { CookieBanner } from './CookieBanner';
+import { SearchPalette } from './SearchPalette';
 
 export function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setIsSearchOpen(true);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   // Group models by category for the dropdown
   const categories = {
@@ -24,23 +37,153 @@ export function Layout() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50 text-gray-900 font-sans">
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Link to="/" className="flex items-center gap-2 text-emerald-600 hover:text-emerald-700 transition-colors">
-                <FileText className="h-8 w-8" />
-                <span className="font-bold text-xl tracking-tight">Recibo Grátis</span>
-              </Link>
-            </div>
-
-            {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6">
+      <SearchPalette isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      
+      <header className="sticky top-0 z-50 shadow-sm flex flex-col relative">
+        {/* Top Bar with Logo, Search, and Main Links */}
+        <div className="bg-emerald-800 text-white border-b border-emerald-900/50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center h-16 sm:h-20 gap-4">
               
+              {/* Left: Logo */}
+              <div className="flex items-center flex-shrink-0 lg:w-1/4">
+                <Link to="/" className="flex items-center gap-2 text-white hover:text-emerald-100 transition-colors">
+                  <FileText className="h-7 w-7 sm:h-8 sm:w-8" />
+                  <span className="font-bold text-xl sm:text-2xl tracking-tight hidden sm:block">Recibo Grátis</span>
+                  <span className="font-bold text-xl tracking-tight sm:hidden">Recibo</span>
+                </Link>
+              </div>
+
+              {/* Center: Search Button */}
+              <div className="flex-1 max-w-2xl flex justify-center">
+                <button
+                  onClick={() => setIsSearchOpen(true)}
+                  className="flex items-center gap-2 sm:gap-3 w-full bg-emerald-900/60 hover:bg-emerald-900/90 border border-emerald-600/40 hover:border-emerald-500/60 text-emerald-50 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition-all focus:outline-none focus:ring-2 focus:ring-emerald-400 shadow-inner group"
+                  aria-label="Buscar modelos"
+                >
+                  <Search className="w-5 h-5 shrink-0 opacity-70 group-hover:opacity-100 transition-opacity text-emerald-300" />
+                  <span className="truncate text-left flex-1 font-medium text-sm sm:text-base pr-2">
+                    Buscar modelos de recibo...
+                  </span>
+                  <span className="hidden lg:flex items-center gap-1.5 ml-auto text-xs font-mono font-bold text-emerald-200/90">
+                    <kbd className="px-2 py-1 border border-emerald-700/60 rounded bg-emerald-800 shadow-sm">CTRL</kbd>
+                    <kbd className="px-2 py-1 border border-emerald-700/60 rounded bg-emerald-800 shadow-sm">K</kbd>
+                  </span>
+                </button>
+              </div>
+
+              {/* Right: Desktop Links & Mobile Menu */}
+              <div className="flex items-center justify-end flex-shrink-0 lg:w-1/4">
+                
+                {/* Desktop Main Links */}
+                <nav className="hidden lg:flex items-center gap-6">
+                  <Link 
+                    to="/blog" 
+                    className="text-sm font-semibold text-emerald-50 hover:text-white transition-colors"
+                  >
+                    Blog
+                  </Link>
+                  <Link 
+                    to="/como-funciona" 
+                    className="text-sm font-semibold text-emerald-50 hover:text-white transition-colors"
+                  >
+                    Como Funciona
+                  </Link>
+                  
+                  {/* Ferramentas Dropdown in Top Bar */}
+                  <div className="relative group">
+                    <button 
+                      className="flex items-center gap-1 text-sm font-semibold text-emerald-50 hover:text-white transition-colors py-6"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      <Zap className="w-4 h-4 text-emerald-300" />
+                      Ferramentas
+                      <ChevronDown className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity" />
+                    </button>
+                    {/* Dropdown Content */}
+                    <div className="absolute top-[80%] right-0 w-80 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-1 group-hover:translate-y-0 transition-all duration-200 ease-in-out z-50">
+                      <div className="p-3 max-h-[75vh] overflow-y-auto custom-scrollbar text-left text-gray-900 font-normal">
+                        <ul className="space-y-1">
+                          <li>
+                            <Link to="/gerador-qr-code-pix" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
+                              <div className="font-semibold mb-0.5">Gerador QR Code PIX</div>
+                              <div className="text-xs text-gray-400">Gere códigos PIX e plaquinhas</div>
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/ferramentas/gerador-pix-copia-e-cola" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
+                              <div className="font-semibold mb-0.5">PIX Copia e Cola</div>
+                              <div className="text-xs text-gray-400">Gere links de cobrança PIX</div>
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/ferramentas/valor-por-extenso" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
+                              Valor por Extenso
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/ferramentas/calculadora-retencao-impostos" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
+                              Calculadora de Retenção de Impostos
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/ferramentas/calculadora-desconto-multa" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
+                              Calculadora de Descontos e Multas
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/ferramentas/calculadora-maquininha-cartao" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
+                              Calculadora de Taxas de Maquininha
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/ferramentas/calculadora-dias-uteis" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
+                              Calculadora de Dias Úteis
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/ferramentas/conversor-horas-trabalhadas" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
+                              Conversor de Horas p/ Valor Mensal
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/ferramentas/validador-formatador-cpf-cnpj" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
+                              Formatador e Validador de CPF/CNPJ
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/ferramentas/consultador-codigo-ibge" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
+                              Consultador de Código IBGE
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+
+                {/* Mobile Menu Button */}
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="lg:hidden text-emerald-50 hover:text-white focus:outline-none ml-2 p-1.5 rounded-lg hover:bg-emerald-700/50 transition-colors"
+                  aria-label="Menu principal"
+                >
+                  {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar: Categories Navigation */}
+        <div className="bg-white border-b border-gray-200 hidden lg:block shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav className="flex items-center justify-center space-x-6 xl:space-x-8">
               {Object.entries(categories).map(([category, ids]) => (
                 <div key={category} className="relative group">
                   <button 
-                    className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors py-5"
+                    className="flex items-center gap-1.5 text-[15px] font-bold text-gray-700 hover:text-emerald-600 transition-colors py-3.5"
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
@@ -48,8 +191,8 @@ export function Layout() {
                     <ChevronDown className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" />
                   </button>
                   
-                  <div className={`absolute top-full ${category === 'Outros' ? 'right-0 w-[420px]' : 'left-1/2 -translate-x-1/2 w-64'} bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 transition-all duration-200 ease-in-out z-50`}>
-                    <div className="p-3 max-h-[75vh] overflow-y-auto custom-scrollbar">
+                  <div className={`absolute top-full ${category === 'Outros' ? 'right-0 w-[420px]' : 'left-1/2 -translate-x-1/2 w-64'} bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-1 group-hover:translate-y-0 transition-all duration-200 ease-in-out z-50 text-left`}>
+                    <div className="p-3 max-h-[75vh] overflow-y-auto custom-scrollbar font-normal">
                       <ul className={category === 'Outros' ? 'grid grid-cols-2 gap-x-2 gap-y-1' : 'space-y-1'}>
                         {ids.map(id => {
                           const model = receiptModels.find(m => m.id === id);
@@ -70,133 +213,53 @@ export function Layout() {
                   </div>
                 </div>
               ))}
-              
-              <Link 
-                to="/blog" 
-                className="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors py-5"
-              >
-                Blog
-              </Link>
-
-              <div className="relative group">
-                <button 
-                  className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors py-5"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <Zap className="w-4 h-4 text-emerald-600" />
-                  Ferramentas
-                  <ChevronDown className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" />
-                </button>
-                <div className="absolute top-full right-0 w-80 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 transition-all duration-200 ease-in-out z-50">
-                  <div className="p-3 max-h-[75vh] overflow-y-auto custom-scrollbar">
-                    <ul className="space-y-1">
-                      <li>
-                        <Link to="/gerador-qr-code-pix" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                          <div className="font-semibold mb-1">Gerador QR Code PIX</div>
-                          <div className="text-xs text-gray-400">Gere códigos PIX e plaquinhas</div>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/ferramentas/gerador-pix-copia-e-cola" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                          <div className="font-semibold mb-1">PIX Copia e Cola</div>
-                          <div className="text-xs text-gray-400">Gere links de cobrança PIX</div>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/ferramentas/valor-por-extenso" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                          Valor por Extenso
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/ferramentas/calculadora-retencao-impostos" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                          Calculadora de Retenção de Impostos
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/ferramentas/calculadora-desconto-multa" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                          Calculadora de Descontos e Multas
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/ferramentas/calculadora-maquininha-cartao" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                          Calculadora de Taxas de Maquininha
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/ferramentas/calculadora-dias-uteis" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                          Calculadora de Dias Úteis
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/ferramentas/conversor-horas-trabalhadas" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                          Conversor de Horas p/ Valor Mensal
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/ferramentas/validador-formatador-cpf-cnpj" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                          Formatador e Validador de CPF/CNPJ
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/ferramentas/consultador-codigo-ibge" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                          Consultador de Código IBGE
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
             </nav>
-
-            {/* Mobile Menu Button */}
-            <div className="lg:hidden flex items-center">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-500 hover:text-gray-700 focus:outline-none"
-                aria-label="Menu principal"
-              >
-                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </button>
-            </div>
           </div>
         </div>
 
         {/* Mobile Nav */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-100 max-h-[80vh] overflow-y-auto">
+          <div className="lg:hidden bg-white border-b border-gray-100 max-h-[80vh] overflow-y-auto w-full absolute top-full left-0 z-40 shadow-xl">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <Link
                 to="/"
                 onClick={() => setIsMenuOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-bold text-emerald-700 hover:bg-emerald-50"
+                className="block px-3 py-2 rounded-md text-base font-bold text-emerald-700 hover:bg-emerald-50 border-b border-gray-50 mb-2"
               >
                 Página Inicial (Todos os Modelos)
               </Link>
               <Link
                 to="/blog"
                 onClick={() => setIsMenuOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-bold text-emerald-700 hover:bg-emerald-50"
+                className="block px-3 py-2 rounded-md text-base font-bold text-gray-700 hover:bg-emerald-50 hover:text-emerald-700"
               >
                 Nosso Blog
               </Link>
+              <Link
+                to="/como-funciona"
+                onClick={() => setIsMenuOpen(false)}
+                className="block px-3 py-2 rounded-md text-base font-bold text-gray-700 hover:bg-emerald-50 hover:text-emerald-700"
+              >
+                Como Funciona
+              </Link>
               <div className="pt-4 pb-2">
-                <p className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                <p className="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">
                   Ferramentas
                 </p>
               </div>
-              <Link to="/gerador-qr-code-pix" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Gerador QR Code PIX</Link>
-              <Link to="/ferramentas/gerador-pix-copia-e-cola" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Gerador PIX Copia e Cola</Link>
-              <Link to="/ferramentas/valor-por-extenso" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Valor por Extenso</Link>
-              <Link to="/ferramentas/calculadora-retencao-impostos" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Retenção de Impostos</Link>
-              <Link to="/ferramentas/calculadora-desconto-multa" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Calculadora de Descontos e Multas</Link>
-              <Link to="/ferramentas/calculadora-maquininha-cartao" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Taxas de Maquininha</Link>
-              <Link to="/ferramentas/calculadora-dias-uteis" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Dias Úteis</Link>
-              <Link to="/ferramentas/conversor-horas-trabalhadas" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Horas p/ Valor Monetário</Link>
-              <Link to="/ferramentas/validador-formatador-cpf-cnpj" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Validador de CPF/CNPJ</Link>
-              <Link to="/ferramentas/consultador-codigo-ibge" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Consultador Código IBGE</Link>
-              <div className="pt-4 pb-2">
-                <p className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              <Link to="/gerador-qr-code-pix" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50">Gerador QR Code PIX</Link>
+              <Link to="/ferramentas/gerador-pix-copia-e-cola" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50">Gerador PIX Copia e Cola</Link>
+              <Link to="/ferramentas/valor-por-extenso" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50">Valor por Extenso</Link>
+              <Link to="/ferramentas/calculadora-retencao-impostos" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50">Retenção de Impostos</Link>
+              <Link to="/ferramentas/calculadora-desconto-multa" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50">Descontos e Multas</Link>
+              <Link to="/ferramentas/calculadora-maquininha-cartao" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50">Taxas de Maquininha</Link>
+              <Link to="/ferramentas/calculadora-dias-uteis" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50">Dias Úteis</Link>
+              <Link to="/ferramentas/conversor-horas-trabalhadas" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50">Horas p/ Valor Monetário</Link>
+              <Link to="/ferramentas/validador-formatador-cpf-cnpj" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50">Validador de CPF/CNPJ</Link>
+              <Link to="/ferramentas/consultador-codigo-ibge" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50">Consultador Código IBGE</Link>
+              
+              <div className="pt-6 pb-2">
+                <p className="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">
                   Modelos de Recibo
                 </p>
               </div>
@@ -205,7 +268,7 @@ export function Layout() {
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsMenuOpen(false)}
-                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50"
                 >
                   {link.name}
                 </Link>
@@ -321,3 +384,4 @@ export function Layout() {
     </div>
   );
 }
+

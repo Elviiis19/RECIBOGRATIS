@@ -17,7 +17,10 @@ export function AdSense() {
 
   return (
     <div className="w-full flex flex-col items-center justify-center my-8 overflow-hidden min-h-[280px]">
-      <span className="text-[10px] text-gray-400 uppercase tracking-widest mb-2 block">- Publicidade -</span>
+      <span 
+        className="text-[10px] text-gray-400 uppercase tracking-widest mb-2 block before:content-[attr(data-ad-label)]" 
+        data-ad-label="- Publicidade -"
+      ></span>
       <ins
         className="adsbygoogle"
         style={{ display: 'block', minWidth: '250px', width: '100%' }}
