@@ -123,7 +123,7 @@ async function prerender() {
         fs.mkdirSync(routeDir, { recursive: true });
       }
 
-      const { html: appHtml } = render(route.path);
+      const { html: appHtml, headTags } = render(route.path);
       
       let html = template;
       
@@ -138,46 +138,18 @@ async function prerender() {
       originalHead = originalHead.replace(/<meta[^>]*name="twitter:[^"]+"[^>]*>/ig, '');
       originalHead = originalHead.replace(/<link[^>]*rel="canonical"[^>]*>/ig, '');
 
-      let cleanAppHtml = appHtml;
-      
-      // React 19 automatically hoists title, meta, link, and script tags to the top of the SSR string.
-      // We extract them here to move them to the <head> and remove them from the <body>.
-      const hoistedTagsRegex = /^(?:<title>.*?<\/title>|<meta[^>]+>|<link[^>]+>|<script[^>]*type="application\/ld\+json"[^>]*>.*?<\/script>)*/i;
-      
-      const match = cleanAppHtml.match(hoistedTagsRegex);
-      let hoistedTags = match ? match[0] : '';
-      cleanAppHtml = cleanAppHtml.replace(hoistedTagsRegex, '');
-
-      // Also extract any stray JSON-LD scripts deep inside the body (in case it didn't get hoisted)
-      const ldJsonRegex = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
-      const jsonLdMatches = [];
-      let bodyLdMatch;
-      while ((bodyLdMatch = ldJsonRegex.exec(cleanAppHtml)) !== null) {
-        // Prevent duplication if it's already in hoistedTags
-        if (!hoistedTags.includes(bodyLdMatch[1].trim())) {
-          jsonLdMatches.push(bodyLdMatch[0]);
-        }
-      }
-
-      if (jsonLdMatches.length > 0) {
-        hoistedTags += '\n' + jsonLdMatches.join('\n');
-      }
-
-      // Scrub all JSON-LD tags from the body text
-      cleanAppHtml = cleanAppHtml.replace(/<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, '');
-
       html = html.replace(
         /<head>[\s\S]*?<\/head>/i,
         `<head>
           ${originalHead}
-          ${hoistedTags}
+          ${headTags}
         </head>`
       );
 
       // Inject app HTML
       html = html.replace(
         /<div id="root"[^>]*>[\s\S]*?<\/div>/,
-        `<div id="root" suppressHydrationWarning>${cleanAppHtml}</div>`
+        `<div id="root" suppressHydrationWarning>${appHtml}</div>`
       );
 
       const outputPath = path.join(routeDir, 'index.html');
