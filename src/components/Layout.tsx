@@ -75,47 +75,19 @@ export function Layout() {
               {/* Right: Desktop Links & Mobile Menu */}
               <div className="flex items-center justify-end flex-shrink-0 w-auto">
                 
-                {/* Desktop Main Links & Categories */}
-                <nav className="hidden xl:flex items-center gap-4 2xl:gap-6">
-                  {Object.entries(categories).map(([category, ids]) => (
-                    <div key={category} className="relative group">
-                      <button 
-                        className="flex items-center gap-1 text-sm font-semibold text-emerald-50 hover:text-white transition-colors py-6"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        {category}
-                        <ChevronDown className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity" />
-                      </button>
-                      
-                      <div className={`absolute top-[80%] ${category === 'Outros' ? 'right-0 w-[420px]' : 'left-0 w-64'} bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-1 group-hover:translate-y-0 transition-all duration-200 ease-in-out z-50 text-left`}>
-                        <div className="p-3 max-h-[75vh] overflow-y-auto custom-scrollbar font-normal">
-                          <ul className={category === 'Outros' ? 'grid grid-cols-2 gap-x-2 gap-y-1' : 'space-y-1'}>
-                            {ids.map(id => {
-                              const model = receiptModels.find(m => m.id === id);
-                              if (!model) return null;
-                              return (
-                                <li key={id}>
-                                  <Link 
-                                    to={`/${model.slug}`}
-                                    className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors"
-                                  >
-                                    {model.title}
-                                  </Link>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-
+                {/* Desktop Main Links */}
+                <nav aria-label="Navegação Secundária" className="hidden lg:flex items-center gap-6">
                   <Link 
                     to="/blog" 
-                    className="text-sm font-semibold text-emerald-50 hover:text-white transition-colors py-6 pl-2 border-l border-emerald-700/50"
+                    className="text-sm font-semibold text-emerald-50 hover:text-white transition-colors"
                   >
                     Blog
+                  </Link>
+                  <Link 
+                    to="/como-funciona" 
+                    className="text-sm font-semibold text-emerald-50 hover:text-white transition-colors"
+                  >
+                    Como Funciona
                   </Link>
                   
                   {/* Ferramentas Dropdown in Top Bar */}
@@ -201,6 +173,48 @@ export function Layout() {
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar: Categories Navigation */}
+        <div className="bg-white border-b border-gray-200 hidden lg:block shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav aria-label="Menu Principal" itemScope itemType="https://schema.org/SiteNavigationElement" className="flex items-center justify-center space-x-6 xl:space-x-8">
+              {Object.entries(categories).map(([category, ids]) => (
+                <div key={category} className="relative group">
+                  <button 
+                    className="flex items-center gap-1.5 text-[15px] font-bold text-gray-700 hover:text-emerald-600 transition-colors py-3.5"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    {category}
+                    <ChevronDown className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" />
+                  </button>
+                  
+                  <div className={`absolute top-full ${category === 'Outros' ? 'right-0 w-[420px]' : 'left-1/2 -translate-x-1/2 w-64'} bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-1 group-hover:translate-y-0 transition-all duration-200 ease-in-out z-50 text-left`}>
+                    <div className="p-3 max-h-[75vh] overflow-y-auto custom-scrollbar font-normal">
+                      <ul className={category === 'Outros' ? 'grid grid-cols-2 gap-x-2 gap-y-1' : 'space-y-1'}>
+                        {ids.map(id => {
+                          const model = receiptModels.find(m => m.id === id);
+                          if (!model) return null;
+                          return (
+                            <li key={id}>
+                              <Link 
+                                itemProp="url"
+                                to={`/${model.slug}`}
+                                className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors"
+                              >
+                                <span itemProp="name">{model.title}</span>
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </nav>
           </div>
         </div>
 

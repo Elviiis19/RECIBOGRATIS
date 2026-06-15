@@ -46,10 +46,10 @@ export const receiptModels = [
     id: 'pagamento',
     slug: 'recibo-de-pagamento',
     title: 'Recibo de Pagamento',
-    shortDescription: 'Comprovante padrão para quitação de dívidas, compras ou acordos financeiros.',
-    seoTitle: 'Recibo de Pagamento - Faça em segundos',
-    seoDescription: 'Crie seu recibo de pagamento online. Ferramenta gratuita para gerar comprovantes de quitação em PDF. Rápido, seguro e sem cadastro.',
-    keywords: 'recibo de pagamento, comprovante de pagamento, gerar recibo de pagamento, recibo de quitação, modelo recibo pagamento',
+    shortDescription: 'Gere recibo de pagamento online grátis em segundos. Sem cadastro, sem instalação. Preencha, visualize e baixe em PDF na hora.',
+    seoTitle: 'Recibo de Pagamento Online Grátis | Gere e Baixe em PDF',
+    seoDescription: 'Gere recibo de pagamento online grátis em segundos. Sem cadastro, sem instalação. Preencha, visualize e baixe em PDF na hora.',
+    keywords: 'recibo de pagamento, recibo de pagamento online, recibo de pagamento grátis, comprovante de pagamento, gerar recibo de pagamento, modelo recibo pagamento, recibo pagamento pdf, recibo de pagamento sem cadastro, recibo pagamento 2026',
     defaultReferenteA: 'Quitação do pagamento referente a [descreva o produto, serviço ou dívida].',
     icon: 'BadgeDollarSign',
     seoContent: {
@@ -70,6 +70,22 @@ export const receiptModels = [
       {
         question: 'O recibo de pagamento serve para comprovar renda?',
         answer: 'Depende da instituição. Alguns bancos e financeiras aceitam recibos (especialmente o RPA - Recibo de Pagamento Autônomo) como comprovante de renda, mas geralmente exigem que sejam acompanhados da declaração de Imposto de Renda ou extratos bancários.'
+      },
+      {
+        question: 'Qual a diferença entre recibo de pagamento e nota fiscal?',
+        answer: 'O recibo apenas comprova que um pagamento foi realizado, protegendo o pagador de cobranças futuras. A nota fiscal, por outro lado, é um documento oficial exigido por lei para empresas, que registra a transação para fins de tributação governamental e recolhimento de impostos.'
+      },
+      {
+        question: 'Recibo de pagamento tem prazo de validade?',
+        answer: 'O recibo em si não tem "prazo de validade", pois é o comprovante de um fato ocorrido. Contudo, é recomendado guardá-lo por pelo menos 5 anos, que é o prazo prescricional para a maioria das cobranças em geral no Brasil.'
+      },
+      {
+        question: 'Posso usar recibo de pagamento como comprovante de renda?',
+        answer: 'Depende da instituição financeira ou órgão. Alguns aceitam recibos, especialmente o Recibo de Pagamento Autônomo (RPA), como comprovante de renda informal, mas na maior parte dos casos para transações maiores (como financiamentos) é necessário apresentar a Declaração de Imposto de Renda.'
+      },
+      {
+        question: 'Recibo de pagamento precisa de assinatura?',
+        answer: 'Sim, a assinatura de quem recebe o valor é o requisito mais importante do recibo. É a assinatura que dá validade jurídica à quitação do pagamento. Sem a assinatura do recebedor, o recibo perde sua validade como prova.'
       }
     ]
   },
