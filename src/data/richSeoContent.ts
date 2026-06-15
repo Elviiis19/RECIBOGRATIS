@@ -54,8 +54,8 @@ export const richSeoData: Record<string, RichSEOContent> = {
     lsiText: 'Esse modelo é ideal e totalmente válido para transações do dia a dia, como pagamentos de pequenas dívidas, diárias informais, vendas particulares e repasses familiares.',
     legalText: [
       'O recibo simples é sua proteção legal em qualquer transação informal. Quando assinado corretamente, ele impede cobranças em duplicidade e serve como prova em caso de disputa no Procon ou na Justiça. Guarde sempre uma cópia por pelo menos 5 anos.',
-      'No ditame legal em face dos pagadores do Brasil, cabe a você como sujeito devedor que despende o seu dinheiro, pedir vigorosamente por direito legal do Código civil, o recebimento autêntico deste instrumento com plena força de absolvição final. Se o requerente insistir em obstar este simples repasse do recibo em PDF assinado, você assume perante a norma o direito de não faturar a operação enquanto a prova de quitação não transitar integralmente na posse de arquivamento.',
-      'Atenção: É inegável e assinalado sempre que, enquanto este modelo formal seja a blindagem oficial para sujeitos físicos (PF) desvinculados contra terceiros, o mesmo documento não extingue jamais alíquotas devidas a Secretaria de Fazenda Estadual impetradas através do porte de pessoa jurídica (CNPJ MEI ou Superiores) cuja legalidade imperiosa impõe a confecção adjunta de uma NF-e Nota Fiscal de Serviço atestada sem ressalvas.'
+      'Como pagador, você tem o direito legal de exigir um recibo assinado sempre que efetuar qualquer pagamento. Se o recebedor se recusar a assinar, você pode reter o pagamento até que o comprovante seja emitido. Isso está garantido pelo Código Civil brasileiro.',
+      'Atenção: O recibo comprova o pagamento entre as partes, mas não substitui a Nota Fiscal (NF) para empresas com CNPJ. Profissionais autônomos (CPF) usam recibo; empresas emitem NF.'
     ],
     ctaText: 'Produza sem qualquer burocracia um documento padronizado, dotado de formatação lícita e validade jurídica, pronto para arquivar, imprimir ou enviar diretamente no formato PDF.'
   },
