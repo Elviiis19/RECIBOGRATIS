@@ -39,6 +39,11 @@ export function SEO({ title, description, keywords, schema, url }: SEOProps) {
       {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={normalizedUrl} />
       
+      <meta name="theme-color" content="#16a34a" />
+      <meta name="google" content="notranslate" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="applicable-device" content="pc,mobile" />
+
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
@@ -47,6 +52,8 @@ export function SEO({ title, description, keywords, schema, url }: SEOProps) {
       <meta property="og:image:type" content="image/webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+      <meta property="og:locale" content="pt_BR" />
+      <meta property="og:site_name" content="Recibo Grátis" />
       
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />

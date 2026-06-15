@@ -46,7 +46,7 @@ export function Layout() {
             <div className="flex justify-between items-center h-16 sm:h-20 gap-4">
               
               {/* Left: Logo */}
-              <div className="flex items-center flex-shrink-0 lg:w-1/4">
+              <div className="flex items-center flex-shrink-0 w-auto">
                 <Link to="/" className="flex items-center gap-2 text-white hover:text-emerald-100 transition-colors">
                   <FileText className="h-7 w-7 sm:h-8 sm:w-8" />
                   <span className="font-bold text-xl sm:text-2xl tracking-tight hidden sm:block">Recibo Grátis</span>
@@ -55,7 +55,7 @@ export function Layout() {
               </div>
 
               {/* Center: Search Button */}
-              <div className="flex-1 max-w-2xl flex justify-center">
+              <div className="flex-1 max-w-xl flex justify-center mx-4">
                 <button
                   onClick={() => setIsSearchOpen(true)}
                   className="flex items-center gap-2 sm:gap-3 w-full bg-emerald-900/60 hover:bg-emerald-900/90 border border-emerald-600/40 hover:border-emerald-500/60 text-emerald-50 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition-all focus:outline-none focus:ring-2 focus:ring-emerald-400 shadow-inner group"
@@ -73,21 +73,49 @@ export function Layout() {
               </div>
 
               {/* Right: Desktop Links & Mobile Menu */}
-              <div className="flex items-center justify-end flex-shrink-0 lg:w-1/4">
+              <div className="flex items-center justify-end flex-shrink-0 w-auto">
                 
-                {/* Desktop Main Links */}
-                <nav className="hidden lg:flex items-center gap-6">
+                {/* Desktop Main Links & Categories */}
+                <nav className="hidden xl:flex items-center gap-4 2xl:gap-6">
+                  {Object.entries(categories).map(([category, ids]) => (
+                    <div key={category} className="relative group">
+                      <button 
+                        className="flex items-center gap-1 text-sm font-semibold text-emerald-50 hover:text-white transition-colors py-6"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        {category}
+                        <ChevronDown className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity" />
+                      </button>
+                      
+                      <div className={`absolute top-[80%] ${category === 'Outros' ? 'right-0 w-[420px]' : 'left-0 w-64'} bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-1 group-hover:translate-y-0 transition-all duration-200 ease-in-out z-50 text-left`}>
+                        <div className="p-3 max-h-[75vh] overflow-y-auto custom-scrollbar font-normal">
+                          <ul className={category === 'Outros' ? 'grid grid-cols-2 gap-x-2 gap-y-1' : 'space-y-1'}>
+                            {ids.map(id => {
+                              const model = receiptModels.find(m => m.id === id);
+                              if (!model) return null;
+                              return (
+                                <li key={id}>
+                                  <Link 
+                                    to={`/${model.slug}`}
+                                    className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors"
+                                  >
+                                    {model.title}
+                                  </Link>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+
                   <Link 
                     to="/blog" 
-                    className="text-sm font-semibold text-emerald-50 hover:text-white transition-colors"
+                    className="text-sm font-semibold text-emerald-50 hover:text-white transition-colors py-6 pl-2 border-l border-emerald-700/50"
                   >
                     Blog
-                  </Link>
-                  <Link 
-                    to="/como-funciona" 
-                    className="text-sm font-semibold text-emerald-50 hover:text-white transition-colors"
-                  >
-                    Como Funciona
                   </Link>
                   
                   {/* Ferramentas Dropdown in Top Bar */}
@@ -166,7 +194,7 @@ export function Layout() {
                 {/* Mobile Menu Button */}
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="lg:hidden text-emerald-50 hover:text-white focus:outline-none ml-2 p-1.5 rounded-lg hover:bg-emerald-700/50 transition-colors"
+                  className="xl:hidden text-emerald-50 hover:text-white focus:outline-none ml-2 p-1.5 rounded-lg hover:bg-emerald-700/50 transition-colors"
                   aria-label="Menu principal"
                 >
                   {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -176,50 +204,9 @@ export function Layout() {
           </div>
         </div>
 
-        {/* Bottom Bar: Categories Navigation */}
-        <div className="bg-white border-b border-gray-200 hidden lg:block shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav className="flex items-center justify-center space-x-6 xl:space-x-8">
-              {Object.entries(categories).map(([category, ids]) => (
-                <div key={category} className="relative group">
-                  <button 
-                    className="flex items-center gap-1.5 text-[15px] font-bold text-gray-700 hover:text-emerald-600 transition-colors py-3.5"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    {category}
-                    <ChevronDown className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" />
-                  </button>
-                  
-                  <div className={`absolute top-full ${category === 'Outros' ? 'right-0 w-[420px]' : 'left-1/2 -translate-x-1/2 w-64'} bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-1 group-hover:translate-y-0 transition-all duration-200 ease-in-out z-50 text-left`}>
-                    <div className="p-3 max-h-[75vh] overflow-y-auto custom-scrollbar font-normal">
-                      <ul className={category === 'Outros' ? 'grid grid-cols-2 gap-x-2 gap-y-1' : 'space-y-1'}>
-                        {ids.map(id => {
-                          const model = receiptModels.find(m => m.id === id);
-                          if (!model) return null;
-                          return (
-                            <li key={id}>
-                              <Link 
-                                to={`/${model.slug}`}
-                                className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors"
-                              >
-                                {model.title}
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </nav>
-          </div>
-        </div>
-
         {/* Mobile Nav */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white border-b border-gray-100 max-h-[80vh] overflow-y-auto w-full absolute top-full left-0 z-40 shadow-xl">
+          <div className="xl:hidden bg-white border-b border-gray-100 max-h-[80vh] overflow-y-auto w-full absolute top-full left-0 z-40 shadow-xl">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <Link
                 to="/"
