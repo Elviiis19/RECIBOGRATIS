@@ -72,7 +72,7 @@ export function SEO({ title, description, keywords, schema, url }: SEOProps) {
           type="application/ld+json" 
           dangerouslySetInnerHTML={{ __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Organization",
+            "@type": "FinancialService",
             "name": "Recibo Grátis",
             "url": "https://recibogratis.com.br",
             "logo": "https://recibogratis.com.br/logo.png",
