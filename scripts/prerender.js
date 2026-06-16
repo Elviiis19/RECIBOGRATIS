@@ -123,7 +123,7 @@ async function prerender() {
         fs.mkdirSync(routeDir, { recursive: true });
       }
 
-      const { html: appHtml } = render(route.path);
+      const { html: appHtml, headHtml } = render(route.path);
       
       let html = template;
       
@@ -138,40 +138,7 @@ async function prerender() {
       originalHead = originalHead.replace(/<meta[^>]*name="twitter:[^"]+"[^>]*>/ig, '');
       originalHead = originalHead.replace(/<link[^>]*rel="canonical"[^>]*>/ig, '');
 
-      let cleanAppHtml = appHtml;
-      
-      let hoistedTags = '';
-
-      // Extract Title
-      const titleMatch = cleanAppHtml.match(/<title[^>]*>.*?<\/title>/i);
-      if (titleMatch) {
-         hoistedTags += titleMatch[0] + '\n';
-         cleanAppHtml = cleanAppHtml.replace(/<title[^>]*>.*?<\/title>/i, '');
-      }
-
-      // Extract all Meta
-      const metaRegex = /<meta[^>]+>/ig;
-      let metaMatch;
-      while ((metaMatch = metaRegex.exec(cleanAppHtml)) !== null) {
-          hoistedTags += metaMatch[0] + '\n';
-      }
-      cleanAppHtml = cleanAppHtml.replace(/<meta[^>]+>/ig, '');
-
-      // Extract canonical links
-      const linkRegex = /<link[^>]+rel="canonical"[^>]*>/ig;
-      let linkMatch;
-      while ((linkMatch = linkRegex.exec(cleanAppHtml)) !== null) {
-          hoistedTags += linkMatch[0] + '\n';
-      }
-      cleanAppHtml = cleanAppHtml.replace(/<link[^>]+rel="canonical"[^>]*>/ig, '');
-
-      // Extract JSON-LD
-      const ldJsonRegex = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/ig;
-      let ldJsonMatch;
-      while ((ldJsonMatch = ldJsonRegex.exec(cleanAppHtml)) !== null) {
-          hoistedTags += ldJsonMatch[0] + '\n';
-      }
-      cleanAppHtml = cleanAppHtml.replace(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/ig, '');
+      let hoistedTags = headHtml || '';
 
       html = html.replace(
         /<head>[\s\S]*?<\/head>/i,
@@ -184,7 +151,7 @@ async function prerender() {
       // Inject app HTML
       html = html.replace(
         /<div id="root"[^>]*>[\s\S]*?<\/div>/,
-        `<div id="root" suppressHydrationWarning>${cleanAppHtml}</div>`
+        `<div id="root" suppressHydrationWarning>${appHtml}</div>`
       );
 
       const outputPath = path.join(routeDir, 'index.html');
