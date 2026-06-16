@@ -48,7 +48,7 @@ export const receiptModels = [
     title: 'Recibo de Pagamento',
     shortDescription: 'Gere recibo de pagamento online grátis em segundos. Sem cadastro, sem instalação. Preencha, visualize e baixe em PDF na hora.',
     seoTitle: 'Recibo de Pagamento Online Grátis | Gere e Baixe em PDF',
-    seoDescription: 'Gere recibo de pagamento online grátis em segundos. Sem cadastro, sem instalação. Preencha, visualize e baixe em PDF na hora.',
+    seoDescription: 'Gerador de Recibo de pagamento, visualiza na hora que preenche e imprime ou baixe em PDF. Gere o recibo online grátis. É Rápido, fácil e Sem cadastro, sem instalação.',
     keywords: 'recibo de pagamento, recibo de pagamento online, recibo de pagamento grátis, comprovante de pagamento, gerar recibo de pagamento, modelo recibo pagamento, recibo pagamento pdf, recibo de pagamento sem cadastro, recibo pagamento 2026',
     defaultReferenteA: 'Quitação do pagamento referente a [descreva o produto, serviço ou dívida].',
     icon: 'BadgeDollarSign',

@@ -2,6 +2,53 @@ import { BlogPost } from './blogTypes';
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'diferenca-entre-recibo-rpa-e-nota-fiscal',
+    title: 'Diferença entre Recibo, RPA e Nota Fiscal – Quando Usar Cada Documento?',
+    category: 'burocracia-descomplicada',
+    seoTitle: 'Diferença entre Recibo, RPA e Nota Fiscal | Quando usar?',
+    seoDescription: 'Saiba a diferença exata entre Recibo Simples, RPA e Nota Fiscal. Aprenda quando usar cada documento sem correr riscos fiscais ou trabalhistas.',
+    intro: {
+      acordo: 'A formalização de pagamentos no Brasil costuma gerar confusão, especialmente para profissionais autônomos, prestadores de serviços e pequenas empresas.',
+      promessa: 'A linha que separa a legalidade da irregularidade fiscal muitas vezes reside na escolha do documento correto na hora de atestar o recebimento de um valor. Embora o objetivo prático seja o mesmo — comprovar que o dinheiro trocou de mãos —, as implicações contábeis e jurídicas são completamente distintas.',
+      previa: 'Abaixo, detalhamos a estrutura, a validade e a indicação de uso para o Recibo Simples, o RPA e a Nota Fiscal, protegendo você e seu cliente de passivos fiscais e cobranças indevidas.'
+    },
+    sections: [
+      {
+        h2: '1. Recibo Simples: A Ferramenta do Cotidiano',
+        content: '<p>O <strong>recibo simples</strong> é uma declaração formal de quitação. Apoiado no Artigo 320 do Código Civil brasileiro, ele possui total validade jurídica para comprovar que uma dívida foi paga, protegendo o pagador contra cobranças em duplicidade.</p><h3>Principais Características</h3><ul><li><strong>Natureza:</strong> Civil e comprobatória.</li><li><strong>Emissor:</strong> Qualquer Pessoa Física (PF) ou Pessoa Jurídica (PJ).</li><li><strong>Tributação:</strong> O recibo em si não gera o recolhimento automático de impostos na fonte. A responsabilidade de declarar os ganhos no Imposto de Renda (Carnê-Leão) fica a cargo de quem recebeu o dinheiro.</li></ul><h3>Quando utilizar?</h3><p>O recibo é a escolha ideal para transações informais, negócios entre pessoas físicas ou serviços esporádicos onde a emissão de nota fiscal não é uma exigência tributária imediata.</p><ul><li>Compra e venda de bens usados (carros, móveis, eletrônicos).</li><li>Pagamento de aluguéis direto com o proprietário.</li><li>Remuneração de prestadores de serviços domésticos (diaristas, jardineiros, babás).</li><li>Repasses de pensão alimentícia.</li></ul><p><strong>Dica de Ouro:</strong> Para que o documento tenha peso irrefutável na justiça ou no Procon, ele não pode ser genérico. Utilize um gerador de <a href="/recibo-simples" class="text-emerald-600 font-semibold hover:underline">recibo simples</a> que estruture CPF/CNPJ de ambas as partes, valor por extenso, data, local e a discriminação exata do serviço, exigindo sempre a assinatura física ou digital do recebedor.</p>'
+      },
+      {
+        h2: '2. RPA (Recibo de Pagamento Autônomo): A Ponte entre Empresa e Autônomo',
+        content: '<p>O RPA é o documento legal que permite a uma empresa (CNPJ) contratar e pagar um profissional autônomo (Pessoa Física sem CNPJ) de forma legalizada, sem gerar vínculo empregatício (CLT).</p><h3>Principais Características</h3><ul><li><strong>Natureza:</strong> Fisco-contábil.</li><li><strong>Emissor:</strong> Diferente do recibo simples, quem emite o RPA é a fonte pagadora (a empresa que está contratando o serviço), e não quem recebe.</li><li><strong>Tributação:</strong> O RPA desconta os impostos diretamente na fonte. Do valor bruto combinado, a empresa abate e recolhe INSS, IRRF (Imposto de Renda Retido na Fonte) e, dependendo do município, o ISS. O profissional recebe o valor líquido.</li></ul><h3>Quando utilizar?</h3><ul><li>Quando uma empresa precisa de um serviço pontual de um profissional que não possui empresa aberta (ex: um designer, um fotógrafo ou um palestrante pessoa física).</li><li>Quando o profissional se recusa ou não pode abrir um MEI para emitir Nota Fiscal.</li></ul>',
+        hasAd: true
+      },
+      {
+        h2: '3. Nota Fiscal (NF): A Exigência Tributária Oficial',
+        content: '<p>A Nota Fiscal é o documento oficial de registro de transferência de propriedade de um bem ou da prestação de um serviço. Ela é a base do sistema de arrecadação de impostos do governo (municipal, estadual e federal).</p><h3>Principais Características</h3><ul><li><strong>Natureza:</strong> Tributária obrigatória.</li><li><strong>Emissor:</strong> Exclusivo para Pessoas Jurídicas (empresas de qualquer porte, incluindo MEI). Em alguns estados, existe a figura da "Nota Fiscal Avulsa", que pode ser emitida por Pessoas Físicas em prefeituras ou secretarias de fazenda.</li><li><strong>Tributação:</strong> Os impostos são apurados com base no CNAE (Código de Atividade) da empresa e no regime tributário (Simples Nacional, Lucro Presumido, etc.).</li></ul><h3>Quando utilizar?</h3><ul><li>Obrigatória em todas as vendas de produtos ou prestações de serviços realizadas por uma empresa (CNPJ) para qualquer cliente (seja ele PF ou PJ).</li><li>O MEI (Microempreendedor Individual) é dispensado de emitir NF para consumidores finais (Pessoa Física), mas é obrigado a emitir quando o cliente for outra empresa (CNPJ).</li></ul>'
+      },
+      {
+        h2: 'Tabela Comparativa Rápida',
+        content: '<div class="overflow-x-auto"><table class="w-full text-left border-collapse my-4"><thead><tr class="bg-emerald-50"><th class="p-3 border-b-2 border-emerald-200 text-emerald-900 font-bold">Critério</th><th class="p-3 border-b-2 border-emerald-200 text-emerald-900 font-bold">Recibo Simples</th><th class="p-3 border-b-2 border-emerald-200 text-emerald-900 font-bold">RPA</th><th class="p-3 border-b-2 border-emerald-200 text-emerald-900 font-bold">Nota Fiscal</th></tr></thead><tbody><tr class="border-b border-gray-100 hover:bg-gray-50"><td class="p-3 font-semibold text-gray-800">Quem Emite?</td><td class="p-3 text-gray-700">Quem recebe o pagamento</td><td class="p-3 text-gray-700">Quem paga (a Empresa contratante)</td><td class="p-3 text-gray-700">A Empresa que vende/presta o serviço</td></tr><tr class="border-b border-gray-100 hover:bg-gray-50"><td class="p-3 font-semibold text-gray-800">Exige CNPJ?</td><td class="p-3 text-gray-700">Não</td><td class="p-3 text-gray-700">Apenas a fonte pagadora</td><td class="p-3 text-gray-700">Sim (na maioria dos casos)</td></tr><tr class="border-b border-gray-100 hover:bg-gray-50"><td class="p-3 font-semibold text-gray-800">Recolhe Imposto na fonte?</td><td class="p-3 text-gray-700">Não</td><td class="p-3 text-gray-700">Sim (INSS, IRRF, ISS)</td><td class="p-3 text-gray-700">Sim (conforme regime tributário)</td></tr><tr class="border-b border-gray-100 hover:bg-gray-50"><td class="p-3 font-semibold text-gray-800">Validade Legal</td><td class="p-3 text-gray-700">Civil (comprova quitação)</td><td class="p-3 text-gray-700">Fiscal e Contábil</td><td class="p-3 text-gray-700">Tributária e Fiscal</td></tr></tbody></table></div>'
+      },
+      {
+        h2: 'Tira-Dúvidas e Cenários Práticos',
+        content: '<h3>"Sou freelancer, não tenho CNPJ e fechei um trabalho para uma empresa."</h3><p>Se a empresa for rigorosa com a contabilidade, um recibo simples não servirá para ela justificar a saída do dinheiro sem pagar impostos. Solicite um RPA ou emita uma Nota Fiscal Avulsa. A solução a longo prazo é abrir um MEI.</p><h3>"Posso usar um recibo simples para abater despesas no Imposto de Renda?"</h3><p>Depende. Recibos de serviços médicos, dentistas, psicólogos e instrução, emitidos por Pessoa Física com CPF e descrição do serviço, são aceitos para deduções no IRPF. Já recibos de bens de consumo comum não servem.</p><h3>"Emitir recibo substitui a Nota Fiscal?"</h3><p>Jamais. Se sua atividade fature via Nota Fiscal, entregar apenas recibo configura sonegação fiscal. Para empresas, o recibo atua como atestado financeiro auxiliar.</p>',
+        hasCta: {
+          text: 'Ficou claro que você precisa emitir um recibo simples para a sua transação legal?',
+          link: '/recibo-simples',
+          ctaLabel: 'USAR GERADOR DE RECIBO SIMPLES GRÁTIS'
+        }
+      }
+    ],
+    conclusion: '<p>O recibo simples continua sendo uma excelente ferramenta prática, rápida e isenta para o cidadão no seu cotidiano e para profissionais desvinculados que precisam emitir o recebimento das suas contas, blindando seus negócios juridicamente contra re-cobranças ou contestações. Se for este o seu caso, <a href="/recibo-simples" class="text-emerald-600 font-semibold hover:underline">acesse agora mesmo o gerador em nosso site</a>.<br><br>Por Elvis Dias.</p>',
+    faqs: [
+      { question: 'É obrigatório assinar o recibo de pagamento?', answer: 'Sim. A assinatura do credor (quem recebe o dinheiro) é o que chancela a validade do recibo. Um documento preenchido, mas sem assinatura física ou certificação digital válida, pode ser facilmente contestado em juízo.' },
+      { question: 'O RPA garante direitos trabalhistas?', answer: 'Não. O Recibo de Pagamento Autônomo serve justamente para descaracterizar o vínculo empregatício. Ele recolhe a contribuição previdenciária (INSS), garantindo que o autônomo conte aquele período para a aposentadoria, mas não dá direito a férias, 13º salário ou FGTS.' },
+      { question: 'MEI pode emitir recibo no lugar da Nota Fiscal?', answer: 'O MEI só pode substituir a Nota Fiscal por um recibo simples se o serviço ou venda for realizado diretamente para uma Pessoa Física. Se o cliente for uma Pessoa Jurídica (outra empresa), a emissão da Nota Fiscal é obrigatória por lei.' },
+      { question: 'Como preencher um recibo simples de forma segura?', answer: 'Evite recibos de papelaria preenchidos à mão, que podem ser rasurados. Utilize plataformas online onde você digita os dados do pagador, recebedor, valor numeral e por extenso, e a descrição exata da quitação, gerando um documento digital e padronizado.' }
+    ]
+  },
+  {
     slug: 'como-provar-renda-sendo-autonomo-o-guia-do-recibo-perfeito',
     title: 'Como provar renda sendo autônomo? O guia do recibo perfeito',
     category: 'autonomos',

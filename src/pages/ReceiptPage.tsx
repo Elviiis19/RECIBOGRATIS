@@ -47,7 +47,7 @@ export function ReceiptPage() {
   const dynamicTitle = model.seoTitle || baseTitle;
   const dynamicDesc = model.id === 'simples'
     ? "Gere seu recibo simples em segundos. Preencha os dados online, visualize na tela e baixe seu comprovante em PDF na hora. 100% grátis e sem cadastro!"
-    : (richData?.intro || model.seoDescription || `Gere gratuitamente seu ${titleLower} online. Preencha, imprima em PDF ou envie por WhatsApp. Rápido, seguro e grátis.`);
+    : (model.seoDescription || richData?.intro || `Gere gratuitamente seu ${titleLower} online. Preencha, imprima em PDF ou envie por WhatsApp. Rápido, seguro e grátis.`);
 
   const heroSubtitle = model.seoDescription || `Gere seu documento de ${titleLower} grátis, preencha online e baixe em PDF na hora. Sem burocracia e sem cadastro.`;
 
