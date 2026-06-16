@@ -1,5 +1,4 @@
 import { useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 
 interface SEOProps {
   title: string;
@@ -34,7 +33,7 @@ export function SEO({ title, description, keywords, schema, url }: SEOProps) {
   const fullTitle = title;
 
   return (
-    <Helmet>
+    <>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
@@ -60,14 +59,18 @@ export function SEO({ title, description, keywords, schema, url }: SEOProps) {
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       
-      {schema && (
-        <script type="application/ld+json" data-schema-ssr="true">
-          {schema}
-        </script>
+      {isServer && schema && (
+        <script 
+          type="application/ld+json" 
+          dangerouslySetInnerHTML={{ __html: schema }} 
+          data-schema-ssr="true"
+        />
       )}
       
-      <script type="application/ld+json" data-schema-org-ssr="true">
-          {JSON.stringify({
+      {isServer && (
+        <script 
+          type="application/ld+json" 
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FinancialService",
             "name": "Recibo Grátis",
@@ -91,8 +94,10 @@ export function SEO({ title, description, keywords, schema, url }: SEOProps) {
               "name": "CNPJ",
               "value": "43.027.941/0001-21"
             }
-          })}
-        </script>
-    </Helmet>
+          }) }} 
+          data-schema-org-ssr="true"
+        />
+      )}
+    </>
   );
 }

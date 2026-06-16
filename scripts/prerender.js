@@ -123,27 +123,60 @@ async function prerender() {
         fs.mkdirSync(routeDir, { recursive: true });
       }
 
-      const { html: appHtml, headHtml } = render(route.path);
+      const { html: appHtml } = render(route.path);
       
       let html = template;
       
-      const originalHeadMatches = html.match(/<head>([\s\S]*?)<\/head>/);
-      let originalHead = originalHeadMatches ? originalHeadMatches[1] : '';
+      // We process the original <head> from index.html
+      let originalHeadMatches = html.match(/<head>([\s\S]*?)<\/head>/);
+      let originalHeadContent = originalHeadMatches ? originalHeadMatches[1] : '';
       
-      // Remove default tags so we can replace them correctly
-      originalHead = originalHead.replace(/<title>.*?<\/title>/ig, '');
-      originalHead = originalHead.replace(/<meta[^>]*name="description"[^>]*>/ig, '');
-      originalHead = originalHead.replace(/<meta[^>]*name="keywords"[^>]*>/ig, '');
-      originalHead = originalHead.replace(/<meta[^>]*property="og:[^"]+"[^>]*>/ig, '');
-      originalHead = originalHead.replace(/<meta[^>]*name="twitter:[^"]+"[^>]*>/ig, '');
-      originalHead = originalHead.replace(/<link[^>]*rel="canonical"[^>]*>/ig, '');
+      originalHeadContent = originalHeadContent.replace(/<title[^>]*>.*?<\/title>/ig, '');
+      originalHeadContent = originalHeadContent.replace(/<meta[^>]*name="description"[^>]*>/ig, '');
+      originalHeadContent = originalHeadContent.replace(/<meta[^>]*name="keywords"[^>]*>/ig, '');
+      originalHeadContent = originalHeadContent.replace(/<meta[^>]*property="og:[^"]+"[^>]*>/ig, '');
+      originalHeadContent = originalHeadContent.replace(/<meta[^>]*name="twitter:[^"]+"[^>]*>/ig, '');
+      originalHeadContent = originalHeadContent.replace(/<link[^>]*rel="canonical"[^>]*>/ig, '');
 
-      let hoistedTags = headHtml || '';
+      let cleanAppHtml = appHtml;
+      
+      let hoistedTags = '';
+
+      // Extract Title
+      const titleMatch = cleanAppHtml.match(/<title[^>]*>.*?<\/title>/i);
+      if (titleMatch) {
+         hoistedTags += titleMatch[0] + '\n';
+         cleanAppHtml = cleanAppHtml.replace(/<title[^>]*>.*?<\/title>/i, '');
+      }
+
+      // Extract all Meta
+      const metaRegex = /<meta[^>]+>/ig;
+      let metaMatch;
+      while ((metaMatch = metaRegex.exec(cleanAppHtml)) !== null) {
+          hoistedTags += metaMatch[0] + '\n';
+      }
+      cleanAppHtml = cleanAppHtml.replace(/<meta[^>]+>/ig, '');
+
+      // Extract canonical links
+      const linkRegex = /<link[^>]+rel="canonical"[^>]*>/ig;
+      let linkMatch;
+      while ((linkMatch = linkRegex.exec(cleanAppHtml)) !== null) {
+          hoistedTags += linkMatch[0] + '\n';
+      }
+      cleanAppHtml = cleanAppHtml.replace(/<link[^>]+rel="canonical"[^>]*>/ig, '');
+
+      // Extract JSON-LD
+      const ldJsonRegex = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/ig;
+      let ldJsonMatch;
+      while ((ldJsonMatch = ldJsonRegex.exec(cleanAppHtml)) !== null) {
+          hoistedTags += ldJsonMatch[0] + '\n';
+      }
+      cleanAppHtml = cleanAppHtml.replace(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/ig, '');
 
       html = html.replace(
         /<head>[\s\S]*?<\/head>/i,
         `<head>
-          ${originalHead}
+          ${originalHeadContent}
           ${hoistedTags}
         </head>`
       );
@@ -151,7 +184,7 @@ async function prerender() {
       // Inject app HTML
       html = html.replace(
         /<div id="root"[^>]*>[\s\S]*?<\/div>/,
-        `<div id="root" suppressHydrationWarning>${appHtml}</div>`
+        `<div id="root" suppressHydrationWarning>${cleanAppHtml}</div>`
       );
 
       const outputPath = path.join(routeDir, 'index.html');
