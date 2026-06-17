@@ -27,7 +27,7 @@ export function Layout() {
     'Saúde & Bem-estar': ['dentista', 'psicologo', 'fisioterapeuta', 'nutricionista', 'estetica'],
     'Serviços Domésticos': ['diarista', 'baba', 'cuidador', 'jardinagem'],
     'Manutenção & Obras': ['pedreiro', 'pintor', 'eletricista', 'encanador', 'mecanico', 'informatica'],
-    'Outros': ['aluguel', 'recibo-de-aluguel-com-logo', 'compra-venda', 'pensao', 'doacao', 'adiantamento', 'salario', 'recibo-de-salario-com-logo', 'vale-transporte', 'diaria', 'taxi-uber', 'frete', 'fotografo', 'professor', 'veterinario', 'pet-shop', 'costureira', 'promissoria', 'nota-promissoria-com-avalista', 'ordem-servico', 'ordem-de-servico-com-logo', 'orcamento']
+    'Outros': ['aluguel', 'recibo-de-aluguel-com-logo', 'compra-venda', 'pensao', 'doacao', 'adiantamento', 'salario', 'recibo-de-salario-com-logo', 'vale-transporte', 'vale-alimentacao', 'diaria', 'taxi-uber', 'frete', 'fotografo', 'professor', 'veterinario', 'pet-shop', 'costureira', 'promissoria', 'nota-promissoria-com-avalista', 'ordem-servico', 'ordem-de-servico-com-logo', 'orcamento']
   };
 
   const footerLinks = receiptModels.map(m => ({

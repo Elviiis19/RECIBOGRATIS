@@ -17,6 +17,7 @@
     "cpf-cnpj-validator": "^1.0.3",
     "dotenv": "^17.2.3",
     "express": "^4.21.2",
+    "extenso": "^2.1.0",
     "html2canvas": "^1.4.1",
     "html2canvas-pro": "^2.0.4",
     "jspdf": "^2.5.1",

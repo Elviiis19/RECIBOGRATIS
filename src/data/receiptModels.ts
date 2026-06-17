@@ -943,5 +943,36 @@ export const receiptModels = [
     keywords: 'recibo de vale transporte, declaracao de vale transporte, auxilio combustivel recibo, folha de vt',
     defaultReferenteA: 'Custeio de passagens e deslocamentos para executar atividades pertinentes durante [período de tempo].',
     icon: 'Bus'
+  },
+  {
+    id: 'vale-alimentacao',
+    slug: 'recibo-de-vale-alimentacao',
+    title: 'Recibo de Vale Alimentação',
+    shortDescription: 'Gere seu recibo de vale alimentação em segundos. Preencha os dados online, visualize na tela e baixe em PDF na hora. 100% grátis e sem cadastro!',
+    seoTitle: 'Recibo de Vale Alimentação Online Grátis | Gere e Baixe em PDF',
+    seoDescription: 'Gere recibo de vale alimentação ou auxílio alimentação online de forma grátis. Rápido, sem cadastro. Preencha os dados e imprima ou baixe em PDF.',
+    keywords: 'recibo de vale alimentação, recibo de auxílio alimentação, recibo de vale refeição, gerar recibo vale alimentação, modelo recibo vale alimentação',
+    defaultReferenteA: 'Repasse de vale-alimentação/refeição referente ao mês de [Mês/Ano].',
+    icon: 'Utensils',
+    seoContent: {
+      h2: 'O que é um Recibo de Vale Alimentação e por que emiti-lo?',
+      p1: 'O recibo de vale alimentação é um documento utilizado para comprovar que uma empresa, empregador doméstico ou pessoa física realizou o repasse de valores destinados à alimentação de um colaborador. Ele assegura ao pagador que o valor ou benefício foi entregue, evitando possíveis cobranças trabalhistas futuras alegando a falta do benefício.',
+      h3: 'Quando utilizar o Recibo de Vale Alimentação?',
+      p2: 'Este modelo é ideal quando o repasse do benefício de alimentação (seja em dinheiro, se a legislação assim permitir em sua categoria, ou a entrega de cartões/tickets) é feito de forma direta, especialmente para cuidadores, empregados domésticos, diaristas ou em acordos onde o benefício de alimentação é repassado sem intermediação de grandes operadoras. O recibo formaliza a entrega e atesta que o empregador cumpriu sua parte.'
+    },
+    faqs: [
+      {
+        question: 'O recibo de vale alimentação tem validade legal?',
+        answer: 'Sim. Desde que preenchido corretamente com os dados da empresa/empregador e do funcionário, contendo a assinatura do trabalhador atestando o recebimento, ele tem validade como comprovante de entrega do benefício na esfera trabalhista.'
+      },
+      {
+        question: 'O que precisa constar no recibo de vale alimentação?',
+        answer: 'As informações essenciais incluem: valor recebido, mês de referência do benefício, dados de quem paga, dados do funcionário recebedor, data de emissão e, mais importante, a assinatura de quem recebeu.'
+      },
+      {
+        question: 'Preciso ter CNPJ para emitir recibo de vale alimentação?',
+        answer: 'Não. Pessoas físicas que são empregadores domésticos também devem exigir o recibo ao pagar o auxílio alimentação ou fornecer os tickets de refeição para comprovar o adimplemento da obrigação perante a lei.'
+      }
+    ]
   }
 ];

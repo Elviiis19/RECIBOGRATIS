@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import CurrencyInput from 'react-currency-input-field';
 import { cpf, cnpj } from 'cpf-cnpj-validator';
-import { porExtenso, estilo } from 'numero-por-extenso';
+import extenso from 'extenso';
 import { Printer, FileText, ChevronRight, ChevronLeft, CheckCircle2, MessageCircle, Upload, QrCode, Download } from 'lucide-react';
 import { QRCodeCanvas } from 'qrcode.react';
 import { cn } from '../utils/cn';
@@ -152,6 +152,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
     if (t.includes('ordem de serviço')) return 'os';
     if (t.includes('termo')) return 'termo';
     if (t.includes('vale-transporte')) return 'vale';
+    if (t.includes('vale alimentação') || t.includes('vale-alimentação')) return 'vale-alimentacao';
     if (t.includes('aluguel') || t.includes('locação')) return 'aluguel';
     return 'recibo';
   };
@@ -159,6 +160,18 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
 
   const isSemLogo = isReciboSimples || (docType === 'aluguel' && !title.toLowerCase().includes('logo')) || docType === 'promissoria';
   const isComAvalista = title.toLowerCase().includes('avalista');
+
+  const getStepTitle = (type: 'pagador' | 'recebedor') => {
+    if (type === 'pagador') {
+      if (docType === 'aluguel') return 'Dados do Locatário';
+      if (docType === 'vale' || docType === 'vale-alimentacao') return 'Dados do Empregador';
+      return 'Dados do Pagador';
+    } else {
+      if (docType === 'aluguel') return 'Dados do Locador';
+      if (docType === 'vale' || docType === 'vale-alimentacao') return 'Dados do Funcionário';
+      return 'Dados do Recebedor';
+    }
+  };
 
   const steps = docType === 'promissoria' 
     ? [
@@ -171,8 +184,8 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
       ]
     : [
         { id: 'valor', title: 'Valor e Pagamento' },
-        { id: 'pagador', title: docType === 'aluguel' ? 'Dados do Locatário' : 'Dados do Pagador' },
-        { id: 'recebedor', title: docType === 'aluguel' ? 'Dados do Locador' : 'Dados do Recebedor' },
+        { id: 'pagador', title: getStepTitle('pagador') },
+        { id: 'recebedor', title: getStepTitle('recebedor') },
         { id: 'detalhes', title: 'Detalhes do Recibo' },
         { id: 'concluido', title: 'Finalizar' }
       ];
@@ -437,11 +450,10 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
   const getValorExtenso = (valorStr: string) => {
     if (!valorStr) return '';
     try {
-      // Remove dots (thousands separators) and replace comma with dot
-      const cleanStr = valorStr.replace(/\./g, '').replace(',', '.');
+      const cleanStr = valorStr.replace(',', '.');
       const numericValue = parseFloat(cleanStr);
       if (isNaN(numericValue)) return '';
-      return porExtenso(numericValue, estilo.monetario);
+      return extenso(numericValue, { mode: 'currency' });
     } catch (e) {
       return '';
     }
@@ -450,8 +462,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
   const formatCurrency = (valorStr: string) => {
     if (!valorStr) return '0,00';
     try {
-      // Remove dots (thousands separators) and replace comma with dot
-      const cleanStr = valorStr.replace(/\./g, '').replace(',', '.');
+      const cleanStr = valorStr.replace(',', '.');
       const numericValue = parseFloat(cleanStr);
       if (isNaN(numericValue)) return '0,00';
       return numericValue.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -466,6 +477,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
     if (docType === 'os') return 'ORDEM DE SERVIÇO';
     if (docType === 'termo') return 'TERMO DE PRESTAÇÃO DE SERVIÇO';
     if (docType === 'vale') return 'VALE-TRANSPORTE';
+    if (docType === 'vale-alimentacao') return 'RECIBO DE VALE-ALIMENTAÇÃO';
     if (docType === 'aluguel') return 'RECIBO DE ALUGUEL';
     return 'RECIBO';
   };
@@ -524,6 +536,21 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
             </p>
           </>
         );
+      case 'vale-alimentacao':
+        return (
+          <>
+            <p className="text-justify indent-8">
+              Recebi(emos) de <span className="font-bold uppercase">{data.pagadorNome || '________________________________________________'}</span>, 
+              inscrito(a) no CPF/CNPJ sob o nº <span className="font-bold">{data.pagadorDocumento || '_________________________'}</span>, 
+              o correspondente a vale-alimentação / auxílio alimentação no valor de <span className="font-bold">R$ {formatCurrency(data.valor)}</span> {data.valor && data.valor !== '0,00' ? `(${getValorExtenso(data.valor)})` : ''}, 
+              referente a <span className="font-bold uppercase">{data.referenteA || '________________________________________________________________________________________________'}</span>.
+            </p>
+
+            <p className="text-justify indent-8">
+              Declaro que os valores recebidos serão utilizados exclusivamente para despesas com alimentação e assumo a responsabilidade por estas informações.
+            </p>
+          </>
+        );
       case 'aluguel':
         return (
           <>
@@ -572,10 +599,26 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
     }
   };
 
+  const getPagadorLabel = () => {
+    if (docType === 'promissoria') return 'Nome do Emitente (Quem vai pagar)';
+    if (docType === 'orcamento' || docType === 'os' || docType === 'termo') return 'Nome do Cliente';
+    if (docType === 'vale' || docType === 'vale-alimentacao') return 'Nome da Empresa / Empregador (Quem paga)';
+    if (docType === 'aluguel') return 'Locatário(a)';
+    return 'Quem está pagando? (Pagador)';
+  };
+
+  const getRecebedorLabel = () => {
+    if (docType === 'promissoria') return 'Nome do Credor / Beneficiário';
+    if (docType === 'orcamento' || docType === 'os' || docType === 'termo') return 'Nome do Profissional ou Empresa';
+    if (docType === 'vale' || docType === 'vale-alimentacao') return 'Nome do Funcionário / Beneficiário';
+    if (docType === 'aluguel') return 'Locador(a)';
+    return 'Quem está recebendo? (Recebedor)';
+  };
+
   const getSignatureTitle = () => {
     if (docType === 'promissoria') return 'Assinatura do Emitente (Pagador)';
     if (docType === 'orcamento' || docType === 'os') return 'Assinatura do Profissional / Empresa';
-    if (docType === 'vale') return 'Assinatura do Beneficiário';
+    if (docType === 'vale' || docType === 'vale-alimentacao') return 'Assinatura do Beneficiário';
     return 'Assinatura do Recebedor';
   };
 
@@ -914,11 +957,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
             <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
               <div>
                 <label htmlFor="pagadorNome" className="block text-sm font-semibold text-gray-900 mb-2">
-                  {docType === 'promissoria' ? 'Nome do Emitente (Quem vai pagar)' : 
-                   (docType === 'orcamento' || docType === 'os' || docType === 'termo') ? 'Nome do Cliente' : 
-                   (docType === 'vale' ? 'Nome do Funcionário/Beneficiário' : 
-                   (docType === 'aluguel' ? 'Locatário(a)' : 
-                   'Quem está pagando? (Pagador)'))}
+                  {getPagadorLabel()}
                    <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -1038,11 +1077,7 @@ export function ReceiptGenerator({ title, defaultReferenteA = '' }: ReceiptGener
               )}
               <div>
                 <label htmlFor="recebedorNome" className="block text-sm font-semibold text-gray-900 mb-2">
-                  {docType === 'promissoria' ? 'Nome do Credor / Beneficiário' : 
-                   (docType === 'orcamento' || docType === 'os' || docType === 'termo') ? 'Nome do Profissional ou Empresa' : 
-                   (docType === 'vale' ? 'Nome da Empresa Empregadora' : 
-                   (docType === 'aluguel' ? 'Locador(a)' : 
-                   'Quem está recebendo? (Recebedor)'))}
+                  {getRecebedorLabel()}
                    <span className="text-red-500">*</span>
                 </label>
                 <input

@@ -270,10 +270,27 @@ export function ReceiptPage() {
           </div>
 
           <div className="space-y-16">
+            {model.seoContent && model.seoContent.h2 && (
+              <article>
+                <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-6 flex items-center gap-3">
+                  <CheckCircle2 className="w-8 h-8 text-emerald-500 flex-shrink-0" />
+                  {model.seoContent.h2}
+                </h2>
+                <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
+                  {model.seoContent.h3 && (
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">{model.seoContent.h3}</h3>
+                  )}
+                  {model.seoContent.p2 && (
+                    <p className="text-gray-600 text-lg leading-relaxed">{model.seoContent.p2}</p>
+                  )}
+                </div>
+              </article>
+            )}
+
             <article>
               <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <CheckCircle2 className="w-8 h-8 text-emerald-500 flex-shrink-0" />
-                {richData?.specificDetailsTitle || model.seoContent?.h2 || `Como preencher o ${model.title} corretamente`}
+                {richData?.specificDetailsTitle || `Como preencher o ${model.title} corretamente`}
               </h2>
               
               <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden mb-12">
@@ -355,10 +372,6 @@ export function ReceiptPage() {
                       return <li key={idx} className="text-gray-600 leading-relaxed">{item}</li>;
                     })}
                   </ul>
-                ) : model.seoContent?.p2 ? (
-                  <p className="text-gray-600 text-lg leading-relaxed">
-                    {model.seoContent.p2} <strong>{model.seoContent.h3}</strong>
-                  </p>
                 ) : (
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {defaultSpecificDetailsList.map((item, idx) => {
