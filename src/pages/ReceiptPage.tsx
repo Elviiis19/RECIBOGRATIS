@@ -248,8 +248,17 @@ export function ReceiptPage() {
         </div>
       </section>
 
+      {/* SEO Intro Above Fold */}
+      <section className="relative z-20 -mt-8 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+        <div className="bg-white rounded-2xl p-6 md:p-8 border border-emerald-100 shadow-md text-center">
+          <p className="text-lg md:text-xl text-gray-800 leading-relaxed font-medium m-0">
+            {richData?.intro || model.seoContent?.p1 || defaultIntro}
+          </p>
+        </div>
+      </section>
+
       {/* Generator Section */}
-      <section className="py-12 bg-gray-50 -mt-8">
+      <section className="pb-12 bg-gray-50 relative z-10 pt-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ReceiptGenerator 
             key={model.slug}
@@ -262,12 +271,6 @@ export function ReceiptPage() {
       {/* SEO Content Section */}
       <section className="py-16 md:py-24 bg-white border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-6 md:p-8 border border-emerald-100 mb-12 shadow-sm">
-            <p className="text-lg md:text-xl text-emerald-900 leading-relaxed font-medium m-0">
-              {richData?.intro || model.seoContent?.p1 || defaultIntro}
-            </p>
-          </div>
 
           <div className="space-y-16">
             {model.seoContent && model.seoContent.h2 && (
@@ -310,41 +313,97 @@ export function ReceiptPage() {
                   )}
 
                   <ul className="space-y-6">
-                    <li className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">1</div>
-                      <div>
-                        <strong className="block text-gray-900 text-lg mb-1">Informar o valor</strong>
-                        <span className="text-gray-600 leading-relaxed block">Digite a quantia monetária exata da transação.</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">2</div>
-                      <div>
-                        <strong className="block text-gray-900 text-lg mb-1">Preencher dados das partes</strong>
-                        <span className="text-gray-600 leading-relaxed block">Insira o nome completo ou Razão Social, acompanhado de CPF/CNPJ válidos de quem paga e quem recebe.</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">3</div>
-                      <div>
-                        <strong className="block text-gray-900 text-lg mb-1">Descrever o pagamento</strong>
-                        <span className="text-gray-600 leading-relaxed block">Nos campos de descrição, detalhe em poucas palavras a que se refere o pagamento, produto ou serviço.</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">4</div>
-                      <div>
-                        <strong className="block text-gray-900 text-lg mb-1">Gerar e Baixar</strong>
-                        <span className="text-gray-600 leading-relaxed block">Após revisar, clique em Próximo e escolha fazer o Download do PDF ou imprimir diretamente da tela.</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">5</div>
-                      <div>
-                        <strong className="block text-gray-900 text-lg mb-1">Assinar</strong>
-                        <span className="text-gray-600 leading-relaxed block">A pessoa ou empresa que recebeu o dinheiro deve assinar presencialmente, atestando o fim do débito.</span>
-                      </div>
-                    </li>
+                    {model.id === 'simples' ? (
+                      <>
+                        <li className="flex items-start gap-4">
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">1</div>
+                          <div>
+                            <strong className="block text-gray-900 text-lg mb-1">Valor e Data</strong>
+                            <span className="text-gray-600 leading-relaxed block">Informe o valor recebido e a data do pagamento.<br/><span className="text-sm text-gray-500">Exemplo: 150,00 em 10/07/2025</span></span>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-4">
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">2</div>
+                          <div>
+                            <strong className="block text-gray-900 text-lg mb-1">Pagador</strong>
+                            <span className="text-gray-600 leading-relaxed block">Preencha o nome completo e CPF/CNPJ de quem pagou.<br/><span className="text-sm text-gray-500">Dica: Use sempre o nome completo, sem abreviações.</span></span>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-4">
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">3</div>
+                          <div>
+                            <strong className="block text-gray-900 text-lg mb-1">Recebedor</strong>
+                            <span className="text-gray-600 leading-relaxed block">Informe o nome completo e CPF/CNPJ de quem recebeu.<br/><span className="text-sm text-gray-500">Importante para MEI e autônomos.</span></span>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-4">
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">4</div>
+                          <div>
+                            <strong className="block text-gray-900 text-lg mb-1">Descrição</strong>
+                            <span className="text-gray-600 leading-relaxed block">Escreva o motivo do pagamento (ex: "referente à prestação de serviço").</span>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-4">
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">5</div>
+                          <div>
+                            <strong className="block text-gray-900 text-lg mb-1">Forma de Pagamento</strong>
+                            <span className="text-gray-600 leading-relaxed block">Selecione como foi feito (dinheiro, PIX, transferência, etc).</span>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-4">
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">6</div>
+                          <div>
+                            <strong className="block text-gray-900 text-lg mb-1">Cidade, Estado e Data de Emissão</strong>
+                            <span className="text-gray-600 leading-relaxed block">Complete para garantir validade.</span>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-4">
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">7</div>
+                          <div>
+                            <strong className="block text-gray-900 text-lg mb-1">Assinatura</strong>
+                            <span className="text-gray-600 leading-relaxed block">Recomenda-se imprimir duas vias e colher assinaturas físicas.</span>
+                          </div>
+                        </li>
+                      </>
+                    ) : (
+                      <>
+                        <li className="flex items-start gap-4">
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">1</div>
+                          <div>
+                            <strong className="block text-gray-900 text-lg mb-1">Informar o valor</strong>
+                            <span className="text-gray-600 leading-relaxed block">Digite a quantia monetária exata da transação.</span>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-4">
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">2</div>
+                          <div>
+                            <strong className="block text-gray-900 text-lg mb-1">Preencher dados das partes</strong>
+                            <span className="text-gray-600 leading-relaxed block">Insira o nome completo ou Razão Social, acompanhado de CPF/CNPJ válidos de quem paga e quem recebe.</span>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-4">
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">3</div>
+                          <div>
+                            <strong className="block text-gray-900 text-lg mb-1">Descrever o pagamento</strong>
+                            <span className="text-gray-600 leading-relaxed block">Nos campos de descrição, detalhe em poucas palavras a que se refere o pagamento, produto ou serviço.</span>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-4">
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">4</div>
+                          <div>
+                            <strong className="block text-gray-900 text-lg mb-1">Gerar e Baixar</strong>
+                            <span className="text-gray-600 leading-relaxed block">Após revisar, clique em Próximo e escolha fazer o Download do PDF ou imprimir diretamente da tela.</span>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-4">
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">5</div>
+                          <div>
+                            <strong className="block text-gray-900 text-lg mb-1">Assinar</strong>
+                            <span className="text-gray-600 leading-relaxed block">A pessoa ou empresa que recebeu o dinheiro deve assinar presencialmente, atestando o fim do débito.</span>
+                          </div>
+                        </li>
+                      </>
+                    )}
                   </ul>
                 </div>
               </div>
@@ -477,14 +536,23 @@ export function ReceiptPage() {
           {finalFaqs.length > 0 ? (
             <div className="mt-20">
               <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-8 border-b border-gray-100 pb-4">
-                Perguntas Frequentes
+                Perguntas Frequentes (FAQ)
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-4">
                 {finalFaqs.map((faq, index) => (
-                  <div key={index} className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-emerald-200 transition-colors">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{faq.question}</h3>
-                    <p className="text-gray-600 leading-relaxed m-0">{faq.answer}</p>
-                  </div>
+                  <details key={index} className="group bg-white rounded-2xl border border-gray-200 shadow-sm [&_summary::-webkit-details-marker]:hidden">
+                    <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-gray-900 font-bold hover:text-emerald-700 transition-colors list-none">
+                      <h3 className="text-xl font-bold m-0">{faq.question}</h3>
+                      <span className="shrink-0 rounded-full bg-emerald-50 p-1.5 text-emerald-700 sm:p-3 group-open:bg-emerald-700 group-open:text-emerald-50 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="size-5 shrink-0 transition duration-300 group-open:-rotate-45" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
+                        </svg>
+                      </span>
+                    </summary>
+                    <div className="border-t border-gray-100 p-6 leading-relaxed text-gray-700 bg-gray-50/50 rounded-b-2xl">
+                      <p className="m-0 text-lg">{faq.answer}</p>
+                    </div>
+                  </details>
                 ))}
               </div>
             </div>

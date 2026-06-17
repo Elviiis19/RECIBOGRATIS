@@ -1,9 +1,60 @@
+import { cpf, cnpj } from 'cpf-cnpj-validator';
+
+export function formatPixKey(key: string): string {
+  const formattedKey = key.trim();
+  const numericKey = formattedKey.replace(/\D/g, '');
+
+  // Is it an email?
+  if (formattedKey.includes('@')) {
+    return formattedKey; // Emails should have spaces removed ideally, but let's just trim for now
+  }
+  
+  // Is it a random key (UUID)?
+  if (formattedKey.includes('-') && formattedKey.length >= 32 && !formattedKey.includes('@')) {
+    return formattedKey.replace(/\s/g, ''); // remove spaces
+  }
+
+  // Is it a CPF (11 digits)?
+  if (numericKey.length === 11) {
+    if (cpf.isValid(numericKey)) {
+      return numericKey; // Valid CPF, MUST be numbers only
+    }
+    // If not a valid CPF, it's very likely a phone number
+    return '+55' + numericKey;
+  }
+
+  // Is it a CNPJ (14 digits)?
+  if (numericKey.length === 14) {
+    if (cnpj.isValid(numericKey)) {
+       return numericKey; // Valid CNPJ, MUST be numbers only
+    }
+  }
+
+  // Is it a 10 digit phone number (landline)?
+  if (numericKey.length === 10) {
+    return '+55' + numericKey;
+  }
+
+  // If it's a phone number with DDI typed by the user like +55 (11) 99999-9999 (13 digits)
+  if (numericKey.length === 13 || numericKey.length === 12) {
+      if (numericKey.startsWith('55')) {
+          return '+' + numericKey;
+      }
+  }
+
+  // Fallback: Just return what the user provided without spaces
+  return formattedKey.replace(/\s/g, '');
+}
+
 export function generatePixPayload(key: string, name: string, city: string, amount?: string, txid: string = '***') {
   const tlv = (tag: string, value: string) => {
     const valStr = String(value);
     const len = valStr.length.toString().padStart(2, '0');
     return `${tag}${len}${valStr}`;
   };
+
+  const finalKey = formatPixKey(key);
+
 
   let formattedAmount = '';
   if (amount) {
@@ -15,7 +66,7 @@ export function generatePixPayload(key: string, name: string, city: string, amou
 
   let payload = '';
   payload += tlv('00', '01');
-  payload += tlv('26', tlv('00', 'br.gov.bcb.pix') + tlv('01', key));
+  payload += tlv('26', tlv('00', 'br.gov.bcb.pix') + tlv('01', finalKey));
   payload += tlv('52', '0000');
   payload += tlv('53', '986');
   if (formattedAmount) {
