@@ -641,4 +641,88 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "recibo-sem-assinatura-vale",
+    title: "Recibo sem assinatura vale alguma coisa? O que fazer se não quiserem assinar",
+    category: "burocracia-descomplicada",
+    seoTitle: "Recibo sem assinatura vale algo? Veja o que fazer se recusarem!",
+    seoDescription: "Descubra se um recibo sem assinatura tem validade jurídica e o que você pode fazer se a pessoa se recusar a assinar.",
+    intro: {
+      acordo: "Você fez um pagamento, pediu o recibo, e a pessoa entregou o papel — mas sem assinar. Ou pior: você é quem recebeu o dinheiro, escreveu o recibo, e agora não sabe se precisa correr atrás de uma assinatura para o documento \"valer alguma coisa\".",
+      promessa: "Essa dúvida é mais comum do que parece, e a resposta tem um detalhe importante que pouca gente sabe.",
+      previa: "Entenda a fundo por que um simples rabisco muda tudo perante a lei e veja táticas práticas para resolver a situação quando a outra parte não quer assinar."
+    },
+    sections: [
+      {
+        h2: "A assinatura não é um detalhe decorativo",
+        content: "<p>Um recibo sem assinatura de quem recebeu o dinheiro não comprova a quitação da dívida. Pense assim: o recibo é a palavra do recebedor dizendo &quot;eu recebi esse valor e não tenho mais nada a cobrar&quot;. Sem a assinatura dessa pessoa, o papel é só um texto solto — não tem como provar que foi ela quem concordou com aquilo.</p><p>Já a assinatura de quem pagou não costuma ser exigida, porque quem está sendo protegido pelo documento é justamente o pagador. É ele quem vai precisar do recibo se for cobrado de novo no futuro.</p>"
+      },
+      {
+        h2: "O que fazer se o recebedor não quer assinar",
+        content: "<p>Isso acontece mais do que deveria, principalmente em pagamentos informais — diaristas, prestadores de serviço avulsos, vendas entre particulares. Se a pessoa que recebeu o dinheiro relutar em assinar, você tem algumas saídas práticas:</p><ul><li><strong>1. Não solte o pagamento final sem o recibo assinado.</strong> Se ainda há uma parcela ou o pagamento está sendo feito na hora, condicione a entrega do dinheiro à assinatura do documento. Isso é seu direito.</li><li><strong>2. Peça uma confirmação por escrito em outro canal.</strong> Uma mensagem de WhatsApp onde a pessoa escreve \"recebi os R$ 500,00 referentes ao serviço\" tem valor como prova, mesmo não substituindo o recibo formal.</li><li><strong>3. Use o comprovante bancário como apoio.</strong> Se o pagamento foi por PIX ou transferência, o comprovante mostra que o dinheiro saiu da sua conta e entrou na conta de outra pessoa — não prova o motivo do pagamento, mas ajuda a montar o quadro probatório completo.</li><li><strong>4. Em último caso, registre testemunhas.</strong> Se for um valor relevante e a pessoa continuar recusando, ter alguém presente no momento do pagamento pode ajudar caso o assunto vá para o Juizado de Pequenas Causas.</li></ul>",
+        hasAd: true
+      },
+      {
+        h2: "E se eu sou quem recebeu — preciso assinar mesmo?",
+        content: "<p>Sim. Se você recebeu um pagamento e emitiu um recibo, a assinatura é o que torna o documento válido como prova de quitação. Sem ela, tecnicamente você ainda poderia cobrar o mesmo valor de novo — o que, é claro, não seria correto, mas mostra por que a assinatura importa tanto.</p>"
+      },
+      {
+        h2: "Recibo digital sem assinatura física também conta?",
+        content: "<p>Sim, desde que seja possível identificar quem emitiu. Uma assinatura digitalizada, um nome digitado em caixa alta seguido do CPF, ou até uma confirmação por e-mail com identificação clara da pessoa já cumprem essa função na maioria dos casos do dia a dia. O importante é que fique claro quem está afirmando ter recebido o valor.</p>",
+        hasCta: {
+          text: "Quer gerar um recibo completo, com todos os campos organizados e espaço de assinatura já pronto para impressão?",
+          link: "/recibo-simples",
+          ctaLabel: "BAIXAR RECIBO SIMPLES EM PDF"
+        }
+      }
+    ],
+    conclusion: "<p>Se a situação envolve um valor que pode acabar em disputa formal, veja também <a href=\"/blog/recibo-simples-juizado-pequenas-causas\" class=\"text-emerald-600 font-semibold hover:underline\">como usar o recibo simples para se proteger no Juizado de Pequenas Causas</a>.</p>",
+    faqs: [
+      {
+        question: "Assinatura digitalizada tem validade em recibo?",
+        answer: "Sim, a assinatura digitalizada (uma imagem da sua assinatura colocada no PDF) tem validade para a maioria dos casos simples do dia a dia, desde que não haja contestação de fraude."
+      },
+      {
+        question: "O marido pode assinar o recibo no lugar da esposa?",
+        answer: "Se a prestação do serviço e o acordo foram feitos com ela, o ideal é que ela assine. Se ele assinar em nome dela, é recomendável colocar \"fulano, recebido em nome de ciclana\" para evitar confusão."
+      }
+    ]
+  },
+  {
+    slug: "perdi-o-recibo-como-provar-pagamento",
+    title: "Perdi o recibo que me deram. Como provar que paguei mesmo assim?",
+    category: "burocracia-descomplicada",
+    seoTitle: "Perdi o recibo de pagamento: Descubra como provar que pagou",
+    seoDescription: "Perdeu o recibo de um pagamento importante? Veja quais outros documentos e provas a lei aceita caso você precise confirmar a transação.",
+    intro: {
+      acordo: "Você pagou, recebeu o recibo, guardou em algum lugar \"seguro\" — e agora não acha de jeito nenhum. Pode ter sido jogado fora por engano, sumido na mudança, ou simplesmente nunca existido em papel porque foi tudo combinado de boca.",
+      promessa: "Antes de entrar em pânico: perder o recibo não significa que você não tem como provar o pagamento.",
+      previa: "Significa apenas que você vai precisar montar a prova com outras peças que a justiça e o bom senso também aceitam."
+    },
+    sections: [
+      {
+        h2: "O recibo não é a única prova que existe",
+        content: "<p>Muita gente trata o recibo como se fosse o único documento capaz de comprovar um pagamento, e por isso a perda dele parece um problema sem solução. Na prática, o recibo é só a prova mais direta e mais forte — mas não a única aceita.</p><p>Veja o que pode substituir ou complementar a ausência do recibo:</p><ul><li><strong>1. Comprovante de PIX ou transferência bancária.</strong> Esse é, hoje, o substituto mais forte. O extrato mostra data, valor, e para quem o dinheiro foi enviado. Não prova o motivo do pagamento, mas prova que ele aconteceu.</li><li><strong>2. Conversas por WhatsApp ou e-mail.</strong> Se você combinou o pagamento por mensagem (\"vou te pagar R$ 300 pelo serviço de pintura na sexta\"), esse histórico tem valor probatório. Tire print e guarde, mesmo que pareça óbvio.</li><li><strong>3. Testemunhas.</strong> Se alguém estava presente quando o dinheiro foi entregue ou quando o trato foi combinado, essa pessoa pode confirmar a situação se for necessário.</li><li><strong>4. Histórico de relacionamento.</strong> Se você já pagou essa mesma pessoa outras vezes e tem registro disso, ajuda a construir um padrão que sustenta sua versão.</li></ul>",
+        hasAd: true
+      },
+      {
+        h2: "E se o pagamento foi em dinheiro vivo, sem nenhum registro?",
+        content: "<p>Esse é o cenário mais difícil. Sem comprovante bancário, sem mensagem, sem testemunha — fica a palavra de um contra a palavra do outro. Nesses casos, o que normalmente resolve é:</p><ul><li>Tentar reconstruir a situação com a pessoa, de forma amigável, pedindo que ela confirme por escrito (mensagem, e-mail) que recebeu o valor;</li><li>Verificar se existe qualquer rastro indireto, como um post em rede social, uma nota fiscal de material relacionado ao serviço, ou um comprovante de retirada de dinheiro no banco no mesmo dia e valor aproximado.</li></ul><p>A lição prática aqui não ajuda a resolver o problema de agora, mas vale para o futuro: pagamento em dinheiro vivo sem nenhum registro é o tipo de transação que mais gera dor de cabeça depois. Sempre que possível, prefira PIX (que já gera comprovante automático) ou, na falta dele, tire uma foto do recibo assim que ele for emitido — antes mesmo de guardá-lo, para ter uma cópia digital de segurança.</p>"
+      },
+      {
+        h2: "Posso pedir uma segunda via do recibo?",
+        content: "<p>Sim, e é a solução mais simples se a pessoa que emitiu o recibo original ainda estiver acessível e disposta a ajudar. Não existe problema legal em emitir um novo recibo com a mesma data e os mesmos dados do pagamento original, desde que ambas as partes concordem que ele está substituindo o documento perdido. Vale escrever algo como \"Recibo emitido em segunda via, referente ao pagamento realizado em [data]\" para deixar claro o contexto.</p>"
+      },
+      {
+        h2: "Como evitar esse problema na próxima vez",
+        content: "<p>Depois de gerar o recibo, tire uma foto ou print imediatamente e salve em uma pasta no celular ou e-mail. Isso leva 10 segundos e elimina completamente esse tipo de aperto no futuro.</p>",
+        hasCta: {
+          text: "Precisa emitir uma segunda via ou um novo recibo agora?",
+          link: "/recibo-simples",
+          ctaLabel: "GERAR NOVO RECIBO SIMPLES"
+        }
+      }
+    ],
+    conclusion: "<p>Se o pagamento que você está tentando comprovar envolve uma situação que pode acabar em cobrança formal, veja também <a href=\"/blog/recibo-simples-juizado-pequenas-causas\" class=\"text-emerald-600 font-semibold hover:underline\">como usar um recibo simples para se proteger no Juizado de Pequenas Causas</a>.</p>"
+  }
 ];
