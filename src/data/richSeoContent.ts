@@ -9,12 +9,24 @@ export interface RichSEOContent {
   lsiText: string;
   legalText?: string[];
   ctaText: string;
+  exampleImageSrc?: string;
+  exampleImageAlt?: string;
+  exampleImageTitle?: string;
 }
 
 export const richSeoData: Record<string, RichSEOContent> = {
   'pagamento': {
-    h1: 'Recibo de Pagamento',
+    h1: 'Recibo de Pagamento Online: Preencha e Imprima em PDF',
     intro: 'O recibo de pagamento é o comprovante definitivo de que um serviço ou produto foi quitado. Ele é a garantia prática de que quem pagou não será cobrado duas vezes, além de formalizar a transação para o controle financeiro do profissional autônomo ou prestador que recebeu o valor.',
+    useCasesTitle: 'Quando emitir um Recibo de Pagamento? Principais exemplos:',
+    useCasesList: [
+      'Quitação de mensalidades (escolas, academias, cursos);',
+      'Pagamentos de serviços prestados por profissionais autônomos (pintores, eletricistas, pedreiros);',
+      'Comprovante de pagamento de sinal ou entrada na compra de imóveis ou veículos;',
+      'Honorários de profissionais liberais (advogados, dentistas, psicólogos);',
+      'Pagamento de dívidas particulares entre amigos ou familiares.'
+    ],
+    useCasesConclusion: 'Sempre que houver troca financeira e você precisar de um resguardo seguro, gere o recibo de pagamento para confirmar a operação.',
     specificDetailsTitle: 'Como preencher seu recibo passo a passo',
     specificDetailsList: [
       'Valor: Preencha a quantia exata em números e também por extenso para evitar qualquer tipo de adulteração.',
@@ -27,7 +39,10 @@ export const richSeoData: Record<string, RichSEOContent> = {
       'Sim. Quando preenchido corretamente e assinado por quem recebeu o valor, o documento possui ampla validade civil. Ele funciona como uma prova robusta para proteger as partes contra cobranças indevidas na justiça comum e no Procon.',
       'Atenção: O recibo atesta a quitação financeira entre as partes, mas não substitui a emissão da Nota Fiscal (NF) caso o profissional ou a empresa tenham a obrigação tributária de declará-la ao Governo.'
     ],
-    ctaText: 'Gere agora o documento padronizado, pronto para ser impresso ou enviado pelo WhatsApp em formato PDF direto do seu navegador, sem necessidade de cadastro.'
+    ctaText: 'Gere agora o documento padronizado, pronto para ser impresso ou enviado pelo WhatsApp em formato PDF direto do seu navegador, sem necessidade de cadastro.',
+    exampleImageSrc: '/recibo-de-pagamento-preenchido.webp',
+    exampleImageAlt: 'Modelo de Recibo de Pagamento preenchido e pronto para baixar ou imprimir',
+    exampleImageTitle: 'Exemplo de Recibo de Pagamento'
   },
   'simples': {
     h1: 'Recibo Simples, visualize na hora que preenche e baixe em PDF',
@@ -57,7 +72,10 @@ export const richSeoData: Record<string, RichSEOContent> = {
       'Como pagador, você tem o direito legal de exigir um recibo assinado sempre que efetuar qualquer pagamento. Se o recebedor se recusar a assinar, você pode reter o pagamento até que o comprovante seja emitido. Isso está garantido pelo Código Civil brasileiro.',
       'Atenção: O recibo comprova o pagamento entre as partes, mas não substitui a Nota Fiscal (NF) para empresas com CNPJ. Profissionais autônomos (CPF) usam recibo; empresas emitem NF.'
     ],
-    ctaText: 'Produza sem qualquer burocracia um documento padronizado, dotado de formatação lícita e validade jurídica, pronto para arquivar, imprimir ou enviar diretamente no formato PDF.'
+    ctaText: 'Produza sem qualquer burocracia um documento padronizado, dotado de formatação lícita e validade jurídica, pronto para arquivar, imprimir ou enviar diretamente no formato PDF.',
+    exampleImageSrc: '/modelo-recibo-simples-preenchido.webp',
+    exampleImageAlt: 'Modelo do Recibo Simples Preenchido e Pronto para Imprimir',
+    exampleImageTitle: 'Exemplo de Recibo Simples'
   },
   'pintor': {
     h1: 'Recibo para Pintor | Gerador Online com PDF Grátis',

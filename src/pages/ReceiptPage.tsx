@@ -406,15 +406,15 @@ export function ReceiptPage() {
                     )}
                   </ul>
                 </div>
-                {model.id === 'simples' && (
+                {richData?.exampleImageSrc && (
                   <div className="p-6 md:p-8 bg-gray-50/50 border-t border-gray-200">
                     <h4 className="text-lg font-bold text-gray-900 mb-4">Exemplo Visual</h4>
                     <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm bg-white p-2 md:p-4 text-center">
                       <img 
-                        src="/modelo-recibo-simples-preenchido.webp" 
-                        alt="Modelo do Recibo Simples Preenchido e Pronto para Imprimir" 
+                        src={richData.exampleImageSrc} 
+                        alt={richData.exampleImageAlt || `Modelo de ${model.title} Preenchido e Pronto para Imprimir`} 
                         loading="lazy"
-                        title="Exemplo de Recibo Simples"
+                        title={richData.exampleImageTitle || `Exemplo de ${model.title}`}
                         className="w-full h-auto object-contain mx-auto max-w-xl rounded-lg"
                       />
                     </div>
