@@ -196,15 +196,28 @@ export const richSeoData: Record<string, RichSEOContent> = {
   },
   'cuidador': {
     h1: 'Recibo de Cuidador de Idosos | Gerador com PDF Grátis',
-    intro: 'Segurança justa que sua dedicação e cuidado merecem financeiramente. Este comprovante destina-se a cuidadores, acompanhantes domiciliares e folguistas formalizarem o recebimento de diárias ou honorários pelos familiares.',
+    intro: 'Segurança justa que sua dedicação e cuidado merecem financeiramente. Este comprovante destina-se a cuidadores, acompanhantes domiciliares, técnicos de enfermagem e folguistas que precisam formalizar o recebimento de diárias, plantões ou honorários pagos pelos familiares do paciente.',
+    useCasesTitle: 'Quando o Cuidador deve emitir este recibo? Casos Comuns:',
+    useCasesList: [
+      'Pagamento de plantões noturnos ou de fim de semana (folguistas);',
+      'Cobertura de férias ou licença do cuidador principal;',
+      'Serviço de acompanhante hospitalar por período determinado;',
+      'Diárias avulsas para cuidados rotineiros em domicílio;',
+      'Reembolso de despesas extras combinadas (transporte, alimentação).'
+    ],
+    useCasesConclusion: 'A emissão do recibo protege a família contratante e o profissional autônomo, evitando riscos de passivos trabalhistas e confusões financeiras.',
     specificDetailsTitle: 'O que não pode faltar no Recibo para Acompanhante/Cuidador',
     specificDetailsList: [
-      'Pagador Responsável: Normalmente, quem paga é o filho(a) ou tutor do idoso; separe dos dados do beneficiário.',
-      'Período específico: É vital escrever: "Plantão final de semana dias 12 e 13", limitando as horas e afastando vínculo celetista.',
-      'Despesas de Transporte: Se você foi reembolsado por passagens, destaque o valor do repasse para Vale-Transporte (VT).',
-      'Ausência de Termos Clínicos: Não há necessidade de detalhar remédios, apenas a "Acompanhamento e Cuidados Domésticos de Rotina".'
+      'Pagador Responsável: Normalmente, quem paga é o filho(a) ou tutor do idoso, e não o próprio paciente. Preencha os dados de quem efetivou o pagamento.',
+      'Período específico e Carga Horária: É vital escrever as datas exatas (ex: "Plantão final de semana dias 12 e 13" ou "Plantão 12x36"). Isso delimita o trabalho eventual.',
+      'Despesas de Transporte: Se você foi reembolsado por passagens ou combustível, destaque o valor do repasse (ex: "R$ 150 de plantão + R$ 30 de condução").',
+      'Descrição do Serviço: Use termos como "Acompanhamento e cuidados diários", evitando termos clínicos privativos de outras profissões caso não tenha habilitação técnica.'
     ],
-    lsiText: 'As relações trabalhistas domésticas são sensíveis no Brasil. Um cuidador eventual ou folguista protegerá tanto a si quanto as famílias (evitando passivos trabalhistas no eSocial Doméstico) se munido da comprovação assinada de quitação de honorários ou labor temporário eventual, ratificando a remuneração por plantões através deste recibo assinado limpo.',
-    ctaText: 'Você cuida das vidas deles, agora cuide do seu caixa. Faça o recibo dos seus plantões grátis online!'
+    lsiText: 'As relações trabalhistas domésticas (PEC das Domésticas) são sensíveis no Brasil. Um cuidador eventual ou folguista protegerá tanto a si quanto as famílias contratantes — evitando interpretações de vínculo empregatício indevido no eSocial Doméstico — se estiver munido da comprovação assinada de quitação de honorários por labor temporário ou autônomo, ratificando a remuneração por plantões através deste recibo estruturado.',
+    legalText: [
+      'Validade Trabalhista: Para que o serviço não seja configurado como vínculo empregatício (CLT), o trabalho do cuidador folguista/autônomo geralmente não pode ultrapassar 2 dias na semana para o mesmo empregador. Documentar esses dias exatos no recibo é a melhor defesa para ambas as partes.',
+      'O recibo assinado garante a quitação do valor acordado, servindo como prova documental incontestável perante a Justiça do Trabalho ou Cível em caso de questionamentos futuros.'
+    ],
+    ctaText: 'Você cuida da saúde e bem-estar deles, agora cuide da sua segurança financeira. Gere o recibo dos seus plantões grátis online em menos de 1 minuto!'
   }
 };

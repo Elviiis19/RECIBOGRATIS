@@ -580,18 +580,32 @@ export const receiptModels = [
     id: 'cuidador',
     slug: 'recibo-de-cuidador-de-idosos',
     title: 'Recibo de Cuidador de Idosos',
-    shortDescription: 'Para serviços de acompanhamento e cuidados com idosos.',
-    seoTitle: 'Recibo de Cuidador de Idosos - Gerador Online em PDF',
-    seoDescription: 'Gere recibo de pagamento para cuidadores de idosos. Comprovante de prestação de serviço online, seguro e grátis em PDF.',
-    keywords: 'recibo cuidador de idosos, recibo acompanhante idoso, pagamento cuidador, comprovante cuidador',
-    defaultReferenteA: 'Pagamento referente a serviços de cuidador(a) de idosos prestados ao Sr(a) [Nome do Idoso] no período de [Data Inicial] a [Data Final].',
+    shortDescription: 'Ideal para cuidadores de idosos, plantões, diárias e acompanhantes hospitalares.',
+    seoTitle: 'Recibo para Cuidador de Idosos | Gerador PDF Online Grátis',
+    seoDescription: 'Gere recibo de pagamento para cuidadores de idosos, plantonistas e acompanhantes. Preencha online e baixe em PDF ou imprima grátis.',
+    keywords: 'recibo cuidador de idosos, recibo cuidador, recibo plantão cuidador, recibo acompanhante idoso, recibo de pagamento cuidador, folguista cuidador',
+    defaultReferenteA: 'Pagamento referente aos serviços de cuidador(a) de idosos prestados ao paciente [Nome do Paciente] no período de [data] a [data], correspondente a [quantidade] plantões/diárias.',
     icon: 'HeartPulse',
     seoContent: {
-      h2: 'Comprovante para Cuidadores',
-      p1: 'Cuidadores de idosos autônomos prestam um serviço de extrema confiança. O recibo formaliza o pagamento feito pela família e garante a transparência na relação de trabalho.',
-      h3: 'Identificação do Paciente',
-      p2: 'É importante que o recibo identifique quem realizou o pagamento (geralmente um filho ou responsável financeiro) e também o nome do idoso que recebeu os cuidados.'
-    }
+      h2: 'A importância de emitir recibo para Cuidador de Idosos e Folguistas',
+      p1: 'Profissionais que prestam serviços de cuidados a idosos e pacientes acamados, seja como folguistas, acompanhantes hospitalares, plantonistas ou em regime de diárias, precisam documentar o recebimento dos seus honorários. Emitir um recibo claro e bem preenchido protege tanto o profissional autônomo quanto a família contratante, evitando mal-entendidos sobre valores, repasses adicionais e dias efetivamente trabalhados.',
+      h3: 'Informações importantes para afastar vínculo empregatício',
+      p2: 'Para profissionais autônomos ou diaristas, é fundamental especificar no campo "Referente a" o período exato trabalhado, as datas dos plantões, e se há inclusão de valores extras referentes a vale-transporte (condução) ou alimentação. Delimitar as datas (por exemplo, trabalho em até 2 dias na semana) ajuda a afastar a presunção de vínculo empregatício contínuo sob as regras da PEC das Domésticas. Isso garante transparência e serve como um controle financeiro e jurídico seguro para ambas as partes.'
+    },
+    faqs: [
+      {
+        question: 'Cuidador de idosos autônomo precisa dar recibo?',
+        answer: 'Sim, é altamente recomendável. O recibo comprova o pagamento e a prestação do serviço eventual, servindo de segurança documental tanto para o profissional quanto para a família que o contratou.'
+      },
+      {
+        question: 'O que devo colocar na descrição do recibo como cuidador?',
+        answer: 'Especifique os dias exatos que você trabalhou (ex: plantão do dia 12 ao dia 14), o nome do paciente, a natureza do serviço (ex: acompanhante hospitalar, folguista de fim de semana) e se o valor total inclui reembolsos de transporte.'
+      },
+      {
+        question: 'Emitir este recibo caracteriza vínculo trabalhista?',
+        answer: 'Não. Na verdade, especificar no recibo que se trata de honorários eventuais, plantões isolados ou de prestação de serviços como diarista (até 2 vezes por semana para a mesma família) ajuda justamente a afastar a configuração de vínculo empregatício.'
+      }
+    ]
   },
   {
     id: 'estetica',
