@@ -50,8 +50,10 @@ export const BlogPostView = () => {
     "@type": "Article",
     headline: post.title,
     description: post.seoDescription,
-    image: post.image ? `https://recibogratis.com.br${post.image}` : "https://recibogratis.com.br/og-image.webp",
-    datePublished: "2024-05-15T08:00:00+08:00",
+    image: post.image
+      ? `https://recibogratis.com.br${post.image}`
+      : "https://recibogratis.com.br/og-image.webp",
+    datePublished: "2026-06-28T08:00:00-03:00",
     dateModified: new Date().toISOString(),
     author: {
       "@type": "Person",
@@ -63,9 +65,9 @@ export const BlogPostView = () => {
       name: "Recibo Grátis",
       logo: {
         "@type": "ImageObject",
-        url: "https://recibogratis.com.br/logo.png"
-      }
-    }
+        url: "https://recibogratis.com.br/logo.png",
+      },
+    },
   };
 
   const schemas: any[] = [{ ...articleSchema, "@context": undefined }];
@@ -83,6 +85,9 @@ export const BlogPostView = () => {
         description={post.seoDescription}
         url={`https://recibogratis.com.br/blog/${post.slug}`}
         schema={schemaString}
+        image={
+          post.image ? `https://recibogratis.com.br${post.image}` : undefined
+        }
       />
 
       <article className="min-h-screen bg-gray-50 pb-20">
@@ -109,17 +114,27 @@ export const BlogPostView = () => {
             </h1>
 
             {/* E-E-A-T Top Author Signature */}
-            <div className="flex items-center gap-4 bg-emerald-800/40 p-4 rounded-xl border border-emerald-700/50 inline-flex">
-              <div className="bg-emerald-700 p-2 rounded-full">
-                <FileSignature className="w-6 h-6 text-emerald-100" />
-              </div>
+            <div className="flex flex-wrap items-center gap-4 bg-emerald-800/40 p-4 rounded-xl border border-emerald-700/50 inline-flex">
+              <img
+                src="/elvis-dias.webp"
+                alt="Elvis Dias - Jornalista Profissional (DRT 1466/RO)"
+                className="w-12 h-12 rounded-full border-2 border-emerald-500/50 object-cover shadow-sm bg-emerald-800"
+                loading="lazy"
+              />
               <div>
                 <p className="text-sm text-emerald-100 font-medium">
                   Por <strong className="text-white">Elvis Dias</strong>
                 </p>
-                <p className="text-xs text-emerald-300">
-                  Jornalista Profissional (DRT 1466/RO)
-                </p>
+                <div className="text-xs text-emerald-300 flex flex-wrap items-center gap-x-2 mt-1">
+                  <span>Jornalista Profissional (DRT 1466/RO)</span>
+                  <span className="hidden sm:inline">•</span>
+                  <time
+                    dateTime="2026-06-28T08:00:00-03:00"
+                    className="text-emerald-200"
+                  >
+                    Publicado em 28 de Junho de 2026
+                  </time>
+                </div>
               </div>
             </div>
           </div>
@@ -221,9 +236,12 @@ export const BlogPostView = () => {
 
             {/* E-E-A-T Author Bio Footer */}
             <div className="mt-16 bg-white border border-gray-200 rounded-2xl p-8 flex flex-col md:flex-row items-center md:items-start gap-6 shadow-sm">
-              <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <User className="w-10 h-10 text-emerald-700" />
-              </div>
+              <img
+                src="/elvis-dias.webp"
+                alt="Elvis Dias"
+                className="w-20 h-20 rounded-full border-4 border-emerald-50 object-cover shadow-sm flex-shrink-0"
+                loading="lazy"
+              />
               <div className="text-center md:text-left">
                 <h4 className="text-xl font-bold text-gray-900">Elvis Dias</h4>
                 <p className="text-emerald-700 font-medium mb-3">

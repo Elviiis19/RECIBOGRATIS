@@ -6,9 +6,10 @@ interface SEOProps {
   keywords?: string;
   schema?: string;
   url?: string;
+  image?: string;
 }
 
-export function SEO({ title, description, keywords, schema, url }: SEOProps) {
+export function SEO({ title, description, keywords, schema, url, image }: SEOProps) {
   let pathname = '';
   try {
     const location = useLocation();
@@ -31,6 +32,7 @@ export function SEO({ title, description, keywords, schema, url }: SEOProps) {
     : currentUrl;
   
   const fullTitle = title;
+  const ogImage = image || "https://recibogratis.com.br/og-image.webp";
 
   return (
     <>
@@ -48,7 +50,7 @@ export function SEO({ title, description, keywords, schema, url }: SEOProps) {
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={normalizedUrl} />
-      <meta property="og:image" content="https://recibogratis.com.br/og-image.webp" />
+      <meta property="og:image" content={ogImage} />
       <meta property="og:image:type" content="image/webp" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
@@ -58,6 +60,7 @@ export function SEO({ title, description, keywords, schema, url }: SEOProps) {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImage} />
       
       {schema && (
         <script 
