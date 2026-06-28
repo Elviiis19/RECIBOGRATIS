@@ -23,16 +23,24 @@ export const AdSenseBlock: React.FC<AdSenseBlockProps> = ({ slot = '1234567890',
   }, []);
 
   return (
-    <div className={`my-8 min-h-[280px] flex items-center justify-center overflow-hidden bg-gray-50/50 rounded-xl ${className}`}>
-      <ins 
-        ref={adRef}
-        className="adsbygoogle"
-        style={{ display: 'block', width: '100%' }}
+    <div className={`my-8 flex justify-center w-full overflow-hidden ${className}`}>
+      {/* Container wrapper for AdSense */}
+      <div className="w-full bg-gray-50/30 rounded-xl flex items-center justify-center min-h-[100px]">
+        {import.meta.env.DEV && (
+          <span className="text-gray-400 text-sm absolute z-0 pointer-events-none">
+            Espaço para Anúncio (AdSense)
+          </span>
+        )}
+        <ins 
+          ref={adRef}
+          className="adsbygoogle relative z-10"
+          style={{ display: 'block', width: '100%' }}
         data-ad-client="ca-pub-4064231456386943"
         data-ad-slot={slot}
         data-ad-format={format}
         data-full-width-responsive="true"
       ></ins>
+      </div>
     </div>
   );
 };

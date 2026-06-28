@@ -59,7 +59,7 @@ export function SEO({ title, description, keywords, schema, url }: SEOProps) {
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       
-      {isServer && schema && (
+      {schema && (
         <script 
           type="application/ld+json" 
           dangerouslySetInnerHTML={{ __html: schema }} 
@@ -67,37 +67,35 @@ export function SEO({ title, description, keywords, schema, url }: SEOProps) {
         />
       )}
       
-      {isServer && (
-        <script 
-          type="application/ld+json" 
-          dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FinancialService",
-            "name": "Recibo Grátis",
-            "url": "https://recibogratis.com.br",
-            "logo": "https://recibogratis.com.br/logo.png",
-            "image": "https://recibogratis.com.br/og-image.webp",
-            "description": "Plataforma gratuita de emissão e geração de recibos online.",
-            "founder": {
-              "@type": "Person",
-              "name": "Elvis Dias"
-            },
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+55-69-98103-9664",
-              "contactType": "customer service",
-              "areaServed": "BR",
-              "availableLanguage": ["Portuguese", "pt-BR"]
-            },
-            "identifier": {
-              "@type": "PropertyValue",
-              "name": "CNPJ",
-              "value": "43.027.941/0001-21"
-            }
-          }) }} 
-          data-schema-org-ssr="true"
-        />
-      )}
+      <script 
+        type="application/ld+json" 
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FinancialService",
+          "name": "Recibo Grátis",
+          "url": "https://recibogratis.com.br",
+          "logo": "https://recibogratis.com.br/logo.png",
+          "image": "https://recibogratis.com.br/og-image.webp",
+          "description": "Plataforma gratuita de emissão e geração de recibos online.",
+          "founder": {
+            "@type": "Person",
+            "name": "Elvis Dias"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+55-69-98103-9664",
+            "contactType": "customer service",
+            "areaServed": "BR",
+            "availableLanguage": ["Portuguese", "pt-BR"]
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "name": "CNPJ",
+            "value": "43.027.941/0001-21"
+          }
+        }) }} 
+        data-schema-org-ssr="true"
+      />
     </>
   );
 }

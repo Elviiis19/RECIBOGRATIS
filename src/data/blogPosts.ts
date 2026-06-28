@@ -796,7 +796,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     conclusion:
-      "<p>Garantir que a sua Nota Promissória seja preenchida corretamente é o primeiro passo para não levar calotes e manter a saúde financeira dos seus negócios. Evite métodos amadores e utilize nossa plataforma para gerar seus documentos em poucos segundos, garantindo a sua tranquilidade e a força do seu crédito.<br><br>Por Equipe Gerador de Recibos.</p>",
+      "<p>Garantir que a sua Nota Promissória seja preenchida corretamente é o primeiro passo para não levar calotes e manter a saúde financeira dos seus negócios. Evite métodos amadores e utilize nossa plataforma para gerar seus documentos em poucos segundos, garantindo a sua tranquilidade e a força do seu crédito.<br><br>Por Equipe Recibo Grátis.</p>",
     faqs: [
       {
         question:
@@ -867,7 +867,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     conclusion:
-      "<p>Com essa estrutura, sua empresa fecha todas as brechas legais. Você protege o seu trabalho, garante o seu recebimento e transmite extrema confiança e profissionalismo ao seu cliente.<br><br>Por Equipe Gerador de Recibos.</p>",
+      "<p>Com essa estrutura, sua empresa fecha todas as brechas legais. Você protege o seu trabalho, garante o seu recebimento e transmite extrema confiança e profissionalismo ao seu cliente.<br><br>Por Equipe Recibo Grátis.</p>",
     faqs: [
       {
         question: "Posso usar um recibo no lugar de um contrato?",
@@ -936,7 +936,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     conclusion:
-      "<p>O tempo de baixar arquivos estáticos, lutar com a formatação e preencher papéis à mão acabou. Utilize geradores inteligentes para emitir comprovantes impecáveis, receber mais rápido via Pix e impressionar seus clientes a cada novo serviço.<br><br>Por Equipe Gerador de Recibos.</p>",
+      "<p>O tempo de baixar arquivos estáticos, lutar com a formatação e preencher papéis à mão acabou. Utilize geradores inteligentes para emitir comprovantes impecáveis, receber mais rápido via Pix e impressionar seus clientes a cada novo serviço.<br><br>Por Equipe Recibo Grátis.</p>",
     faqs: [
       {
         question: "Recibo em PDF é tão válido quanto recibo em papel?",
@@ -1016,7 +1016,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     conclusion:
-      "<p>Profissionalize a forma como você recebe o seu dinheiro de maneira rápida, moderna e totalmente sem custos. Não deixe que um documento desorganizado atrapalhe o sucesso do seu negócio.<br><br>Por Equipe Gerador de Recibos.</p>",
+      "<p>Profissionalize a forma como você recebe o seu dinheiro de maneira rápida, moderna e totalmente sem custos. Não deixe que um documento desorganizado atrapalhe o sucesso do seu negócio.<br><br>Por Equipe Recibo Grátis.</p>",
     faqs: [
       {
         question: "Como o recibo de pagamento se diferencia da nota fiscal?",
@@ -1081,7 +1081,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     conclusion:
-      '<p>O profissional moderno não deixa brechas para a fiscalização. Se você acabou de entregar um trabalho, acesse agora o gerador de <a href="/recibo-de-pagamento" class="text-emerald-600 font-semibold hover:underline">Recibo de Prestação de Serviços</a>, preencha os dados em segundos e mande o PDF blindado direto para o WhatsApp do seu cliente.<br><br>Por Equipe Gerador de Recibos.</p>',
+      '<p>O profissional moderno não deixa brechas para a fiscalização. Se você acabou de entregar um trabalho, acesse agora o gerador de <a href="/recibo-de-prestacao-de-servicos" class="text-emerald-600 font-semibold hover:underline">Recibo de Prestação de Serviços</a>, preencha os dados em segundos e mande o PDF blindado direto para o WhatsApp do seu cliente.<br><br>Por Equipe Recibo Grátis.</p>',
     faqs: [
       {
         question:

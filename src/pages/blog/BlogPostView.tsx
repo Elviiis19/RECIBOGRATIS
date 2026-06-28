@@ -50,11 +50,22 @@ export const BlogPostView = () => {
     "@type": "Article",
     headline: post.title,
     description: post.seoDescription,
+    image: post.image ? `https://recibogratis.com.br${post.image}` : "https://recibogratis.com.br/og-image.webp",
+    datePublished: "2024-05-15T08:00:00+08:00",
+    dateModified: new Date().toISOString(),
     author: {
       "@type": "Person",
       name: "Elvis Dias",
       jobTitle: "Jornalista (DRT 1466/RO)",
     },
+    publisher: {
+      "@type": "Organization",
+      name: "Recibo Grátis",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://recibogratis.com.br/logo.png"
+      }
+    }
   };
 
   const schemas: any[] = [{ ...articleSchema, "@context": undefined }];

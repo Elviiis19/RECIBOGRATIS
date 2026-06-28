@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 const modelsFilePath = path.join(__dirname, '../src/data/receiptModels.ts');
 const modelsContent = fs.readFileSync(modelsFilePath, 'utf-8');
 
-const slugRegex = /slug:\s*'([^']+)'/g;
+const slugRegex = /slug:\s*['"]([^'"]+)['"]/g;
 const slugs = [];
 let match;
 
@@ -31,7 +31,7 @@ while ((match = blogSlugRegex.exec(blogContent)) !== null) {
 // Read blog categories
 const blogTypesFilePath = path.join(__dirname, '../src/data/blogTypes.ts');
 const blogTypesContent = fs.readFileSync(blogTypesFilePath, 'utf-8');
-const categorySlugRegex = /slug:\s*'([^']+)'/g;
+const categorySlugRegex = /slug:\s*['"]([^'"]+)['"]/g;
 const blogCategorySlugs = [];
 while ((match = categorySlugRegex.exec(blogTypesContent)) !== null) {
   blogCategorySlugs.push(match[1]);
