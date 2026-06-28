@@ -263,5 +263,9 @@ export const richSeoData: Record<string, RichSEOContent> = {
     ],
     ctaText:
       "Você cuida da saúde e bem-estar deles, agora cuide da sua segurança financeira. Gere o recibo dos seus plantões grátis online em menos de 1 minuto!",
+    exampleImageSrc: "/recibo-cuidador-idoso-preenchido.webp",
+    exampleImageAlt:
+      "Modelo de Recibo para Cuidador de Idosos preenchido e assinado",
+    exampleImageTitle: "Exemplo de Recibo de Cuidador de Idosos",
   },
 };

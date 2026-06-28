@@ -643,86 +643,252 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "recibo-sem-assinatura-vale",
-    title: "Recibo sem assinatura vale alguma coisa? O que fazer se não quiserem assinar",
+    title:
+      "Recibo sem assinatura vale alguma coisa? O que fazer se não quiserem assinar",
     category: "burocracia-descomplicada",
     seoTitle: "Recibo sem assinatura vale algo? Veja o que fazer se recusarem!",
-    seoDescription: "Descubra se um recibo sem assinatura tem validade jurídica e o que você pode fazer se a pessoa se recusar a assinar.",
+    seoDescription:
+      "Descubra se um recibo sem assinatura tem validade jurídica e o que você pode fazer se a pessoa se recusar a assinar.",
     intro: {
-      acordo: "Você fez um pagamento, pediu o recibo, e a pessoa entregou o papel — mas sem assinar. Ou pior: você é quem recebeu o dinheiro, escreveu o recibo, e agora não sabe se precisa correr atrás de uma assinatura para o documento \"valer alguma coisa\".",
-      promessa: "Essa dúvida é mais comum do que parece, e a resposta tem um detalhe importante que pouca gente sabe.",
-      previa: "Entenda a fundo por que um simples rabisco muda tudo perante a lei e veja táticas práticas para resolver a situação quando a outra parte não quer assinar."
+      acordo:
+        'Você fez um pagamento, pediu o recibo, e a pessoa entregou o papel — mas sem assinar. Ou pior: você é quem recebeu o dinheiro, escreveu o recibo, e agora não sabe se precisa correr atrás de uma assinatura para o documento "valer alguma coisa".',
+      promessa:
+        "Essa dúvida é mais comum do que parece, e a resposta tem um detalhe importante que pouca gente sabe.",
+      previa:
+        "Entenda a fundo por que um simples rabisco muda tudo perante a lei e veja táticas práticas para resolver a situação quando a outra parte não quer assinar.",
     },
     sections: [
       {
         h2: "A assinatura não é um detalhe decorativo",
-        content: "<p>Um recibo sem assinatura de quem recebeu o dinheiro não comprova a quitação da dívida. Pense assim: o recibo é a palavra do recebedor dizendo &quot;eu recebi esse valor e não tenho mais nada a cobrar&quot;. Sem a assinatura dessa pessoa, o papel é só um texto solto — não tem como provar que foi ela quem concordou com aquilo.</p><p>Já a assinatura de quem pagou não costuma ser exigida, porque quem está sendo protegido pelo documento é justamente o pagador. É ele quem vai precisar do recibo se for cobrado de novo no futuro.</p>"
+        content:
+          "<p>Um recibo sem assinatura de quem recebeu o dinheiro não comprova a quitação da dívida. Pense assim: o recibo é a palavra do recebedor dizendo &quot;eu recebi esse valor e não tenho mais nada a cobrar&quot;. Sem a assinatura dessa pessoa, o papel é só um texto solto — não tem como provar que foi ela quem concordou com aquilo.</p><p>Já a assinatura de quem pagou não costuma ser exigida, porque quem está sendo protegido pelo documento é justamente o pagador. É ele quem vai precisar do recibo se for cobrado de novo no futuro.</p>",
       },
       {
         h2: "O que fazer se o recebedor não quer assinar",
-        content: "<p>Isso acontece mais do que deveria, principalmente em pagamentos informais — diaristas, prestadores de serviço avulsos, vendas entre particulares. Se a pessoa que recebeu o dinheiro relutar em assinar, você tem algumas saídas práticas:</p><ul><li><strong>1. Não solte o pagamento final sem o recibo assinado.</strong> Se ainda há uma parcela ou o pagamento está sendo feito na hora, condicione a entrega do dinheiro à assinatura do documento. Isso é seu direito.</li><li><strong>2. Peça uma confirmação por escrito em outro canal.</strong> Uma mensagem de WhatsApp onde a pessoa escreve \"recebi os R$ 500,00 referentes ao serviço\" tem valor como prova, mesmo não substituindo o recibo formal.</li><li><strong>3. Use o comprovante bancário como apoio.</strong> Se o pagamento foi por PIX ou transferência, o comprovante mostra que o dinheiro saiu da sua conta e entrou na conta de outra pessoa — não prova o motivo do pagamento, mas ajuda a montar o quadro probatório completo.</li><li><strong>4. Em último caso, registre testemunhas.</strong> Se for um valor relevante e a pessoa continuar recusando, ter alguém presente no momento do pagamento pode ajudar caso o assunto vá para o Juizado de Pequenas Causas.</li></ul>",
-        hasAd: true
+        content:
+          '<p>Isso acontece mais do que deveria, principalmente em pagamentos informais — diaristas, prestadores de serviço avulsos, vendas entre particulares. Se a pessoa que recebeu o dinheiro relutar em assinar, você tem algumas saídas práticas:</p><ul><li><strong>1. Não solte o pagamento final sem o recibo assinado.</strong> Se ainda há uma parcela ou o pagamento está sendo feito na hora, condicione a entrega do dinheiro à assinatura do documento. Isso é seu direito.</li><li><strong>2. Peça uma confirmação por escrito em outro canal.</strong> Uma mensagem de WhatsApp onde a pessoa escreve "recebi os R$ 500,00 referentes ao serviço" tem valor como prova, mesmo não substituindo o recibo formal.</li><li><strong>3. Use o comprovante bancário como apoio.</strong> Se o pagamento foi por PIX ou transferência, o comprovante mostra que o dinheiro saiu da sua conta e entrou na conta de outra pessoa — não prova o motivo do pagamento, mas ajuda a montar o quadro probatório completo.</li><li><strong>4. Em último caso, registre testemunhas.</strong> Se for um valor relevante e a pessoa continuar recusando, ter alguém presente no momento do pagamento pode ajudar caso o assunto vá para o Juizado de Pequenas Causas.</li></ul>',
+        hasAd: true,
       },
       {
         h2: "E se eu sou quem recebeu — preciso assinar mesmo?",
-        content: "<p>Sim. Se você recebeu um pagamento e emitiu um recibo, a assinatura é o que torna o documento válido como prova de quitação. Sem ela, tecnicamente você ainda poderia cobrar o mesmo valor de novo — o que, é claro, não seria correto, mas mostra por que a assinatura importa tanto.</p>"
+        content:
+          "<p>Sim. Se você recebeu um pagamento e emitiu um recibo, a assinatura é o que torna o documento válido como prova de quitação. Sem ela, tecnicamente você ainda poderia cobrar o mesmo valor de novo — o que, é claro, não seria correto, mas mostra por que a assinatura importa tanto.</p>",
       },
       {
         h2: "Recibo digital sem assinatura física também conta?",
-        content: "<p>Sim, desde que seja possível identificar quem emitiu. Uma assinatura digitalizada, um nome digitado em caixa alta seguido do CPF, ou até uma confirmação por e-mail com identificação clara da pessoa já cumprem essa função na maioria dos casos do dia a dia. O importante é que fique claro quem está afirmando ter recebido o valor.</p>",
+        content:
+          "<p>Sim, desde que seja possível identificar quem emitiu. Uma assinatura digitalizada, um nome digitado em caixa alta seguido do CPF, ou até uma confirmação por e-mail com identificação clara da pessoa já cumprem essa função na maioria dos casos do dia a dia. O importante é que fique claro quem está afirmando ter recebido o valor.</p>",
         hasCta: {
           text: "Quer gerar um recibo completo, com todos os campos organizados e espaço de assinatura já pronto para impressão?",
           link: "/recibo-simples",
-          ctaLabel: "BAIXAR RECIBO SIMPLES EM PDF"
-        }
-      }
+          ctaLabel: "BAIXAR RECIBO SIMPLES EM PDF",
+        },
+      },
     ],
-    conclusion: "<p>Se a situação envolve um valor que pode acabar em disputa formal, veja também <a href=\"/blog/recibo-simples-juizado-pequenas-causas\" class=\"text-emerald-600 font-semibold hover:underline\">como usar o recibo simples para se proteger no Juizado de Pequenas Causas</a>.</p>",
+    conclusion:
+      '<p>Se a situação envolve um valor que pode acabar em disputa formal, veja também <a href="/blog/recibo-simples-juizado-pequenas-causas" class="text-emerald-600 font-semibold hover:underline">como usar o recibo simples para se proteger no Juizado de Pequenas Causas</a>.</p>',
     faqs: [
       {
         question: "Assinatura digitalizada tem validade em recibo?",
-        answer: "Sim, a assinatura digitalizada (uma imagem da sua assinatura colocada no PDF) tem validade para a maioria dos casos simples do dia a dia, desde que não haja contestação de fraude."
+        answer:
+          "Sim, a assinatura digitalizada (uma imagem da sua assinatura colocada no PDF) tem validade para a maioria dos casos simples do dia a dia, desde que não haja contestação de fraude.",
       },
       {
         question: "O marido pode assinar o recibo no lugar da esposa?",
-        answer: "Se a prestação do serviço e o acordo foram feitos com ela, o ideal é que ela assine. Se ele assinar em nome dela, é recomendável colocar \"fulano, recebido em nome de ciclana\" para evitar confusão."
-      }
-    ]
+        answer:
+          'Se a prestação do serviço e o acordo foram feitos com ela, o ideal é que ela assine. Se ele assinar em nome dela, é recomendável colocar "fulano, recebido em nome de ciclana" para evitar confusão.',
+      },
+    ],
   },
   {
     slug: "perdi-o-recibo-como-provar-pagamento",
     title: "Perdi o recibo que me deram. Como provar que paguei mesmo assim?",
     category: "burocracia-descomplicada",
     seoTitle: "Perdi o recibo de pagamento: Descubra como provar que pagou",
-    seoDescription: "Perdeu o recibo de um pagamento importante? Veja quais outros documentos e provas a lei aceita caso você precise confirmar a transação.",
+    seoDescription:
+      "Perdeu o recibo de um pagamento importante? Veja quais outros documentos e provas a lei aceita caso você precise confirmar a transação.",
     intro: {
-      acordo: "Você pagou, recebeu o recibo, guardou em algum lugar \"seguro\" — e agora não acha de jeito nenhum. Pode ter sido jogado fora por engano, sumido na mudança, ou simplesmente nunca existido em papel porque foi tudo combinado de boca.",
-      promessa: "Antes de entrar em pânico: perder o recibo não significa que você não tem como provar o pagamento.",
-      previa: "Significa apenas que você vai precisar montar a prova com outras peças que a justiça e o bom senso também aceitam."
+      acordo:
+        'Você pagou, recebeu o recibo, guardou em algum lugar "seguro" — e agora não acha de jeito nenhum. Pode ter sido jogado fora por engano, sumido na mudança, ou simplesmente nunca existido em papel porque foi tudo combinado de boca.',
+      promessa:
+        "Antes de entrar em pânico: perder o recibo não significa que você não tem como provar o pagamento.",
+      previa:
+        "Significa apenas que você vai precisar montar a prova com outras peças que a justiça e o bom senso também aceitam.",
     },
     sections: [
       {
         h2: "O recibo não é a única prova que existe",
-        content: "<p>Muita gente trata o recibo como se fosse o único documento capaz de comprovar um pagamento, e por isso a perda dele parece um problema sem solução. Na prática, o recibo é só a prova mais direta e mais forte — mas não a única aceita.</p><p>Veja o que pode substituir ou complementar a ausência do recibo:</p><ul><li><strong>1. Comprovante de PIX ou transferência bancária.</strong> Esse é, hoje, o substituto mais forte. O extrato mostra data, valor, e para quem o dinheiro foi enviado. Não prova o motivo do pagamento, mas prova que ele aconteceu.</li><li><strong>2. Conversas por WhatsApp ou e-mail.</strong> Se você combinou o pagamento por mensagem (\"vou te pagar R$ 300 pelo serviço de pintura na sexta\"), esse histórico tem valor probatório. Tire print e guarde, mesmo que pareça óbvio.</li><li><strong>3. Testemunhas.</strong> Se alguém estava presente quando o dinheiro foi entregue ou quando o trato foi combinado, essa pessoa pode confirmar a situação se for necessário.</li><li><strong>4. Histórico de relacionamento.</strong> Se você já pagou essa mesma pessoa outras vezes e tem registro disso, ajuda a construir um padrão que sustenta sua versão.</li></ul>",
-        hasAd: true
+        content:
+          '<p>Muita gente trata o recibo como se fosse o único documento capaz de comprovar um pagamento, e por isso a perda dele parece um problema sem solução. Na prática, o recibo é só a prova mais direta e mais forte — mas não a única aceita.</p><p>Veja o que pode substituir ou complementar a ausência do recibo:</p><ul><li><strong>1. Comprovante de PIX ou transferência bancária.</strong> Esse é, hoje, o substituto mais forte. O extrato mostra data, valor, e para quem o dinheiro foi enviado. Não prova o motivo do pagamento, mas prova que ele aconteceu.</li><li><strong>2. Conversas por WhatsApp ou e-mail.</strong> Se você combinou o pagamento por mensagem ("vou te pagar R$ 300 pelo serviço de pintura na sexta"), esse histórico tem valor probatório. Tire print e guarde, mesmo que pareça óbvio.</li><li><strong>3. Testemunhas.</strong> Se alguém estava presente quando o dinheiro foi entregue ou quando o trato foi combinado, essa pessoa pode confirmar a situação se for necessário.</li><li><strong>4. Histórico de relacionamento.</strong> Se você já pagou essa mesma pessoa outras vezes e tem registro disso, ajuda a construir um padrão que sustenta sua versão.</li></ul>',
+        hasAd: true,
       },
       {
         h2: "E se o pagamento foi em dinheiro vivo, sem nenhum registro?",
-        content: "<p>Esse é o cenário mais difícil. Sem comprovante bancário, sem mensagem, sem testemunha — fica a palavra de um contra a palavra do outro. Nesses casos, o que normalmente resolve é:</p><ul><li>Tentar reconstruir a situação com a pessoa, de forma amigável, pedindo que ela confirme por escrito (mensagem, e-mail) que recebeu o valor;</li><li>Verificar se existe qualquer rastro indireto, como um post em rede social, uma nota fiscal de material relacionado ao serviço, ou um comprovante de retirada de dinheiro no banco no mesmo dia e valor aproximado.</li></ul><p>A lição prática aqui não ajuda a resolver o problema de agora, mas vale para o futuro: pagamento em dinheiro vivo sem nenhum registro é o tipo de transação que mais gera dor de cabeça depois. Sempre que possível, prefira PIX (que já gera comprovante automático) ou, na falta dele, tire uma foto do recibo assim que ele for emitido — antes mesmo de guardá-lo, para ter uma cópia digital de segurança.</p>"
+        content:
+          "<p>Esse é o cenário mais difícil. Sem comprovante bancário, sem mensagem, sem testemunha — fica a palavra de um contra a palavra do outro. Nesses casos, o que normalmente resolve é:</p><ul><li>Tentar reconstruir a situação com a pessoa, de forma amigável, pedindo que ela confirme por escrito (mensagem, e-mail) que recebeu o valor;</li><li>Verificar se existe qualquer rastro indireto, como um post em rede social, uma nota fiscal de material relacionado ao serviço, ou um comprovante de retirada de dinheiro no banco no mesmo dia e valor aproximado.</li></ul><p>A lição prática aqui não ajuda a resolver o problema de agora, mas vale para o futuro: pagamento em dinheiro vivo sem nenhum registro é o tipo de transação que mais gera dor de cabeça depois. Sempre que possível, prefira PIX (que já gera comprovante automático) ou, na falta dele, tire uma foto do recibo assim que ele for emitido — antes mesmo de guardá-lo, para ter uma cópia digital de segurança.</p>",
       },
       {
         h2: "Posso pedir uma segunda via do recibo?",
-        content: "<p>Sim, e é a solução mais simples se a pessoa que emitiu o recibo original ainda estiver acessível e disposta a ajudar. Não existe problema legal em emitir um novo recibo com a mesma data e os mesmos dados do pagamento original, desde que ambas as partes concordem que ele está substituindo o documento perdido. Vale escrever algo como \"Recibo emitido em segunda via, referente ao pagamento realizado em [data]\" para deixar claro o contexto.</p>"
+        content:
+          '<p>Sim, e é a solução mais simples se a pessoa que emitiu o recibo original ainda estiver acessível e disposta a ajudar. Não existe problema legal em emitir um novo recibo com a mesma data e os mesmos dados do pagamento original, desde que ambas as partes concordem que ele está substituindo o documento perdido. Vale escrever algo como "Recibo emitido em segunda via, referente ao pagamento realizado em [data]" para deixar claro o contexto.</p>',
       },
       {
         h2: "Como evitar esse problema na próxima vez",
-        content: "<p>Depois de gerar o recibo, tire uma foto ou print imediatamente e salve em uma pasta no celular ou e-mail. Isso leva 10 segundos e elimina completamente esse tipo de aperto no futuro.</p>",
+        content:
+          "<p>Depois de gerar o recibo, tire uma foto ou print imediatamente e salve em uma pasta no celular ou e-mail. Isso leva 10 segundos e elimina completamente esse tipo de aperto no futuro.</p>",
         hasCta: {
           text: "Precisa emitir uma segunda via ou um novo recibo agora?",
           link: "/recibo-simples",
-          ctaLabel: "GERAR NOVO RECIBO SIMPLES"
-        }
-      }
+          ctaLabel: "GERAR NOVO RECIBO SIMPLES",
+        },
+      },
     ],
-    conclusion: "<p>Se o pagamento que você está tentando comprovar envolve uma situação que pode acabar em cobrança formal, veja também <a href=\"/blog/recibo-simples-juizado-pequenas-causas\" class=\"text-emerald-600 font-semibold hover:underline\">como usar um recibo simples para se proteger no Juizado de Pequenas Causas</a>.</p>"
-  }
+    conclusion:
+      '<p>Se o pagamento que você está tentando comprovar envolve uma situação que pode acabar em cobrança formal, veja também <a href="/blog/recibo-simples-juizado-pequenas-causas" class="text-emerald-600 font-semibold hover:underline">como usar um recibo simples para se proteger no Juizado de Pequenas Causas</a>.</p>',
+  },
+  {
+    slug: "como-preencher-nota-promissoria-corretamente",
+    title:
+      "Como preencher uma Nota Promissória corretamente (Guia prático para não perder a validade legal)",
+    category: "burocracia-descomplicada",
+    seoTitle: "Como Preencher Nota Promissória Corretamente | Guia Prático",
+    seoDescription:
+      "Aprenda a preencher uma Nota Promissória corretamente e garantir validade legal. Descubra os requisitos obrigatórios, a figura do avalista e como gerar online.",
+    intro: {
+      acordo:
+        "A Nota Promissória é um dos títulos de crédito mais tradicionais e eficientes do mercado brasileiro. No entanto, um simples erro no preenchimento pode transformar sua garantia de recebimento em apenas um pedaço de papel sem valor jurídico.",
+      promessa:
+        "Se você está prestes a fechar um negócio, fazer um empréstimo pessoal ou parcelar uma venda, preencher este documento corretamente é o único caminho para garantir proteção no Juizado de Pequenas Causas ou em um cartório de protestos.",
+      previa:
+        "Neste guia prático, você vai aprender a estruturar sua nota promissória sem erros, com validade legal plena, e descobrir como gerar esse documento em PDF em poucos segundos.",
+    },
+    sections: [
+      {
+        h2: "O que é uma Nota Promissória (e por que ela é tão forte)?",
+        content:
+          '<p>Diferente de um <a href="/recibo-simples" class="text-emerald-600 font-semibold hover:underline">recibo comum</a>, que comprova que um pagamento já foi feito, a Nota Promissória é uma promessa incondicional de pagamento futuro. É um reconhecimento de dívida onde uma pessoa (o emitente/devedor) se compromete a pagar uma quantia exata a outra (o beneficiário/credor) em uma data estipulada.</p><p>O grande poder deste documento reside na sua força executiva. Se a dívida não for paga, o credor não precisa provar a origem do negócio na justiça; ele pode executar a dívida diretamente, acelerando a cobrança e o bloqueio de bens.</p>',
+      },
+      {
+        h2: "Requisitos Legais: O que não pode faltar no seu documento",
+        content:
+          '<p>Para que a Justiça brasileira reconheça a validade do título, o documento precisa conter informações obrigatórias. Pular qualquer um desses passos invalida a cobrança:</p><ul><li><strong>A denominação "Nota Promissória":</strong> O termo deve estar escrito claramente no texto do documento.</li><li><strong>Promessa incondicional de pagar uma quantia determinada:</strong> Não pode haver condições (ex: "pagarei se o serviço ficar bom"). O valor deve ser cravado em números e escrito por extenso para evitar adulterações.</li><li><strong>Nome da pessoa a quem deve ser pago (Credor):</strong> Documentos "ao portador" não são mais aceitos nesse formato; é preciso identificar o CPF/CNPJ de quem vai receber.</li><li><strong>Data de vencimento:</strong> O dia, mês e ano exatos em que o pagamento deve ser realizado.</li><li><strong>Local de pagamento (Praça):</strong> A cidade e estado onde o pagamento deve ocorrer (geralmente, o domicílio do credor).</li><li><strong>Data e local de emissão:</strong> Onde e quando o documento foi criado.</li><li><strong>Assinatura do devedor (Emitente):</strong> O requisito mais importante. Sem a assinatura de próprio punho (ou certificado digital válido) de quem deve, o papel não tem valor.</li></ul>',
+        hasAd: true,
+      },
+      {
+        h2: "A figura do Avalista: Segurança em dobro",
+        content:
+          "<p>Para transações de valores mais altos, é comum exigir um avalista. O avalista é a pessoa que assina a nota garantindo o pagamento caso o devedor principal não pague. Ao assinar, o avalista assume a mesma responsabilidade jurídica do devedor principal.</p><p>Se você precisa de uma garantia extra, certifique-se de usar um modelo específico que inclua os campos de identificação, CPF, endereço e assinatura do avalista.</p>",
+      },
+      {
+        h2: "Como gerar sua Nota Promissória sem erros",
+        content:
+          '<p>Preencher papéis de papelaria à mão abre margem para rasuras, letras ilegíveis e erros que anulam a cobrança. A forma mais segura e moderna de emitir este documento é digitalmente.</p><p>Com a ferramenta certa, você automatiza o preenchimento, evita falhas humanas e obtém um arquivo limpo e profissional. Você pode gerar a sua <a href="/nota-promissoria" class="text-emerald-600 font-semibold hover:underline">Nota Promissória em PDF gratuitamente</a> em nossa plataforma. O preenchimento é feito totalmente no seu navegador (sem salvar seus dados em banco de dados), garantindo privacidade total.</p><p>Após preencher, basta baixar o PDF, imprimir e colher a assinatura do devedor.</p>',
+        hasCta: {
+          text: "Gere sua Nota Promissória agora mesmo de forma rápida, segura e com validade legal.",
+          link: "/nota-promissoria",
+          ctaLabel: "GERAR NOTA PROMISSÓRIA GRÁTIS",
+        },
+      },
+      {
+        h2: "Nota Promissória substitui um Contrato de Prestação de Serviços?",
+        content:
+          '<p>Esta é uma dúvida muito comum, mas a resposta é não.</p><p>A nota promissória garante apenas que um valor financeiro será pago em determinada data. Ela não descreve o que foi vendido, quais são as obrigações da entrega, as garantias do serviço ou as multas por rescisão.</p><p>Se você está prestando um serviço contínuo, fazendo uma obra ou vendendo um bem de alto valor, a Nota Promissória deve ser apenas o anexo de garantia. Para proteger o escopo do trabalho e alinhar as regras com o seu cliente, você precisa formalizar o acordo através de um sistema especializado de geração de contratos, como o <a href="https://geracontrato.com.br" target="_blank" rel="noopener noreferrer" class="text-emerald-600 font-semibold hover:underline">GeraContrato.com.br</a>, garantindo blindagem jurídica de ponta a ponta.</p>',
+      },
+    ],
+    conclusion:
+      "<p>Garantir que a sua Nota Promissória seja preenchida corretamente é o primeiro passo para não levar calotes e manter a saúde financeira dos seus negócios. Evite métodos amadores e utilize nossa plataforma para gerar seus documentos em poucos segundos, garantindo a sua tranquilidade e a força do seu crédito.<br><br>Por Equipe Gerador de Recibos.</p>",
+    faqs: [
+      {
+        question:
+          "O que acontece se a nota promissória não tiver a data de vencimento?",
+        answer:
+          "Se a data de vencimento for deixada em branco, a nota promissória será considerada pagável 'à vista', ou seja, o credor pode cobrar o valor imediatamente após a emissão.",
+      },
+      {
+        question:
+          "Preciso registrar a nota promissória em cartório para ela ter validade?",
+        answer:
+          "Não. A nota promissória já possui força executiva por si só, bastando ser preenchida corretamente e assinada pelo devedor. O registro em cartório (protesto) é utilizado apenas em caso de inadimplência, para negativar o devedor e forçar o pagamento.",
+      },
+      {
+        question: "Posso cobrar juros em uma nota promissória atrasada?",
+        answer:
+          "Sim. Em caso de atraso, é permitida a cobrança de juros de mora legais e correção monetária, que incidirão a partir da data de vencimento até o efetivo pagamento, conforme as regras do Código Civil Brasileiro.",
+      },
+      {
+        question: "Qualquer pessoa pode ser avalista em uma nota promissória?",
+        answer:
+          "Em regra, qualquer pessoa maior de 18 anos e capaz pode ser avalista. No entanto, é importante que o avalista tenha capacidade financeira para arcar com a dívida. Além disso, se o avalista for casado, é necessária a assinatura do cônjuge (outorga uxória), exceto no regime de separação absoluta de bens.",
+      },
+    ],
+  },
+  {
+    slug: "diferenca-nota-promissoria-recibo-simples-e-contrato",
+    title:
+      "Diferença entre Nota Promissória, Recibo Simples e Contrato: Qual usar em cada situação?",
+    category: "burocracia-descomplicada",
+    seoTitle: "Nota Promissória, Recibo Simples e Contrato: Qual usar?",
+    seoDescription:
+      "Entenda a diferença entre Nota Promissória, Recibo Simples e Contrato. Saiba qual documento usar em cada transação para proteger seu negócio.",
+    intro: {
+      acordo:
+        "Um dos maiores erros cometidos por autônomos, freelancers e pequenos empreendedores (MEIs) é a confusão na hora de documentar uma venda ou serviço. Usar o documento errado pode significar não apenas dor de cabeça, mas a perda total do direito de cobrar um cliente inadimplente na Justiça.",
+      promessa:
+        "Você sabe quando deve entregar um recibo, quando exigir uma nota promissória ou quando é obrigatório assinar um contrato? Embora os três documentos lidem com transações comerciais, eles possuem finalidades jurídicas completamente opostas.",
+      previa:
+        "Entender a diferença entre eles é o primeiro passo para blindar o seu negócio contra calotes. Neste artigo, vamos desmistificar o uso de cada um deles de forma prática e direta.",
+    },
+    sections: [
+      {
+        h2: "1. Recibo Simples: O Comprovante do Passado",
+        content:
+          '<p>O recibo é, por definição, o documento que atesta que uma obrigação financeira já foi cumprida. Ele olha para o passado.</p><p>Quando você finaliza uma obra, entrega um projeto ou conclui uma consultoria e o cliente faz o pagamento (seja em dinheiro, Pix ou transferência), você emite o recibo. Para o seu cliente, o recibo é a prova legal de que ele não deve mais nada referente àquela quantia. Para você, é a ferramenta ideal de organização de fluxo de caixa e comprovação de renda.</p><h3>Quando utilizar:</h3><ul><li>Pagamentos à vista.</li><li>Quitação de parcelas mensais de um serviço.</li><li>Comprovação de recebimento de valores para prestação de contas.</li></ul><p><strong>Dica de Ouro:</strong> Não use talões de papel que podem ser facilmente falsificados. É muito mais seguro e profissional gerar um <a href="/recibo-simples" class="text-emerald-600 font-semibold hover:underline">Recibo Simples em PDF</a> digitalmente, preenchendo os dados diretamente no navegador e enviando pelo WhatsApp do cliente.</p>',
+      },
+      {
+        h2: "2. Nota Promissória: A Garantia do Futuro",
+        content:
+          '<p>Se o recibo comprova o que já foi pago, a Nota Promissória é a promessa do que ainda será pago. Ela olha para o futuro.</p><p>A Nota Promissória é um título de crédito. Ela é uma promessa incondicional de que o cliente (emitente) pagará a você (beneficiário) um valor exato em uma data específica. A grande vantagem jurídica deste documento é a sua "força executiva". Se o cliente não pagar na data combinada, você não precisa entrar com uma ação longa para provar que o serviço existiu; você executa a dívida diretamente, o que pode resultar em bloqueio rápido de bens ou contas bancárias do devedor no Juizado de Pequenas Causas.</p><h3>Quando utilizar:</h3><ul><li>Vendas parceladas direto com o cliente (sem passar por cartão de crédito).</li><li>Empréstimos pessoais.</li><li>Adiantamentos onde o pagamento total será feito em uma data futura.</li></ul><p>Para que a promissória tenha validade, ela não pode ter rasuras. Você pode emitir sua <a href="/nota-promissoria" class="text-emerald-600 font-semibold hover:underline">Nota Promissória Online</a> de forma automática e gratuita para garantir que todos os requisitos legais (como praça de pagamento e data de vencimento) estejam perfeitos antes de colher a assinatura.</p>',
+        hasAd: true,
+      },
+      {
+        h2: "3. Contrato de Prestação de Serviço: A Regra do Jogo",
+        content:
+          '<p>O contrato é o documento mais completo de todos. Enquanto o recibo fala de pagamento feito e a promissória fala de pagamento futuro, o contrato define o que está sendo negociado e como.</p><p>Ele é o mapa da transação. É no contrato que você estipula o escopo do serviço, os prazos de entrega, os limites de revisões (no caso de projetos criativos), as multas por atraso de pagamento, as cláusulas de confidencialidade e as regras para cancelamento.</p><p>Sem um contrato, você fica vulnerável a clientes que exigem trabalho extra sem querer pagar a mais por isso (o famoso aumento de escopo).</p><h3>Quando utilizar:</h3><ul><li>Serviços de médio ou longo prazo (consultorias, obras, gestão de redes sociais).</li><li>Transações de alto valor (compra e venda de veículos ou imóveis).</li><li>Sempre que as regras do serviço precisarem ficar claras para ambas as partes.</li></ul><p>A formalização profissional mudou. Hoje, você não precisa pagar caro para um advogado redigir regras básicas. Plataformas focadas em Single Page Application e automação jurídica, como o <a href="https://geracontrato.com.br" target="_blank" rel="noopener noreferrer" class="text-emerald-600 font-semibold hover:underline">GeraContrato.com.br</a>, permitem que você monte documentos blindados legalmente em poucos cliques.</p>',
+      },
+      {
+        h2: "O Cenário Perfeito: Usando os três juntos",
+        content:
+          '<p>Na prática, o profissional de alta performance utiliza os três documentos em uma mesma negociação de alto valor. Veja como funciona esse fluxo:</p><ol><li><strong>O Início:</strong> Você e o cliente assinam um Contrato de Prestação de Serviços, definindo todas as regras, o que será feito e a multa em caso de rescisão.</li><li><strong>A Garantia:</strong> Como o cliente vai pagar o projeto em 3 parcelas, ele assina 3 Notas Promissórias, atrelando as datas de pagamento aos prazos de entrega.</li><li><strong>A Quitação:</strong> Conforme o cliente paga cada parcela (ou resgata a promissória), você emite um <a href="/recibo-de-pagamento" class="text-emerald-600 font-semibold hover:underline">Recibo de Pagamento</a> confirmando o recebimento daquele valor específico.</li></ol>',
+        hasCta: {
+          text: "Pronto para formalizar suas transações de forma profissional e evitar prejuízos?",
+          link: "/recibo-simples",
+          ctaLabel: "ACESSAR MODELOS DE RECIBOS E PROMISSÓRIAS",
+        },
+      },
+    ],
+    conclusion:
+      "<p>Com essa estrutura, sua empresa fecha todas as brechas legais. Você protege o seu trabalho, garante o seu recebimento e transmite extrema confiança e profissionalismo ao seu cliente.<br><br>Por Equipe Gerador de Recibos.</p>",
+    faqs: [
+      {
+        question: "Posso usar um recibo no lugar de um contrato?",
+        answer:
+          "Não é recomendado. O recibo apenas prova o pagamento, mas não especifica os detalhes do serviço, obrigações ou garantias. Para segurança completa, use um contrato para definir o acordo e o recibo para provar o pagamento.",
+      },
+      {
+        question: "Nota promissória e contrato podem ser usados juntos?",
+        answer:
+          "Sim, e é a prática mais segura! O contrato estabelece as regras gerais do negócio e as obrigações, enquanto a nota promissória garante o pagamento futuro de forma mais ágil em caso de inadimplência.",
+      },
+      {
+        question: "Como ter certeza de que meu recibo tem validade legal?",
+        answer:
+          "Para ser válido, o recibo deve conter o valor em números e por extenso, nome e CPF/CNPJ do pagador e recebedor, descrição detalhada do pagamento, local, data e, principalmente, a assinatura de quem recebeu o valor.",
+      },
+      {
+        question: "Onde posso gerar contratos de forma segura e barata?",
+        answer:
+          "Você pode utilizar plataformas de automação jurídica especializadas, como o geracontrato.com.br, que permitem gerar documentos completos e dentro da lei em poucos minutos.",
+      },
+    ],
+  },
 ];
