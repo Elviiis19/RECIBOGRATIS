@@ -1,4 +1,4 @@
-import { formatPixKey } from "./src/utils/pix";
+import { formatPixKey } from "../src/utils/pix";
 
 console.log('Phone without +55:', formatPixKey("11999999999"));
 console.log('Phone with +55:', formatPixKey("+5511999999999"));

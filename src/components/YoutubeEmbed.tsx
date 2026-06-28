@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Play } from 'lucide-react';
-import { cn } from '../lib/utils';
 
 export function YoutubeEmbed({ videoId, title }: { videoId: string, title?: string }) {
   const [isLoaded, setIsLoaded] = useState(false);

@@ -25,7 +25,7 @@ export interface BlogPost {
     }
   }>;
   conclusion: string;
-  faqs: Array<{ question: string; answer: string }>;
+  faqs?: Array<{ question: string; answer: string }>;
 }
 
 export const blogCategories: BlogCategory[] = [

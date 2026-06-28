@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
       (function() {
+        var originalFetch = window.fetch;
+        try {
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return originalFetch; },
+            set: function(val) { console.warn('Ignored attempt to overwrite window.fetch'); },
+            configurable: true
+          });
+        } catch(e) {}
+        
         var path = window.location.pathname;
         if (path.length > 1 && path.endsWith('/')) {
           var cleanUrl = window.location.protocol + "//" + window.location.host + path.replace(/\/+$/, '') + window.location.search + window.location.hash;
