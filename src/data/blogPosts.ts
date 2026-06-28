@@ -1040,4 +1040,67 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "cuidado-no-pix-receita-federal-travar-cpf",
+    title:
+      "Cuidado no Pix: O detalhe bobo que faz a Receita Federal travar o seu CPF",
+    category: "tecnologia-e-seguranca",
+    seoTitle: "Cuidado no Pix: O detalhe que faz a Receita Federal travar CPF",
+    seoDescription:
+      "Receber Pix sem lastro pode bloquear seu CPF na malha fina da Receita Federal. Veja os 3 erros comuns de autônomos e como se proteger hoje mesmo.",
+    image: "/o-detalhe-bobo.webp",
+    intro: {
+      acordo:
+        "Sabe aquela sensação de alívio quando você termina um serviço, o cliente faz o Pix e o dinheiro finalmente cai na conta? Para milhares de profissionais autônomos, prestadores de serviço e MEIs no Brasil, essa alegria rápida tem se transformado em um verdadeiro pesadelo alguns meses depois.",
+      promessa:
+        "O motivo é silencioso, mas implacável: o cruzamento automático de dados da Receita Federal. Um pequeno detalhe na hora de documentar o recebimento desses valores acende uma luz vermelha no sistema do governo, o que pode levar ao bloqueio imediato do seu CPF.",
+      previa:
+        "Se você usa sua conta bancária para receber pelos seus trabalhos, veja se você não está cometendo um desses três erros inocentes e como se blindar.",
+    },
+    sections: [
+      {
+        h2: "A armadilha invisível que você não percebeu",
+        content:
+          '<p>O sistema da Receita Federal sabe exatamente quanto entra e quanto sai da sua conta via Pix. O problema não é receber o dinheiro, mas sim não conseguir provar a origem dele.</p><h3>Aqui estão os três erros que mais levam autônomos para a malha fina:</h3><ol><li><strong>Dinheiro sem lastro (O "Pix Fantasma"):</strong> Você recebe R$ 1.500 de um cliente pela pintura de uma casa, R$ 800 por um conserto de computador ou R$ 2.000 por uma consultoria. O dinheiro entra, mas não há nenhum documento legal que comprove que aquilo foi fruto de um trabalho. Para o leão, isso é aumento de patrimônio não justificado.</li><li><strong>A bagunça entre CPF e CNPJ:</strong> Muitos MEIs recebem o pagamento dos clientes na conta pessoal (Pessoa Física) em vez da conta da empresa. Quando o cruzamento de dados acontece, a Receita entende que a pessoa física teve um rendimento alto não declarado, gerando multas pesadas.</li><li><strong>Receber sem especificar o "Referente a":</strong> Deixar o governo tentar adivinhar de onde veio o seu dinheiro é o caminho mais rápido para ter as contas travadas. Uma transação comercial precisa de uma descrição clara sobre qual serviço foi prestado.</li></ol>',
+      },
+      {
+        h2: "Como proteger seu dinheiro e seu nome hoje mesmo",
+        content:
+          "<p>A solução para blindar o seu CPF não exige a contratação de um contador caro nem sistemas complexos. O segredo está na formalização imediata de cada transação.</p><p>De acordo com o Artigo 319 do Código Civil Brasileiro, todo pagamento exige uma quitação regular. Ou seja: você precisa emitir um recibo válido na mesma hora. A boa notícia é que você não precisa mais daqueles talões de papelaria que amassam no porta-luvas do carro ou de arquivos em Word que desconfiguram no celular.</p>",
+        hasAd: true,
+      },
+      {
+        h2: "A solução na palma da mão",
+        content:
+          "<p>Para criar um lastro legal e proteger o seu CPF instantaneamente, a melhor prática do mercado é utilizar um gerador automático.</p><h3>Na plataforma Recibo Grátis, você profissionaliza a sua cobrança em menos de um minuto:</h3><ul><li><strong>100% Online e Gratuito:</strong> Você acessa pelo celular, não precisa fazer nenhum tipo de cadastro demorado e não paga mensalidade.</li><li><strong>Pix no Próprio Documento:</strong> O sistema permite incluir a sua chave, gerando um QR Code Pix diretamente no PDF do recibo.</li><li><strong>Adequação Legal Automática:</strong> A ferramenta formata o documento com todos os requisitos exigidos por lei (incluindo valor por extenso automático e campo detalhado de descrição do serviço).</li><li><strong>Privacidade Absoluta:</strong> O processamento ocorre apenas na tela do seu celular. Seus dados financeiros não ficam armazenados em nenhum banco de dados.</li></ul>",
+        hasCta: {
+          text: "Não deixe brechas para a fiscalização. Gere seus comprovantes com validade legal e proteja seu CPF.",
+          link: "/recibo-de-pagamento",
+          ctaLabel: "GERAR RECIBO SEGURO AGORA",
+        },
+      },
+    ],
+    conclusion:
+      '<p>O profissional moderno não deixa brechas para a fiscalização. Se você acabou de entregar um trabalho, acesse agora o gerador de <a href="/recibo-de-pagamento" class="text-emerald-600 font-semibold hover:underline">Recibo de Prestação de Serviços</a>, preencha os dados em segundos e mande o PDF blindado direto para o WhatsApp do seu cliente.<br><br>Por Equipe Gerador de Recibos.</p>',
+    faqs: [
+      {
+        question:
+          "Receber muitos Pix de pequeno valor também pode bloquear meu CPF?",
+        answer:
+          "Sim. A Receita Federal cruza os dados bancários globalmente. O volume de transações e a constância (muitas transferências de CPFs variados) caracterizam atividade comercial, que precisa ser justificada através de recibos ou notas fiscais.",
+      },
+      {
+        question:
+          "Apenas guardar o comprovante do Pix que o cliente me mandou não serve?",
+        answer:
+          'Não. O comprovante do banco atesta apenas a transferência de fundos. Ele não justifica legalmente o motivo do pagamento (o "lastro"). Para isso, você precisa emitir um recibo com os dados das duas partes e a descrição do serviço.',
+      },
+      {
+        question:
+          "Sou MEI, posso emitir recibo ou sou obrigado a emitir Nota Fiscal?",
+        answer:
+          "O MEI é dispensado de emitir Nota Fiscal para pessoa física, a menos que o cliente exija. Nesses casos de dispensa (venda ou serviço para pessoa física), o Recibo de Pagamento é o documento ideal e suficiente para comprovar a entrada financeira.",
+      },
+    ],
+  },
 ];

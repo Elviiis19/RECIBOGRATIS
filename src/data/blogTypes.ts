@@ -9,6 +9,7 @@ export interface BlogPost {
   category: string;
   seoTitle: string;
   seoDescription: string;
+  image?: string;
   intro: {
     acordo: string;
     promessa: string;
