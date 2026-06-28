@@ -35,4 +35,5 @@ export const blogCategories: BlogCategory[] = [
   { slug: 'burocracia-descomplicada', name: 'Burocracia Descomplicada' },
   { slug: 'autonomos', name: 'Profissionais Autônomos' },
   { slug: 'prestacao-de-servicos', name: 'Prestação de Serviços' },
+  { slug: 'tecnologia-e-seguranca', name: 'Tecnologia e Segurança' },
 ];

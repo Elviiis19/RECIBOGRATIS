@@ -341,7 +341,7 @@ export function Home() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {blogPosts.slice(0, 3).map((post) => (
+                {[...blogPosts].reverse().slice(0, 3).map((post) => (
                   <Link
                     key={post.slug}
                     to={`/blog/${post.slug}`}

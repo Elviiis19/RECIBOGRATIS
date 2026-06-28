@@ -62,7 +62,7 @@ export const BlogIndex = () => {
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {filteredPosts.map((post) => {
+                {[...filteredPosts].reverse().map((post) => {
                   const cat = blogCategories.find(c => c.slug === post.category);
                   return (
                     <article key={post.slug} className="group bg-white border border-gray-100 hover:border-emerald-200 shadow-sm hover:shadow-xl rounded-2xl overflow-hidden transition-all duration-300 flex flex-col">
