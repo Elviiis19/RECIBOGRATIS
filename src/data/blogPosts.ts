@@ -1103,4 +1103,104 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "como-preencher-um-recibo-simples-e-evitar-dor-de-cabeca",
+    title: "Como preencher um recibo simples (e evitar dor de cabeça com pagamentos)",
+    category: "burocracia-descomplicada",
+    seoTitle: "Como Preencher um Recibo Simples Corretamente | Passo a Passo",
+    seoDescription: "Aprenda como preencher um recibo simples de forma segura, os dados obrigatórios e a diferença para nota fiscal. Gere o seu grátis em PDF.",
+    image: "/modelo-recibo-simples-preenchido.webp",
+    intro: {
+      acordo: 'Você já passou por aquela situação em que pagou por um serviço, fez um acerto de boca e, meses depois, a pessoa veio cobrar o mesmo valor dizendo que "não lembrava" do pagamento? Pois é. Transações baseadas só na confiança e na palavra são o caminho mais rápido para uma dor de cabeça daquelas.',
+      promessa: 'Seja para vender aquele celular usado, pagar o pedreiro que reformou sua casa, ou fechar a diária de um trabalho autônomo, você precisa se resguardar. E a forma mais prática, rápida e legal de fazer isso no Brasil é saber exatamente como preencher um recibo simples.',
+      previa: 'Aqui, eu vou te mostrar a real sobre o que não pode faltar nesse documento para que ele tenha validade jurídica de verdade. E o melhor: vou te mostrar como gerar esse recibo em PDF na hora, sem precisar instalar nada no seu celular ou computador.'
+    },
+    sections: [
+      {
+        h2: "O que não pode faltar no seu recibo? (A estrutura blindada)",
+        content: '<p>Um papel rabiscado não vai te salvar num juizado de pequenas causas se faltarem as informações certas. Para que o seu recibo seja incontestável, ele precisa de alguns elementos essenciais. Foca nisso aqui:</p><ul><li><strong>Escreva o valor por extenso:</strong> Não coloque só "R$ 1.500,00". Alguém de má-fé pode facilmente adicionar um zero ali com uma caneta. Escrever "Um mil e quinhentos reais" trava o documento contra qualquer fraude.</li><li><strong>Nomes reais e CPF:</strong> Nada de colocar "Pagamento para o Zezinho da Oficina". Use sempre o Nome Completo e o CPF (ou CNPJ) de quem está pagando e de quem está recebendo. É o CPF que amarra a transação à pessoa no Código Civil.</li><li><strong>Seja chato nos detalhes (Campo "Referente a"):</strong> Esse é o coração do seu recibo. Nunca escreva só "referente a serviços". Especifique! Escreva algo como: "Pagamento referente à pintura completa da área externa da casa, incluindo material e mão de obra". Quanto mais detalhado, mais seguro você está.</li><li><strong>Local, Data e a famosa Assinatura:</strong> Um recibo sem a assinatura de quem recebeu o dinheiro é só um pedaço de papel sem valor. Coloque a cidade, a data do pagamento e pegue a assinatura física ou digital do recebedor.</li></ul><figure class="my-8"><img src="/modelo-recibo-simples-preenchido.webp" alt="Exemplo de como preencher um recibo simples corretamente" class="rounded-xl shadow-lg border border-gray-200 w-full" /><figcaption class="text-center text-sm text-gray-500 mt-2">Modelo de recibo simples preenchido corretamente com todos os dados legais.</figcaption></figure>',
+      },
+      {
+        h2: "A velha dúvida: Recibo Simples ou Nota Fiscal?",
+        content: '<p>Muita gente confunde as duas coisas, mas a regra é bem mais simples do que parece.</p><p>A Nota Fiscal existe para o Governo cobrar impostos de empresas (quem tem CNPJ). Já o Recibo Simples é a sua arma de defesa. Ele serve para proteger o cidadão comum (Pessoa Física) que quer provar que pagou ou recebeu por algo.</p><p>Então, se você é um trabalhador autônomo, freelancer, vendeu um bem pessoal ou está prestando um serviço sem CNPJ, o recibo simples é exatamente o que você precisa usar.</p>',
+        hasAd: true,
+      },
+      {
+        h2: "Por que a gente criou o Recibo Grátis?",
+        content: '<p>Sabe aqueles sites que prometem um documento, mas quando você termina de preencher eles bloqueiam a tela pedindo para você criar uma conta, confirmar e-mail e assinar um plano? Nós também odiamos isso.</p><p>O nosso foco aqui no Recibo Grátis é facilitar a sua vida. Sem burocracia, sem enrolação.</p><ul><li><strong>É 100% livre de cadastros:</strong> Entrou, preencheu, baixou. Simples assim.</li><li><strong>O PDF sai na hora:</strong> Você vê o documento sendo montado ali na sua tela e já baixa o PDF pronto para mandar no WhatsApp do cliente.</li><li><strong>Seus dados ficam com você:</strong> Nós valorizamos a sua privacidade. Tudo acontece no seu próprio navegador, não ficamos guardando o histórico das suas transações nos nossos servidores.</li></ul>',
+        hasCta: {
+          text: "👉 Clique aqui e gere o seu Recibo Simples em menos de 1 minuto.",
+          link: "/recibo-simples",
+          ctaLabel: "GERAR MEU RECIBO SIMPLES AGORA",
+        },
+      },
+    ],
+    conclusion: '<p>Não dê sorte para o azar. Formalizar seus pagamentos e recebimentos mostra que você é um profissional sério e, de quebra, blinda o seu suado dinheiro. Acesse agora o nosso gerador de <a href="/recibo-simples" class="text-emerald-600 font-semibold hover:underline">Recibo Simples</a> e tenha seu documento pronto para imprimir ou enviar agora mesmo!<br><br>Por Elvis Dias.</p>',
+    faqs: [
+      {
+        question: "Esse recibo simples tem validade na justiça mesmo?",
+        answer: "Com certeza. Se você preencheu tudo certinho (como te ensinei ali em cima) e colheu a assinatura de quem recebeu, a legislação brasileira reconhece esse documento como prova irrefutável de que a dívida foi paga. Acabou a chance de cobrança duplicada.",
+      },
+      {
+        question: "Eu preciso ter um CNPJ para emitir?",
+        answer: "Não! O recibo simples foi feito justamente para quem atua como Pessoa Física. Basta usar o seu CPF, seu nome completo e os dados da transação.",
+      },
+      {
+        question: "Por quanto tempo eu devo guardar esse papel?",
+        answer: "A regra de ouro (apoiada pelo Código Civil e pelo Procon) é guardar qualquer comprovante de pagamento por, no mínimo, 5 anos. Esse é o tempo em que a maioria das cobranças judiciais costuma acontecer no Brasil. Salve o PDF no seu e-mail ou na nuvem e fique tranquilo.",
+      },
+      {
+        question: "Recibo simples e recibo de pagamento são a mesma coisa?",
+        answer: "Na prática e perante a lei, sim. O que muda é só como a gente chama no dia a dia. A gente costuma falar 'recibo simples' para vender uma geladeira, um carro ou pagar uma diária, e 'recibo de pagamento' quando estamos falando de salários ou coisas mensais. Mas o valor legal é o mesmo.",
+      },
+    ],
+  },
+  {
+    slug: "o-que-e-pix-copia-e-cola-e-como-usar",
+    title: "O que é PIX Copia e Cola, como funciona e como usar grátis",
+    category: "burocracia-descomplicada",
+    seoTitle: "O que é PIX Copia e Cola? Como Gerar Link de Cobrança Grátis",
+    seoDescription: "Descubra o que é PIX Copia e Cola, entenda a diferença para o QR Code e aprenda como gerar seu link de cobrança de forma rápida e segura.",
+    image: "/og-image.webp",
+    intro: {
+      acordo: 'Com o crescimento acelerado do PIX no Brasil, muitas pessoas e empresas adotaram essa forma de pagamento instantânea.',
+      promessa: 'Porém, nem sempre é fácil escanear um QR Code, especialmente quando você está fazendo uma compra ou pagamento pelo próprio celular. É aí que entra a praticidade do PIX Copia e Cola.',
+      previa: 'Neste artigo, vamos explicar detalhadamente o que é o PIX Copia e Cola, como ele funciona, sua diferença para o QR Code e como você pode usar nosso gerador online gratuito para criar seus links de cobrança em segundos.'
+    },
+    sections: [
+      {
+        h2: "O que é o PIX Copia e Cola?",
+        content: '<p>O PIX Copia e Cola é um formato de pagamento eletrônico disponibilizado pelo Banco Central. Ele consiste em uma sequência de caracteres alfanuméricos gerada a partir das informações de pagamento de uma transação via PIX (como a chave do recebedor, valor e descrição).</p><p>A grande vantagem do PIX Copia e Cola é que ele permite que você envie o código de pagamento por meio de mensagens de texto, WhatsApp, e-mail ou qualquer outro aplicativo de comunicação. O pagador só precisa copiar esse código e colar na área correspondente dentro do aplicativo do seu banco para concluir a transferência de maneira rápida e segura, sem precisar apontar a câmera para a tela.</p>',
+      },
+      {
+        h2: "Diferença entre PIX Copia e Cola e QR Code PIX",
+        content: '<p>Muitas pessoas confundem os dois métodos, mas a verdade é que o PIX Copia e Cola e o QR Code PIX contêm as exatas mesmas informações. A única diferença é a forma como essas informações são apresentadas.</p><ul><li><strong>QR Code PIX:</strong> É a representação gráfica e visual do código de pagamento. Para utilizá-lo, o pagador precisa abrir o aplicativo do banco e utilizar a câmera do celular para escanear a imagem. É ideal para compras presenciais ou quando você está acessando o site pelo computador e vai pagar pelo celular.</li><li><strong>PIX Copia e Cola:</strong> É a representação textual do mesmo código. Em vez de uma imagem, as informações são dispostas como um texto longo que pode ser facilmente copiado e colado. É a solução perfeita para quando a transação acontece inteiramente no mesmo aparelho (por exemplo, ao receber uma cobrança no WhatsApp e fazer o pagamento no app do banco no próprio smartphone).</li></ul>',
+        hasAd: true,
+      },
+      {
+        h2: "É seguro usar um gerador de PIX online?",
+        content: '<p>A segurança é uma das maiores preocupações de quem utiliza ferramentas financeiras online, e com razão. Usar um <a href="/ferramentas/gerador-pix-copia-e-cola" class="text-emerald-600 font-semibold hover:underline">gerador de PIX Copia e Cola grátis</a> é 100% seguro quando a ferramenta, como a do Recibo Grátis, não solicita senhas nem dados de acesso à sua conta.</p><p>Nosso gerador funciona apenas codificando as informações públicas de cobrança (sua Chave PIX, valor da cobrança e nome) no formato de texto exigido pelo Banco Central do Brasil (padrão EMV BR Code). Dessa forma, a transação não passa por nossos servidores: o dinheiro vai direto da conta de quem está pagando para a sua.</p>',
+      },
+      {
+        h2: "Como gerar seu código PIX Copia e Cola online?",
+        content: '<p>Criar o seu link de cobrança PIX é um processo extremamente simples, rápido e gratuito. Siga este passo a passo:</p><ol><li>Acesse a página do nosso <strong><a href="/ferramentas/gerador-pix-copia-e-cola" class="text-emerald-600 font-semibold hover:underline">Gerador de PIX Copia e Cola</a></strong>.</li><li>Preencha a sua <strong>Chave PIX</strong> (pode ser CPF, CNPJ, celular, e-mail ou chave aleatória).</li><li>Opcionalmente, insira o <strong>Valor</strong> da cobrança e o seu <strong>Nome/Cidade</strong> para que o pagador possa confirmar na hora do pagamento.</li><li>Clique no botão para gerar. O sistema criará o seu código em formato de texto imediatamente.</li><li>Basta copiar o texto gerado e enviar pelo WhatsApp ou e-mail para quem vai realizar o pagamento.</li></ol>',
+        hasCta: {
+          text: "👉 Acesse o Gerador de PIX Grátis e crie sua cobrança agora mesmo.",
+          link: "/ferramentas/gerador-pix-copia-e-cola",
+          ctaLabel: "GERAR PIX COPIA E COLA",
+        },
+      },
+    ],
+    conclusion: '<p>Utilizar o PIX Copia e Cola agiliza significativamente as suas vendas e recebimentos diários. Ao facilitar a vida do seu cliente, você reduz a inadimplência e garante que o dinheiro caia na sua conta instantaneamente. E lembre-se: após receber o pagamento, você pode emitir um <a href="/recibo-simples" class="text-emerald-600 font-semibold hover:underline">Recibo Simples</a> para profissionalizar ainda mais a sua transação.</p><br><p>Por Elvis Dias.</p>',
+    faqs: [
+      {
+        question: "Tem alguma taxa para usar o gerador de PIX?",
+        answer: "Não. A ferramenta de geração de código PIX Copia e Cola é 100% gratuita, sem letras miúdas ou necessidade de cadastro.",
+      },
+      {
+        question: "O código gerado possui validade?",
+        answer: "O código PIX gerado é estático e não expira. Ele continuará funcionando enquanto a sua chave PIX estiver ativa no seu banco.",
+      },
+    ],
+  },
 ];

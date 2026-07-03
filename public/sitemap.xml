@@ -66,6 +66,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://recibogratis.com.br/como-funciona</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://recibogratis.com.br/contato</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -326,9 +331,34 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://recibogratis.com.br/recibo-de-vale-alimentacao</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://recibogratis.com.br/blog</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/blog/recibo-valido-escrito-mao-ou-pdf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/blog/recibo-simples-juizado-pequenas-causas</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/blog/o-que-escrever-na-aba-referente-a-do-recibo</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/blog/diferenca-entre-recibo-rpa-e-nota-fiscal</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://recibogratis.com.br/blog/como-provar-renda-sendo-autonomo-o-guia-do-recibo-perfeito</loc>
@@ -361,6 +391,51 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://recibogratis.com.br/blog/recibo-sem-assinatura-vale</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/blog/perdi-o-recibo-como-provar-pagamento</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/blog/como-preencher-nota-promissoria-corretamente</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/blog/diferenca-nota-promissoria-recibo-simples-e-contrato</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/blog/modelo-de-recibo-pronto-pare-de-baixar-word</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/blog/recibo-de-pagamento-o-que-e-para-que-serve-como-gerar</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/blog/cuidado-no-pix-receita-federal-travar-cpf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/blog/como-preencher-um-recibo-simples-e-evitar-dor-de-cabeca</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/blog/o-que-e-pix-copia-e-cola-e-como-usar</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://recibogratis.com.br/blog/categoria/financas-pessoais</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -382,6 +457,11 @@
   </url>
   <url>
     <loc>https://recibogratis.com.br/blog/categoria/prestacao-de-servicos</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/blog/categoria/tecnologia-e-seguranca</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

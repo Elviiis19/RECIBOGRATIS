@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SEO } from '../../components/SEO';
 import { AdSense } from '../../components/AdSense';
-import { Copy, CheckCircle2, Link2, AlertCircle } from 'lucide-react';
+import { Copy, CheckCircle2, Link2, AlertCircle, ShieldCheck } from 'lucide-react';
 import CurrencyInput from 'react-currency-input-field';
 import { generatePixPayload } from '../../utils/pix';
 import { cn } from '../../utils/cn';
@@ -33,9 +33,41 @@ export function GeradorPixCopiaECola() {
   return (
     <>
       <SEO 
-        title="Gerador de Link PIX Copia e Cola Online"
-        description="Gere códigos PIX Copia e Cola instantaneamente para enviar por WhatsApp ou e-mail. Facilite as cobranças do seu negócio sem pagar taxas."
-        keywords="gerador pix copia e cola, link de cobranca pix, gerar link pix, pix copia e cola online, codigo pix"
+        title="Gerador de PIX Copia e Cola Grátis e Sem Cadastro"
+        description="Crie seu código PIX copia e cola online grátis em segundos. Gerador sem cadastro, seguro e rápido para gerar link de cobrança PIX."
+        keywords="gerador de pix grátis, criar qr code pix gratuito, código pix copia e cola online, link de cobrança pix, gerar cobrança pix via whatsapp"
+        schema={JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebApplication",
+              "name": "Gerador de PIX Copia e Cola Grátis",
+              "applicationCategory": "FinanceApplication",
+              "operatingSystem": "Any"
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "O código Pix Copia e Cola expira?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Não expira. O código gerado aqui é do tipo estático, ou seja, enquanto a sua chave PIX existir no seu banco, o código funcionará normalmente."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Tem alguma taxa para gerar?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A nossa ferramenta é totalmente grátis. Você não precisa fazer cadastro e não cobramos nenhuma taxa para gerar ou usar o link de cobrança."
+                  }
+                }
+              ]
+            }
+          ]
+        })}
       />
       <div className="bg-emerald-700 text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
@@ -167,46 +199,75 @@ export function GeradorPixCopiaECola() {
 
         <AdSense />
         
-        <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
-          <h2>Como gerar link PIX Copia e Cola online grátis?</h2>
-          <p>O ecossistema oficial do PIX criado e regulamentado pela arquitetura do Banco Central reconfigurou desde sua fundação toda a engrenagem de pagamentos e liquidações instantâneas entre pessoas físicas e grandes logistas corporativos varejistas. No lugar da simples transação pela chave nua de CPF, ou as engessadas antigas transferências DOC e TED com alta tarifa para caixas no balcão, surgiu a solução gratuita definitiva das strings consolidadas de cobrança limpa: O formidável e indestrutível padrão EMV BR Code de cobrança via payload instantânea unificada. Usando nossa ferramenta livre de custos acima, você consolida esse poder digital.</p>
-
-          <h3>Basta preencher seu recebedor e colar no Direct ou Whatsapp para Cobrar</h3>
-          <p>
-            Ao utilizar o gerador acima do Recibo Fácil, você preenche em 30 segundos sua exata matriz de chave, o nome exato da base cravado na raiz da conta recebedora no banco, a cidade nativa da operação e o valor fechado estrito (como a mensalidade exata de R$ 90,00 da sua escola ou academia online). O algoritmo reverte isso num super link massivo e longo estático.
-          </p>
-          <p>
-            Ao fornecer esse grande texto estruturado de <strong>"Copia e Cola"</strong> a um pagador devedor no celular pelo chat, a experiência final em tela que essa pessoa final usufruirá com o próprio App nativo de seu próprio banco recebedor local fluirá de maneira extremamente ágil. Totalmente diferente do maçante processo de digitar forçosamente uma chave telefônica solta correndo risco de erro de pontuação e sendo demandado exaustivamente de preencher ou adivinhar manualmente um valor no campo em branco livre: o nosso super link já estampa e preenche engessando a ele no visor final o seu nome original oficial atrelado de forma irrevogável acompanhado do valor centavo a centavo na confirmação nativa. Dessa forma limpa e blindada o logista barra depósitos e recebimentos aleatórios equivocados com quantias arredondadas para menos e detona falhas operacionais confusões no fechamento contábil e balanço caixa contábil semanal sem precisar incorrer pesados e exorbitantes tributos para alugar e contratar de fato robustos e cobradores os engessados sistemas caros de faturamentos de terceiros ou se aliar faturar aos integradores os onerosos sistemas de API emissores.
+        <div className="mt-16 bg-white rounded-2xl shadow-sm border border-gray-100 p-8 prose prose-emerald max-w-none">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            O que é e como funciona o PIX Copia e Cola?
+          </h2>
+          
+          <p className="text-gray-600 mb-6 leading-relaxed">
+            Se você precisa receber um pagamento rápido mas o seu cliente não pode apontar a câmera para a tela, o código PIX Copia e Cola online é a solução perfeita. Em vez de ler uma imagem, o usuário apenas copia o texto e cola no aplicativo do banco. É a forma mais fácil de gerar cobrança PIX via WhatsApp, e-mail ou redes sociais.
           </p>
 
-          <hr className="my-8" />
-          
-          <h2>Perguntas Frequentes (FAQ)</h2>
-          
-          <div className="space-y-4 not-prose mt-6">
-            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                Qual a diferença deste Copia e Cola online para uma placa de QR Code física?
-                <span className="transition group-open:rotate-180">
-                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                </span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Tanto o quadrado escaneável QR Code quanto este enorme formato contínuo alfa-numérico se equivalem de maneira idêntica: <strong>ambos operam no formato padrão e seguro "Payload" regulado pelo BR Code do Banco Central</strong>. A diferença está apenas na utilidade base da ocasião. Esse prático padrão comprido de texto chamado "Copia e Cola" serve exaustivamente de utilidade vital perante compras e quitações originadas dentro dos smartphones e resolvidas no <strong>calor eletrônico do seu chat do WhatsApp ou nos directs do Instagram de forma imediata</strong> — mitigando a restritiva situação em que a pessoa jamais conseguiria usar a própria câmera do próprio celular dela para ler uma imagem que está dentro do próprio display do seu equipamento isolado na leitura digital da cobrança. O texto purificado atalha esse bloqueio e aciona em segundos para o clique a autorização para pagamento lendo do clipboard com o copiado dela em uso.
+          <h3 className="text-xl font-bold text-gray-900 mb-4 mt-8">
+            Passo a passo: Como usar o gerador de PIX grátis
+          </h3>
+          <ol className="space-y-4 mb-8">
+            <li className="flex items-start text-gray-600">
+              <span className="font-bold text-emerald-600 mr-2">1.</span>
+              Preencha sua Chave PIX (CPF, CNPJ, E-mail, Celular ou Aleatória).
+            </li>
+            <li className="flex items-start text-gray-600">
+              <span className="font-bold text-emerald-600 mr-2">2.</span>
+              Digite o valor da cobrança e, se quiser, o nome do recebedor e a cidade.
+            </li>
+            <li className="flex items-start text-gray-600">
+              <span className="font-bold text-emerald-600 mr-2">3.</span>
+              Clique no botão para gerar seu link de cobrança PIX.
+            </li>
+            <li className="flex items-start text-gray-600">
+              <span className="font-bold text-emerald-600 mr-2">4.</span>
+              Copie o texto gerado e envie para quem vai pagar!
+            </li>
+          </ol>
+
+          <div className="bg-emerald-50 rounded-xl p-6 mb-8 border border-emerald-100">
+            <h3 className="text-lg font-semibold text-emerald-900 mb-3 flex items-center">
+              <ShieldCheck className="w-5 h-5 mr-2" />
+              É Seguro usar um gerador de PIX online?
+            </h3>
+            <p className="text-emerald-800 text-sm leading-relaxed mb-0">
+              Sim, é 100% seguro. O nosso criador de QR code PIX gratuito não acessa sua conta bancária e não guarda seu dinheiro. Ele apenas formata os seus dados no padrão do Banco Central (BR Code). O Pix movimentou R$ 35,36 trilhões em 2025, com 79,8 bilhões de transações segundo o Banco Central, sendo o método mais seguro do Brasil atualmente.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Diferença entre QR Code e Copia e Cola</h3>
+              <p className="text-gray-600 mb-4">
+                Basicamente, eles são a mesma coisa, mas em formatos diferentes. O <strong>QR Code PIX</strong> é a versão em imagem que você escaneia com a câmera. Já o <strong>PIX Copia e Cola</strong> é o "texto por trás" dessa imagem.
               </p>
-            </details>
+              <p className="text-gray-600">
+                Depois de gerar o seu Copia e Cola, você também pode aproveitar e emitir um <a href="/recibo-simples" className="text-emerald-600 hover:underline">Recibo de Pagamento</a> para formalizar a transação! Se precisar gerar com imagem, use o nosso <a href="/ferramentas/gerador-qr-code" className="text-emerald-600 hover:underline">Gerador de QR Code</a>.
+              </p>
+            </div>
             
-            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                O site repassa a transação ou cobra taxas/pedágios embutidos tirando lucro passivo neste processamento e código gerado de PIX?
-                <span className="transition group-open:rotate-180">
-                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                </span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                <strong>Não. Aqui operamos isentos de intermediações bancárias obscuras de retenção (cobramos e retemos literalmente taxa e comissão zero no nosso balanço).</strong> A nossa base arquitetada e robusta e a plataforma desse utilitário trabalha exaustiva e de forma aberta atuando gerando arquivos textuais puros encriptados da origem raiz informada para cobranças vinculadas no aplicativo direto ao celular nativo do consumidor sem interceptação e repasses da rede de e-commerce privada transacionando entre quem pagou e de fato cobrou em seu destino de caixa puro estrito ininterrupto e 100% autônomo nas contas brasileiras estatais limpas.
-              </p>
-            </details>
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Dúvidas Frequentes (FAQ)</h3>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-1">O código Pix Copia e Cola expira?</h4>
+                  <p className="text-sm text-gray-600">
+                    Não expira. O código gerado aqui é do tipo estático, ou seja, enquanto a sua chave PIX existir no seu banco, o código funcionará normalmente.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-1">Tem alguma taxa para gerar?</h4>
+                  <p className="text-sm text-gray-600">
+                    A nossa ferramenta é totalmente grátis. Você não precisa fazer cadastro e não cobramos nenhuma taxa para gerar ou usar o link de cobrança.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
