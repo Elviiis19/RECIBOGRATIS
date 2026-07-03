@@ -46,6 +46,23 @@ export function GeradorPixCopiaECola() {
               "operatingSystem": "Any"
             },
             {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Início",
+                  "item": "https://recibogratis.com.br/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Gerador de PIX Copia e Cola",
+                  "item": "https://recibogratis.com.br/ferramentas/gerador-pix-copia-e-cola"
+                }
+              ]
+            },
+            {
               "@type": "FAQPage",
               "mainEntity": [
                 {
@@ -62,6 +79,30 @@ export function GeradorPixCopiaECola() {
                   "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "A nossa ferramenta é totalmente grátis. Você não precisa fazer cadastro e não cobramos nenhuma taxa para gerar ou usar o link de cobrança."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "O Copia e Cola funciona em qualquer banco?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sim, ele segue o padrão do Banco Central e é aceito em todos os aplicativos bancários que possuem a área PIX."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Posso usar para cobrar pelo Instagram ou WhatsApp?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Com certeza! Essa é a principal vantagem. Você gera o código e envia o texto pelo direct ou chat, e seu cliente só precisa copiar e colar no banco dele."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Qual chave PIX devo usar?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Você pode usar qualquer chave cadastrada (CPF, CNPJ, e-mail, celular ou chave aleatória). A chave aleatória é muito indicada se você não quer expor seus dados pessoais."
                   }
                 }
               ]
@@ -236,7 +277,7 @@ export function GeradorPixCopiaECola() {
               É Seguro usar um gerador de PIX online?
             </h3>
             <p className="text-emerald-800 text-sm leading-relaxed mb-0">
-              Sim, é 100% seguro. O nosso criador de QR code PIX gratuito não acessa sua conta bancária e não guarda seu dinheiro. Ele apenas formata os seus dados no padrão do Banco Central (BR Code). O Pix movimentou R$ 35,36 trilhões em 2025, com 79,8 bilhões de transações segundo o Banco Central, sendo o método mais seguro do Brasil atualmente.
+              Sim, é 100% seguro. O nosso gerador de PIX Copia e Cola gratuito não acessa sua conta bancária e não guarda seu dinheiro. Ele apenas formata os seus dados no padrão do Banco Central (BR Code). O Pix movimentou R$ 35,36 trilhões em 2025, com 79,8 bilhões de transações segundo o Banco Central, sendo o método mais seguro do Brasil atualmente.
             </p>
           </div>
 
@@ -246,8 +287,16 @@ export function GeradorPixCopiaECola() {
               <p className="text-gray-600 mb-4">
                 Basicamente, eles são a mesma coisa, mas em formatos diferentes. O <strong>QR Code PIX</strong> é a versão em imagem que você escaneia com a câmera. Já o <strong>PIX Copia e Cola</strong> é o "texto por trás" dessa imagem.
               </p>
+              
+              <h3 className="text-xl font-bold text-gray-900 mb-4 mt-8">Quando usar o Copia e Cola?</h3>
+              <ul className="list-disc pl-5 text-gray-600 mb-4 space-y-2">
+                <li><strong>Vendas pelo WhatsApp/Instagram:</strong> Envie o texto direto no chat do cliente.</li>
+                <li><strong>Cobranças recorrentes:</strong> Salve o código num bloco de notas e reutilize.</li>
+                <li><strong>Dificuldade com câmera:</strong> Alguns celulares antigos têm câmera ruim para ler QR Code. O Copia e Cola sempre funciona.</li>
+              </ul>
+
               <p className="text-gray-600">
-                Depois de gerar o seu Copia e Cola, você também pode aproveitar e emitir um <a href="/recibo-simples" className="text-emerald-600 hover:underline">Recibo de Pagamento</a> para formalizar a transação! Se precisar gerar com imagem, use o nosso <a href="/ferramentas/gerador-qr-code" className="text-emerald-600 hover:underline">Gerador de QR Code</a>.
+                Depois de gerar o seu Copia e Cola, você também pode aproveitar e emitir um <a href="/recibo-de-pagamento" className="text-emerald-600 hover:underline">Recibo de Pagamento</a> para formalizar a transação! Se precisar gerar com imagem, use o nosso <a href="/gerador-qr-code-pix" className="text-emerald-600 hover:underline">Gerador de QR Code</a>.
               </p>
             </div>
             
@@ -266,10 +315,30 @@ export function GeradorPixCopiaECola() {
                     A nossa ferramenta é totalmente grátis. Você não precisa fazer cadastro e não cobramos nenhuma taxa para gerar ou usar o link de cobrança.
                   </p>
                 </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-1">O Copia e Cola funciona em qualquer banco?</h4>
+                  <p className="text-sm text-gray-600">
+                    Sim, ele segue o padrão do Banco Central e é aceito em todos os aplicativos bancários que possuem a área PIX.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-1">Posso usar para cobrar pelo Instagram ou WhatsApp?</h4>
+                  <p className="text-sm text-gray-600">
+                    Com certeza! Essa é a principal vantagem. Você gera o código e envia o texto pelo direct ou chat, e seu cliente só precisa copiar e colar no banco dele.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-1">Qual chave PIX devo usar?</h4>
+                  <p className="text-sm text-gray-600">
+                    Você pode usar qualquer chave cadastrada (CPF, CNPJ, e-mail, celular ou chave aleatória). A chave aleatória é muito indicada se você não quer expor seus dados pessoais.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        <AdSense />
       </div>
     </>
   );
