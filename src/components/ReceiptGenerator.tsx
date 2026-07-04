@@ -53,6 +53,10 @@ interface ReceiptData {
   cuidadorDataFim?: string;
   cuidadorPlantoes?: string;
   cuidadorTransporte?: string;
+  // Novos campos para Pintor
+  pinturaEndereco?: string;
+  pinturaAmbientes?: string;
+  pinturaTipo?: string;
 
   // Novos campos para Promissória
   vencimento?: string;
@@ -117,6 +121,10 @@ export function ReceiptGenerator({
     cuidadorDataFim: "",
     cuidadorPlantoes: "",
     cuidadorTransporte: "",
+    // Default Pintor
+    pinturaEndereco: "",
+    pinturaAmbientes: "",
+    pinturaTipo: "",
 
     // Default Promissória
     vencimento: (() => {
@@ -216,6 +224,29 @@ export function ReceiptGenerator({
     title,
   ]);
 
+  useEffect(() => {
+    if (title.toLowerCase().includes("pintor") || title.toLowerCase().includes("pintura")) {
+      const parts = [];
+      if (data.pinturaTipo) parts.push(`serviços de pintura ${data.pinturaTipo}`);
+      else parts.push(`serviços de pintura`);
+      
+      if (data.pinturaAmbientes) parts.push(`nos ambientes: ${data.pinturaAmbientes}`);
+      if (data.pinturaEndereco) parts.push(`no imóvel localizado em: ${data.pinturaEndereco}`);
+      
+      if (parts.length > 1 || data.pinturaTipo) {
+        setData((prev) => ({
+          ...prev,
+          referenteA: `Pagamento referente a ${parts.join(", ")}.`,
+        }));
+      }
+    }
+  }, [
+    data.pinturaTipo,
+    data.pinturaAmbientes,
+    data.pinturaEndereco,
+    title,
+  ]);
+
   const [errors, setErrors] = useState<
     Partial<Record<keyof ReceiptData, string>>
   >({});
@@ -233,6 +264,7 @@ export function ReceiptGenerator({
       return "vale-alimentacao";
     if (t.includes("aluguel") || t.includes("locação")) return "aluguel";
     if (t.includes("cuidador")) return "cuidador";
+    if (t.includes("pintor") || t.includes("pintura")) return "pintor";
     return "recibo";
   };
   const docType = getDocType();
@@ -249,12 +281,14 @@ export function ReceiptGenerator({
       if (docType === "vale" || docType === "vale-alimentacao")
         return "Dados do Empregador";
       if (docType === "cuidador") return "Dados do Responsável";
+      if (docType === "pintor") return "Dados do Cliente";
       return "Dados do Pagador";
     } else {
       if (docType === "aluguel") return "Dados do Locador";
       if (docType === "vale" || docType === "vale-alimentacao")
         return "Dados do Funcionário";
       if (docType === "cuidador") return "Dados do Cuidador";
+      if (docType === "pintor") return "Dados do Pintor/Profissional";
       return "Dados do Recebedor";
     }
   };
@@ -2087,6 +2121,78 @@ export function ReceiptGenerator({
                           value={data.cuidadorTransporte}
                           onChange={handleChange}
                           placeholder="Ex: R$ 50,00"
+                          className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="referenteA"
+                        className="block text-sm font-semibold text-gray-900 mb-2"
+                      >
+                        Descrição Final (Pode editar se desejar)
+                      </label>
+                      <textarea
+                        id="referenteA"
+                        name="referenteA"
+                        value={data.referenteA}
+                        onChange={handleChange}
+                        rows={3}
+                        className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 resize-none"
+                      />
+                    </div>
+                  </>
+                ) : docType === "pintor" ? (
+                  <>
+                    <h3 className="font-bold text-gray-900 border-b pb-2 mb-4 uppercase text-sm">
+                      Detalhes da Pintura
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                      <div className="md:col-span-2">
+                        <label
+                          htmlFor="pinturaEndereco"
+                          className="block text-sm font-semibold text-gray-900 mb-2"
+                        >
+                          Endereço do Imóvel Pintado
+                        </label>
+                        <input
+                          id="pinturaEndereco"
+                          name="pinturaEndereco"
+                          value={data.pinturaEndereco}
+                          onChange={handleChange}
+                          placeholder="Rua, Número, Bairro - Cidade/UF"
+                          className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="pinturaAmbientes"
+                          className="block text-sm font-semibold text-gray-900 mb-2"
+                        >
+                          Ambientes (Ex: Sala, Quarto)
+                        </label>
+                        <input
+                          id="pinturaAmbientes"
+                          name="pinturaAmbientes"
+                          value={data.pinturaAmbientes}
+                          onChange={handleChange}
+                          placeholder="Sala, Cozinha, Quarto..."
+                          className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="pinturaTipo"
+                          className="block text-sm font-semibold text-gray-900 mb-2"
+                        >
+                          Tipo (Ex: Acrílica, Textura)
+                        </label>
+                        <input
+                          id="pinturaTipo"
+                          name="pinturaTipo"
+                          value={data.pinturaTipo}
+                          onChange={handleChange}
+                          placeholder="Acrílica, Epóxi, Textura..."
                           className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500"
                         />
                       </div>

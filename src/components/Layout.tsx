@@ -22,7 +22,7 @@ export function Layout() {
 
   // Group models by category for the dropdown
   const categories = {
-    'Básicos': ['simples', 'pagamento', 'quitacao', 'sinal'],
+    'Básicos': ['simples', 'recibo-com-logo', 'pagamento', 'quitacao', 'sinal'],
     'Profissionais': ['servicos', 'honorarios', 'mei', 'arquiteto', 'engenheiro', 'corretor', 'termo-de-prestacao-de-servico', 'prestacao-de-servico-com-logo', 'prestacao-com-garantia-e-logo'],
     'Saúde & Bem-estar': ['dentista', 'psicologo', 'fisioterapeuta', 'nutricionista', 'estetica'],
     'Serviços Domésticos': ['diarista', 'baba', 'cuidador', 'jardinagem'],
