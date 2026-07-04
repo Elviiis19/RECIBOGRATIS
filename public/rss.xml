@@ -2,22 +2,141 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>Blog - Recibo Grátis</title>
-  <link>${baseUrl}/blog</link>
+  <link>https://recibogratis.com.br/blog</link>
   <description>Dicas de Financeiro, MEI e Legislação para Autônomos.</description>
-  <atom:link href="${baseUrl}/rss.xml" rel="self" type="application/rss+xml" />
-  ${posts.map(post => {
-    // Convert DD/MM/YYYY to a standard Date string if needed, or just use it.
-    // RSS requires RFC 822 date format. We'll simplify and just use a standard date if parseable.
-    const [day, month, year] = post.date.split('/');
-    const pubDate = new Date(`${year}-${month}-${day}T12:00:00Z`).toUTCString();
-    
-    return `<item>
-    <title>${post.title}</title>
-    <link>${baseUrl}/blog/${post.slug}</link>
-    <description>${post.excerpt}</description>
-    <pubDate>${pubDate}</pubDate>
-    <guid>${baseUrl}/blog/${post.slug}</guid>
-  </item>`;
-  }).join('\n  ')}
+  <atom:link href="https://recibogratis.com.br/rss.xml" rel="self" type="application/rss+xml" />
+  <item>
+    <title>O que tem validade legal: Recibo escrito à mão ou gerado em PDF?</title>
+    <link>https://recibogratis.com.br/blog/recibo-valido-escrito-mao-ou-pdf</link>
+    <description>Descubra a diferença de validade legal entre recibos à mão e gerados em PDF e como proteger suas negociações contra fraudes e adulterações.</description>
+    <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+    <guid>https://recibogratis.com.br/blog/recibo-valido-escrito-mao-ou-pdf</guid>
+  </item>
+  <item>
+    <title>Como usar um recibo simples para se proteger no Juizado de Pequenas Causas</title>
+    <link>https://recibogratis.com.br/blog/recibo-simples-juizado-pequenas-causas</link>
+    <description>Aprenda como o recibo simples atua como seu maior escudo legal no Juizado de Pequenas Causas. Proteja-se de processos por cobranças indevidas.</description>
+    <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+    <guid>https://recibogratis.com.br/blog/recibo-simples-juizado-pequenas-causas</guid>
+  </item>
+  <item>
+    <title>O que escrever na aba &quot;Referente a&quot; do recibo para não ter problemas depois</title>
+    <link>https://recibogratis.com.br/blog/o-que-escrever-na-aba-referente-a-do-recibo</link>
+    <description>Aprenda a preencher corretamente o campo &quot;Referente a&quot; do recibo para afastar cobranças indevidas ou em duplicidade, com exemplos práticos.</description>
+    <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+    <guid>https://recibogratis.com.br/blog/o-que-escrever-na-aba-referente-a-do-recibo</guid>
+  </item>
+  <item>
+    <title>Diferença entre Recibo, RPA e Nota Fiscal – Quando Usar Cada Documento?</title>
+    <link>https://recibogratis.com.br/blog/diferenca-entre-recibo-rpa-e-nota-fiscal</link>
+    <description>Saiba a diferença exata entre Recibo Simples, RPA e Nota Fiscal. Aprenda quando usar cada documento sem correr riscos fiscais ou trabalhistas.</description>
+    <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+    <guid>https://recibogratis.com.br/blog/diferenca-entre-recibo-rpa-e-nota-fiscal</guid>
+  </item>
+  <item>
+    <title>Como provar renda sendo autônomo? O guia do recibo perfeito</title>
+    <link>https://recibogratis.com.br/blog/como-provar-renda-sendo-autonomo-o-guia-do-recibo-perfeito</link>
+    <description>Aprenda como provar renda sendo autônomo sem complicação. Descubra como recibos bem estruturados ajudam em financiamentos bancários e imposto de renda.</description>
+    <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+    <guid>https://recibogratis.com.br/blog/como-provar-renda-sendo-autonomo-o-guia-do-recibo-perfeito</guid>
+  </item>
+  <item>
+    <title>Recibo simples substitui Nota Fiscal para MEI? Entenda o risco</title>
+    <link>https://recibogratis.com.br/blog/recibo-simples-substitui-nota-fiscal-para-mei</link>
+    <description>Aprenda definitivamente se um recibo simples serve como substituto de Nota Fiscal para o MEI e quando a Receita Federal pode te multar.</description>
+    <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+    <guid>https://recibogratis.com.br/blog/recibo-simples-substitui-nota-fiscal-para-mei</guid>
+  </item>
+  <item>
+    <title>Aluguel &quot;de boca&quot; é seguro? O real poder do Recibo de Locação</title>
+    <link>https://recibogratis.com.br/blog/contrato-verbal-de-aluguel-e-seguro</link>
+    <description>Você alugou um imóvel sem contrato escrito? Descubra por que o recibo de aluguel pode ser a única prova jurídica para locador e locatário.</description>
+    <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+    <guid>https://recibogratis.com.br/blog/contrato-verbal-de-aluguel-e-seguro</guid>
+  </item>
+  <item>
+    <title>Comprovante do PIX substitui Recibo? Entenda o Perigo</title>
+    <link>https://recibogratis.com.br/blog/PIX-vs-recibo-qual-e-mais-seguro</link>
+    <description>O aplicativo do banco gerou o comprovante, mas será que é suficiente? Descubra por que confiar apenas no PIX pode lhe causar problemas sérios no futuro.</description>
+    <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+    <guid>https://recibogratis.com.br/blog/PIX-vs-recibo-qual-e-mais-seguro</guid>
+  </item>
+  <item>
+    <title>Recibo para Diaristas: Como evitar processos trabalhistas graves</title>
+    <link>https://recibogratis.com.br/blog/recibo-da-diarista-seguranca-juridica-no-lar</link>
+    <description>Proteja o seu patrimônio ao contratar profissionais para serviços domésticos. Saiba como o recibo correto blindará você contra processos trabalhistas destrutivos.</description>
+    <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+    <guid>https://recibogratis.com.br/blog/recibo-da-diarista-seguranca-juridica-no-lar</guid>
+  </item>
+  <item>
+    <title>Como separar o dinheiro pessoal do negócio sendo MEI?</title>
+    <link>https://recibogratis.com.br/blog/como-separar-o-dinheiro-pessoal-do-negocio-sendo-mei</link>
+    <description>O maior erro do MEI é misturar as despesas. Aprenda o passo a passo de finanças pessoais para autônomos para salvar seu negócio da falência.</description>
+    <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+    <guid>https://recibogratis.com.br/blog/como-separar-o-dinheiro-pessoal-do-negocio-sendo-mei</guid>
+  </item>
+  <item>
+    <title>Recibo sem assinatura vale alguma coisa? O que fazer se não quiserem assinar</title>
+    <link>https://recibogratis.com.br/blog/recibo-sem-assinatura-vale</link>
+    <description>Descubra se um recibo sem assinatura tem validade jurídica e o que você pode fazer se a pessoa se recusar a assinar.</description>
+    <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+    <guid>https://recibogratis.com.br/blog/recibo-sem-assinatura-vale</guid>
+  </item>
+  <item>
+    <title>Perdi o recibo que me deram. Como provar que paguei mesmo assim?</title>
+    <link>https://recibogratis.com.br/blog/perdi-o-recibo-como-provar-pagamento</link>
+    <description>Perdeu o recibo de um pagamento importante? Veja quais outros documentos e provas a lei aceita caso você precise confirmar a transação.</description>
+    <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+    <guid>https://recibogratis.com.br/blog/perdi-o-recibo-como-provar-pagamento</guid>
+  </item>
+  <item>
+    <title>Como preencher uma Nota Promissória corretamente (Guia prático para não perder a validade legal)</title>
+    <link>https://recibogratis.com.br/blog/como-preencher-nota-promissoria-corretamente</link>
+    <description>Aprenda a preencher uma Nota Promissória corretamente e garantir validade legal. Descubra os requisitos obrigatórios, a figura do avalista e como gerar online.</description>
+    <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+    <guid>https://recibogratis.com.br/blog/como-preencher-nota-promissoria-corretamente</guid>
+  </item>
+  <item>
+    <title>Diferença entre Nota Promissória, Recibo Simples e Contrato: Qual usar em cada situação?</title>
+    <link>https://recibogratis.com.br/blog/diferenca-nota-promissoria-recibo-simples-e-contrato</link>
+    <description>Entenda a diferença entre Nota Promissória, Recibo Simples e Contrato. Saiba qual documento usar em cada transação para proteger seu negócio.</description>
+    <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+    <guid>https://recibogratis.com.br/blog/diferenca-nota-promissoria-recibo-simples-e-contrato</guid>
+  </item>
+  <item>
+    <title>Modelo de Recibo Pronto: Por que você deve parar de baixar arquivos no Word (e o que usar no lugar)</title>
+    <link>https://recibogratis.com.br/blog/modelo-de-recibo-pronto-pare-de-baixar-word</link>
+    <description>Pare de baixar arquivos Word desconfigurados e perigosos. Descubra a forma segura, profissional e com Pix integrado de gerar seus recibos online grátis.</description>
+    <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+    <guid>https://recibogratis.com.br/blog/modelo-de-recibo-pronto-pare-de-baixar-word</guid>
+  </item>
+  <item>
+    <title>Recibo de Pagamento: O que é, para que serve e como gerar em PDF grátis</title>
+    <link>https://recibogratis.com.br/blog/recibo-de-pagamento-o-que-e-para-que-serve-como-gerar</link>
+    <description>Entenda tudo sobre Recibo de Pagamento. O que é, validade legal, o que não pode faltar e como gerar seu recibo em PDF grátis em menos de 1 minuto.</description>
+    <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+    <guid>https://recibogratis.com.br/blog/recibo-de-pagamento-o-que-e-para-que-serve-como-gerar</guid>
+  </item>
+  <item>
+    <title>Cuidado no Pix: O detalhe bobo que faz a Receita Federal travar o seu CPF</title>
+    <link>https://recibogratis.com.br/blog/cuidado-no-pix-receita-federal-travar-cpf</link>
+    <description>Receber Pix sem lastro pode bloquear seu CPF na malha fina da Receita Federal. Veja os 3 erros comuns de autônomos e como se proteger hoje mesmo.</description>
+    <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+    <guid>https://recibogratis.com.br/blog/cuidado-no-pix-receita-federal-travar-cpf</guid>
+  </item>
+  <item>
+    <title>Como preencher um recibo simples (e evitar dor de cabeça com pagamentos)</title>
+    <link>https://recibogratis.com.br/blog/como-preencher-um-recibo-simples-e-evitar-dor-de-cabeca</link>
+    <description>Aprenda como preencher um recibo simples de forma segura, os dados obrigatórios e a diferença para nota fiscal. Gere o seu grátis em PDF.</description>
+    <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+    <guid>https://recibogratis.com.br/blog/como-preencher-um-recibo-simples-e-evitar-dor-de-cabeca</guid>
+  </item>
+  <item>
+    <title>O que é PIX Copia e Cola, como funciona e como usar grátis</title>
+    <link>https://recibogratis.com.br/blog/o-que-e-pix-copia-e-cola-e-como-usar</link>
+    <description>Descubra o que é PIX Copia e Cola, entenda a diferença para o QR Code e aprenda como gerar seu link de cobrança de forma rápida e segura.</description>
+    <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+    <guid>https://recibogratis.com.br/blog/o-que-e-pix-copia-e-cola-e-como-usar</guid>
+  </item>
 </channel>
 </rss>

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "node scripts/generate-sitemap.js && node scripts/generate-rss.js && vite build && node scripts/prerender.js",
+    "build": "node scripts/generate-sitemap.js && tsx scripts/generate-rss.ts && vite build && node scripts/prerender.js",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"
