@@ -79,11 +79,15 @@ async function prerender() {
   const template = fs.readFileSync(indexHtmlPath, 'utf-8');
 
   try {
+    
     const { render } = await vite.ssrLoadModule('/src/entry-server.tsx');
     const { receiptModels } = await vite.ssrLoadModule('/src/data/receiptModels.ts');
+    const { declarationModels } = await vite.ssrLoadModule('/src/data/declarationModels.ts');
     const { blogPosts } = await vite.ssrLoadModule('/src/data/blogPosts.ts');
+
     const { blogCategories } = await vite.ssrLoadModule('/src/data/blogTypes.ts');
 
+    
     for (const model of receiptModels) {
       routes.push({
         path: `/${model.slug}`,
@@ -91,7 +95,18 @@ async function prerender() {
         description: model.seoDescription || model.shortDescription,
       });
     }
-
+    routes.push({
+      path: '/declaracoes',
+      title: 'Modelos de Declarações Prontas em PDF | Recibo Grátis',
+      description: 'Gerador de declarações online. Preencha e imprima declarações de residência, trabalho, união estável, renda e muito mais gratuitamente.',
+    });
+    for (const model of declarationModels) {
+      routes.push({
+        path: `/declaracoes/${model.slug}`,
+        title: model.seoTitle || `${model.title} | Gerador de Declaração Online em PDF`,
+        description: model.seoDescription || model.shortDescription,
+      });
+    }
     routes.push({
       path: '/blog',
       title: 'Blog - Dicas de Financeiro e MEI | Recibo Grátis',

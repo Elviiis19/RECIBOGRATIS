@@ -980,11 +980,11 @@ export function DeclarationGenerator({ modelId }: { modelId: string }) {
 
               {renderDeclarationContent()}
 
-              <div className="mt-16 pt-8 text-center">
-                <p className="mb-16">
-                  {data.cidade || "[Cidade]"}, {formattedDate}.
+              <div className="mt-16 pt-8">
+                <p className="mb-16 text-right">
+                  {data.cidade || "[Cidade]"} - {data.estado || "[UF]"}, {formattedDate}.
                 </p>
-                <div className="flex flex-col items-center gap-12">
+                <div className="flex flex-col items-center gap-12 text-center">
                   <div className="w-full max-w-sm">
                     <div className="border-t border-gray-800 mb-2"></div>
                     <p className="font-bold">{data.declaranteNome || "Assinatura do Declarante"}</p>

@@ -37,6 +37,15 @@ while ((match = categorySlugRegex.exec(blogTypesContent)) !== null) {
   blogCategorySlugs.push(match[1]);
 }
 
+
+// Read declaration models
+const declModelsFilePath = path.join(__dirname, '../src/data/declarationModels.ts');
+const declModelsContent = fs.readFileSync(declModelsFilePath, 'utf-8');
+const declSlugRegex = /slug:\s*['"]([^'"]+)['"]/g;
+const declSlugs = [];
+while ((match = declSlugRegex.exec(declModelsContent)) !== null) {
+  declSlugs.push(match[1]);
+}
 const baseUrl = 'https://recibogratis.com.br';
 
 const ferramentas = [
@@ -108,6 +117,18 @@ ${blogCategorySlugs.map(slug => `  <url>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>`).join('\n')}
+
+  <url>
+    <loc>${baseUrl}/modelos</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+${declSlugs.map(slug => `  <url>
+    <loc>${baseUrl}/declaracoes/${slug}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`).join('\n')}
+
 </urlset>`;
 
 const publicDir = path.join(__dirname, '../public');
