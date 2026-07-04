@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { SEO } from '../../components/SEO';
 import { AdSense } from '../../components/AdSense';
 import { Copy, CheckCircle2, Link2, AlertCircle, ShieldCheck } from 'lucide-react';
@@ -296,7 +297,7 @@ export function GeradorPixCopiaECola() {
               </ul>
 
               <p className="text-gray-600">
-                Depois de gerar o seu Copia e Cola, você também pode aproveitar e emitir um <a href="/recibo-de-pagamento" className="text-emerald-600 hover:underline">Recibo de Pagamento</a> para formalizar a transação! Se precisar gerar com imagem, use o nosso <a href="/gerador-qr-code-pix" className="text-emerald-600 hover:underline">Gerador de QR Code</a>.
+                Depois de gerar o seu Copia e Cola, você também pode aproveitar e emitir um <Link to="/recibo-de-pagamento" className="text-emerald-600 hover:underline">Recibo de Pagamento</Link> para formalizar a transação! Se precisar gerar com imagem, use o nosso <Link to="/gerador-qr-code-pix" className="text-emerald-600 hover:underline">Gerador de QR Code</Link>.
               </p>
             </div>
             

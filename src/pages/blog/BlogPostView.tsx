@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
@@ -15,6 +15,7 @@ import { SEO } from "../../components/SEO";
 export const BlogPostView = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const articleRef = useRef<HTMLDivElement>(null);
 
   const post = blogPosts.find((p) => p.slug === slug);
   const category = post
@@ -26,6 +27,34 @@ export const BlogPostView = () => {
       navigate("/blog", { replace: true });
     }
   }, [post, navigate]);
+
+  // Intercept anchor clicks to use React Router's navigate for internal links
+  useEffect(() => {
+    const handleLinkClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest("a");
+
+      if (anchor && anchor.getAttribute("href")?.startsWith("/")) {
+        e.preventDefault();
+        const href = anchor.getAttribute("href");
+        if (href) {
+          navigate(href);
+          window.scrollTo(0, 0);
+        }
+      }
+    };
+
+    const currentRef = articleRef.current;
+    if (currentRef) {
+      currentRef.addEventListener("click", handleLinkClick);
+    }
+
+    return () => {
+      if (currentRef) {
+        currentRef.removeEventListener("click", handleLinkClick);
+      }
+    };
+  }, [navigate]);
 
   if (!post) return null;
 
@@ -190,7 +219,7 @@ export const BlogPostView = () => {
             </div>
 
             {/* Body Content */}
-            <div className="prose prose-lg prose-emerald max-w-none">
+            <div className="prose prose-lg prose-emerald max-w-none" ref={articleRef}>
               {post.sections.map((section, idx) => (
                 <div key={idx} id={`sec-${idx}`} className="mb-12 scroll-mt-24">
                   <h2 className="text-3xl font-bold text-gray-900 mb-6 tracking-tight">

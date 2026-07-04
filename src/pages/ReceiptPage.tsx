@@ -127,7 +127,7 @@ export function ReceiptPage() {
       "thumbnailUrl": "https://img.youtube.com/vi/l4102DNZ0NE/maxresdefault.jpg",
       "contentUrl": "https://www.youtube.com/watch?v=l4102DNZ0NE",
       "embedUrl": "https://www.youtube.com/embed/l4102DNZ0NE",
-      "uploadDate": "2024-01-01T08:00:00+08:00",
+      "uploadDate": "2026-06-28T08:00:00-03:00",
       "duration": "PT2M",
       "publisher": {
         "@type": "Organization",

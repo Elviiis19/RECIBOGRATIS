@@ -927,7 +927,7 @@ export const blogPosts: BlogPost[] = [
       {
         h2: "Como gerar seu comprovante agora mesmo",
         content:
-          '<p>Esqueça as buscas demoradas e os talões de papelaria que amassam no porta-luvas do carro.</p><p>Se você acabou de fechar um serviço e precisa enviar o documento:</p><ol><li>Acesse nosso gerador de <a href="/recibo-de-pagamento" class="text-emerald-600 font-semibold hover:underline">Recibo de Prestação de Serviços</a> ou o <a href="/recibo-simples" class="text-emerald-600 font-semibold hover:underline">Recibo Simples</a>.</li><li>Preencha os valores e veja a mágica acontecer na tela (ele escreve o valor por extenso sozinho).</li><li>Adicione sua chave Pix.</li><li>Clique em <strong>Baixar PDF</strong> e mande direto no WhatsApp do cliente.</li></ol>',
+          '<p>Esqueça as buscas demoradas e os talões de papelaria que amassam no porta-luvas do carro.</p><p>Se você acabou de fechar um serviço e precisa enviar o documento:</p><ol><li>Acesse nosso gerador de <a href="/recibo-de-prestacao-de-servicos" class="text-emerald-600 font-semibold hover:underline">Recibo de Prestação de Serviços</a> ou o <a href="/recibo-simples" class="text-emerald-600 font-semibold hover:underline">Recibo Simples</a>.</li><li>Preencha os valores e veja a mágica acontecer na tela (ele escreve o valor por extenso sozinho).</li><li>Adicione sua chave Pix.</li><li>Clique em <strong>Baixar PDF</strong> e mande direto no WhatsApp do cliente.</li></ol>',
         hasCta: {
           text: "Profissionalize sua cobrança hoje e deixe os arquivos de Word desconfigurados no passado.",
           link: "/",
