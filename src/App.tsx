@@ -17,6 +17,10 @@ import { Faq } from './pages/Faq';
 import { AllModels } from './pages/AllModels';
 import { BlogIndex } from './pages/blog/BlogIndex';
 import { BlogPostView } from './pages/blog/BlogPostView';
+
+import DeclarationIndex from './pages/declarations/DeclarationIndex';
+import DeclarationPage from './pages/declarations/DeclarationPage';
+
 import { ValorPorExtenso } from './pages/tools/ValorPorExtenso';
 import { RetencaoImpostos } from './pages/tools/RetencaoImpostos';
 import { DescontosMultas } from './pages/tools/DescontosMultas';
@@ -53,6 +57,11 @@ export default function App({ url }: { url?: string }) {
         <Route path="faq" element={<Faq />} />
         <Route path="como-funciona" element={<ComoFunciona />} />
         <Route path="modelos" element={<AllModels />} />
+        
+        {/* Declarações */}
+        <Route path="declaracoes" element={<DeclarationIndex />} />
+        <Route path="declaracoes/:slug" element={<DeclarationPage />} />
+
         <Route path="blog" element={<BlogIndex />} />
         <Route path="blog/categoria/:category" element={<BlogIndex />} />
         <Route path="blog/:slug" element={<BlogPostView />} />

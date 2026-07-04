@@ -26,7 +26,7 @@ export const AdSenseBlock: React.FC<AdSenseBlockProps> = ({ slot = '1234567890',
     <div className={`my-8 flex justify-center w-full overflow-hidden ${className}`}>
       {/* Container wrapper for AdSense */}
       <div className="w-full bg-gray-50/30 rounded-xl flex items-center justify-center min-h-[100px]">
-        {import.meta.env.DEV && (
+        {(import.meta as any).env.DEV && (
           <span className="text-gray-400 text-sm absolute z-0 pointer-events-none">
             Espaço para Anúncio (AdSense)
           </span>

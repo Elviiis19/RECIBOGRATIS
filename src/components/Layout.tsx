@@ -78,6 +78,12 @@ export function Layout() {
                 {/* Desktop Main Links */}
                 <nav aria-label="Navegação Secundária" className="hidden lg:flex items-center gap-6">
                   <Link 
+                    to="/declaracoes" 
+                    className="text-sm font-semibold text-emerald-50 hover:text-white transition-colors flex items-center gap-1"
+                  >
+                    Declarações
+                  </Link>
+                  <Link 
                     to="/blog" 
                     className="text-sm font-semibold text-emerald-50 hover:text-white transition-colors"
                   >
@@ -230,6 +236,13 @@ export function Layout() {
                 Página Inicial (Todos os Modelos)
               </Link>
               <Link
+                to="/declaracoes"
+                onClick={() => setIsMenuOpen(false)}
+                className="block px-3 py-2 rounded-md text-base font-bold text-gray-700 hover:bg-emerald-50 hover:text-emerald-700"
+              >
+                Modelos de Declaração
+              </Link>
+              <Link
                 to="/blog"
                 onClick={() => setIsMenuOpen(false)}
                 className="block px-3 py-2 rounded-md text-base font-bold text-gray-700 hover:bg-emerald-50 hover:text-emerald-700"
@@ -349,6 +362,7 @@ export function Layout() {
               <ul className="space-y-2 mb-6">
                 <li><Link to="/como-funciona" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Como Funciona</Link></li>
                 <li><Link to="/blog" className="text-sm inline-flex items-center gap-1 font-bold text-emerald-400 hover:text-white transition-colors">Nosso Blog</Link></li>
+                <li><Link to="/declaracoes" className="text-sm inline-flex items-center gap-1 font-bold text-emerald-400 hover:text-white transition-colors">Declarações Diversas</Link></li>
                 <li><Link to="/faq" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Perguntas Frequentes (FAQ)</Link></li>
                 <li><Link to="/termos-de-uso" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Termos de Uso</Link></li>
                 <li><Link to="/politica-de-privacidade" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Política de Privacidade</Link></li>
