@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Blog - Recibo Grátis</title>
+  <link>${baseUrl}/blog</link>
+  <description>Dicas de Financeiro, MEI e Legislação para Autônomos.</description>
+  <atom:link href="${baseUrl}/rss.xml" rel="self" type="application/rss+xml" />
+  ${posts.map(post => {
+    // Convert DD/MM/YYYY to a standard Date string if needed, or just use it.
+    // RSS requires RFC 822 date format. We'll simplify and just use a standard date if parseable.
+    const [day, month, year] = post.date.split('/');
+    const pubDate = new Date(`${year}-${month}-${day}T12:00:00Z`).toUTCString();
+    
+    return `<item>
+    <title>${post.title}</title>
+    <link>${baseUrl}/blog/${post.slug}</link>
+    <description>${post.excerpt}</description>
+    <pubDate>${pubDate}</pubDate>
+    <guid>${baseUrl}/blog/${post.slug}</guid>
+  </item>`;
+  }).join('\n  ')}
+</channel>
+</rss>

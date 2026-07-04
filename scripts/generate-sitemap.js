@@ -64,67 +64,80 @@ const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>${baseUrl}/</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>${baseUrl}/gerador-qr-code-pix</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 ${ferramentas.map(slug => `  <url>
     <loc>${baseUrl}/ferramentas/${slug}</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>`).join('\n')}
   <url>
     <loc>${baseUrl}/termos-de-uso</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>${baseUrl}/politica-de-privacidade</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>${baseUrl}/como-funciona</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>${baseUrl}/contato</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 ${slugs.map(slug => `  <url>
     <loc>${baseUrl}/${slug}</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`).join('\n')}
   <url>
     <loc>${baseUrl}/blog</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 ${blogSlugs.map(slug => `  <url>
     <loc>${baseUrl}/blog/${slug}</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`).join('\n')}
 ${blogCategorySlugs.map(slug => `  <url>
     <loc>${baseUrl}/blog/categoria/${slug}</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>`).join('\n')}
 
   <url>
     <loc>${baseUrl}/modelos</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 ${declSlugs.map(slug => `  <url>
     <loc>${baseUrl}/declaracoes/${slug}</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`).join('\n')}
