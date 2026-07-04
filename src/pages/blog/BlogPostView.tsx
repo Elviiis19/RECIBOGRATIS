@@ -83,7 +83,7 @@ export const BlogPostView = () => {
       ? `https://recibogratis.com.br${post.image}`
       : "https://recibogratis.com.br/og-image.webp",
     datePublished: "2026-06-28T08:00:00-03:00",
-    dateModified: new Date().toISOString(),
+    dateModified: "2026-06-28T08:00:00-03:00",
     author: {
       "@type": "Person",
       name: "Elvis Dias",

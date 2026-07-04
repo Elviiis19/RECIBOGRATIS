@@ -86,7 +86,7 @@ export function ValorPorExtenso() {
                   </p>
                   <button
                     onClick={handleCopy}
-                    className="p-3 bg-white text-emerald-600 rounded-xl hover:bg-emerald-100 transition-colors shadow-sm shrink-0"
+                    className="p-3 bg-white text-emerald-700 rounded-xl hover:bg-emerald-100 transition-colors shadow-sm shrink-0"
                     title="Copiar texto"
                   >
                     {copied ? <Check className="w-5 h-5" /> : <Copy className="w-5 h-5" />}

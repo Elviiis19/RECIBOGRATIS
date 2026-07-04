@@ -94,7 +94,7 @@ export function DiasUteis() {
                 </div>
                 <div className="text-center">
                   <p className="text-emerald-800 text-sm font-bold mb-1">Dias Úteis</p>
-                  <p className="text-5xl font-extrabold text-emerald-600">{uteis}</p>
+                  <p className="text-5xl font-extrabold text-emerald-700">{uteis}</p>
                 </div>
               </div>
             </div>

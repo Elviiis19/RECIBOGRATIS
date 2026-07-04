@@ -95,15 +95,12 @@ export function ReceiptGenerator({
     recebedorDocumento: "",
     referenteA: defaultReferenteA,
     cidade: "",
-    data: (() => {
-      const today = new Date();
-      return `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
-    })(),
+    data: "",
     formaPagamento: "Dinheiro",
     logo: "",
     chavePix: "",
     aluguelMesRef: "Janeiro",
-    aluguelAnoRef: new Date().getFullYear().toString(),
+    aluguelAnoRef: "",
     aluguelCep: "",
     aluguelEndereco: "",
     aluguelNumero: "",
@@ -127,11 +124,7 @@ export function ReceiptGenerator({
     pinturaTipo: "",
 
     // Default Promissória
-    vencimento: (() => {
-      const today = new Date();
-      today.setMonth(today.getMonth() + 1);
-      return `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
-    })(),
+    vencimento: "",
     quantidadeParcelas: "1",
     periodicidade: "mensal",
     avalistaNome: "",
@@ -147,6 +140,19 @@ export function ReceiptGenerator({
   });
 
   useEffect(() => {
+    const today = new Date();
+    const formattedToday = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+    const nextMonth = new Date();
+    nextMonth.setMonth(nextMonth.getMonth() + 1);
+    const formattedNextMonth = `${nextMonth.getFullYear()}-${String(nextMonth.getMonth() + 1).padStart(2, "0")}-${String(nextMonth.getDate()).padStart(2, "0")}`;
+
+    setData((prev) => ({
+      ...prev,
+      data: formattedToday,
+      aluguelAnoRef: today.getFullYear().toString(),
+      vencimento: formattedNextMonth
+    }));
+
     const savedData = localStorage.getItem("receiptIssuerData");
     if (savedData) {
       try {
@@ -1152,7 +1158,7 @@ export function ReceiptGenerator({
         <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
-              <FileText className="text-emerald-600" />
+              <FileText className="text-emerald-700" />
               Preenchimento Inteligente
             </h2>
             <p className="text-gray-500 text-sm">
@@ -1260,7 +1266,7 @@ export function ReceiptGenerator({
                               value="mensal"
                               checked={data.periodicidade === "mensal"}
                               onChange={handleChange}
-                              className="text-emerald-600 focus:ring-emerald-500 w-4 h-4"
+                              className="text-emerald-700 focus:ring-emerald-500 w-4 h-4"
                             />
                             <span className="text-sm font-medium">mensal</span>
                           </label>
@@ -1271,7 +1277,7 @@ export function ReceiptGenerator({
                               value="anual"
                               checked={data.periodicidade === "anual"}
                               onChange={handleChange}
-                              className="text-emerald-600 focus:ring-emerald-500 w-4 h-4"
+                              className="text-emerald-700 focus:ring-emerald-500 w-4 h-4"
                             />
                             <span className="text-sm font-medium">anual</span>
                           </label>
@@ -2349,7 +2355,7 @@ export function ReceiptGenerator({
             {steps[currentStep].id === "concluido" && (
               <div className="space-y-6 animate-in fade-in zoom-in-95 duration-500 text-center py-8">
                 <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle2 className="w-10 h-10 text-emerald-600" />
+                  <CheckCircle2 className="w-10 h-10 text-emerald-700" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">
                   Recibo Pronto!
@@ -2365,7 +2371,7 @@ export function ReceiptGenerator({
                     id="duasVias"
                     checked={duasVias}
                     onChange={(e) => setDuasVias(e.target.checked)}
-                    className="w-5 h-5 text-emerald-600 rounded border-gray-300 focus:ring-emerald-500"
+                    className="w-5 h-5 text-emerald-700 rounded border-gray-300 focus:ring-emerald-500"
                   />
                   <label
                     htmlFor="duasVias"
@@ -2434,7 +2440,7 @@ export function ReceiptGenerator({
             <div className="flex justify-center mt-8 pt-6 border-t border-gray-100">
               <button
                 onClick={() => setCurrentStep(0)}
-                className="text-emerald-600 hover:text-emerald-700 font-medium underline underline-offset-4"
+                className="text-emerald-700 hover:text-emerald-700 font-medium underline underline-offset-4"
               >
                 Editar dados novamente
               </button>

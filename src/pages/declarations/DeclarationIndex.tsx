@@ -16,14 +16,14 @@ import {
 import { Helmet } from "react-helmet-async";
 
 const iconMap: Record<string, React.ReactNode> = {
-  "residencia": <Home className="w-8 h-8 text-emerald-600 mb-4" />,
-  "hipossuficiencia": <Scale className="w-8 h-8 text-emerald-600 mb-4" />,
-  "uniao-estavel": <Heart className="w-8 h-8 text-emerald-600 mb-4" />,
-  "dependencia-economica": <Baby className="w-8 h-8 text-emerald-600 mb-4" />,
-  "bons-antecedentes": <CheckCircle className="w-8 h-8 text-emerald-600 mb-4" />,
-  "trabalho": <Briefcase className="w-8 h-8 text-emerald-600 mb-4" />,
-  "veracidade": <ShieldCheck className="w-8 h-8 text-emerald-600 mb-4" />,
-  "estado-civil": <UserCheck className="w-8 h-8 text-emerald-600 mb-4" />
+  "residencia": <Home className="w-8 h-8 text-emerald-700 mb-4" />,
+  "hipossuficiencia": <Scale className="w-8 h-8 text-emerald-700 mb-4" />,
+  "uniao-estavel": <Heart className="w-8 h-8 text-emerald-700 mb-4" />,
+  "dependencia-economica": <Baby className="w-8 h-8 text-emerald-700 mb-4" />,
+  "bons-antecedentes": <CheckCircle className="w-8 h-8 text-emerald-700 mb-4" />,
+  "trabalho": <Briefcase className="w-8 h-8 text-emerald-700 mb-4" />,
+  "veracidade": <ShieldCheck className="w-8 h-8 text-emerald-700 mb-4" />,
+  "estado-civil": <UserCheck className="w-8 h-8 text-emerald-700 mb-4" />
 };
 
 export default function DeclarationIndex() {
@@ -44,7 +44,7 @@ export default function DeclarationIndex() {
 
       <div className="text-center max-w-3xl mx-auto mb-12">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-          Modelos de Declaração <span className="text-emerald-600">com Validade Legal</span>
+          Modelos de Declaração <span className="text-emerald-700">com Validade Legal</span>
         </h1>
         <p className="text-xl text-gray-600 mb-8">
           Escolha o modelo, preencha os dados e gere o PDF na hora. Nossas declarações
@@ -74,9 +74,9 @@ export default function DeclarationIndex() {
               <FileText className="w-24 h-24 text-emerald-900" />
             </div>
             
-            {iconMap[model.id] || <FileText className="w-8 h-8 text-emerald-600 mb-4" />}
+            {iconMap[model.id] || <FileText className="w-8 h-8 text-emerald-700 mb-4" />}
             
-            <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors">
+            <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-emerald-700 transition-colors">
               {model.title}
             </h3>
             
@@ -84,7 +84,7 @@ export default function DeclarationIndex() {
               {model.shortDescription}
             </p>
             
-            <div className="mt-4 flex items-center text-emerald-600 font-semibold group-hover:gap-2 transition-all">
+            <div className="mt-4 flex items-center text-emerald-700 font-semibold group-hover:gap-2 transition-all">
               Preencher Modelo
               <svg className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

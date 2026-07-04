@@ -58,7 +58,7 @@ export function DeclarationGenerator({ modelId }: { modelId: string }) {
     estado: "",
     complemento: "",
     finalidade: "",
-    data: new Date().toISOString().split("T")[0],
+    data: "",
     
     declarante2Nome: "",
     declarante2Nacionalidade: "brasileiro(a)",
@@ -74,6 +74,11 @@ export function DeclarationGenerator({ modelId }: { modelId: string }) {
 
   useEffect(() => {
     setIsClient(true);
+    const today = new Date();
+    setData(prev => ({
+      ...prev,
+      data: `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`
+    }));
   }, []);
 
   const handleChange = (
@@ -541,7 +546,7 @@ export function DeclarationGenerator({ modelId }: { modelId: string }) {
       <div className="w-full lg:w-5/12 print:hidden space-y-6">
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
           <h3 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
-            <FileText className="w-5 h-5 text-emerald-600" />
+            <FileText className="w-5 h-5 text-emerald-700" />
             Dados do Declarante
           </h3>
 
@@ -646,7 +651,7 @@ export function DeclarationGenerator({ modelId }: { modelId: string }) {
         {needsSecondParty && (
           <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
             <h3 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <FileText className="w-5 h-5 text-emerald-600" />
+              <FileText className="w-5 h-5 text-emerald-700" />
               Dados do 2º Declarante (Companheiro/a)
             </h3>
             <div className="space-y-4">
@@ -727,7 +732,7 @@ export function DeclarationGenerator({ modelId }: { modelId: string }) {
 
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
           <h3 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
-            <FileText className="w-5 h-5 text-emerald-600" />
+            <FileText className="w-5 h-5 text-emerald-700" />
             Endereço e Data
           </h3>
 

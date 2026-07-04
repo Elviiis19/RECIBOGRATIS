@@ -61,7 +61,7 @@ export function CookieBanner() {
               <div className="flex-1 max-w-4xl px-2">
                 <p className="text-gray-700 text-xs md:text-sm leading-tight flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
                   <span className="font-semibold flex items-center gap-1.5 text-gray-900">
-                    <Cookie className="w-3.5 h-3.5 text-emerald-600" />
+                    <Cookie className="w-3.5 h-3.5 text-emerald-700" />
                     Privacidade e Cookies:
                   </span>
                   <span>

@@ -478,7 +478,7 @@ export function ReceiptPage() {
                   <ul className="space-y-4">
                     {richData.useCasesList.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 mt-0.5 text-sm font-bold">
+                        <div className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0 mt-0.5 text-sm font-bold">
                           {idx + 1}
                         </div>
                         <span className="text-gray-700 text-lg leading-relaxed">{item}</span>
@@ -543,7 +543,7 @@ export function ReceiptPage() {
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className="inline-flex justify-center items-center px-8 py-4 bg-white hover:bg-gray-50 text-emerald-700 font-bold rounded-full transition-colors text-lg shadow-lg hover:shadow-xl"
               >
-                <FileText className="w-5 h-5 mr-2 text-emerald-600" />
+                <FileText className="w-5 h-5 mr-2 text-emerald-700" />
                 Preencher Novo Recibo
               </button>
             </div>
@@ -609,7 +609,7 @@ export function ReceiptPage() {
                 .slice(0, 3)
                 .map((relatedModel, idx, arr) => (
                   <span key={relatedModel.id}>
-                    <Link to={`/${relatedModel.slug}`} className="text-emerald-600 hover:underline hover:text-emerald-700">
+                    <Link to={`/${relatedModel.slug}`} className="text-emerald-700 hover:underline hover:text-emerald-700">
                       {relatedModel.title}
                     </Link>
                     {idx < arr.length - 1 ? ', ' : '.'}
@@ -645,7 +645,7 @@ export function ReceiptPage() {
                 ))}
             </div>
             <div className="text-center mt-8">
-              <Link to="/" className="inline-flex items-center gap-2 text-emerald-600 font-medium hover:text-emerald-700 transition-colors no-underline">
+              <Link to="/" className="inline-flex items-center gap-2 text-emerald-700 font-medium hover:text-emerald-700 transition-colors no-underline">
                 Ver todos os 40+ modelos <ChevronRight className="w-4 h-4" />
               </Link>
             </div>

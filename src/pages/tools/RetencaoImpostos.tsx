@@ -98,17 +98,17 @@ export function RetencaoImpostos() {
                 <p className="font-semibold text-gray-900 text-sm">Aplicar Impostos (PJ ou RPA)</p>
                 
                 <label className="flex items-center gap-3 cursor-pointer">
-                  <input type="checkbox" checked={includesPISCOFINS} onChange={(e) => setIncludesPISCOFINS(e.target.checked)} className="w-5 h-5 text-emerald-600 rounded" />
+                  <input type="checkbox" checked={includesPISCOFINS} onChange={(e) => setIncludesPISCOFINS(e.target.checked)} className="w-5 h-5 text-emerald-700 rounded" />
                   <span className="text-gray-700">PIS/COFINS/CSLL (4,65%) via CSRF</span>
                 </label>
                 
                 <label className="flex items-center gap-3 cursor-pointer">
-                  <input type="checkbox" checked={includesIRRF} onChange={(e) => setIncludesIRRF(e.target.checked)} className="w-5 h-5 text-emerald-600 rounded" />
+                  <input type="checkbox" checked={includesIRRF} onChange={(e) => setIncludesIRRF(e.target.checked)} className="w-5 h-5 text-emerald-700 rounded" />
                   <span className="text-gray-700">IRRF PJ (1,5%)</span>
                 </label>
 
                 <label className="flex items-center gap-3 cursor-pointer">
-                  <input type="checkbox" checked={includesINSS} onChange={(e) => setIncludesINSS(e.target.checked)} className="w-5 h-5 text-emerald-600 rounded" />
+                  <input type="checkbox" checked={includesINSS} onChange={(e) => setIncludesINSS(e.target.checked)} className="w-5 h-5 text-emerald-700 rounded" />
                   <span className="text-gray-700">INSS (11%)</span>
                 </label>
               </div>

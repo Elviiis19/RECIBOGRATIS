@@ -57,7 +57,7 @@ export function SearchPalette({ isOpen, onClose }: SearchPaletteProps) {
             ESC
           </button>
           
-          <Search className="w-6 h-6 text-emerald-600 shrink-0 ml-1" />
+          <Search className="w-6 h-6 text-emerald-700 shrink-0 ml-1" />
           
           <input
             ref={inputRef}

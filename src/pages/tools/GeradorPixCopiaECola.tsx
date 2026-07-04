@@ -255,19 +255,19 @@ export function GeradorPixCopiaECola() {
           </h3>
           <ol className="space-y-4 mb-8">
             <li className="flex items-start text-gray-600">
-              <span className="font-bold text-emerald-600 mr-2">1.</span>
+              <span className="font-bold text-emerald-700 mr-2">1.</span>
               Preencha sua Chave PIX (CPF, CNPJ, E-mail, Celular ou Aleatória).
             </li>
             <li className="flex items-start text-gray-600">
-              <span className="font-bold text-emerald-600 mr-2">2.</span>
+              <span className="font-bold text-emerald-700 mr-2">2.</span>
               Digite o valor da cobrança e, se quiser, o nome do recebedor e a cidade.
             </li>
             <li className="flex items-start text-gray-600">
-              <span className="font-bold text-emerald-600 mr-2">3.</span>
+              <span className="font-bold text-emerald-700 mr-2">3.</span>
               Clique no botão para gerar seu link de cobrança PIX.
             </li>
             <li className="flex items-start text-gray-600">
-              <span className="font-bold text-emerald-600 mr-2">4.</span>
+              <span className="font-bold text-emerald-700 mr-2">4.</span>
               Copie o texto gerado e envie para quem vai pagar!
             </li>
           </ol>
@@ -297,7 +297,7 @@ export function GeradorPixCopiaECola() {
               </ul>
 
               <p className="text-gray-600">
-                Depois de gerar o seu Copia e Cola, você também pode aproveitar e emitir um <Link to="/recibo-de-pagamento" className="text-emerald-600 hover:underline">Recibo de Pagamento</Link> para formalizar a transação! Se precisar gerar com imagem, use o nosso <Link to="/gerador-qr-code-pix" className="text-emerald-600 hover:underline">Gerador de QR Code</Link>.
+                Depois de gerar o seu Copia e Cola, você também pode aproveitar e emitir um <Link to="/recibo-de-pagamento" className="text-emerald-700 hover:underline">Recibo de Pagamento</Link> para formalizar a transação! Se precisar gerar com imagem, use o nosso <Link to="/gerador-qr-code-pix" className="text-emerald-700 hover:underline">Gerador de QR Code</Link>.
               </p>
             </div>
             

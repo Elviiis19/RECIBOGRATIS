@@ -2,6 +2,65 @@ import { BlogPost } from "./blogTypes";
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'como-fazer-uma-declaracao-de-residencia-aceita-em-qualquer-lugar',
+    title: 'Como Fazer uma Declaração de Residência Aceita em Qualquer Lugar (e Fugir da Burocracia)',
+    category: 'burocracia-descomplicada',
+    seoTitle: 'Como Fazer Declaração de Residência Aceita em Qualquer Lugar',
+    seoDescription: 'Aprenda como fazer uma declaração de residência online e grátis. Saiba o que não pode faltar no documento para ser aceito sem burocracia.',
+    intro: {
+      acordo: 'Você chega ao balcão de atendimento para abrir uma conta, assumir uma vaga de emprego ou matricular o filho na escola. Tudo certo, até a atendente pedir: "comprovante de endereço atualizado no seu nome, por favor". Se você mora com os pais, divide apartamento ou aluga um imóvel onde as contas continuam no nome do proprietário, essa simples frase costuma gerar uma dor de cabeça enorme.',
+      promessa: 'A boa notícia é que você não precisa correr para tentar transferir uma conta de luz às pressas.',
+      previa: 'A legislação brasileira permite que você comprove onde mora através de uma declaração de residência. O segredo não é apenas escrever um texto qualquer, mas sim formatar um documento que seja inquestionável.'
+    },
+    sections: [
+      {
+        h2: 'Por que a declaração substitui a conta de água ou luz?',
+        content: `
+          <p>Muitos balcões de atendimento tentam dificultar, mas a verdade é amparada por lei (Lei 7.115/83): a declaração de próprio punho ou impressa e assinada tem total validade para comprovar moradia. O objetivo desse documento é transferir para você a responsabilidade legal sobre aquela informação. Ou seja, ao assinar, você atesta sob as penas da lei que mora naquele local, resolvendo a ausência de uma fatura de serviços.</p>
+        `
+      },
+      {
+        h2: 'O que não pode faltar para o seu documento não ser barrado',
+        content: `
+          <p>Para que a sua declaração passe direto pela triagem de bancos, faculdades ou órgãos públicos, ela precisa ser objetiva, mas cirúrgica nas informações. Um documento seguro e com credibilidade precisa conter:</p>
+          <ul class="list-disc pl-5 my-4 space-y-2">
+            <li><strong>Identificação total do declarante:</strong> Seu nome completo, nacionalidade, estado civil, profissão, RG e CPF.</li>
+            <li><strong>O endereço completo e exato:</strong> Rua, número, complemento (se for apartamento ou fundos, deixe isso claro), bairro, cidade, estado e CEP.</li>
+            <li><strong>O termo de responsabilidade:</strong> Uma frase clara afirmando que você tem ciência das penalidades criminais caso preste uma informação falsa.</li>
+            <li><strong>Data, local e assinatura:</strong> Essenciais para fechar a validade do documento.</li>
+          </ul>
+          <p class="mt-4">Se a sua moradia envolve o pagamento de aluguel diretamente para o proprietário, também é fundamental manter o seu <a href="/recibo-de-aluguel" class="text-emerald-700 font-semibold hover:underline">recibo de aluguel online</a> ou <a href="/recibo-de-aluguel-com-logo" class="text-emerald-700 font-semibold hover:underline">recibo de aluguel com logo</a> em dia para evitar conflitos futuros e comprovar o vínculo.</p>
+        `
+      },
+      {
+        h2: 'Cuidado com os modelos baixados na internet',
+        content: `
+          <p>A primeira reação de quem precisa desse documento é procurar no Google e baixar um modelo editável. O risco aqui é alto. Você perde tempo tentando arrumar a formatação que desconfigurou no Word, esquece de apagar o dado do modelo antigo ou acaba deletando a linha que continha a lei de validação.</p>
+          <p class="mt-4">Um documento mal formatado, com fontes diferentes ou desalinhado, levanta suspeitas no balcão de atendimento e aumenta as chances do seu comprovante ser recusado pelo atendente.</p>
+        `
+      },
+      {
+        h2: 'A solução definitiva: Gere sua declaração online e de graça',
+        content: `
+          <p>A forma mais inteligente de resolver isso é usar a tecnologia a seu favor, focando em acessibilidade e rapidez. Ao invés de brigar com editores de texto, você pode utilizar um gerador online focado na emissão de documentos.</p>
+          <p class="mt-4">Você abre a ferramenta direto no navegador do celular — sem precisar baixar nenhum aplicativo —, insere os seus dados pessoais e o endereço. O sistema cuida do resto, entregando um PDF com diagramação profissional, margens corretas e o texto jurídico exato que os órgãos exigem.</p>
+        `,
+        hasCta: {
+            text: "Gere agora a sua declaração de residência em PDF:",
+            link: "/declaracoes/declaracao-de-residencia",
+            ctaLabel: "Emitir Declaração de Residência"
+        }
+      }
+    ],
+    conclusion: 'A dica de ouro é: gere a sua declaração digital, imprima, assine com firmeza e apresente. Você resolve uma burocracia que levaria dias em questão de minutos, com total segurança e sem gastar um centavo.',
+    faqs: [
+      {
+        question: 'Preciso reconhecer firma no cartório?',
+        answer: 'Na esmagadora maioria dos casos (especialmente em órgãos públicos), o reconhecimento de firma não é mais obrigatório, bastando que a sua assinatura no papel seja idêntica à do seu documento de identidade (RG ou CNH). No entanto, algumas empresas privadas (como bancos mais tradicionais ou imobiliárias) ainda podem exigir o selo do cartório por políticas internas.'
+      }
+    ]
+  },
+  {
     slug: 'como-emitir-nota-promissoria-online-gratis',
     title: 'Como Emitir Sua Nota Promissória Online Grátis (Sem Baixar Programas)',
     category: 'financas-pessoais',
@@ -416,7 +475,7 @@ export const blogPosts: BlogPost[] = [
       {
         h2: "Recibo em PDF (Digital): Por que se tornou o padrão oficial?",
         content:
-          '<p>A transição para o recibo digital não ocorreu apenas por conveniência, mas por segurança jurídica. Gerar o comprovante em PDF resolve todas as vulnerabilidades do papel.</p><h3>Rastreabilidade e Imutabilidade</h3><p>Um arquivo em PDF é formatado para leitura e impressão, não para edição livre. Uma vez que os dados são digitados e o documento é fechado, a tentativa de adulteração visual deixa rastros digitais.</p><h3>Padronização Profissional</h3><p>O uso da tecnologia padroniza a formatação. Não há espaço para interpretações erradas de caligrafia. O CPF, os nomes e o valor numeral e por extenso ficam perfeitamente legíveis. Se você perder a via impressa, o arquivo original digital pode ser reimpresso a qualquer momento com exatidão.</p><p><strong>Dica de Segurança:</strong> Para evitar erros de formatação ou esquecer dados exigidos pelo Código Civil, a prática mais segura é utilizar um <a href="/recibo-simples" class="text-emerald-600 font-semibold hover:underline">gerador de recibo simples</a> online. Basta preencher os campos pelo celular ou computador e baixar o PDF blindado e formatado nos padrões da lei, pronto para arquivamento ou envio via WhatsApp.</p>',
+          '<p>A transição para o recibo digital não ocorreu apenas por conveniência, mas por segurança jurídica. Gerar o comprovante em PDF resolve todas as vulnerabilidades do papel.</p><h3>Rastreabilidade e Imutabilidade</h3><p>Um arquivo em PDF é formatado para leitura e impressão, não para edição livre. Uma vez que os dados são digitados e o documento é fechado, a tentativa de adulteração visual deixa rastros digitais.</p><h3>Padronização Profissional</h3><p>O uso da tecnologia padroniza a formatação. Não há espaço para interpretações erradas de caligrafia. O CPF, os nomes e o valor numeral e por extenso ficam perfeitamente legíveis. Se você perder a via impressa, o arquivo original digital pode ser reimpresso a qualquer momento com exatidão.</p><p><strong>Dica de Segurança:</strong> Para evitar erros de formatação ou esquecer dados exigidos pelo Código Civil, a prática mais segura é utilizar um <a href="/recibo-simples" class="text-emerald-700 font-semibold hover:underline">gerador de recibo simples</a> online. Basta preencher os campos pelo celular ou computador e baixar o PDF blindado e formatado nos padrões da lei, pronto para arquivamento ou envio via WhatsApp.</p>',
       },
       {
         h2: "Como garantir que seu recibo em PDF seja inquestionável?",
@@ -483,7 +542,7 @@ export const blogPosts: BlogPost[] = [
       {
         h2: 'Como preparar um recibo "à prova de falhas" para o Juiz',
         content:
-          '<p>Muitas pessoas perdem ações no JEC porque apresentam recibos rasurados, ilegíveis ou incompletos — como aqueles blocos de papelaria preenchidos apenas com "recebi o valor X".</p><p>Para que o juiz aceite o documento como prova cabal (prova irrefutável), ele não pode deixar margem para dúvidas. A melhor tática de defesa preventiva é abandonar os papéis preenchidos à mão e utilizar um <a href="/recibo-simples" class="text-emerald-600 font-semibold hover:underline">gerador de recibo simples</a> online para criar um arquivo digital padronizado em PDF.</p><h3>O Checklist do Documento Juridicamente Válido</h3><p>Seja o autor da ação (quem processa) ou o réu (quem se defende), certifique-se de que o documento levado à audiência possua a seguinte estrutura:</p><ul><li><strong>A Qualificação das Partes:</strong> Nome completo e CPF/CNPJ de quem pagou e de quem recebeu. O CPF é o que liga o documento à identidade civil das partes no processo.</li><li><strong>Valor Exato e Sem Rasuras:</strong> O juiz precisa cruzar o valor do recibo com o valor pedido na ação. Valores descritos em formato numérico e por extenso evitam alegações de adulteração.</li><li><strong>O "Coração" do Recibo (Descrição Específica):</strong> O campo de referência deve ser exato. Em vez de "pagamento de serviço", deve constar "pagamento referente à primeira parcela da pintura interna do imóvel na Rua X". É isso que conecta o pagamento ao serviço disputado no tribunal.</li><li><strong>Data, Local e Assinatura:</strong> A data comprova a cronologia dos fatos (quando ocorreu o pagamento em relação à quebra do acordo) e a assinatura do credor finaliza a eficácia do documento.</li></ul>',
+          '<p>Muitas pessoas perdem ações no JEC porque apresentam recibos rasurados, ilegíveis ou incompletos — como aqueles blocos de papelaria preenchidos apenas com "recebi o valor X".</p><p>Para que o juiz aceite o documento como prova cabal (prova irrefutável), ele não pode deixar margem para dúvidas. A melhor tática de defesa preventiva é abandonar os papéis preenchidos à mão e utilizar um <a href="/recibo-simples" class="text-emerald-700 font-semibold hover:underline">gerador de recibo simples</a> online para criar um arquivo digital padronizado em PDF.</p><h3>O Checklist do Documento Juridicamente Válido</h3><p>Seja o autor da ação (quem processa) ou o réu (quem se defende), certifique-se de que o documento levado à audiência possua a seguinte estrutura:</p><ul><li><strong>A Qualificação das Partes:</strong> Nome completo e CPF/CNPJ de quem pagou e de quem recebeu. O CPF é o que liga o documento à identidade civil das partes no processo.</li><li><strong>Valor Exato e Sem Rasuras:</strong> O juiz precisa cruzar o valor do recibo com o valor pedido na ação. Valores descritos em formato numérico e por extenso evitam alegações de adulteração.</li><li><strong>O "Coração" do Recibo (Descrição Específica):</strong> O campo de referência deve ser exato. Em vez de "pagamento de serviço", deve constar "pagamento referente à primeira parcela da pintura interna do imóvel na Rua X". É isso que conecta o pagamento ao serviço disputado no tribunal.</li><li><strong>Data, Local e Assinatura:</strong> A data comprova a cronologia dos fatos (quando ocorreu o pagamento em relação à quebra do acordo) e a assinatura do credor finaliza a eficácia do documento.</li></ul>',
         hasAd: true,
       },
       {
@@ -562,7 +621,7 @@ export const blogPosts: BlogPost[] = [
       {
         h2: "A Regra de Ouro: Como a tecnologia evita erros",
         content:
-          '<p>Quando utilizamos recibos de papel comprados em bancas, o campo de descrição costuma ser uma linha curta, forçando a pessoa a resumir a informação e cometer os erros citados acima.</p><p>A forma mais profissional de contornar esse problema e garantir que o texto tenha o tamanho necessário é utilizar um <a href="/recibo-simples" class="text-emerald-600 font-semibold hover:underline">gerador de recibo simples</a> online.</p><p>Ao utilizar uma ferramenta digital padronizada, o layout do documento se ajusta automaticamente ao tamanho do seu texto. Você ganha espaço ilimitado para digitar todos os detalhes do produto, números de série ou etapas do serviço, gerando um documento em PDF robusto, limpo e impossível de ser rasurado por má-fé.</p>',
+          '<p>Quando utilizamos recibos de papel comprados em bancas, o campo de descrição costuma ser uma linha curta, forçando a pessoa a resumir a informação e cometer os erros citados acima.</p><p>A forma mais profissional de contornar esse problema e garantir que o texto tenha o tamanho necessário é utilizar um <a href="/recibo-simples" class="text-emerald-700 font-semibold hover:underline">gerador de recibo simples</a> online.</p><p>Ao utilizar uma ferramenta digital padronizada, o layout do documento se ajusta automaticamente ao tamanho do seu texto. Você ganha espaço ilimitado para digitar todos os detalhes do produto, números de série ou etapas do serviço, gerando um documento em PDF robusto, limpo e impossível de ser rasurado por má-fé.</p>',
         hasCta: {
           text: "Crie seu recibo de formato autoajustável e deixe todas as informações bem nítidas no comprovante.",
           link: "/recibo-simples",
@@ -619,7 +678,7 @@ export const blogPosts: BlogPost[] = [
       {
         h2: "1. Recibo Simples: A Ferramenta do Cotidiano",
         content:
-          '<p>O <strong>recibo simples</strong> é uma declaração formal de quitação. Apoiado no Artigo 320 do Código Civil brasileiro, ele possui total validade jurídica para comprovar que uma dívida foi paga, protegendo o pagador contra cobranças em duplicidade.</p><h3>Principais Características</h3><ul><li><strong>Natureza:</strong> Civil e comprobatória.</li><li><strong>Emissor:</strong> Qualquer Pessoa Física (PF) ou Pessoa Jurídica (PJ).</li><li><strong>Tributação:</strong> O recibo em si não gera o recolhimento automático de impostos na fonte. A responsabilidade de declarar os ganhos no Imposto de Renda (Carnê-Leão) fica a cargo de quem recebeu o dinheiro.</li></ul><h3>Quando utilizar?</h3><p>O recibo é a escolha ideal para transações informais, negócios entre pessoas físicas ou serviços esporádicos onde a emissão de nota fiscal não é uma exigência tributária imediata.</p><ul><li>Compra e venda de bens usados (carros, móveis, eletrônicos).</li><li>Pagamento de aluguéis direto com o proprietário.</li><li>Remuneração de prestadores de serviços domésticos (diaristas, jardineiros, babás).</li><li>Repasses de pensão alimentícia.</li></ul><p><strong>Dica de Ouro:</strong> Para que o documento tenha peso irrefutável na justiça ou no Procon, ele não pode ser genérico. Utilize um gerador de <a href="/recibo-simples" class="text-emerald-600 font-semibold hover:underline">recibo simples</a> que estruture CPF/CNPJ de ambas as partes, valor por extenso, data, local e a discriminação exata do serviço, exigindo sempre a assinatura física ou digital do recebedor.</p>',
+          '<p>O <strong>recibo simples</strong> é uma declaração formal de quitação. Apoiado no Artigo 320 do Código Civil brasileiro, ele possui total validade jurídica para comprovar que uma dívida foi paga, protegendo o pagador contra cobranças em duplicidade.</p><h3>Principais Características</h3><ul><li><strong>Natureza:</strong> Civil e comprobatória.</li><li><strong>Emissor:</strong> Qualquer Pessoa Física (PF) ou Pessoa Jurídica (PJ).</li><li><strong>Tributação:</strong> O recibo em si não gera o recolhimento automático de impostos na fonte. A responsabilidade de declarar os ganhos no Imposto de Renda (Carnê-Leão) fica a cargo de quem recebeu o dinheiro.</li></ul><h3>Quando utilizar?</h3><p>O recibo é a escolha ideal para transações informais, negócios entre pessoas físicas ou serviços esporádicos onde a emissão de nota fiscal não é uma exigência tributária imediata.</p><ul><li>Compra e venda de bens usados (carros, móveis, eletrônicos).</li><li>Pagamento de aluguéis direto com o proprietário.</li><li>Remuneração de prestadores de serviços domésticos (diaristas, jardineiros, babás).</li><li>Repasses de pensão alimentícia.</li></ul><p><strong>Dica de Ouro:</strong> Para que o documento tenha peso irrefutável na justiça ou no Procon, ele não pode ser genérico. Utilize um gerador de <a href="/recibo-simples" class="text-emerald-700 font-semibold hover:underline">recibo simples</a> que estruture CPF/CNPJ de ambas as partes, valor por extenso, data, local e a discriminação exata do serviço, exigindo sempre a assinatura física ou digital do recebedor.</p>',
       },
       {
         h2: "2. RPA (Recibo de Pagamento Autônomo): A Ponte entre Empresa e Autônomo",
@@ -649,7 +708,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     conclusion:
-      '<p>O recibo simples continua sendo uma excelente ferramenta prática, rápida e isenta para o cidadão no seu cotidiano e para profissionais desvinculados que precisam emitir o recebimento das suas contas, blindando seus negócios juridicamente contra re-cobranças ou contestações. Se for este o seu caso, <a href="/recibo-simples" class="text-emerald-600 font-semibold hover:underline">acesse agora mesmo o gerador em nosso site</a>.<br><br>Por Elvis Dias.</p>',
+      '<p>O recibo simples continua sendo uma excelente ferramenta prática, rápida e isenta para o cidadão no seu cotidiano e para profissionais desvinculados que precisam emitir o recebimento das suas contas, blindando seus negócios juridicamente contra re-cobranças ou contestações. Se for este o seu caso, <a href="/recibo-simples" class="text-emerald-700 font-semibold hover:underline">acesse agora mesmo o gerador em nosso site</a>.<br><br>Por Elvis Dias.</p>',
     faqs: [
       {
         question: "É obrigatório assinar o recibo de pagamento?",
@@ -1071,7 +1130,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     conclusion:
-      '<p>Se a situação envolve um valor que pode acabar em disputa formal, veja também <a href="/blog/recibo-simples-juizado-pequenas-causas" class="text-emerald-600 font-semibold hover:underline">como usar o recibo simples para se proteger no Juizado de Pequenas Causas</a>.</p>',
+      '<p>Se a situação envolve um valor que pode acabar em disputa formal, veja também <a href="/blog/recibo-simples-juizado-pequenas-causas" class="text-emerald-700 font-semibold hover:underline">como usar o recibo simples para se proteger no Juizado de Pequenas Causas</a>.</p>',
     faqs: [
       {
         question: "Assinatura digitalizada tem validade em recibo?",
@@ -1129,7 +1188,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     conclusion:
-      '<p>Se o pagamento que você está tentando comprovar envolve uma situação que pode acabar em cobrança formal, veja também <a href="/blog/recibo-simples-juizado-pequenas-causas" class="text-emerald-600 font-semibold hover:underline">como usar um recibo simples para se proteger no Juizado de Pequenas Causas</a>.</p>',
+      '<p>Se o pagamento que você está tentando comprovar envolve uma situação que pode acabar em cobrança formal, veja também <a href="/blog/recibo-simples-juizado-pequenas-causas" class="text-emerald-700 font-semibold hover:underline">como usar um recibo simples para se proteger no Juizado de Pequenas Causas</a>.</p>',
   },
   {
     slug: "como-preencher-nota-promissoria-corretamente",
@@ -1151,7 +1210,7 @@ export const blogPosts: BlogPost[] = [
       {
         h2: "O que é uma Nota Promissória (e por que ela é tão forte)?",
         content:
-          '<p>Diferente de um <a href="/recibo-simples" class="text-emerald-600 font-semibold hover:underline">recibo comum</a>, que comprova que um pagamento já foi feito, a Nota Promissória é uma promessa incondicional de pagamento futuro. É um reconhecimento de dívida onde uma pessoa (o emitente/devedor) se compromete a pagar uma quantia exata a outra (o beneficiário/credor) em uma data estipulada.</p><p>O grande poder deste documento reside na sua força executiva. Se a dívida não for paga, o credor não precisa provar a origem do negócio na justiça; ele pode executar a dívida diretamente, acelerando a cobrança e o bloqueio de bens.</p>',
+          '<p>Diferente de um <a href="/recibo-simples" class="text-emerald-700 font-semibold hover:underline">recibo comum</a>, que comprova que um pagamento já foi feito, a Nota Promissória é uma promessa incondicional de pagamento futuro. É um reconhecimento de dívida onde uma pessoa (o emitente/devedor) se compromete a pagar uma quantia exata a outra (o beneficiário/credor) em uma data estipulada.</p><p>O grande poder deste documento reside na sua força executiva. Se a dívida não for paga, o credor não precisa provar a origem do negócio na justiça; ele pode executar a dívida diretamente, acelerando a cobrança e o bloqueio de bens.</p>',
       },
       {
         h2: "Requisitos Legais: O que não pode faltar no seu documento",
@@ -1167,7 +1226,7 @@ export const blogPosts: BlogPost[] = [
       {
         h2: "Como gerar sua Nota Promissória sem erros",
         content:
-          '<p>Preencher papéis de papelaria à mão abre margem para rasuras, letras ilegíveis e erros que anulam a cobrança. A forma mais segura e moderna de emitir este documento é digitalmente.</p><p>Com a ferramenta certa, você automatiza o preenchimento, evita falhas humanas e obtém um arquivo limpo e profissional. Você pode gerar a sua <a href="/nota-promissoria" class="text-emerald-600 font-semibold hover:underline">Nota Promissória em PDF gratuitamente</a> em nossa plataforma. O preenchimento é feito totalmente no seu navegador (sem salvar seus dados em banco de dados), garantindo privacidade total.</p><p>Após preencher, basta baixar o PDF, imprimir e colher a assinatura do devedor.</p>',
+          '<p>Preencher papéis de papelaria à mão abre margem para rasuras, letras ilegíveis e erros que anulam a cobrança. A forma mais segura e moderna de emitir este documento é digitalmente.</p><p>Com a ferramenta certa, você automatiza o preenchimento, evita falhas humanas e obtém um arquivo limpo e profissional. Você pode gerar a sua <a href="/nota-promissoria" class="text-emerald-700 font-semibold hover:underline">Nota Promissória em PDF gratuitamente</a> em nossa plataforma. O preenchimento é feito totalmente no seu navegador (sem salvar seus dados em banco de dados), garantindo privacidade total.</p><p>Após preencher, basta baixar o PDF, imprimir e colher a assinatura do devedor.</p>',
         hasCta: {
           text: "Gere sua Nota Promissória agora mesmo de forma rápida, segura e com validade legal.",
           link: "/nota-promissoria",
@@ -1177,7 +1236,7 @@ export const blogPosts: BlogPost[] = [
       {
         h2: "Nota Promissória substitui um Contrato de Prestação de Serviços?",
         content:
-          '<p>Esta é uma dúvida muito comum, mas a resposta é não.</p><p>A nota promissória garante apenas que um valor financeiro será pago em determinada data. Ela não descreve o que foi vendido, quais são as obrigações da entrega, as garantias do serviço ou as multas por rescisão.</p><p>Se você está prestando um serviço contínuo, fazendo uma obra ou vendendo um bem de alto valor, a Nota Promissória deve ser apenas o anexo de garantia. Para proteger o escopo do trabalho e alinhar as regras com o seu cliente, você precisa formalizar o acordo através de um sistema especializado de geração de contratos, como o <a href="https://geracontrato.com.br" target="_blank" rel="noopener noreferrer" class="text-emerald-600 font-semibold hover:underline">GeraContrato.com.br</a>, garantindo blindagem jurídica de ponta a ponta.</p>',
+          '<p>Esta é uma dúvida muito comum, mas a resposta é não.</p><p>A nota promissória garante apenas que um valor financeiro será pago em determinada data. Ela não descreve o que foi vendido, quais são as obrigações da entrega, as garantias do serviço ou as multas por rescisão.</p><p>Se você está prestando um serviço contínuo, fazendo uma obra ou vendendo um bem de alto valor, a Nota Promissória deve ser apenas o anexo de garantia. Para proteger o escopo do trabalho e alinhar as regras com o seu cliente, você precisa formalizar o acordo através de um sistema especializado de geração de contratos, como o <a href="https://geracontrato.com.br" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">GeraContrato.com.br</a>, garantindo blindagem jurídica de ponta a ponta.</p>',
       },
     ],
     conclusion:
@@ -1227,23 +1286,23 @@ export const blogPosts: BlogPost[] = [
       {
         h2: "1. Recibo Simples: O Comprovante do Passado",
         content:
-          '<p>O recibo é, por definição, o documento que atesta que uma obrigação financeira já foi cumprida. Ele olha para o passado.</p><p>Quando você finaliza uma obra, entrega um projeto ou conclui uma consultoria e o cliente faz o pagamento (seja em dinheiro, Pix ou transferência), você emite o recibo. Para o seu cliente, o recibo é a prova legal de que ele não deve mais nada referente àquela quantia. Para você, é a ferramenta ideal de organização de fluxo de caixa e comprovação de renda.</p><h3>Quando utilizar:</h3><ul><li>Pagamentos à vista.</li><li>Quitação de parcelas mensais de um serviço.</li><li>Comprovação de recebimento de valores para prestação de contas.</li></ul><p><strong>Dica de Ouro:</strong> Não use talões de papel que podem ser facilmente falsificados. É muito mais seguro e profissional gerar um <a href="/recibo-simples" class="text-emerald-600 font-semibold hover:underline">Recibo Simples em PDF</a> digitalmente, preenchendo os dados diretamente no navegador e enviando pelo WhatsApp do cliente.</p>',
+          '<p>O recibo é, por definição, o documento que atesta que uma obrigação financeira já foi cumprida. Ele olha para o passado.</p><p>Quando você finaliza uma obra, entrega um projeto ou conclui uma consultoria e o cliente faz o pagamento (seja em dinheiro, Pix ou transferência), você emite o recibo. Para o seu cliente, o recibo é a prova legal de que ele não deve mais nada referente àquela quantia. Para você, é a ferramenta ideal de organização de fluxo de caixa e comprovação de renda.</p><h3>Quando utilizar:</h3><ul><li>Pagamentos à vista.</li><li>Quitação de parcelas mensais de um serviço.</li><li>Comprovação de recebimento de valores para prestação de contas.</li></ul><p><strong>Dica de Ouro:</strong> Não use talões de papel que podem ser facilmente falsificados. É muito mais seguro e profissional gerar um <a href="/recibo-simples" class="text-emerald-700 font-semibold hover:underline">Recibo Simples em PDF</a> digitalmente, preenchendo os dados diretamente no navegador e enviando pelo WhatsApp do cliente.</p>',
       },
       {
         h2: "2. Nota Promissória: A Garantia do Futuro",
         content:
-          '<p>Se o recibo comprova o que já foi pago, a Nota Promissória é a promessa do que ainda será pago. Ela olha para o futuro.</p><p>A Nota Promissória é um título de crédito. Ela é uma promessa incondicional de que o cliente (emitente) pagará a você (beneficiário) um valor exato em uma data específica. A grande vantagem jurídica deste documento é a sua "força executiva". Se o cliente não pagar na data combinada, você não precisa entrar com uma ação longa para provar que o serviço existiu; você executa a dívida diretamente, o que pode resultar em bloqueio rápido de bens ou contas bancárias do devedor no Juizado de Pequenas Causas.</p><h3>Quando utilizar:</h3><ul><li>Vendas parceladas direto com o cliente (sem passar por cartão de crédito).</li><li>Empréstimos pessoais.</li><li>Adiantamentos onde o pagamento total será feito em uma data futura.</li></ul><p>Para que a promissória tenha validade, ela não pode ter rasuras. Você pode emitir sua <a href="/nota-promissoria" class="text-emerald-600 font-semibold hover:underline">Nota Promissória Online</a> de forma automática e gratuita para garantir que todos os requisitos legais (como praça de pagamento e data de vencimento) estejam perfeitos antes de colher a assinatura.</p>',
+          '<p>Se o recibo comprova o que já foi pago, a Nota Promissória é a promessa do que ainda será pago. Ela olha para o futuro.</p><p>A Nota Promissória é um título de crédito. Ela é uma promessa incondicional de que o cliente (emitente) pagará a você (beneficiário) um valor exato em uma data específica. A grande vantagem jurídica deste documento é a sua "força executiva". Se o cliente não pagar na data combinada, você não precisa entrar com uma ação longa para provar que o serviço existiu; você executa a dívida diretamente, o que pode resultar em bloqueio rápido de bens ou contas bancárias do devedor no Juizado de Pequenas Causas.</p><h3>Quando utilizar:</h3><ul><li>Vendas parceladas direto com o cliente (sem passar por cartão de crédito).</li><li>Empréstimos pessoais.</li><li>Adiantamentos onde o pagamento total será feito em uma data futura.</li></ul><p>Para que a promissória tenha validade, ela não pode ter rasuras. Você pode emitir sua <a href="/nota-promissoria" class="text-emerald-700 font-semibold hover:underline">Nota Promissória Online</a> de forma automática e gratuita para garantir que todos os requisitos legais (como praça de pagamento e data de vencimento) estejam perfeitos antes de colher a assinatura.</p>',
         hasAd: true,
       },
       {
         h2: "3. Contrato de Prestação de Serviço: A Regra do Jogo",
         content:
-          '<p>O contrato é o documento mais completo de todos. Enquanto o recibo fala de pagamento feito e a promissória fala de pagamento futuro, o contrato define o que está sendo negociado e como.</p><p>Ele é o mapa da transação. É no contrato que você estipula o escopo do serviço, os prazos de entrega, os limites de revisões (no caso de projetos criativos), as multas por atraso de pagamento, as cláusulas de confidencialidade e as regras para cancelamento.</p><p>Sem um contrato, você fica vulnerável a clientes que exigem trabalho extra sem querer pagar a mais por isso (o famoso aumento de escopo).</p><h3>Quando utilizar:</h3><ul><li>Serviços de médio ou longo prazo (consultorias, obras, gestão de redes sociais).</li><li>Transações de alto valor (compra e venda de veículos ou imóveis).</li><li>Sempre que as regras do serviço precisarem ficar claras para ambas as partes.</li></ul><p>A formalização profissional mudou. Hoje, você não precisa pagar caro para um advogado redigir regras básicas. Plataformas focadas em Single Page Application e automação jurídica, como o <a href="https://geracontrato.com.br" target="_blank" rel="noopener noreferrer" class="text-emerald-600 font-semibold hover:underline">GeraContrato.com.br</a>, permitem que você monte documentos blindados legalmente em poucos cliques.</p>',
+          '<p>O contrato é o documento mais completo de todos. Enquanto o recibo fala de pagamento feito e a promissória fala de pagamento futuro, o contrato define o que está sendo negociado e como.</p><p>Ele é o mapa da transação. É no contrato que você estipula o escopo do serviço, os prazos de entrega, os limites de revisões (no caso de projetos criativos), as multas por atraso de pagamento, as cláusulas de confidencialidade e as regras para cancelamento.</p><p>Sem um contrato, você fica vulnerável a clientes que exigem trabalho extra sem querer pagar a mais por isso (o famoso aumento de escopo).</p><h3>Quando utilizar:</h3><ul><li>Serviços de médio ou longo prazo (consultorias, obras, gestão de redes sociais).</li><li>Transações de alto valor (compra e venda de veículos ou imóveis).</li><li>Sempre que as regras do serviço precisarem ficar claras para ambas as partes.</li></ul><p>A formalização profissional mudou. Hoje, você não precisa pagar caro para um advogado redigir regras básicas. Plataformas focadas em Single Page Application e automação jurídica, como o <a href="https://geracontrato.com.br" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">GeraContrato.com.br</a>, permitem que você monte documentos blindados legalmente em poucos cliques.</p>',
       },
       {
         h2: "O Cenário Perfeito: Usando os três juntos",
         content:
-          '<p>Na prática, o profissional de alta performance utiliza os três documentos em uma mesma negociação de alto valor. Veja como funciona esse fluxo:</p><ol><li><strong>O Início:</strong> Você e o cliente assinam um Contrato de Prestação de Serviços, definindo todas as regras, o que será feito e a multa em caso de rescisão.</li><li><strong>A Garantia:</strong> Como o cliente vai pagar o projeto em 3 parcelas, ele assina 3 Notas Promissórias, atrelando as datas de pagamento aos prazos de entrega.</li><li><strong>A Quitação:</strong> Conforme o cliente paga cada parcela (ou resgata a promissória), você emite um <a href="/recibo-de-pagamento" class="text-emerald-600 font-semibold hover:underline">Recibo de Pagamento</a> confirmando o recebimento daquele valor específico.</li></ol>',
+          '<p>Na prática, o profissional de alta performance utiliza os três documentos em uma mesma negociação de alto valor. Veja como funciona esse fluxo:</p><ol><li><strong>O Início:</strong> Você e o cliente assinam um Contrato de Prestação de Serviços, definindo todas as regras, o que será feito e a multa em caso de rescisão.</li><li><strong>A Garantia:</strong> Como o cliente vai pagar o projeto em 3 parcelas, ele assina 3 Notas Promissórias, atrelando as datas de pagamento aos prazos de entrega.</li><li><strong>A Quitação:</strong> Conforme o cliente paga cada parcela (ou resgata a promissória), você emite um <a href="/recibo-de-pagamento" class="text-emerald-700 font-semibold hover:underline">Recibo de Pagamento</a> confirmando o recebimento daquele valor específico.</li></ol>',
         hasCta: {
           text: "Pronto para formalizar suas transações de forma profissional e evitar prejuízos?",
           link: "/recibo-simples",
@@ -1307,12 +1366,12 @@ export const blogPosts: BlogPost[] = [
       {
         h2: "A Solução: Gerador Interativo no lugar do papel estático",
         content:
-          '<p>Para combater a lentidão dos cadastros corporativos e a fragilidade do Word, a tecnologia atual permite que você abandone o papel. Ao invés de baixar um modelo, você deve usar um <a href="/" class="text-emerald-600 font-semibold hover:underline">Gerador de Recibo Online</a>.</p><p>No <strong>Gerador de Recibos</strong>, nós transformamos a burocracia em um formulário inteligente que roda direto no seu navegador (seja no celular ou no computador).</p><h3>Veja por que essa é a melhor escolha para fechar suas vendas:</h3><ul><li><strong>Zero Cadastro e Zero Custo:</strong> Você não deixa seu e-mail, não cria senha e não paga mensalidade. Abriu, preencheu, baixou.</li><li><strong>Pix Integrado direto no PDF:</strong> Essa é a virada de chave. Nosso sistema permite que você insira sua chave Pix e ele gera automaticamente um QR Code de cobrança no próprio recibo. Seu cliente lê o documento, aponta a câmera do celular para o PDF e o pagamento cai na sua conta na mesma hora.</li><li><strong>Privacidade Absoluta (LGPD):</strong> Diferente de gigantes do mercado que salvam seus dados na nuvem, nossa plataforma processa tudo na tela do seu dispositivo. Fechou a aba? Os dados somem. Seus clientes ficam 100% seguros.</li></ul>',
+          '<p>Para combater a lentidão dos cadastros corporativos e a fragilidade do Word, a tecnologia atual permite que você abandone o papel. Ao invés de baixar um modelo, você deve usar um <a href="/" class="text-emerald-700 font-semibold hover:underline">Gerador de Recibo Online</a>.</p><p>No <strong>Gerador de Recibos</strong>, nós transformamos a burocracia em um formulário inteligente que roda direto no seu navegador (seja no celular ou no computador).</p><h3>Veja por que essa é a melhor escolha para fechar suas vendas:</h3><ul><li><strong>Zero Cadastro e Zero Custo:</strong> Você não deixa seu e-mail, não cria senha e não paga mensalidade. Abriu, preencheu, baixou.</li><li><strong>Pix Integrado direto no PDF:</strong> Essa é a virada de chave. Nosso sistema permite que você insira sua chave Pix e ele gera automaticamente um QR Code de cobrança no próprio recibo. Seu cliente lê o documento, aponta a câmera do celular para o PDF e o pagamento cai na sua conta na mesma hora.</li><li><strong>Privacidade Absoluta (LGPD):</strong> Diferente de gigantes do mercado que salvam seus dados na nuvem, nossa plataforma processa tudo na tela do seu dispositivo. Fechou a aba? Os dados somem. Seus clientes ficam 100% seguros.</li></ul>',
       },
       {
         h2: "Como gerar seu comprovante agora mesmo",
         content:
-          '<p>Esqueça as buscas demoradas e os talões de papelaria que amassam no porta-luvas do carro.</p><p>Se você acabou de fechar um serviço e precisa enviar o documento:</p><ol><li>Acesse nosso gerador de <a href="/recibo-de-prestacao-de-servicos" class="text-emerald-600 font-semibold hover:underline">Recibo de Prestação de Serviços</a> ou o <a href="/recibo-simples" class="text-emerald-600 font-semibold hover:underline">Recibo Simples</a>.</li><li>Preencha os valores e veja a mágica acontecer na tela (ele escreve o valor por extenso sozinho).</li><li>Adicione sua chave Pix.</li><li>Clique em <strong>Baixar PDF</strong> e mande direto no WhatsApp do cliente.</li></ol>',
+          '<p>Esqueça as buscas demoradas e os talões de papelaria que amassam no porta-luvas do carro.</p><p>Se você acabou de fechar um serviço e precisa enviar o documento:</p><ol><li>Acesse nosso gerador de <a href="/recibo-de-prestacao-de-servicos" class="text-emerald-700 font-semibold hover:underline">Recibo de Prestação de Serviços</a> ou o <a href="/recibo-simples" class="text-emerald-700 font-semibold hover:underline">Recibo Simples</a>.</li><li>Preencha os valores e veja a mágica acontecer na tela (ele escreve o valor por extenso sozinho).</li><li>Adicione sua chave Pix.</li><li>Clique em <strong>Baixar PDF</strong> e mande direto no WhatsApp do cliente.</li></ol>',
         hasCta: {
           text: "Profissionalize sua cobrança hoje e deixe os arquivos de Word desconfigurados no passado.",
           link: "/",
@@ -1366,7 +1425,7 @@ export const blogPosts: BlogPost[] = [
       {
         h2: "O que é um Recibo de Pagamento?",
         content:
-          '<p>De forma simples e direta, o recibo de pagamento é uma declaração por escrito que comprova que uma transação financeira foi concluída. É o documento onde quem recebe o dinheiro (credor) atesta oficialmente que quem devia (devedor) pagou a quantia combinada.</p><p>Diferente de um contrato (que estipula as regras de um serviço que vai acontecer) ou de uma <a href="/nota-promissoria" class="text-emerald-600 font-semibold hover:underline">Nota Promissória</a> (que é a promessa de um pagamento futuro), o recibo atua no passado: ele atesta que a obrigação já foi cumprida.</p><p>Muitos profissionais confundem o recibo com a Nota Fiscal. A principal diferença é que a Nota Fiscal tem fins de arrecadação de impostos pelo governo e exige um CNPJ (ou cadastro de autônomo na prefeitura). Já o recibo simples é o comprovante comercial direto entre as partes, ideal para pessoas físicas e profissionais liberais que precisam de uma formalização ágil.</p>',
+          '<p>De forma simples e direta, o recibo de pagamento é uma declaração por escrito que comprova que uma transação financeira foi concluída. É o documento onde quem recebe o dinheiro (credor) atesta oficialmente que quem devia (devedor) pagou a quantia combinada.</p><p>Diferente de um contrato (que estipula as regras de um serviço que vai acontecer) ou de uma <a href="/nota-promissoria" class="text-emerald-700 font-semibold hover:underline">Nota Promissória</a> (que é a promessa de um pagamento futuro), o recibo atua no passado: ele atesta que a obrigação já foi cumprida.</p><p>Muitos profissionais confundem o recibo com a Nota Fiscal. A principal diferença é que a Nota Fiscal tem fins de arrecadação de impostos pelo governo e exige um CNPJ (ou cadastro de autônomo na prefeitura). Já o recibo simples é o comprovante comercial direto entre as partes, ideal para pessoas físicas e profissionais liberais que precisam de uma formalização ágil.</p>',
       },
       {
         h2: "Para que serve este documento na prática?",
@@ -1392,7 +1451,7 @@ export const blogPosts: BlogPost[] = [
       {
         h2: "Como gerar seu Recibo em PDF Grátis (Em 30 segundos)",
         content:
-          '<p>Você não precisa de sistemas caros nem de assinaturas eletrônicas pagas. Com um gerador interativo, você preenche os dados direto na tela do seu celular ou computador e baixa o documento pronto.</p><h3>Veja como é simples fazer isso utilizando o gerador do Recibo Grátis:</h3><ol><li><strong>Acesse a Ferramenta:</strong> Entre na página do <a href="/recibo-de-pagamento" class="text-emerald-600 font-semibold hover:underline">Recibo de Pagamento</a> ou <a href="/recibo-simples" class="text-emerald-600 font-semibold hover:underline">Recibo Simples</a>. Não precisa criar conta nem fazer login.</li><li><strong>Preencha os Campos:</strong> Digite os nomes, CPFs e o valor numérico. O sistema converte o valor para extenso automaticamente, sem você precisar digitar.</li><li><strong>Integração com Pix (O Diferencial):</strong> Se o cliente ainda não pagou, adicione sua Chave Pix no formulário. O sistema gera um QR Code direto no PDF. O cliente abre o recibo, escaneia e te paga na hora.</li><li><strong>Privacidade Absoluta:</strong> Nossa plataforma funciona 100% no seu navegador (Client-Side). Seus dados não ficam salvos em nenhum banco de dados, garantindo adequação imediata à LGPD.</li><li><strong>Baixe e Envie:</strong> Com um clique, seu PDF é gerado sem marcas d\'água. É só encaminhar para o WhatsApp do cliente ou mandar imprimir.</li></ol>',
+          '<p>Você não precisa de sistemas caros nem de assinaturas eletrônicas pagas. Com um gerador interativo, você preenche os dados direto na tela do seu celular ou computador e baixa o documento pronto.</p><h3>Veja como é simples fazer isso utilizando o gerador do Recibo Grátis:</h3><ol><li><strong>Acesse a Ferramenta:</strong> Entre na página do <a href="/recibo-de-pagamento" class="text-emerald-700 font-semibold hover:underline">Recibo de Pagamento</a> ou <a href="/recibo-simples" class="text-emerald-700 font-semibold hover:underline">Recibo Simples</a>. Não precisa criar conta nem fazer login.</li><li><strong>Preencha os Campos:</strong> Digite os nomes, CPFs e o valor numérico. O sistema converte o valor para extenso automaticamente, sem você precisar digitar.</li><li><strong>Integração com Pix (O Diferencial):</strong> Se o cliente ainda não pagou, adicione sua Chave Pix no formulário. O sistema gera um QR Code direto no PDF. O cliente abre o recibo, escaneia e te paga na hora.</li><li><strong>Privacidade Absoluta:</strong> Nossa plataforma funciona 100% no seu navegador (Client-Side). Seus dados não ficam salvos em nenhum banco de dados, garantindo adequação imediata à LGPD.</li><li><strong>Baixe e Envie:</strong> Com um clique, seu PDF é gerado sem marcas d\'água. É só encaminhar para o WhatsApp do cliente ou mandar imprimir.</li></ol>',
         hasCta: {
           text: "Abandone os talões de papel e os arquivos desconfigurados. Profissionalize a forma como você recebe o seu dinheiro.",
           link: "/recibo-de-pagamento",
@@ -1466,7 +1525,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     conclusion:
-      '<p>O profissional moderno não deixa brechas para a fiscalização. Se você acabou de entregar um trabalho, acesse agora o gerador de <a href="/recibo-de-prestacao-de-servicos" class="text-emerald-600 font-semibold hover:underline">Recibo de Prestação de Serviços</a>, preencha os dados em segundos e mande o PDF blindado direto para o WhatsApp do seu cliente.<br><br>Por Equipe Recibo Grátis.</p>',
+      '<p>O profissional moderno não deixa brechas para a fiscalização. Se você acabou de entregar um trabalho, acesse agora o gerador de <a href="/recibo-de-prestacao-de-servicos" class="text-emerald-700 font-semibold hover:underline">Recibo de Prestação de Serviços</a>, preencha os dados em segundos e mande o PDF blindado direto para o WhatsApp do seu cliente.<br><br>Por Equipe Recibo Grátis.</p>',
     faqs: [
       {
         question:
@@ -1520,7 +1579,7 @@ export const blogPosts: BlogPost[] = [
         },
       },
     ],
-    conclusion: '<p>Não dê sorte para o azar. Formalizar seus pagamentos e recebimentos mostra que você é um profissional sério e, de quebra, blinda o seu suado dinheiro. Acesse agora o nosso gerador de <a href="/recibo-simples" class="text-emerald-600 font-semibold hover:underline">Recibo Simples</a> e tenha seu documento pronto para imprimir ou enviar agora mesmo!<br><br>Por Elvis Dias.</p>',
+    conclusion: '<p>Não dê sorte para o azar. Formalizar seus pagamentos e recebimentos mostra que você é um profissional sério e, de quebra, blinda o seu suado dinheiro. Acesse agora o nosso gerador de <a href="/recibo-simples" class="text-emerald-700 font-semibold hover:underline">Recibo Simples</a> e tenha seu documento pronto para imprimir ou enviar agora mesmo!<br><br>Por Elvis Dias.</p>',
     faqs: [
       {
         question: "Esse recibo simples tem validade na justiça mesmo?",
@@ -1564,11 +1623,11 @@ export const blogPosts: BlogPost[] = [
       },
       {
         h2: "É seguro usar um gerador de PIX online?",
-        content: '<p>A segurança é uma das maiores preocupações de quem utiliza ferramentas financeiras online, e com razão. Usar um <a href="/ferramentas/gerador-pix-copia-e-cola" class="text-emerald-600 font-semibold hover:underline">gerador de PIX Copia e Cola grátis</a> é 100% seguro quando a ferramenta, como a do Recibo Grátis, não solicita senhas nem dados de acesso à sua conta.</p><p>Nosso gerador funciona apenas codificando as informações públicas de cobrança (sua Chave PIX, valor da cobrança e nome) no formato de texto exigido pelo Banco Central do Brasil (padrão EMV BR Code). Dessa forma, a transação não passa por nossos servidores: o dinheiro vai direto da conta de quem está pagando para a sua.</p>',
+        content: '<p>A segurança é uma das maiores preocupações de quem utiliza ferramentas financeiras online, e com razão. Usar um <a href="/ferramentas/gerador-pix-copia-e-cola" class="text-emerald-700 font-semibold hover:underline">gerador de PIX Copia e Cola grátis</a> é 100% seguro quando a ferramenta, como a do Recibo Grátis, não solicita senhas nem dados de acesso à sua conta.</p><p>Nosso gerador funciona apenas codificando as informações públicas de cobrança (sua Chave PIX, valor da cobrança e nome) no formato de texto exigido pelo Banco Central do Brasil (padrão EMV BR Code). Dessa forma, a transação não passa por nossos servidores: o dinheiro vai direto da conta de quem está pagando para a sua.</p>',
       },
       {
         h2: "Como gerar seu código PIX Copia e Cola online?",
-        content: '<p>Criar o seu link de cobrança PIX é um processo extremamente simples, rápido e gratuito. Siga este passo a passo:</p><ol><li>Acesse a página do nosso <strong><a href="/ferramentas/gerador-pix-copia-e-cola" class="text-emerald-600 font-semibold hover:underline">Gerador de PIX Copia e Cola</a></strong>.</li><li>Preencha a sua <strong>Chave PIX</strong> (pode ser CPF, CNPJ, celular, e-mail ou chave aleatória).</li><li>Opcionalmente, insira o <strong>Valor</strong> da cobrança e o seu <strong>Nome/Cidade</strong> para que o pagador possa confirmar na hora do pagamento.</li><li>Clique no botão para gerar. O sistema criará o seu código em formato de texto imediatamente.</li><li>Basta copiar o texto gerado e enviar pelo WhatsApp ou e-mail para quem vai realizar o pagamento.</li></ol>',
+        content: '<p>Criar o seu link de cobrança PIX é um processo extremamente simples, rápido e gratuito. Siga este passo a passo:</p><ol><li>Acesse a página do nosso <strong><a href="/ferramentas/gerador-pix-copia-e-cola" class="text-emerald-700 font-semibold hover:underline">Gerador de PIX Copia e Cola</a></strong>.</li><li>Preencha a sua <strong>Chave PIX</strong> (pode ser CPF, CNPJ, celular, e-mail ou chave aleatória).</li><li>Opcionalmente, insira o <strong>Valor</strong> da cobrança e o seu <strong>Nome/Cidade</strong> para que o pagador possa confirmar na hora do pagamento.</li><li>Clique no botão para gerar. O sistema criará o seu código em formato de texto imediatamente.</li><li>Basta copiar o texto gerado e enviar pelo WhatsApp ou e-mail para quem vai realizar o pagamento.</li></ol>',
         hasCta: {
           text: "👉 Acesse o Gerador de PIX Grátis e crie sua cobrança agora mesmo.",
           link: "/ferramentas/gerador-pix-copia-e-cola",
@@ -1576,7 +1635,7 @@ export const blogPosts: BlogPost[] = [
         },
       },
     ],
-    conclusion: '<p>Utilizar o PIX Copia e Cola agiliza significativamente as suas vendas e recebimentos diários. Ao facilitar a vida do seu cliente, você reduz a inadimplência e garante que o dinheiro caia na sua conta instantaneamente. E lembre-se: após receber o pagamento, você pode emitir um <a href="/recibo-simples" class="text-emerald-600 font-semibold hover:underline">Recibo Simples</a> para profissionalizar ainda mais a sua transação.</p><br><p>Por Elvis Dias.</p>',
+    conclusion: '<p>Utilizar o PIX Copia e Cola agiliza significativamente as suas vendas e recebimentos diários. Ao facilitar a vida do seu cliente, você reduz a inadimplência e garante que o dinheiro caia na sua conta instantaneamente. E lembre-se: após receber o pagamento, você pode emitir um <a href="/recibo-simples" class="text-emerald-700 font-semibold hover:underline">Recibo Simples</a> para profissionalizar ainda mais a sua transação.</p><br><p>Por Elvis Dias.</p>',
     faqs: [
       {
         question: "Tem alguma taxa para usar o gerador de PIX?",

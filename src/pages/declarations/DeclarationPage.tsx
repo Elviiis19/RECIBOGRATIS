@@ -96,9 +96,9 @@ export default function DeclarationPage() {
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <div className="flex items-center space-x-2 text-sm text-gray-500">
-            <Link to="/" className="hover:text-emerald-600 transition-colors">Início</Link>
+            <Link to="/" className="hover:text-emerald-700 transition-colors">Início</Link>
             <ChevronRight className="w-4 h-4" />
-            <Link to="/declaracoes" className="hover:text-emerald-600 transition-colors">Declarações</Link>
+            <Link to="/declaracoes" className="hover:text-emerald-700 transition-colors">Declarações</Link>
             <ChevronRight className="w-4 h-4" />
             <span className="text-gray-900 font-medium truncate">{model.title}</span>
           </div>
@@ -109,7 +109,7 @@ export default function DeclarationPage() {
         {/* Header Section */}
         <div className="text-center max-w-4xl mx-auto mb-12">
           <div className="inline-flex items-center justify-center p-3 bg-emerald-100 rounded-2xl mb-6">
-            <FileText className="w-8 h-8 text-emerald-600" />
+            <FileText className="w-8 h-8 text-emerald-700" />
           </div>
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
             {richData?.h1 || model.title}
@@ -136,7 +136,7 @@ export default function DeclarationPage() {
 
             <div className="bg-emerald-50 rounded-2xl p-6 md:p-8 mb-8 border border-emerald-100">
               <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                <CheckCircle2 className="w-6 h-6 text-emerald-600" />
+                <CheckCircle2 className="w-6 h-6 text-emerald-700" />
                 {richData?.specificDetailsTitle || `O que não pode faltar na ${model.title}`}
               </h3>
               <ul className="space-y-4">
@@ -170,7 +170,7 @@ export default function DeclarationPage() {
               {finalFaqs.map((faq: any, index: number) => (
                 <div key={index} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                   <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-start gap-3">
-                    <span className="text-emerald-600 font-black">Q.</span>
+                    <span className="text-emerald-700 font-black">Q.</span>
                     {faq.question}
                   </h3>
                   <p className="text-gray-600 pl-8 leading-relaxed">

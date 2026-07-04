@@ -190,7 +190,7 @@ export function PixGenerator() {
                 <p className="text-gray-500 mb-6">{data.cidade}</p>
 
                 {data.valor && (
-                  <div className="text-2xl font-bold text-emerald-600 mb-6">
+                  <div className="text-2xl font-bold text-emerald-700 mb-6">
                     R$ {data.valor}
                   </div>
                 )}
@@ -215,7 +215,7 @@ export function PixGenerator() {
                       {copied ? <CheckCircle2 className="w-5 h-5" /> : <Copy className="w-5 h-5" />}
                     </button>
                   </div>
-                  {copied && <p className="text-emerald-600 text-xs mt-2 text-center font-medium">Código copiado com sucesso!</p>}
+                  {copied && <p className="text-emerald-700 text-xs mt-2 text-center font-medium">Código copiado com sucesso!</p>}
                 </div>
               </div>
             ) : (
@@ -255,19 +255,19 @@ export function PixGenerator() {
           </h3>
           <ol className="space-y-4 mb-8">
             <li className="flex items-start text-gray-600">
-              <span className="font-bold text-emerald-600 mr-2">1.</span>
+              <span className="font-bold text-emerald-700 mr-2">1.</span>
               Informe a sua Chave PIX (CPF, CNPJ, Celular, E-mail ou Aleatória). É para ela que o dinheiro será enviado.
             </li>
             <li className="flex items-start text-gray-600">
-              <span className="font-bold text-emerald-600 mr-2">2.</span>
+              <span className="font-bold text-emerald-700 mr-2">2.</span>
               Digite o Nome do Recebedor (para que o cliente confirme antes de pagar) e a Cidade (obrigatório pelo Banco Central).
             </li>
             <li className="flex items-start text-gray-600">
-              <span className="font-bold text-emerald-600 mr-2">3.</span>
+              <span className="font-bold text-emerald-700 mr-2">3.</span>
               (Opcional) Digite um Valor Fixo. Se deixar em branco, o cliente terá que digitar o valor na hora do pagamento.
             </li>
             <li className="flex items-start text-gray-600">
-              <span className="font-bold text-emerald-600 mr-2">4.</span>
+              <span className="font-bold text-emerald-700 mr-2">4.</span>
               O QR Code será gerado na mesma hora. Você pode salvá-lo, imprimir ou copiar o código em formato de texto.
             </li>
           </ol>
@@ -295,7 +295,7 @@ export function PixGenerator() {
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">E se o cliente não conseguir ler a imagem?</h4>
                   <p className="text-sm text-gray-600">
-                    Nossa ferramenta também gera o <Link to="/ferramentas/gerador-pix-copia-e-cola" className="text-emerald-600 hover:underline">PIX Copia e Cola</Link> automaticamente logo abaixo da imagem. Basta enviar esse texto para o cliente colar no app do banco.
+                    Nossa ferramenta também gera o <Link to="/ferramentas/gerador-pix-copia-e-cola" className="text-emerald-700 hover:underline">PIX Copia e Cola</Link> automaticamente logo abaixo da imagem. Basta enviar esse texto para o cliente colar no app do banco.
                   </p>
                 </div>
                 <div>

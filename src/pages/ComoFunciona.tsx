@@ -113,7 +113,7 @@ export function ComoFunciona() {
               <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800&h=600" alt="Auditoria contábil de Recibos e Finanças" className="rounded-2xl shadow-xl w-full object-cover aspect-video mb-8 opacity-90 mix-blend-multiply" />
               <div className="bg-white rounded-2xl p-6 shadow-sm">
                 <div className="flex gap-4 items-center">
-                  <Scale className="w-10 h-10 text-emerald-600 flex-shrink-0" />
+                  <Scale className="w-10 h-10 text-emerald-700 flex-shrink-0" />
                   <p className="text-gray-800 text-sm font-medium">Todos os nossos modelos são embasados nas regras do <strong>Código Civil Brasileiro</strong> (sobre a prova de pagamento) para garantir que seu documento sirva perfeitamente como comprovante comercial e autônomo.</p>
                 </div>
               </div>
@@ -127,7 +127,7 @@ export function ComoFunciona() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-200">
             <h2 className="text-2xl font-bold text-gray-900 mb-8 border-b border-gray-100 pb-6 flex items-center gap-3">
-              <ShieldCheck className="w-7 h-7 text-emerald-600" />
+              <ShieldCheck className="w-7 h-7 text-emerald-700" />
               Como Garantimos a Segurança das Suas Informações
             </h2>
             

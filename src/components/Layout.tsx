@@ -8,8 +8,10 @@ import { SearchPalette } from './SearchPalette';
 export function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [currentYear, setCurrentYear] = useState('2024');
 
   useEffect(() => {
+    setCurrentYear(new Date().getFullYear().toString());
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
@@ -189,7 +191,7 @@ export function Layout() {
               {Object.entries(categories).map(([category, ids]) => (
                 <div key={category} className="relative group">
                   <button 
-                    className="flex items-center gap-1.5 text-[15px] font-bold text-gray-700 hover:text-emerald-600 transition-colors py-3.5"
+                    className="flex items-center gap-1.5 text-[15px] font-bold text-gray-700 hover:text-emerald-700 transition-colors py-3.5"
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
@@ -386,7 +388,7 @@ export function Layout() {
           </div>
           <div className="mt-12 border-t border-emerald-900/50 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <p className="text-sm text-emerald-100/60">
-              &copy; 2024 - {new Date().getFullYear()} Recibo Grátis. Todos os direitos reservados.
+              &copy; 2024 - {currentYear} Recibo Grátis. Todos os direitos reservados.
             </p>
             <div className="text-sm text-emerald-100/60 md:text-right">
               <p>Gerido por <strong className="text-emerald-50">Elvis Dias</strong></p>

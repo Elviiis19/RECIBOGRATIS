@@ -86,7 +86,7 @@ export function MaquininhaCartao() {
                     A maquininha vai descontar: <span className="text-red-500 font-bold">R$ {formatCurrency(diferencaTx.toFixed(2).replace('.', ','))}</span>
                   </p>
                   <p className="text-sm font-medium text-gray-700 mt-1">
-                    E irá sobrar para você: <span className="text-emerald-600 font-bold">R$ {formatCurrency(valorLiquido.toFixed(2).replace('.', ','))}</span>
+                    E irá sobrar para você: <span className="text-emerald-700 font-bold">R$ {formatCurrency(valorLiquido.toFixed(2).replace('.', ','))}</span>
                   </p>
                 </div>
               </div>

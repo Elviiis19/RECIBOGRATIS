@@ -113,7 +113,7 @@ export function Privacidade() {
               Para custear nossos servidores e manter o <strong>Gerador de Recibo Online</strong> totalmente gratuito para você (para sempre e livre de taxas), exibimos espaços publicitários geridos pelo ecossistema do Google (Rede de Display e parceiros).
             </p>
             <p className="text-gray-600 leading-relaxed">
-              O fornecedor terceirizado Google emprega tecnologias de cookies (como o cookie DART) para processar métricas e veicular anúncios com base em visitas anteriores dos usuários ao nosso site e a outras páginas na web. Caso deseje, você pode optar ativamente por desativar o uso de cookies para fins de publicidade personalizada diretamente no painel de <a href="https://myadcenter.google.com/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 font-medium hover:text-emerald-700 hover:underline">Configurações de anúncios do Google</a>.
+              O fornecedor terceirizado Google emprega tecnologias de cookies (como o cookie DART) para processar métricas e veicular anúncios com base em visitas anteriores dos usuários ao nosso site e a outras páginas na web. Caso deseje, você pode optar ativamente por desativar o uso de cookies para fins de publicidade personalizada diretamente no painel de <a href="https://myadcenter.google.com/" target="_blank" rel="noopener noreferrer" className="text-emerald-700 font-medium hover:text-emerald-700 hover:underline">Configurações de anúncios do Google</a>.
             </p>
             
             <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4 pb-2 border-b border-gray-100">4. Links Internos e para Sites de Terceiros</h2>
@@ -131,7 +131,7 @@ export function Privacidade() {
             </div>
             
             <div className="mt-12 pt-6 border-t border-gray-100 flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-emerald-100 text-emerald-600">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-emerald-100 text-emerald-700">
                 <Shield className="w-4 h-4" />
               </span>
               <p className="text-sm font-semibold tracking-wide text-gray-500 uppercase">

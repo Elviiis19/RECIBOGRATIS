@@ -83,7 +83,7 @@ export const BlogIndex = () => {
                         <div className="mt-auto pt-6 border-t border-gray-50">
                           <Link 
                             to={`/blog/${post.slug}`}
-                            className="inline-flex items-center font-bold text-emerald-600 group-hover:text-emerald-700"
+                            className="inline-flex items-center font-bold text-emerald-700 group-hover:text-emerald-800"
                           >
                             Ler artigo completo
                             <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
@@ -101,7 +101,7 @@ export const BlogIndex = () => {
           <aside className="w-full lg:w-1/4 space-y-8">
             <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 sticky top-24">
               <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                <FileText className="w-5 h-5 text-emerald-600" />
+                <FileText className="w-5 h-5 text-emerald-700" />
                 Categorias
               </h3>
               <ul className="space-y-2">

@@ -74,6 +74,7 @@ export default function App({ url }: { url?: string }) {
     <>
       {isServer ? (
         <StaticRouter location={url || '/'}>
+          <RemoveTrailingSlash />
           {ApplicationRoutes}
         </StaticRouter>
       ) : (
