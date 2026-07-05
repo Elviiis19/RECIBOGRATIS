@@ -1623,14 +1623,14 @@ export const blogPosts: BlogPost[] = [
       },
       {
         h2: "É seguro usar um gerador de PIX online?",
-        content: '<p>A segurança é uma das maiores preocupações de quem utiliza ferramentas financeiras online, e com razão. Usar um <a href="/ferramentas/gerador-pix-copia-e-cola" class="text-emerald-700 font-semibold hover:underline">gerador de PIX Copia e Cola grátis</a> é 100% seguro quando a ferramenta, como a do Recibo Grátis, não solicita senhas nem dados de acesso à sua conta.</p><p>Nosso gerador funciona apenas codificando as informações públicas de cobrança (sua Chave PIX, valor da cobrança e nome) no formato de texto exigido pelo Banco Central do Brasil (padrão EMV BR Code). Dessa forma, a transação não passa por nossos servidores: o dinheiro vai direto da conta de quem está pagando para a sua.</p>',
+        content: '<p>A segurança é uma das maiores preocupações de quem utiliza ferramentas financeiras online, e com razão. Usar um <a href="/gerador-pix-copia-e-cola" class="text-emerald-700 font-semibold hover:underline">gerador de PIX Copia e Cola grátis</a> é 100% seguro quando a ferramenta, como a do Recibo Grátis, não solicita senhas nem dados de acesso à sua conta.</p><p>Nosso gerador funciona apenas codificando as informações públicas de cobrança (sua Chave PIX, valor da cobrança e nome) no formato de texto exigido pelo Banco Central do Brasil (padrão EMV BR Code). Dessa forma, a transação não passa por nossos servidores: o dinheiro vai direto da conta de quem está pagando para a sua.</p>',
       },
       {
         h2: "Como gerar seu código PIX Copia e Cola online?",
-        content: '<p>Criar o seu link de cobrança PIX é um processo extremamente simples, rápido e gratuito. Siga este passo a passo:</p><ol><li>Acesse a página do nosso <strong><a href="/ferramentas/gerador-pix-copia-e-cola" class="text-emerald-700 font-semibold hover:underline">Gerador de PIX Copia e Cola</a></strong>.</li><li>Preencha a sua <strong>Chave PIX</strong> (pode ser CPF, CNPJ, celular, e-mail ou chave aleatória).</li><li>Opcionalmente, insira o <strong>Valor</strong> da cobrança e o seu <strong>Nome/Cidade</strong> para que o pagador possa confirmar na hora do pagamento.</li><li>Clique no botão para gerar. O sistema criará o seu código em formato de texto imediatamente.</li><li>Basta copiar o texto gerado e enviar pelo WhatsApp ou e-mail para quem vai realizar o pagamento.</li></ol>',
+        content: '<p>Criar o seu link de cobrança PIX é um processo extremamente simples, rápido e gratuito. Siga este passo a passo:</p><ol><li>Acesse a página do nosso <strong><a href="/gerador-pix-copia-e-cola" class="text-emerald-700 font-semibold hover:underline">Gerador de PIX Copia e Cola</a></strong>.</li><li>Preencha a sua <strong>Chave PIX</strong> (pode ser CPF, CNPJ, celular, e-mail ou chave aleatória).</li><li>Opcionalmente, insira o <strong>Valor</strong> da cobrança e o seu <strong>Nome/Cidade</strong> para que o pagador possa confirmar na hora do pagamento.</li><li>Clique no botão para gerar. O sistema criará o seu código em formato de texto imediatamente.</li><li>Basta copiar o texto gerado e enviar pelo WhatsApp ou e-mail para quem vai realizar o pagamento.</li></ol>',
         hasCta: {
           text: "👉 Acesse o Gerador de PIX Grátis e crie sua cobrança agora mesmo.",
-          link: "/ferramentas/gerador-pix-copia-e-cola",
+          link: "/gerador-pix-copia-e-cola",
           ctaLabel: "GERAR PIX COPIA E COLA",
         },
       },

@@ -15,6 +15,12 @@ import { ComoFunciona } from './pages/ComoFunciona';
 import { PixGenerator } from './pages/PixGenerator';
 import { Faq } from './pages/Faq';
 import { AllModels } from './pages/AllModels';
+import { AllTools } from './pages/AllTools';
+import { GeradorCarnePagamento } from './pages/tools/GeradorCarnePagamento';
+import { CalculadoraPrecificacao } from './pages/tools/CalculadoraPrecificacao';
+import { CalculadoraHoraExtra } from './pages/tools/CalculadoraHoraExtra';
+import { ControleFiados } from './pages/tools/ControleFiados';
+
 import { BlogIndex } from './pages/blog/BlogIndex';
 import { BlogPostView } from './pages/blog/BlogPostView';
 
@@ -30,6 +36,7 @@ import { ConversorHoras } from './pages/tools/ConversorHoras';
 import { ValidadorCpfCnpj } from './pages/tools/ValidadorCpfCnpj';
 import { ConsultadorIbge } from './pages/tools/ConsultadorIbge';
 import { GeradorPixCopiaECola } from './pages/tools/GeradorPixCopiaECola';
+import { LeitorQrCode } from './pages/tools/LeitorQrCode';
 
 export default function App({ url }: { url?: string }) {
   const isServer = typeof window === 'undefined';
@@ -41,15 +48,16 @@ export default function App({ url }: { url?: string }) {
         <Route path="gerador-qr-code-pix" element={<PixGenerator />} />
         
         {/* Ferramentas */}
-        <Route path="ferramentas/gerador-pix-copia-e-cola" element={<GeradorPixCopiaECola />} />
-        <Route path="ferramentas/valor-por-extenso" element={<ValorPorExtenso />} />
-        <Route path="ferramentas/calculadora-retencao-impostos" element={<RetencaoImpostos />} />
-        <Route path="ferramentas/calculadora-desconto-multa" element={<DescontosMultas />} />
-        <Route path="ferramentas/calculadora-maquininha-cartao" element={<MaquininhaCartao />} />
-        <Route path="ferramentas/calculadora-dias-uteis" element={<DiasUteis />} />
-        <Route path="ferramentas/conversor-horas-trabalhadas" element={<ConversorHoras />} />
-        <Route path="ferramentas/validador-formatador-cpf-cnpj" element={<ValidadorCpfCnpj />} />
-        <Route path="ferramentas/consultador-codigo-ibge" element={<ConsultadorIbge />} />
+        <Route path="gerador-pix-copia-e-cola" element={<GeradorPixCopiaECola />} />
+        <Route path="leitor-decodificador-qr-code" element={<LeitorQrCode />} />
+        <Route path="valor-por-extenso" element={<ValorPorExtenso />} />
+        <Route path="calculadora-retencao-impostos" element={<RetencaoImpostos />} />
+        <Route path="calculadora-desconto-multa" element={<DescontosMultas />} />
+        <Route path="calculadora-maquininha-cartao" element={<MaquininhaCartao />} />
+        <Route path="calculadora-dias-uteis" element={<DiasUteis />} />
+        <Route path="conversor-horas-trabalhadas" element={<ConversorHoras />} />
+        <Route path="validador-formatador-cpf-cnpj" element={<ValidadorCpfCnpj />} />
+        <Route path="consultador-codigo-ibge" element={<ConsultadorIbge />} />
 
         <Route path="termos-de-uso" element={<Termos />} />
         <Route path="politica-de-privacidade" element={<Privacidade />} />
@@ -57,6 +65,12 @@ export default function App({ url }: { url?: string }) {
         <Route path="faq" element={<Faq />} />
         <Route path="como-funciona" element={<ComoFunciona />} />
         <Route path="modelos" element={<AllModels />} />
+        <Route path="ferramentas" element={<AllTools />} />
+        <Route path="gerador-carne-pagamento" element={<GeradorCarnePagamento />} />
+        <Route path="calculadora-precificacao-produtos" element={<CalculadoraPrecificacao />} />
+        <Route path="calculadora-hora-extra" element={<CalculadoraHoraExtra />} />
+        <Route path="controle-de-fiados" element={<ControleFiados />} />
+
         
         {/* Declarações */}
         <Route path="declaracoes" element={<DeclarationIndex />} />

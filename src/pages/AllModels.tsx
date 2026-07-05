@@ -8,11 +8,13 @@ import {
   Heart, Banknote, CheckCircle, Bed, Car, Hammer, Paintbrush, Zap, 
   Wrench, Truck, Settings, Smile, Brain, Activity, Apple, Camera, 
   GraduationCap, Baby, HeartPulse, Scissors, Sofa, Monitor, Leaf, 
-  Building, PenTool, HardHat, Stethoscope, Dog, Search
+  Building, PenTool, HardHat, Stethoscope, Dog, Search,
+  Key
 } from 'lucide-react';
 
 const iconMap: Record<string, React.ReactNode> = {
   FileText: <FileText className="w-8 h-8 text-emerald-700" />,
+  Key: <Key className="w-8 h-8 text-emerald-700" />,
   BadgeDollarSign: <BadgeDollarSign className="w-8 h-8 text-emerald-700" />,
   Briefcase: <Briefcase className="w-8 h-8 text-emerald-700" />,
   Home: <HomeIcon className="w-8 h-8 text-emerald-700" />,

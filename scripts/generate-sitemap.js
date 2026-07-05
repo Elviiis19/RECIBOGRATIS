@@ -50,6 +50,7 @@ const baseUrl = 'https://recibogratis.com.br';
 
 const ferramentas = [
   'gerador-pix-copia-e-cola',
+  'leitor-decodificador-qr-code',
   'valor-por-extenso',
   'calculadora-retencao-impostos',
   'calculadora-desconto-multa',
@@ -57,7 +58,11 @@ const ferramentas = [
   'calculadora-dias-uteis',
   'conversor-horas-trabalhadas',
   'validador-formatador-cpf-cnpj',
-  'consultador-codigo-ibge'
+  'consultador-codigo-ibge',
+  'gerador-carne-pagamento',
+  'calculadora-precificacao-produtos',
+  'calculadora-hora-extra',
+  'controle-de-fiados'
 ];
 
 const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
@@ -75,7 +80,7 @@ const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
     <priority>0.9</priority>
   </url>
 ${ferramentas.map(slug => `  <url>
-    <loc>${baseUrl}/ferramentas/${slug}</loc>
+    <loc>${baseUrl}/${slug}</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -129,6 +134,12 @@ ${blogCategorySlugs.map(slug => `  <url>
     <priority>0.6</priority>
   </url>`).join('\n')}
 
+  <url>
+    <loc>${baseUrl}/ferramentas</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>${baseUrl}/modelos</loc>
     <lastmod>2026-07-04</lastmod>

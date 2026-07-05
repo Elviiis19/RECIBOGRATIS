@@ -11,7 +11,9 @@ import {
   CheckCircle,
   Briefcase,
   ShieldCheck,
-  UserCheck
+  UserCheck,
+  ShieldAlert,
+  Plane
 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 

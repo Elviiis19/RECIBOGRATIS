@@ -13,55 +13,85 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://recibogratis.com.br/ferramentas/gerador-pix-copia-e-cola</loc>
+    <loc>https://recibogratis.com.br/gerador-pix-copia-e-cola</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://recibogratis.com.br/ferramentas/valor-por-extenso</loc>
+    <loc>https://recibogratis.com.br/leitor-decodificador-qr-code</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://recibogratis.com.br/ferramentas/calculadora-retencao-impostos</loc>
+    <loc>https://recibogratis.com.br/valor-por-extenso</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://recibogratis.com.br/ferramentas/calculadora-desconto-multa</loc>
+    <loc>https://recibogratis.com.br/calculadora-retencao-impostos</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://recibogratis.com.br/ferramentas/calculadora-maquininha-cartao</loc>
+    <loc>https://recibogratis.com.br/calculadora-desconto-multa</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://recibogratis.com.br/ferramentas/calculadora-dias-uteis</loc>
+    <loc>https://recibogratis.com.br/calculadora-maquininha-cartao</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://recibogratis.com.br/ferramentas/conversor-horas-trabalhadas</loc>
+    <loc>https://recibogratis.com.br/calculadora-dias-uteis</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://recibogratis.com.br/ferramentas/validador-formatador-cpf-cnpj</loc>
+    <loc>https://recibogratis.com.br/conversor-horas-trabalhadas</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://recibogratis.com.br/ferramentas/consultador-codigo-ibge</loc>
+    <loc>https://recibogratis.com.br/validador-formatador-cpf-cnpj</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/consultador-codigo-ibge</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/gerador-carne-pagamento</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/calculadora-precificacao-produtos</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/calculadora-hora-extra</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/controle-de-fiados</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -89,6 +119,12 @@
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/recibo-de-entrega-de-chaves</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://recibogratis.com.br/recibo-simples</loc>
@@ -608,9 +644,39 @@
   </url>
 
   <url>
+    <loc>https://recibogratis.com.br/ferramentas</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://recibogratis.com.br/modelos</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/declaracoes/carta-de-aviso-previo</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/declaracoes/termo-de-confissao-de-divida</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/declaracoes/autorizacao-viagem-menor</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://recibogratis.com.br/declaracoes/declaracao-endereco-comercial-mei</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>

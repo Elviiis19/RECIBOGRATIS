@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { SEO } from '../../components/SEO';
+import {  SEO  } from '../../components/SEO';
 import { AdSense } from '../../components/AdSense';
-import { ShieldCheck, CheckCircle, XCircle } from 'lucide-react';
+import { ShieldCheck, CheckCircle, XCircle, ChevronDown, ChevronUp, CheckCircle2, FileText } from 'lucide-react';
 
 export function ValidadorCpfCnpj() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   const [doc, setDoc] = useState('');
   const [isValid, setIsValid] = useState<boolean | null>(null);
   const [docType, setDocType] = useState<string>('');
@@ -99,7 +101,7 @@ export function ValidadorCpfCnpj() {
         title="Validador e Formatador de CPF e CNPJ Online - Grátis"
         description="Teste se um CPF ou CNPJ é válido utilizando a checagem dos Dígitos Verificadores. Formate, coloque máscara ou limpe a pontuação de documentos numéricos."
         keywords="validador de cpf, validar cnpj, formatar cpf cnpj, tirar pontuacao cnpj, algoritmo cpf, checar cpf falso, mascara cpf cnpj"
-        schema={`{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"O que é um CPF ou CNPJ inválido?","acceptedAnswer":{"@type":"Answer","text":"Um documento é considerado matematicamente inválido quando seus dois últimos dígitos (Dígitos Verificadores) não correspondem à conta matemática atrelada aos primeiros números. Ele é pego em formulários e no site da Receita."}},{"@type":"Question","name":"Esse validador consulta o nome e situação na Receita Federal?","acceptedAnswer":{"@type":"Answer","text":"Não. Esta ferramenta não realiza consultas na base de dados da Receita Federal (como status 'Regular' ou 'Cancelado'). Ela apenas executa o <strong>algoritmo de validação matemática</strong> universal de geração de dígitos verificadores para atestar que o CPF/CNPJ estruturalmente faz sentido e pode existir."}},{"@type":"Question","name":"Por que devo validar o documento antes de emitir o recibo?","acceptedAnswer":{"@type":"Answer","text":"Erros de digitação são comuns. Validar a máscara e o algoritmo do documento impede que você preencha e assine um contrato, nota promissória ou recibo comercial com um CPF incorreto do seu cliente."}}]}`}
+        
       />
       <div className="bg-emerald-700 text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
@@ -146,51 +148,103 @@ export function ValidadorCpfCnpj() {
 
         <AdSense />
         
-        <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
-          <h2>Como funciona a Validação de CPF e CNPJ?</h2>
-<p>O <strong>Validador de CPF e CNPJ</strong> verifica matematicamente a estrutura dos números inseridos. No Brasil, todo documento oficial conta com uma sequência lógica terminada com um ou dois dígitos de verificação, desenhados para mitigar erros comuns de digitação por seres humanos e identificar adulterações primárias.</p>
+                    </div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"O que é um CPF ou CNPJ inválido?","acceptedAnswer":{"@type":"Answer","text":"Um documento é considerado matematicamente inválido quando seus dois últimos dígitos (Dígitos Verificadores) não correspondem à conta matemática atrelada aos primeiros números. Ele é pego em formulários e no site da Receita."}},{"@type":"Question","name":"Esse validador consulta o nome e situação na Receita Federal?","acceptedAnswer":{"@type":"Answer","text":"Não. Esta ferramenta não realiza consultas na base de dados da Receita Federal (como status 'Regular' ou 'Cancelado'). Ela apenas executa o <strong>algoritmo de validação matemática</strong> universal de geração de dígitos verificadores para atestar que o CPF/CNPJ estruturalmente faz sentido e pode existir."}},{"@type":"Question","name":"Por que devo validar o documento antes de emitir o recibo?","acceptedAnswer":{"@type":"Answer","text":"Erros de digitação são comuns. Validar a máscara e o algoritmo do documento impede que você preencha e assine um contrato, nota promissória ou recibo comercial com um CPF incorreto do seu cliente."}}]}` }} />
+      {/* SEO Content Section */}
+      <section className="py-16 md:py-24 bg-white border-t border-gray-100 mt-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-16">
+            <article>
+              <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-6 flex items-center gap-3">
+                <CheckCircle2 className="w-8 h-8 text-emerald-500 flex-shrink-0" />
+                Como funciona a Validação de CPF e CNPJ?
+              </h2>
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
+                <div className="prose prose-lg prose-emerald max-w-none text-gray-600 leading-relaxed">
+                <p>O <strong>Validador de CPF e CNPJ</strong> verifica matematicamente a estrutura dos números inseridos. No Brasil, todo documento oficial conta com uma sequência lógica terminada com um ou dois dígitos de verificação, desenhados para mitigar erros comuns de digitação por seres humanos e identificar adulterações primárias.</p>
+              </div>
+            
+              </div>
+            </article>
 
-<h3>O papel do Dígito Verificador</h3>
-<p>Os dois últimos números de um CPF ou de um CNPJ servem exclusivamente como trava de segurança. Um algoritmo padrão pega todos os números anteriores, multiplica-os por pesos diferentes e encontra o que devem ser os números finais. Se você inserir um CPF falso como <em>111.111.111-11</em>, a ferramenta logo avisará que é inválido.</p>
+            <article>
+              <h3 className="text-2xl tracking-tight font-bold text-gray-900 mb-6 flex items-center gap-3">
+                <ShieldCheck className="w-8 h-8 text-emerald-500 flex-shrink-0" />
+                O papel do Dígito Verificador
+              </h3>
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
+                <div className="prose prose-lg prose-emerald max-w-none text-gray-600 leading-relaxed">
+                <p>Os dois últimos números de um CPF ou de um CNPJ servem exclusivamente como trava de segurança. Um algoritmo padrão pega todos os números anteriores, multiplica-os por pesos diferentes e encontra o que devem ser os números finais. Se você inserir um CPF falso como <em>111.111.111-11</em>, a ferramenta logo avisará que é inválido.</p>
+              </div>
+            
+              </div>
+            </article>
 
-<h3>Formatador e Removedor de Máscaras (Pontuação)</h3>
-<p>Frequentemente, plataformas de governo ou notas fiscais (NF-e, NFS-e) exigem que o cadastro da pessoa jurídica vá apenas com números limpos (sem os pontos, traços e barras). Com a funcionalidade de nosso painel de formatar ou limpar, você transita da máscara legível <em>00.000.000/0001-00</em> para a leitura estrita de máquina <em>00000000000100</em> num simples clique, otimizando o envio e integração nas ferramentas burocráticas e emissão de recibos e carnês.</p>
-          
-          <hr className="my-8" />
-          
-          <h2>Perguntas Frequentes (FAQ)</h2>
-          <div className="space-y-4 not-prose mt-6">
+            <article>
+              <h3 className="text-2xl tracking-tight font-bold text-gray-900 mb-6 flex items-center gap-3">
+                <FileText className="w-8 h-8 text-emerald-500 flex-shrink-0" />
+                Formatador e Removedor de Máscaras (Pontuação)
+              </h3>
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
+                <div className="prose prose-lg prose-emerald max-w-none text-gray-600 leading-relaxed">
+                <p>Frequentemente, plataformas de governo ou notas fiscais (NF-e, NFS-e) exigem que o cadastro da pessoa jurídica vá apenas com números limpos (sem os pontos, traços e barras). Com a funcionalidade de nosso painel de formatar ou limpar, você transita da máscara legível <em>00.000.000/0001-00</em> para a leitura estrita de máquina <em>00000000000100</em> num simples clique, otimizando o envio e integração nas ferramentas burocráticas e emissão de recibos e carnês.</p>
+              </div>
+            
+              </div>
+            </article>
 
-            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                O que é um CPF ou CNPJ inválido?
-                <span className="transition group-open:rotate-180">
-                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                </span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `Um documento é considerado matematicamente inválido quando seus dois últimos dígitos (Dígitos Verificadores) não correspondem à conta matemática atrelada aos primeiros números. Ele é pego em formulários e no site da Receita.` }} />
-            </details>
-            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                Esse validador consulta o nome e situação na Receita Federal?
-                <span className="transition group-open:rotate-180">
-                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                </span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `Não. Esta ferramenta não realiza consultas na base de dados da Receita Federal (como status 'Regular' ou 'Cancelado'). Ela apenas executa o <strong>algoritmo de validação matemática</strong> universal de geração de dígitos verificadores para atestar que o CPF/CNPJ estruturalmente faz sentido e pode existir.` }} />
-            </details>
-            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                Por que devo validar o documento antes de emitir o recibo?
-                <span className="transition group-open:rotate-180">
-                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                </span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `Erros de digitação são comuns. Validar a máscara e o algoritmo do documento impede que você preencha e assine um contrato, nota promissória ou recibo comercial com um CPF incorreto do seu cliente.` }} />
-            </details>
+            <hr className="border-gray-100" />
+
+            <article>
+              <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-8">
+                Perguntas Frequentes (FAQ)
+              </h2>
+              <div className="space-y-4">
+                {[
+                  {
+                    question: "O que é um CPF ou CNPJ inválido?",
+                    answer: "Um documento é considerado matematicamente inválido quando seus dois últimos dígitos (Dígitos Verificadores) não correspondem à conta matemática atrelada aos primeiros números. Ele é pego em formulários e no site da Receita."
+                  },
+                  {
+                    question: "Esse validador consulta o nome e situação na Receita Federal?",
+                    answer: "Não. Esta ferramenta não realiza consultas na base de dados da Receita Federal (como status 'Regular' ou 'Cancelado'). Ela apenas executa o <strong>algoritmo de validação matemática</strong> universal de geração de dígitos verificadores para atestar que o CPF/CNPJ estruturalmente faz sentido e pode existir."
+                  },
+                  {
+                    question: "Por que devo validar o documento antes de emitir o recibo?",
+                    answer: "Erros de digitação são comuns. Validar a máscara e o algoritmo do documento impede que você preencha e assine um contrato, nota promissória ou recibo comercial com um CPF incorreto do seu cliente."
+                  }
+                ].map((faq, index) => (
+                  <div 
+                    key={index} 
+                    className="border border-gray-200 rounded-2xl overflow-hidden transition-all duration-200 hover:border-emerald-200 bg-white"
+                  >
+                    <button
+                      type="button"
+                      className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-emerald-50/50 transition-colors"
+                      onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                      aria-expanded={openFaq === index}
+                    >
+                      <span className="font-semibold text-gray-900 pr-4">{faq.question}</span>
+                      {openFaq === index ? (
+                        <ChevronUp className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                      )}
+                    </button>
+                    <div 
+                      className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${
+                        openFaq === index ? 'max-h-96 py-4 opacity-100' : 'max-h-0 py-0 opacity-0'
+                      }`}
+                    >
+                      <p className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: faq.answer }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </article>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

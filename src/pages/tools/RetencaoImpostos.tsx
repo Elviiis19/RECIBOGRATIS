@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import {  useState  } from 'react';
 import { SEO } from '../../components/SEO';
 import { AdSense } from '../../components/AdSense';
-import { Calculator } from 'lucide-react';
+import { Calculator, ChevronDown, ChevronUp, CheckCircle2, ShieldCheck, FileText } from 'lucide-react';
 import { formatCurrency } from '../../utils/currency';
 
 export function RetencaoImpostos() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   const [valorBruto, setValorBruto] = useState('');
   const [issPerc, setIssPerc] = useState('5');
   const [includesPISCOFINS, setIncludesPISCOFINS] = useState(false);
@@ -45,7 +47,7 @@ export function RetencaoImpostos() {
         title="Calculadora de Retenção de Impostos (IRRF, INSS, ISS, PCC) - Grátis"
         description="Calcule impostos retidos na fonte (IRRF, INSS, ISS e PCC) de notas fiscais e RPA de forma automática. Simule o valor líquido exato para emissão de recibos."
         keywords="calculadora retencao de impostos, calcular iss inss irrf, pis cofins csll retencao, calcular rpa, nota fiscal valor liquido, recibo pj, nota fiscal de servico"
-        schema={`{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"O que são impostos retidos na fonte?","acceptedAnswer":{"@type":"Answer","text":"São tributos que a empresa contratante deve descontar do valor pago ao prestador de serviços e recolher diretamente aos cofres públicos. O prestador recebe o valor 'líquido', descontados esses impostos."}},{"@type":"Question","name":"O que é PCC (PIS, COFINS, CSLL)?","acceptedAnswer":{"@type":"Answer","text":"PCC é a sigla para a retenção conjunta de PIS (0,65%), COFINS (3,0%) e CSLL (1,0%), totalizando 4,65% aplicados sobre serviços profissionais prestados por Pessoas Jurídicas (dependendo das regras da Receita Federal)."}},{"@type":"Question","name":"Empresas do Simples Nacional sofrem retenção de IRRF e PCC?","acceptedAnswer":{"@type":"Answer","text":"Via de regra, prestadores de serviço optantes pelo Simples Nacional <strong>estão dispensados</strong> da retenção na fonte do IRRF e do PCC (PIS/COFINS/CSLL). O ISS e o INSS, no entanto, podem sofrer retenções dependendo da atividade e legislação municipal."}}]}`}
+        
       />
       
       <div className="bg-emerald-700 text-white py-16 px-4">
@@ -159,56 +161,108 @@ export function RetencaoImpostos() {
 
         <AdSense />
         
-        <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
-          <h2>Como Funciona a Retenção de Impostos na Fonte?</h2>
-<p>A retenção na fonte é um mecanismo onde o governo antecipa o recebimento de impostos. Em vez de o prestador de serviços (autônomo ou empresa) pagar os impostos no final do mês ou do ano, a empresa que o contratou efetua o desconto já no momento do pagamento e repassa esse valor ao governo. A nossa calculadora gratuita ajuda a simular o <strong>valor líquido</strong> exato da sua Nota Fiscal ou Recibo de Pagamento Autônomo (RPA).</p>
+                    </div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"O que são impostos retidos na fonte?","acceptedAnswer":{"@type":"Answer","text":"São tributos que a empresa contratante deve descontar do valor pago ao prestador de serviços e recolher diretamente aos cofres públicos. O prestador recebe o valor 'líquido', descontados esses impostos."}},{"@type":"Question","name":"O que é PCC (PIS, COFINS, CSLL)?","acceptedAnswer":{"@type":"Answer","text":"PCC é a sigla para a retenção conjunta de PIS (0,65%), COFINS (3,0%) e CSLL (1,0%), totalizando 4,65% aplicados sobre serviços profissionais prestados por Pessoas Jurídicas (dependendo das regras da Receita Federal)."}},{"@type":"Question","name":"Empresas do Simples Nacional sofrem retenção de IRRF e PCC?","acceptedAnswer":{"@type":"Answer","text":"Via de regra, prestadores de serviço optantes pelo Simples Nacional <strong>estão dispensados</strong> da retenção na fonte do IRRF e do PCC (PIS/COFINS/CSLL). O ISS e o INSS, no entanto, podem sofrer retenções dependendo da atividade e legislação municipal."}}]}` }} />
+      {/* SEO Content Section */}
+      <section className="py-16 md:py-24 bg-white border-t border-gray-100 mt-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-16">
+            <article>
+              <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-6 flex items-center gap-3">
+                <CheckCircle2 className="w-8 h-8 text-emerald-500 flex-shrink-0" />
+                Como Funciona a Retenção de Impostos na Fonte?
+              </h2>
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
+                <div className="prose prose-lg prose-emerald max-w-none text-gray-600 leading-relaxed">
+                <p>A retenção na fonte é um mecanismo onde o governo antecipa o recebimento de impostos. Em vez de o prestador de serviços (autônomo ou empresa) pagar os impostos no final do mês ou do ano, a empresa que o contratou efetua o desconto já no momento do pagamento e repassa esse valor ao governo. A nossa calculadora gratuita ajuda a simular o <strong>valor líquido</strong> exato da sua Nota Fiscal ou Recibo de Pagamento Autônomo (RPA).</p>
+              </div>
+            
+              </div>
+            </article>
 
-<h3>O que significa IRRF, INSS, ISS e PCC?</h3>
-<ul>
-<li><strong>IRRF (Imposto de Renda Retido na Fonte):</strong> Retido na fonte tanto para pessoas físicas quanto jurídicas (em atividades específicas). As alíquotas variam de 1% a 1,5% para empresas.</li>
-<li><strong>INSS:</strong> Contribuição previdenciária. No caso de serviços entre Pessoas Jurídicas (cessão de mão de obra), costuma ser de 11%. Para RPA, varia conforme as tabelas vigentes.</li>
-<li><strong>ISS (Imposto Sobre Serviços):</strong> É o imposto municipal, com alíquotas que variam entre 2% e 5%, dependendo da cidade e do tipo de serviço. Pode ser retido pelo tomador dependendo da localidade de prestação.</li>
-<li><strong>PCC:</strong> Refere-se à contribuição social retida unificadamente na alíquota de 4,65%, que engloba PIS, COFINS e CSLL (aplica-se a serviços profissionais).</li>
-</ul>
+            <article>
+              <h3 className="text-2xl tracking-tight font-bold text-gray-900 mb-6 flex items-center gap-3">
+                <ShieldCheck className="w-8 h-8 text-emerald-500 flex-shrink-0" />
+                O que significa IRRF, INSS, ISS e PCC?
+              </h3>
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
+                <div className="prose prose-lg prose-emerald max-w-none text-gray-600 leading-relaxed">
+                <ul>
+                  <li><strong>IRRF (Imposto de Renda Retido na Fonte):</strong> Retido na fonte tanto para pessoas físicas quanto jurídicas (em atividades específicas). As alíquotas variam de 1% a 1,5% para empresas.</li>
+                  <li><strong>INSS:</strong> Contribuição previdenciária. No caso de serviços entre Pessoas Jurídicas (cessão de mão de obra), costuma ser de 11%. Para RPA, varia conforme as tabelas vigentes.</li>
+                  <li><strong>ISS (Imposto Sobre Serviços):</strong> É o imposto municipal, com alíquotas que variam entre 2% e 5%, dependendo da cidade e do tipo de serviço. Pode ser retido pelo tomador dependendo da localidade de prestação.</li>
+                  <li><strong>PCC:</strong> Refere-se à contribuição social retida unificadamente na alíquota de 4,65%, que engloba PIS, COFINS e CSLL (aplica-se a serviços profissionais).</li>
+                </ul>
+              </div>
+            
+              </div>
+            </article>
 
-<h2>Como Calcular o Valor Líquido da Nota Fiscal</h2>
-<p>O valor líquido a receber é calculado subtraindo o total das retenções aplicáveis do valor bruto dos serviços. Exemplo: para um serviço de R$ 10.000,00 onde há 4,65% de PCC (R$ 465,00) e 1,5% de IRRF (R$ 150,00), o valor líquido depositado será de R$ 9.385,00.</p>
-          
-          <hr className="my-8" />
-          
-          <h2>Perguntas Frequentes (FAQ)</h2>
-          <div className="space-y-4 not-prose mt-6">
+            <article>
+              <h3 className="text-2xl tracking-tight font-bold text-gray-900 mb-6 flex items-center gap-3">
+                <FileText className="w-8 h-8 text-emerald-500 flex-shrink-0" />
+                Como Calcular o Valor Líquido da Nota Fiscal
+              </h3>
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
+                <div className="prose prose-lg prose-emerald max-w-none text-gray-600 leading-relaxed">
+                <p>O valor líquido a receber é calculado subtraindo o total das retenções aplicáveis do valor bruto dos serviços. Exemplo: para um serviço de R$ 10.000,00 onde há 4,65% de PCC (R$ 465,00) e 1,5% de IRRF (R$ 150,00), o valor líquido depositado será de R$ 9.385,00.</p>
+              </div>
+            
+              </div>
+            </article>
 
-            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                O que são impostos retidos na fonte?
-                <span className="transition group-open:rotate-180">
-                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                </span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `São tributos que a empresa contratante deve descontar do valor pago ao prestador de serviços e recolher diretamente aos cofres públicos. O prestador recebe o valor 'líquido', descontados esses impostos.` }} />
-            </details>
-            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                O que é PCC (PIS, COFINS, CSLL)?
-                <span className="transition group-open:rotate-180">
-                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                </span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `PCC é a sigla para a retenção conjunta de PIS (0,65%), COFINS (3,0%) e CSLL (1,0%), totalizando 4,65% aplicados sobre serviços profissionais prestados por Pessoas Jurídicas (dependendo das regras da Receita Federal).` }} />
-            </details>
-            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                Empresas do Simples Nacional sofrem retenção de IRRF e PCC?
-                <span className="transition group-open:rotate-180">
-                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                </span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `Via de regra, prestadores de serviço optantes pelo Simples Nacional <strong>estão dispensados</strong> da retenção na fonte do IRRF e do PCC (PIS/COFINS/CSLL). O ISS e o INSS, no entanto, podem sofrer retenções dependendo da atividade e legislação municipal.` }} />
-            </details>
+            <hr className="border-gray-100" />
+
+            <article>
+              <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-8">
+                Perguntas Frequentes (FAQ)
+              </h2>
+              <div className="space-y-4">
+                {[
+                  {
+                    question: "O que são impostos retidos na fonte?",
+                    answer: "São tributos que a empresa contratante deve descontar do valor pago ao prestador de serviços e recolher diretamente aos cofres públicos. O prestador recebe o valor 'líquido', descontados esses impostos."
+                  },
+                  {
+                    question: "O que é PCC (PIS, COFINS, CSLL)?",
+                    answer: "PCC é a sigla para a retenção conjunta de PIS (0,65%), COFINS (3,0%) e CSLL (1,0%), totalizando 4,65% aplicados sobre serviços profissionais prestados por Pessoas Jurídicas (dependendo das regras da Receita Federal)."
+                  },
+                  {
+                    question: "Empresas do Simples Nacional sofrem retenção de IRRF e PCC?",
+                    answer: "Via de regra, prestadores de serviço optantes pelo Simples Nacional <strong>estão dispensados</strong> da retenção na fonte do IRRF e do PCC (PIS/COFINS/CSLL). O ISS e o INSS, no entanto, podem sofrer retenções dependendo da atividade e legislação municipal."
+                  }
+                ].map((faq, index) => (
+                  <div 
+                    key={index} 
+                    className="border border-gray-200 rounded-2xl overflow-hidden transition-all duration-200 hover:border-emerald-200 bg-white"
+                  >
+                    <button
+                      type="button"
+                      className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-emerald-50/50 transition-colors"
+                      onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                      aria-expanded={openFaq === index}
+                    >
+                      <span className="font-semibold text-gray-900 pr-4">{faq.question}</span>
+                      {openFaq === index ? (
+                        <ChevronUp className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                      )}
+                    </button>
+                    <div 
+                      className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${
+                        openFaq === index ? 'max-h-96 py-4 opacity-100' : 'max-h-0 py-0 opacity-0'
+                      }`}
+                    >
+                      <p className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: faq.answer }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </article>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }
