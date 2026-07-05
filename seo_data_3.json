@@ -1,0 +1,25 @@
+[
+  {
+    "file": "src/pages/PixGenerator.tsx",
+    "seo": {
+      "title": "Gerador de QR Code PIX Online - Grátis e Seguro",
+      "description": "Gere um QR Code PIX e um link de pagamento (Copia e Cola) grátis. Ideal para MEI, comércios, profissionais autônomos ou para criar plaquinhas PIX.",
+      "keywords": "gerador qr code pix, qr code pix, pix copia e cola, plaquinha pix, gerar pix online, codigo qr para pagamento"
+    },
+    "faqs": [
+      {
+        "q": "O Gerador de QR Code PIX é seguro?",
+        "a": "Sim, é 100% seguro. Nossa ferramenta não pede senha, e-mail ou dados bancários de acesso, não armazena nenhuma transação, nem acessa seu dinheiro. Todo processo ocorre localmente no seu dispositivo transformando dados públicos numa codificação de imagem."
+      },
+      {
+        "q": "Posso gerar o QR Code com o valor já definido?",
+        "a": "Sim. Você pode definir o valor exato no formulário. Se deixar o campo em branco, o pagador é quem digitará o valor no aplicativo do banco."
+      },
+      {
+        "q": "Como imprimo a plaquinha PIX para meu negócio?",
+        "a": "Ao gerar o QR Code, você tem a opção de baixar a imagem diretamente. Você pode salvá-la no celular ou computador e imprimir em qualquer impressora, criando sua placa física ou adicionando num modelo PDF de cobrança ou recibo."
+      }
+    ],
+    "content": "<h2>Como Funciona o Gerador de QR Code PIX</h2>\n<p>O <strong>Gerador de QR Code PIX</strong> é a solução online definitiva para você, lojista, vendedor autônomo, MEI ou prestador de serviços. Com esta ferramenta simples, você não precisa ditar sua chave verbalmente ou anotá-la num papel sujeito a erros. Basta criar um QR Code que o cliente aponta a câmera para pagar. Ele segue o padrão do Banco Central e gera também o link Pix Copia e Cola associado.</p>\n\n<h3>Por que criar uma Plaquinha PIX com Valor Fixo ou Aberto?</h3>\n<ul>\n<li><strong>Agilidade e Experiência do Cliente:</strong> O processo elimina digitação equivocada. O app de banco do consumidor lê a imagem instantaneamente e as chaves destinatárias são puxadas via BACEN.</li>\n<li><strong>Controle e Segurança:</strong> Embutir o valor fixo garante que ninguém deposite um centavo a menos sem querer e facilita conferência e auditoria contábil.</li>\n<li><strong>Flexibilidade de Vendas:</strong> Se o valor ficar aberto, você pode pregar a plaquinha no balcão e cada cliente insere o preço final após o acerto comercial (como numa padaria, consultório ou barbearia).</li>\n</ul>\n\n<h2>Como Enviar a Cobrança por WhatsApp?</h2>\n<p>Ao emitir a imagem na tela, nossa ferramenta permite baixar instantaneamente ou até mesmo copiar o código estático <em>\"PIX Copia e Cola\"</em>. Assim, além de você ter o QR Code impresso no balcão físico, você pode copiar esse texto e disparar em mensagens de texto para clientes remotos. Combine essa tática com o envio do nosso <a href=\"/recibo-simples\">Recibo Simples</a>, facilitando a liquidação total de dívidas e boletos digitais.</p>"
+  }
+]

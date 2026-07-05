@@ -37,9 +37,10 @@ export function ConversorHoras() {
   return (
     <>
       <SEO 
-        title="Conversor de Horas Trabalhadas para Valor Online (Recibo)"
-        description="Converter horas reais e minutos fechados no formato HH:MM para valor financeiro R$ (BRL). Facilita na hora de fechar a nota ou recibo mensal do freelancer."
-        keywords="converter horas em reais, calculo horas trabalhadas, valor da hora freelancer, calculo hora pro rata"
+        title="Calculadora e Conversor de Horas Trabalhadas em Decimal - Grátis"
+        description="Converta horas trabalhadas (HH:MM) para formato decimal ou vice-versa. Calcule automaticamente o valor financeiro do trabalho autônomo, freelancer e horas extras."
+        keywords="conversor de horas decimais, calcular valor horas trabalhadas, hora extra, transformar hora em decimal, calculadora freelancer hora, converter hh:mm para decimal"
+        schema={`{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"O que são horas centesimais ou decimais?","acceptedAnswer":{"@type":"Answer","text":"O formato padrão relógio usa 60 minutos (HH:MM). O formato decimal/centesimal converte os minutos numa fração baseada em 100, permitindo realizar cálculos de pagamento. Exemplo: 1h30 (relógio) equivale a 1,5 horas (decimal)."}},{"@type":"Question","name":"Como converter minutos em decimais na calculadora à mão?","acceptedAnswer":{"@type":"Answer","text":"A regra matemática é simples: pegue os minutos trabalhados e divida por 60. Exemplo: se você trabalhou 45 minutos. 45 ÷ 60 = 0,75. Então, 2 horas e 45 minutos viram 2,75 horas decimais."}},{"@type":"Question","name":"Como calcular o valor total de uma diária ou hora extra?","acceptedAnswer":{"@type":"Answer","text":"Primeiro, converta as horas do relógio em horas decimais. Em seguida, multiplique o resultado pela sua tarifa horária (R$/hora). É assim que os contadores e os relógios de ponto calculam as folhas de pagamento exatas."}}]}`}
       />
       <div className="bg-emerald-700 text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
@@ -95,44 +96,46 @@ export function ConversorHoras() {
         <AdSense />
         
         <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
-          <h2>Como calcular horas trabalhadas para Reais online?</h2>
-          <p>Para profissionais e freelancers cujo modelo comercial envolve venda da produtividade baseada na carga de <strong>hora técnica</strong> (desenvolvedores de software, profissionais de TI PJ, arquitetos, contadores, redatores e designers), fechar o final de um mês de expediente e gerar e faturar a nota da folha de pagamento exige uma correção matemática para não operar fora e perder os quebra-cabeças da conta. O formato relógio exibe e entrega o balanço baseada fidedignamente na mecânica da escala sexagesimal <strong>(fechada rígida do 0 aos 60 minutos de vida)</strong>, no entanto, para multiplicar financeiramente essa "hora gasta de vida" pelo salário base hora acordado (o seu "rate" monetário contratual ou valor hora, fixado sempre em dinheiro base decimal e real fiduciário da grade), os resíduos em minutos de relógio precisam ser perfeitamente emparelhados e transformados e desdobrados de fração para sua base financeira correspondente pura da "unidade percentual de 0 a 100". Ao utilizar o nosso <strong>conversor de horas trabalhadas no formato simples e enxuto</strong>, você ganha rapidez cravando apenas o <strong>tempo bruto e o Valor da Hora (R$)</strong>.</p>
+          <h2>Como Converter e Calcular Horas Trabalhadas</h2>
+<p>O <strong>Conversor de Horas em Decimal</strong> é fundamental para freelancers, prestadores de serviços, RH e autônomos que cobram pelos serviços baseados no tempo gasto (tarifa por hora). O formato de relógio (horas e minutos) não funciona corretamente em calculadoras convencionais de dinheiro.</p>
 
-          <h3>Trinta minutos no relógio são iguais a 0.50 (meio porcento). Entendendo o fator</h3>
-          <p>
-             Se você logou e labutou a exata porção e métrica de <strong>121 horas cheias e mais 30 minutos pendurados (121:30)</strong> atreladas no seu relógio ou no sumário do painel de controle (ferramentas como Jira, Trello, Toggl Track relatórios, Rescue Time ou Clockify), e o seu polpudo valor de margem de hora contratado negociado bate fechado exatos R$ 25,00, muitas pessoas desesperadas, apressadas e até empresários de longo tempo abrem a tradicional calculadora de bolso ou do próprio menu do celular e operam na mão crua e de forma erradamente imperdoável a conta contábil literal montando <code>121,30 vezes x 25 = Faturamento Gerando de R$ 3.032,50</code>. Esse erro infantil amador contábil de soma base, joga literalmente fatia do suor do seu rico dinheiro oriundo da sua fatura no lixo de forma invisível mês a mês!
-          </p>
-          <p>
-             Na matemática real da fração, como meia hora gasta (esses 30 minutos de relógio rodando cronômetro) são precisamente no mundo físico e palpável a <strong>metade de uma hora redonda viva na Terra (fração pura 1/2)</strong>, então no modelo do arranjo matemático real decimal o balanço do número 30 vira imperativamente e sobe encorpando a carga de rate no extrato final para ser um ".50" ou então dito "50 partes quebradas na imensa centena percentual cravada" — sendo nesse caso a forma correqueira o valor efetivo e real financeiro o correspondente estrito e puro atrelado montado numericamente em <code>121,50</code> (onde multiplicando gera limpos R$ 3.037,50 de caixa para o seu bolso, ganho de de exatos R$ 5 reais resgatados num único fardo simples varrido em questão de mero crivo). Nossa <strong>calculadora de conversor de hora relógio para hora centesimal comercial</strong> reverte fidedignamente esse fator embutindo precisamente o conversor para gerar a pré-visualização real do extrato bruto e holerite da sua suada folha na tela central sem comer ou que você perder a poeira os valiosos centavos devidos atrelados aos seus parcos minutos trabalhados fora da curva redonda.
-          </p>
+<h3>Por que converter de HH:MM para Decimais?</h3>
+<p>O sistema temporal é sexagesimal (base de 60 minutos), enquanto o nosso sistema financeiro e monetário é decimal (base de 100 centavos). Se você cobrar R$ 50,00 por hora e trabalhou 2 horas e 30 minutos (2:30), multiplicando diretamente na calculadora (50 x 2,30), o resultado seria R$ 115,00. <strong>Isso está errado!</strong> O cálculo correto exige que as 2h30 virem 2,5 horas. Assim: 50 x 2,5 = R$ 125,00.</p>
 
+<h3>Uso em Folhas de Pagamento e Recibos</h3>
+<p>Na hora de emitir um <a href="/recibo-de-prestacao-de-servicos">Recibo de Prestação de Serviços</a> com serviços por hora, transcreva os tempos centesimais para assegurar que a remuneração pela carga horária (incluindo quebras como 15, 20 ou 45 minutos de trabalho excedente) receba exatamente a proporção correta devida pelo contratante.</p>
+          
           <hr className="my-8" />
           
           <h2>Perguntas Frequentes (FAQ)</h2>
-          
           <div className="space-y-4 not-prose mt-6">
+
             <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                O que significa horas In Itinere?
+                O que são horas centesimais ou decimais?
                 <span className="transition group-open:rotate-180">
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                As conhecidas horas "in itinere" referem-se ao tempo gasto pelo trabalhador no deslocamento entre sua residência e o local de trabalho. Com a Reforma Trabalhista (Lei nº 13.467/2017), o tempo de deslocamento não é mais computado na jornada de trabalho, por não ser mais considerado tempo à disposição do empregador.
-              </p>
+              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `O formato padrão relógio usa 60 minutos (HH:MM). O formato decimal/centesimal converte os minutos numa fração baseada em 100, permitindo realizar cálculos de pagamento. Exemplo: 1h30 (relógio) equivale a 1,5 horas (decimal).` }} />
             </details>
-            
             <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                Como 15 minutos de hora extra equivalem a quanto na conversão matemática?
+                Como converter minutos em decimais na calculadora à mão?
                 <span className="transition group-open:rotate-180">
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Na matemática da calculadora corporativa, uma fração de <strong>15 minutos</strong> corresponde estritamente a um quarto (1/4) de hora. Simplificando: a fração relógio 15 equivale, financeiramente, à base 0,25. Se o seu holerite indica 52 horas e 15 minutos extras (52:15 relógio), o input a ser utilizado pelo RH ou no seu multiplicador contábil para gerar reais será 52,25 horas.
-              </p>
+              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `A regra matemática é simples: pegue os minutos trabalhados e divida por 60. Exemplo: se você trabalhou 45 minutos. 45 ÷ 60 = 0,75. Então, 2 horas e 45 minutos viram 2,75 horas decimais.` }} />
+            </details>
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                Como calcular o valor total de uma diária ou hora extra?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `Primeiro, converta as horas do relógio em horas decimais. Em seguida, multiplique o resultado pela sua tarifa horária (R$/hora). É assim que os contadores e os relógios de ponto calculam as folhas de pagamento exatas.` }} />
             </details>
           </div>
         </div>

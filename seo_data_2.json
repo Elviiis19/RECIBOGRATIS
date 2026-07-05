@@ -1,0 +1,163 @@
+[
+  {
+    "file": "src/pages/tools/RetencaoImpostos.tsx",
+    "seo": {
+      "title": "Calculadora de Retenção de Impostos (IRRF, INSS, ISS, PCC) - Grátis",
+      "description": "Calcule impostos retidos na fonte (IRRF, INSS, ISS e PCC) de notas fiscais e RPA de forma automática. Simule o valor líquido exato para emissão de recibos.",
+      "keywords": "calculadora retencao de impostos, calcular iss inss irrf, pis cofins csll retencao, calcular rpa, nota fiscal valor liquido, recibo pj, nota fiscal de servico"
+    },
+    "faqs": [
+      {
+        "q": "O que são impostos retidos na fonte?",
+        "a": "São tributos que a empresa contratante deve descontar do valor pago ao prestador de serviços e recolher diretamente aos cofres públicos. O prestador recebe o valor 'líquido', descontados esses impostos."
+      },
+      {
+        "q": "O que é PCC (PIS, COFINS, CSLL)?",
+        "a": "PCC é a sigla para a retenção conjunta de PIS (0,65%), COFINS (3,0%) e CSLL (1,0%), totalizando 4,65% aplicados sobre serviços profissionais prestados por Pessoas Jurídicas (dependendo das regras da Receita Federal)."
+      },
+      {
+        "q": "Empresas do Simples Nacional sofrem retenção de IRRF e PCC?",
+        "a": "Via de regra, prestadores de serviço optantes pelo Simples Nacional <strong>estão dispensados</strong> da retenção na fonte do IRRF e do PCC (PIS/COFINS/CSLL). O ISS e o INSS, no entanto, podem sofrer retenções dependendo da atividade e legislação municipal."
+      }
+    ],
+    "content": "<h2>Como Funciona a Retenção de Impostos na Fonte?</h2>\n<p>A retenção na fonte é um mecanismo onde o governo antecipa o recebimento de impostos. Em vez de o prestador de serviços (autônomo ou empresa) pagar os impostos no final do mês ou do ano, a empresa que o contratou efetua o desconto já no momento do pagamento e repassa esse valor ao governo. A nossa calculadora gratuita ajuda a simular o <strong>valor líquido</strong> exato da sua Nota Fiscal ou Recibo de Pagamento Autônomo (RPA).</p>\n\n<h3>O que significa IRRF, INSS, ISS e PCC?</h3>\n<ul>\n<li><strong>IRRF (Imposto de Renda Retido na Fonte):</strong> Retido na fonte tanto para pessoas físicas quanto jurídicas (em atividades específicas). As alíquotas variam de 1% a 1,5% para empresas.</li>\n<li><strong>INSS:</strong> Contribuição previdenciária. No caso de serviços entre Pessoas Jurídicas (cessão de mão de obra), costuma ser de 11%. Para RPA, varia conforme as tabelas vigentes.</li>\n<li><strong>ISS (Imposto Sobre Serviços):</strong> É o imposto municipal, com alíquotas que variam entre 2% e 5%, dependendo da cidade e do tipo de serviço. Pode ser retido pelo tomador dependendo da localidade de prestação.</li>\n<li><strong>PCC:</strong> Refere-se à contribuição social retida unificadamente na alíquota de 4,65%, que engloba PIS, COFINS e CSLL (aplica-se a serviços profissionais).</li>\n</ul>\n\n<h2>Como Calcular o Valor Líquido da Nota Fiscal</h2>\n<p>O valor líquido a receber é calculado subtraindo o total das retenções aplicáveis do valor bruto dos serviços. Exemplo: para um serviço de R$ 10.000,00 onde há 4,65% de PCC (R$ 465,00) e 1,5% de IRRF (R$ 150,00), o valor líquido depositado será de R$ 9.385,00.</p>"
+  },
+  {
+    "file": "src/pages/tools/DescontosMultas.tsx",
+    "seo": {
+      "title": "Calculadora de Desconto e Multa por Atraso - Online e Grátis",
+      "description": "Calcule facilmente juros diários, multas por atraso de pagamento ou descontos percentuais em boletos, recibos e parcelas. Ferramenta online gratuita.",
+      "keywords": "calculadora de desconto, calcular multa por atraso, calcular juros de mora, juros diario boleto, calcular porcentagem desconto"
+    },
+    "faqs": [
+      {
+        "q": "Qual é o limite de multa por atraso permitido por lei?",
+        "a": "De acordo com o Código de Defesa do Consumidor (CDC), para relações de consumo, a multa de mora por atraso de pagamento não pode ser superior a <strong>2% do valor da prestação</strong>. Para contratos entre empresas (B2B) e condomínios, outras regras podem se aplicar (frequentemente 2% também)."
+      },
+      {
+        "q": "O que são juros de mora 'pro rata die'?",
+        "a": "São os juros cobrados de forma proporcional aos dias de atraso. Normalmente o limite legal (sem contrato específico) é de 1% ao mês. Assim, divide-se 1% por 30 dias para encontrar a taxa diária (0,033% ao dia) e multiplica-se pelos dias corridos em atraso."
+      },
+      {
+        "q": "Como funciona o cálculo do desconto?",
+        "a": "O cálculo do desconto subtrai um percentual sobre o valor total. Exemplo: um produto de R$ 100,00 com 15% de desconto. O valor do desconto é R$ 15,00, resultando num valor final a pagar de R$ 85,00."
+      }
+    ],
+    "content": "<h2>Como Calcular Multa e Juros por Atraso de Pagamento</h2>\n<p>A calculadora de atrasos e descontos é essencial para lojistas, prestadores de serviços e locadores que precisam atualizar o valor de cobranças vencidas, recibos e notas promissórias ou conceder um abatimento em compras à vista. O sistema computa os valores seguindo as diretrizes básicas matemáticas e de consumo.</p>\n\n<h3>Regras do Código de Defesa do Consumidor (CDC)</h3>\n<p>Ao emitir cobranças contra pessoas físicas em relações de consumo (mensalidades, cursos, produtos), você está restrito pela lei (Art. 52, § 1° do CDC): a multa máxima permitida para atraso é de <strong>2% (dois por cento)</strong> e os juros de mora não devem ultrapassar <strong>1% ao mês</strong>, a menos que estipulado diversamente em contratos específicos permitidos por lei.</p>\n\n<h3>Cálculo Pro Rata Die (Juros Diários)</h3>\n<p>O termo <em>pro rata die</em> significa \"proporcional ao dia\". Quando o cliente atrasa 5 dias, você não cobra o juro cheio do mês, mas sim a fração diária. Com um juro padrão de 1% ao mês, a taxa diária é de aproximadamente 0,0333%. Ao preencher a nossa calculadora com os dias de atraso e a taxa mensal, ela converte e aplica exatamente os juros pro rata die de forma correta.</p>\n\n<h2>Como Calcular Descontos Percentuais</h2>\n<p>Na negociação com fornecedores ou clientes, saber calcular um desconto rápido é fundamental. O percentual de desconto é transformado numa fração decimal e multiplicado pelo valor base. Por exemplo, conceder um abatimento por pagamento antecipado em um Recibo Simples de prestação de serviço garantirá rapidez e menos inadimplência.</p>"
+  },
+  {
+    "file": "src/pages/tools/MaquininhaCartao.tsx",
+    "seo": {
+      "title": "Calculadora de Taxas de Maquininha de Cartão - Quanto Receber?",
+      "description": "Descubra quanto você vai receber ou quanto deve cobrar do cliente para repassar as taxas da maquininha de cartão (Stone, PagSeguro, Mercado Pago, etc).",
+      "keywords": "calculadora maquininha, calcular taxa cartao, repassar taxa cartao, desconto maquininha, simulador maquininha de cartao"
+    },
+    "faqs": [
+      {
+        "q": "É legal repassar a taxa da maquininha para o cliente?",
+        "a": "Sim. A Lei 13.455/2017 autorizou a diferenciação de preços de bens e serviços oferecidos ao público em função do prazo ou do instrumento de pagamento utilizado. Ou seja, você pode cobrar um valor diferente no PIX/dinheiro e no Cartão de Crédito."
+      },
+      {
+        "q": "O que significa 'Descontar da Venda'?",
+        "a": "Significa que o lojista vai absorver o custo da tarifa. Se a venda for R$ 100,00 com taxa de 5%, você recebe R$ 95,00 e a operadora do cartão fica com R$ 5,00. O cliente paga apenas R$ 100,00."
+      },
+      {
+        "q": "Como repassar a taxa da maquininha garantindo que receberei o valor cheio?",
+        "a": "Para você receber exatos R$ 100,00 com uma tarifa de 5%, você não pode simplesmente cobrar R$ 105,00, pois 5% de R$ 105,00 é R$ 5,25. Nossa calculadora faz a conta reversa (Valor / (1 - Taxa%)), resultando no preço de cobrança de R$ 105,26. Assim, ao deduzir 5%, sobram exatamente os R$ 100,00 para você."
+      }
+    ],
+    "content": "<h2>Como Calcular as Taxas da Maquininha de Cartão</h2>\n<p>A <strong>Calculadora de Maquininha de Cartão</strong> é a ferramenta ideal para autônomos, MEIs e empreendedores simularem o impacto das tarifas cobradas por operadoras de cartão de crédito e débito (como PagSeguro, Stone, Mercado Pago, Cielo, SumUp, Ton) no seu fluxo de caixa.</p>\n\n<h3>Descontar da Venda vs Repassar a Taxa</h3>\n<ul>\n<li><strong>Descontar (Assumir a Taxa):</strong> O cliente vê apenas o valor de etiqueta. Essa estratégia atrai o consumidor e evita atritos na hora da cobrança, mas reduz sua margem de lucro final. O empreendedor inteligente já inclui a taxa da maquininha no preço base (precificação embutida).</li>\n<li><strong>Repassar (Cobrar do Cliente):</strong> Você garante que receberá a quantia exata que orçou, enquanto o cliente paga a tarifa financeira. É muito comum no comércio de veículos, materiais de construção e atacadistas, onde a margem é estreita.</li>\n</ul>\n\n<h3>Como a matemática de repasse funciona?</h3>\n<p>Muitos empreendedores cometem o erro de apenas somar a taxa da operadora ao preço do produto. Exemplo errado: Produto de R$ 1.000 + 10% da maquininha = Cobrar R$ 1.100. Contudo, a operadora vai cobrar 10% sobre os R$ 1.100 (ou seja, R$ 110). Você acabará recebendo R$ 990 (prejuízo de R$ 10,00). O correto é usar o <strong>cálculo de markup (preço reverso)</strong> que nossa ferramenta faz automaticamente, informando que você precisa cobrar R$ 1.111,11.</p>"
+  },
+  {
+    "file": "src/pages/tools/DiasUteis.tsx",
+    "seo": {
+      "title": "Calculadora de Dias Úteis, Feriados e Prazos de Entrega",
+      "description": "Calcule a diferença de dias úteis entre datas ou some prazos a uma data inicial. Ferramenta online grátis que considera finais de semana (sábados e domingos).",
+      "keywords": "calculadora de dias uteis, somar dias uteis, prazo de entrega, calcular diferenca em dias uteis, calendario dias uteis, dias corridos"
+    },
+    "faqs": [
+      {
+        "q": "Sábado conta como dia útil?",
+        "a": "Depende. Para questões bancárias e prazos processuais e de entrega da maioria das transportadoras, sábado <strong>não</strong> é considerado dia útil. Contudo, para fins trabalhistas e pagamento de salário de algumas categorias, o sábado pode ser considerado dia útil."
+      },
+      {
+        "q": "O que acontece quando o prazo de pagamento cai no final de semana?",
+        "a": "Geralmente, quando o vencimento de um boleto ou fatura cai num sábado, domingo ou feriado bancário, o pagamento pode ser efetuado no <strong>primeiro dia útil subsequente</strong>, sem acréscimo de juros ou multas (Lei 7.089/1983)."
+      },
+      {
+        "q": "Como funciona o cálculo de adição de prazos?",
+        "a": "Se um contrato prevê entrega em '15 dias úteis', a calculadora começa na data inicial e avança 15 dias, pulando automaticamente todos os sábados e domingos para encontrar a data exata da entrega ou vencimento final."
+      }
+    ],
+    "content": "<h2>Por que Calcular Diferenças de Dias Úteis?</h2>\n<p>A <strong>Calculadora de Dias Úteis</strong> é muito utilizada nas operações corporativas, logística, contabilidade e rotinas bancárias para definir prazos exatos que desconsideram sábados e domingos. Com ela, você não perderá a contagem ao prometer uma entrega de serviço para \"dez dias úteis\" ou programar vencimentos nos recibos e promissórias.</p>\n\n<h3>Contagem de Prazos Bancários e Comerciais</h3>\n<p>Nas negociações em que se usa recibos (como na emissão de um <a href=\"/nota-promissoria\">Recibo de Sinal e Arras</a>), o prazo para integralização muitas vezes é atrelado a <strong>dias úteis</strong>. Quando boletos caem em finais de semana, a legislação brasileira garante a postergação para o primeiro dia de expediente bancário seguinte.</p>\n\n<h3>Prazos Corridos x Prazos Úteis</h3>\n<p>Seja transparente com seus clientes: diferencie o termo \"dias corridos\" (onde a contagem não para no final de semana) e \"dias úteis\". Contratos longos (30, 60, 90 dias) costumam usar dias corridos. Já entregas de e-commerce e processamentos de transferência financeira (TED/DOC, liquidação de boletos) operam restritamente sobre os dias úteis.</p>"
+  },
+  {
+    "file": "src/pages/tools/ConversorHoras.tsx",
+    "seo": {
+      "title": "Calculadora e Conversor de Horas Trabalhadas em Decimal - Grátis",
+      "description": "Converta horas trabalhadas (HH:MM) para formato decimal ou vice-versa. Calcule automaticamente o valor financeiro do trabalho autônomo, freelancer e horas extras.",
+      "keywords": "conversor de horas decimais, calcular valor horas trabalhadas, hora extra, transformar hora em decimal, calculadora freelancer hora, converter hh:mm para decimal"
+    },
+    "faqs": [
+      {
+        "q": "O que são horas centesimais ou decimais?",
+        "a": "O formato padrão relógio usa 60 minutos (HH:MM). O formato decimal/centesimal converte os minutos numa fração baseada em 100, permitindo realizar cálculos de pagamento. Exemplo: 1h30 (relógio) equivale a 1,5 horas (decimal)."
+      },
+      {
+        "q": "Como converter minutos em decimais na calculadora à mão?",
+        "a": "A regra matemática é simples: pegue os minutos trabalhados e divida por 60. Exemplo: se você trabalhou 45 minutos. 45 ÷ 60 = 0,75. Então, 2 horas e 45 minutos viram 2,75 horas decimais."
+      },
+      {
+        "q": "Como calcular o valor total de uma diária ou hora extra?",
+        "a": "Primeiro, converta as horas do relógio em horas decimais. Em seguida, multiplique o resultado pela sua tarifa horária (R$/hora). É assim que os contadores e os relógios de ponto calculam as folhas de pagamento exatas."
+      }
+    ],
+    "content": "<h2>Como Converter e Calcular Horas Trabalhadas</h2>\n<p>O <strong>Conversor de Horas em Decimal</strong> é fundamental para freelancers, prestadores de serviços, RH e autônomos que cobram pelos serviços baseados no tempo gasto (tarifa por hora). O formato de relógio (horas e minutos) não funciona corretamente em calculadoras convencionais de dinheiro.</p>\n\n<h3>Por que converter de HH:MM para Decimais?</h3>\n<p>O sistema temporal é sexagesimal (base de 60 minutos), enquanto o nosso sistema financeiro e monetário é decimal (base de 100 centavos). Se você cobrar R$ 50,00 por hora e trabalhou 2 horas e 30 minutos (2:30), multiplicando diretamente na calculadora (50 x 2,30), o resultado seria R$ 115,00. <strong>Isso está errado!</strong> O cálculo correto exige que as 2h30 virem 2,5 horas. Assim: 50 x 2,5 = R$ 125,00.</p>\n\n<h3>Uso em Folhas de Pagamento e Recibos</h3>\n<p>Na hora de emitir um <a href=\"/recibo-de-prestacao-de-servicos\">Recibo de Prestação de Serviços</a> com serviços por hora, transcreva os tempos centesimais para assegurar que a remuneração pela carga horária (incluindo quebras como 15, 20 ou 45 minutos de trabalho excedente) receba exatamente a proporção correta devida pelo contratante.</p>"
+  },
+  {
+    "file": "src/pages/tools/ValidadorCpfCnpj.tsx",
+    "seo": {
+      "title": "Validador e Formatador de CPF e CNPJ Online - Grátis",
+      "description": "Teste se um CPF ou CNPJ é válido utilizando a checagem dos Dígitos Verificadores. Formate, coloque máscara ou limpe a pontuação de documentos numéricos.",
+      "keywords": "validador de cpf, validar cnpj, formatar cpf cnpj, tirar pontuacao cnpj, algoritmo cpf, checar cpf falso, mascara cpf cnpj"
+    },
+    "faqs": [
+      {
+        "q": "O que é um CPF ou CNPJ inválido?",
+        "a": "Um documento é considerado matematicamente inválido quando seus dois últimos dígitos (Dígitos Verificadores) não correspondem à conta matemática atrelada aos primeiros números. Ele é pego em formulários e no site da Receita."
+      },
+      {
+        "q": "Esse validador consulta o nome e situação na Receita Federal?",
+        "a": "Não. Esta ferramenta não realiza consultas na base de dados da Receita Federal (como status 'Regular' ou 'Cancelado'). Ela apenas executa o <strong>algoritmo de validação matemática</strong> universal de geração de dígitos verificadores para atestar que o CPF/CNPJ estruturalmente faz sentido e pode existir."
+      },
+      {
+        "q": "Por que devo validar o documento antes de emitir o recibo?",
+        "a": "Erros de digitação são comuns. Validar a máscara e o algoritmo do documento impede que você preencha e assine um contrato, nota promissória ou recibo comercial com um CPF incorreto do seu cliente."
+      }
+    ],
+    "content": "<h2>Como funciona a Validação de CPF e CNPJ?</h2>\n<p>O <strong>Validador de CPF e CNPJ</strong> verifica matematicamente a estrutura dos números inseridos. No Brasil, todo documento oficial conta com uma sequência lógica terminada com um ou dois dígitos de verificação, desenhados para mitigar erros comuns de digitação por seres humanos e identificar adulterações primárias.</p>\n\n<h3>O papel do Dígito Verificador</h3>\n<p>Os dois últimos números de um CPF ou de um CNPJ servem exclusivamente como trava de segurança. Um algoritmo padrão pega todos os números anteriores, multiplica-os por pesos diferentes e encontra o que devem ser os números finais. Se você inserir um CPF falso como <em>111.111.111-11</em>, a ferramenta logo avisará que é inválido.</p>\n\n<h3>Formatador e Removedor de Máscaras (Pontuação)</h3>\n<p>Frequentemente, plataformas de governo ou notas fiscais (NF-e, NFS-e) exigem que o cadastro da pessoa jurídica vá apenas com números limpos (sem os pontos, traços e barras). Com a funcionalidade de nosso painel de formatar ou limpar, você transita da máscara legível <em>00.000.000/0001-00</em> para a leitura estrita de máquina <em>00000000000100</em> num simples clique, otimizando o envio e integração nas ferramentas burocráticas e emissão de recibos e carnês.</p>"
+  },
+  {
+    "file": "src/pages/tools/ConsultadorIbge.tsx",
+    "seo": {
+      "title": "Consultar Código IBGE de Municípios e Estados (Tabela 2024)",
+      "description": "Encontre o código numérico oficial de 7 dígitos de municípios brasileiros no IBGE. A consulta de código IBGE é essencial para a emissão de notas fiscais (NF-e, NFS-e).",
+      "keywords": "consultar codigo ibge, codigo ibge municipio, tabela ibge cidades, codigo ibge para nf-e, cMun, ibge notas fiscais, codigo uf ibge"
+    },
+    "faqs": [
+      {
+        "q": "O que é o Código de Município IBGE?",
+        "a": "É uma sequência numérica única de 7 dígitos que identifica, sem margem a ambiguidades, cada um dos 5.570 municípios brasileiros e os 27 estados. É a chave primária geográfica do país."
+      },
+      {
+        "q": "Onde o Código IBGE de 7 dígitos é utilizado?",
+        "a": "O uso principal ocorre nas secretarias estaduais da fazenda (SEFAZ). Em toda emissão de conhecimento e documento fiscal brasileiro eletrônico (NF-e, NFS-e, NFC-e, CT-e), você não pode usar o nome da cidade no XML, sendo obrigatório preencher a tag &lt;cMun&gt; com o código de 7 dígitos."
+      },
+      {
+        "q": "O que significa cada parte do código IBGE do Município?",
+        "a": "Os dois primeiros dígitos referem-se à Unidade da Federação (UF/Estado). Os cinco dígitos seguintes determinam unicamente a cidade dentro desse estado. Por exemplo, em '3550308' (São Paulo-SP), o '35' representa o Estado de São Paulo."
+      }
+    ],
+    "content": "<h2>Por que consultar o Código IBGE de Municípios?</h2>\n<p>O <strong>Consultador de Código IBGE</strong> é uma ferramenta imprescindível para profissionais de logística, tecnologia da informação, contadores e empreendedores em fase de parametrização de seus sistemas de emissão de faturamento ERP (como NF-e e CT-e) no ambiente da SEFAZ nacional.</p>\n\n<h3>Evitando problemas com municípios homônimos</h3>\n<p>O Brasil possui uma grande complexidade e muitas cidades com o mesmo exato nome espalhadas por estados diferentes (ex: \"Bom Jesus\", \"São Domingos\"). Para o banco de dados do governo não correr riscos de taxar e atribuir ISS ou ICMS ao cofre da prefeitura/estado errado, a burocracia brasileira não usa textos abertos, e sim uma referência absoluta irrevogável: os <strong>7 dígitos da tabela IBGE</strong>.</p>\n\n<h3>Integração Tributária e Emissão de Notas Fiscais</h3>\n<p>Quando uma empresa prestadora de serviços, autônoma ou LTDA é configurada num portal da prefeitura local, tanto o local da prestação do serviço, quanto o endereço das partes envolvidas exigirão que o código numérico (a famigerada tag <em>&lt;cMun&gt;</em> do XML) represente as posições únicas geográficas sem erros ou falhas de formatação sistêmica e pontual.</p>"
+  }
+]

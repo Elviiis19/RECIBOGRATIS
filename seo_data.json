@@ -1,0 +1,48 @@
+[
+  {
+    "file": "src/pages/tools/ValorPorExtenso.tsx",
+    "seo": {
+      "title": "Escrever Valor por Extenso em Reais - Conversor Online Grátis",
+      "description": "Escreva valores numéricos por extenso em reais de forma automática. Ferramenta online grátis para preencher recibos, contratos, cheques e notas promissórias com segurança.",
+      "keywords": "valor por extenso, escrever numero extenso, conversor valor extenso reais, como escrever dinheiro, extenso recibo"
+    },
+    "faqs": [
+      {
+        "q": "Como se escreve R$ 1.050,00 por extenso?",
+        "a": "O valor R$ 1.050,00 escreve-se por extenso como: <strong>um mil e cinquenta reais</strong>. Em cheques e recibos, essa forma garante validade e evita adulterações."
+      },
+      {
+        "q": "Qual valor prevalece em caso de divergência: numérico ou por extenso?",
+        "a": "De acordo com a legislação brasileira (Lei do Cheque), em caso de divergência entre o valor numérico e o valor escrito por extenso, <strong>prevalece o valor por extenso</strong>."
+      },
+      {
+        "q": "Como colocar o valor por extenso entre parênteses?",
+        "a": "A prática recomendada em contratos e recibos é inserir o valor numérico com o símbolo R$ e logo após o valor por extenso entre parênteses. Exemplo: R$ 5.000,00 (cinco mil reais)."
+      }
+    ],
+    "content": "<h2>Como Escrever Valores por Extenso em Reais</h2>\n<p>O conversor de valor por extenso é uma ferramenta online gratuita criada para transformar instantaneamente quantias numéricas em texto escrito (reais e centavos). No Brasil, escrever o valor literal é uma obrigação formal em documentos com validade jurídica, incluindo preenchimento de recibos de pagamento, cheques, notas promissórias e contratos comerciais.</p>\n\n<h3>Por que usar um conversor de valor por extenso?</h3>\n<p>Escrever valores por extenso à mão pode gerar dúvidas gramaticais, especialmente com números longos ou quebrados. O uso da ferramenta garante a formatação correta das <strong>centenas, dezenas, milhares e centavos</strong>, evitando erros que podem anular ou gerar confusões em documentos financeiros.</p>\n\n<h3>Regras Gramaticais para Escrever Dinheiro</h3>\n<h4>Uso da Conjunção \"E\"</h4>\n<p>A conjunção aditiva \"e\" deve ser usada para separar os reais dos centavos (ex: <em>dez reais e cinquenta centavos</em>) e também entre as centenas, dezenas e unidades (ex: <em>cento e vinte e cinco reais</em>). No entanto, entre os milhares e as centenas, não é obrigatório o uso do \"e\", exceto quando a centena terminar em zeros (ex: <em>dois mil e cem reais</em>, mas <em>dois mil trezentos e quarenta reais</em>).</p>\n<h4>Cem ou Cento?</h4>\n<p>Utilize \"cem\" apenas quando for uma centena exata e redonda. Se houver dezenas ou unidades acompanhando, deve-se usar \"cento\". Por exemplo: R$ 100,00 (cem reais), mas R$ 105,00 (cento e cinco reais).</p>\n\n<h2>Importância Jurídica do Valor por Extenso em Contratos e Recibos</h2>\n<p>O preenchimento adequado do valor por extenso é o seu principal mecanismo de proteção contra fraudes, rasuras e adulterações de valores. Um número arábico num recibo impresso (R$ 1.500,00) pode ser facilmente alterado (R$ 11.500,00). Ao documentar textualmente como \"um mil e quinhentos reais\", a divergência é eliminada e a segurança legal é garantida.</p>"
+  },
+  {
+    "file": "src/pages/tools/GeradorPixCopiaECola.tsx",
+    "seo": {
+      "title": "Gerador de PIX Copia e Cola Online Grátis - Código BR Code",
+      "description": "Gere links e códigos PIX Copia e Cola instantaneamente. Facilite suas cobranças criando o código PIX para envio no WhatsApp, faturas e recibos.",
+      "keywords": "gerador pix copia e cola, codigo pix online, criar link pix, pix copia e cola, br code pix, gerar qr code pix"
+    },
+    "faqs": [
+      {
+        "q": "O que é PIX Copia e Cola?",
+        "a": "O PIX Copia e Cola é um código de texto (BR Code) que contém todas as informações de pagamento (Chave PIX, valor, nome e descrição). O pagador apenas copia esse texto, abre o aplicativo do banco e utiliza a opção 'PIX Copia e Cola' para efetuar o pagamento."
+      },
+      {
+        "q": "É seguro gerar o código PIX Copia e Cola online?",
+        "a": "Sim, é totalmente seguro. A ferramenta apenas organiza as informações públicas da sua chave PIX no formato padrão do Banco Central (BR Code) e roda diretamente no seu navegador. Nenhuma informação pessoal ou bancária sensível é armazenada."
+      },
+      {
+        "q": "Posso gerar PIX Copia e Cola com valor definido?",
+        "a": "Sim! Ao preencher o campo de valor no gerador, o código PIX Copia e Cola já incluirá a quantia exata. O pagador não precisará (nem poderá) alterar o valor na hora de transferir."
+      }
+    ],
+    "content": "<h2>Como Funciona o Gerador de PIX Copia e Cola?</h2>\n<p>O nosso gerador de <strong>PIX Copia e Cola</strong> é uma ferramenta online e gratuita que converte a sua Chave PIX e os dados de cobrança num código de texto longo padrão do Banco Central, conhecido como BR Code. Com ele, você envia cobranças exatas, evitando erros de digitação e facilitando o pagamento.</p>\n\n<h3>Vantagens de usar o PIX Copia e Cola nas suas cobranças</h3>\n<p>Diferente de enviar apenas a sua chave PIX solta para o cliente, o código Copia e Cola embute dados fundamentais para a sua gestão financeira:</p>\n<ul>\n<li><strong>Valor Fixo Embutido:</strong> Você já define o valor exato a ser pago, e o aplicativo bancário bloqueia a edição, garantindo o recebimento correto.</li>\n<li><strong>Identificador da Compra:</strong> Permite adicionar uma descrição ou número de pedido que aparecerá no seu extrato bancário, agilizando a conciliação.</li>\n<li><strong>Facilidade de Pagamento:</strong> O cliente não precisa digitar números, valores ou conferir chaves complexas; basta copiar e colar.</li>\n</ul>\n\n<h2>Como criar o link PIX para enviar pelo WhatsApp?</h2>\n<p>Para facilitar ainda mais a rotina de autônomos e empreendedores, a ferramenta permite enviar o PIX Copia e Cola diretamente via WhatsApp. Após gerar o código preenchendo sua chave e o valor, basta clicar no botão de copiar ou enviar diretamente pelo link gerado. Esse link PIX pode ser colado em mensagens, e-mails de cobrança, recibos de pagamento ou notas fiscais.</p>\n\n<h3>Onde usar o PIX Copia e Cola gerado?</h3>\n<h4>No Preenchimento de Recibos</h4>\n<p>Você pode colar o código gerado no rodapé dos recibos emitidos em nossa plataforma, incentivando o pagamento rápido e direto.</p>\n<h4>Em Faturas e Carnês</h4>\n<p>Se você gera faturas mensais (como serviços de contabilidade, aluguel, ou mensalidades escolares), o código Copia e Cola serve como um boleto moderno e sem taxas.</p>"
+  }
+]

@@ -32,9 +32,10 @@ export function MaquininhaCartao() {
   return (
     <>
       <SEO 
-        title="Calculadora de Taxa da Maquininha (Repasse para Cliente)"
-        description="Descubra quanto cobrar no cartão de crédito/débito para receber exatamente o valor que você deseja repassando a taxa da maquininha."
-        keywords="calcular taxa maquininha, repassar juros cliente, valor a cobrar cartao, maquininha stone pagseguro mercado pago"
+        title="Calculadora de Taxas de Maquininha de Cartão - Quanto Receber?"
+        description="Descubra quanto você vai receber ou quanto deve cobrar do cliente para repassar as taxas da maquininha de cartão (Stone, PagSeguro, Mercado Pago, etc)."
+        keywords="calculadora maquininha, calcular taxa cartao, repassar taxa cartao, desconto maquininha, simulador maquininha de cartao"
+        schema={`{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"É legal repassar a taxa da maquininha para o cliente?","acceptedAnswer":{"@type":"Answer","text":"Sim. A Lei 13.455/2017 autorizou a diferenciação de preços de bens e serviços oferecidos ao público em função do prazo ou do instrumento de pagamento utilizado. Ou seja, você pode cobrar um valor diferente no PIX/dinheiro e no Cartão de Crédito."}},{"@type":"Question","name":"O que significa 'Descontar da Venda'?","acceptedAnswer":{"@type":"Answer","text":"Significa que o lojista vai absorver o custo da tarifa. Se a venda for R$ 100,00 com taxa de 5%, você recebe R$ 95,00 e a operadora do cartão fica com R$ 5,00. O cliente paga apenas R$ 100,00."}},{"@type":"Question","name":"Como repassar a taxa da maquininha garantindo que receberei o valor cheio?","acceptedAnswer":{"@type":"Answer","text":"Para você receber exatos R$ 100,00 com uma tarifa de 5%, você não pode simplesmente cobrar R$ 105,00, pois 5% de R$ 105,00 é R$ 5,25. Nossa calculadora faz a conta reversa (Valor / (1 - Taxa%)), resultando no preço de cobrança de R$ 105,26. Assim, ao deduzir 5%, sobram exatamente os R$ 100,00 para você."}}]}`}
       />
       <div className="bg-emerald-700 text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
@@ -97,46 +98,49 @@ export function MaquininhaCartao() {
         <AdSense />
         
         <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
-          <h2>Como usar a Calculadora da Taxa da Maquininha para Repasse?</h2>
-          <p>Se você precisa garantir um valor líquido na sua conta após a venda e quer repassar os custos da maquininha para o cliente final, nossa <strong>calculadora de repasse de taxas online</strong> realiza a engenharia reversa instantaneamente. Insira primeiramente o <strong>Valor Líquido Desejado (R$)</strong> (ou seja, quanto você quer que efetivamente caia no seu extrato). Logo abaixo, insira a <strong>Taxa da Maquininha (%)</strong> aplicável àquela transação (débito, crédito à vista ou a soma do parcelamento embutido do seu equipamento Mercado Pago, PagSeguro, Stone, Ton, etc).</p>
+          <h2>Como Calcular as Taxas da Maquininha de Cartão</h2>
+<p>A <strong>Calculadora de Maquininha de Cartão</strong> é a ferramenta ideal para autônomos, MEIs e empreendedores simularem o impacto das tarifas cobradas por operadoras de cartão de crédito e débito (como PagSeguro, Stone, Mercado Pago, Cielo, SumUp, Ton) no seu fluxo de caixa.</p>
 
-          <h2>Como calcular corretamente o repasse da taxa da maquininha?</h2>
-          <p>Saber calcular as taxas de juros de pagamento não é uma mera questão de somar o percentual. Comerciantes que utilizam maquininhas de cartão de crédito e débito (Cielo, InfinityPay, SumUp, Rede, SafraPay, etc.) para vender perdem uma pequena parcela por cada transação, conhecida no jargão técnico como MDR (Merchant Discount Rate) ou simplesmente a <strong>taxa fixa do cartão</strong>. Para pequenos autônomos, prestadores de serviços, pintores e oficinas que trabalham cravados com apertadas margens de lucro restritas, repassar pontualmente esse custo invisível de comodidade do dinheiro de plástico diretamente embutido para o cliente final se tornou uma saída vitalícia de sobrevivência.</p>
+<h3>Descontar da Venda vs Repassar a Taxa</h3>
+<ul>
+<li><strong>Descontar (Assumir a Taxa):</strong> O cliente vê apenas o valor de etiqueta. Essa estratégia atrai o consumidor e evita atritos na hora da cobrança, mas reduz sua margem de lucro final. O empreendedor inteligente já inclui a taxa da maquininha no preço base (precificação embutida).</li>
+<li><strong>Repassar (Cobrar do Cliente):</strong> Você garante que receberá a quantia exata que orçou, enquanto o cliente paga a tarifa financeira. É muito comum no comércio de veículos, materiais de construção e atacadistas, onde a margem é estreita.</li>
+</ul>
 
-          <h3>Qual a fórmula correta do repasse de taxas na matemática financeira pura?</h3>
-          <p>Muitos empreendedores quebram quando erram a lógica aqui e acham que um erro é simples adição básica. Exemplo errado cruelmente comum: se a taxa acordada do seu POS é 5% e seu serviço vale na tabela exatos 100 reais, muitos vendedores decidem somar diretamente os 5% que vira R$ 105,00 que são cobrados visualmente na tela da maquineta. No entanto, o sistema opera retirando a taxa por dentro: quando você passar R$ 105 ali, ela tirará 5% sobre 105 (e não sobre 100), o que desconta na tela dela R$ 5,25. Desse modo enviesado, você acaba recebendo R$ 99,75 (você teve um prejuízo residual oculto de R$ 0,25 e não recebeu o valor cheio).</p>
+<h3>Como a matemática de repasse funciona?</h3>
+<p>Muitos empreendedores cometem o erro de apenas somar a taxa da operadora ao preço do produto. Exemplo errado: Produto de R$ 1.000 + 10% da maquininha = Cobrar R$ 1.100. Contudo, a operadora vai cobrar 10% sobre os R$ 1.100 (ou seja, R$ 110). Você acabará recebendo R$ 990 (prejuízo de R$ 10,00). O correto é usar o <strong>cálculo de markup (preço reverso)</strong> que nossa ferramenta faz automaticamente, informando que você precisa cobrar R$ 1.111,11.</p>
           
-          <p><strong>A fórmula exata e indestrutível de Markup Financeiro Inverso (Markup-Divisor):</strong><br/>
-          <code>Valor Idealizado a ser Cobrado no Visor = Valor Líquido / ((100 - Taxa%) / 100)</code><br/>
-          Nossa calculadora utiliza silenciosamente nos bastidores esse divisor matemático inverso para descobrir com extrema precisão cibernética de quantos centavos extras o alvo deve subir o preço exposto na máquina para que, quando a credenciadora deduzir, arrancar e abocanhar a margem percentual comissionada por ela mesma, o restolho que respingue glorioso no seu extrato seja absoluto do zero: apenas o seu lucro íntegro combinado de balcão.</p>
-
           <hr className="my-8" />
           
           <h2>Perguntas Frequentes (FAQ)</h2>
-          
           <div className="space-y-4 not-prose mt-6">
+
             <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                É estritamente legal (permitido por lei) repassar escancaradamente a taxa da maquininha para o cliente final pagador?
+                É legal repassar a taxa da maquininha para o cliente?
                 <span className="transition group-open:rotate-180">
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                <strong>Sim, é perfeitamente lícito e ancorado em robusta regulamentação federal.</strong> Desde que a polêmica Lei Federal nº 13.455 entrou definitivamente em pleno vigor no Brasil no longínquo 2017, comerciantes gigantes ou nano prestadores de serviços de rua estão expressamente autorizados a cobrar deliberadamente e livremente preços diferenciados flutuando a precificação baseada dependendo do meio ou da roupagem do trâmite de pagamento exigido e amparado do eventual prazo ou alongamento de parcelamento (como crédito crivado, débito líquido, boleto rotineiro, vale-alimentação subsidiado ou Pix/Dinheiro vivo). O lojista contudo, por respeito basilar ao Código de Defesa das massas do Consumidor, deve apenas garantir informar e pregar essa alteração flutuante de forma didática e transparente prévia (nunca de emboscada), divulgando geralmente via placa, adesivo ou cartaz vistoso pendurado sobreposto a estrutura frontal do balcão de negociação do caixa.
-              </p>
+              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `Sim. A Lei 13.455/2017 autorizou a diferenciação de preços de bens e serviços oferecidos ao público em função do prazo ou do instrumento de pagamento utilizado. Ou seja, você pode cobrar um valor diferente no PIX/dinheiro e no Cartão de Crédito.` }} />
             </details>
-            
             <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                Essa calculadora aqui funciona ou serve para as robustas vendas faturadas que são muito parceladas em carnê pelo cartão de crédito (Ex: de 10x ou 12x)?
+                O que significa 'Descontar da Venda'?
                 <span className="transition group-open:rotate-180">
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                A matemática dela aceita rigorosamente qualquer teto fracionado, logo essa suíte atua na resolução em bloco sim! No entanto preste uma máxima e dupla atenção em um enorme detalhe prático: você tem que procurar ou entrar antecipadamente no seu portal painel virtual dentro da sua adquirente/processadora e enxergar cirurgicamente com lupa "Qual a tabela de taxa cumulativa percentual cheia, absoluta total deduzida no apanhado dos doze meses" (essa seria a mescla agressiva combinando o MDR tradicional flat da simples modalidade do cartão crédito daquele banco emissor somada aos corrosivos juros da linha de crédito para antecipar a rodagem diária via D+1 e receber amanhã à vista o valor daquelas 12 esticadas parcelas que vão pingar distantes). Ao encontrar que esse pacotão maciço lhe corrói por exemplo 19,5% engloabado de tudo, basta cravar de primeira esse duro numeral aglutinado 19,5 cru no campo neutro '%' solitário da nossa calculadora para arrancar com maestria o seu veredito isolado.
-              </p>
+              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `Significa que o lojista vai absorver o custo da tarifa. Se a venda for R$ 100,00 com taxa de 5%, você recebe R$ 95,00 e a operadora do cartão fica com R$ 5,00. O cliente paga apenas R$ 100,00.` }} />
+            </details>
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                Como repassar a taxa da maquininha garantindo que receberei o valor cheio?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `Para você receber exatos R$ 100,00 com uma tarifa de 5%, você não pode simplesmente cobrar R$ 105,00, pois 5% de R$ 105,00 é R$ 5,25. Nossa calculadora faz a conta reversa (Valor / (1 - Taxa%)), resultando no preço de cobrança de R$ 105,26. Assim, ao deduzir 5%, sobram exatamente os R$ 100,00 para você.` }} />
             </details>
           </div>
         </div>

@@ -44,9 +44,10 @@ export function ValorPorExtenso() {
   return (
     <>
       <SEO 
-        title="Escrever Valor por Extenso em Reais - Conversor Online"
-        description="Converta valores numéricos para texto escrito por extenso em reais (R$) automaticamente. Ideal para preencher cheques, recibos e contratos."
-        keywords="valor por extenso, escrever numero extenso, conversor valor extenso reais, preencher cheque, extenso recibo"
+        title="Escrever Valor por Extenso em Reais - Conversor Online Grátis"
+        description="Escreva valores numéricos por extenso em reais de forma automática. Ferramenta online grátis para preencher recibos, contratos, cheques e notas promissórias com segurança."
+        keywords="valor por extenso, escrever numero extenso, conversor valor extenso reais, como escrever dinheiro, extenso recibo"
+        schema={`{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Como se escreve R$ 1.050,00 por extenso?","acceptedAnswer":{"@type":"Answer","text":"O valor R$ 1.050,00 escreve-se por extenso como: <strong>um mil e cinquenta reais</strong>. Em cheques e recibos, essa forma garante validade e evita adulterações."}},{"@type":"Question","name":"Qual valor prevalece em caso de divergência: numérico ou por extenso?","acceptedAnswer":{"@type":"Answer","text":"De acordo com a legislação brasileira (Lei do Cheque), em caso de divergência entre o valor numérico e o valor escrito por extenso, <strong>prevalece o valor por extenso</strong>."}},{"@type":"Question","name":"Como colocar o valor por extenso entre parênteses?","acceptedAnswer":{"@type":"Answer","text":"A prática recomendada em contratos e recibos é inserir o valor numérico com o símbolo R$ e logo após o valor por extenso entre parênteses. Exemplo: R$ 5.000,00 (cinco mil reais)."}}]}`}
       />
       <div className="bg-emerald-700 text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
@@ -100,82 +101,52 @@ export function ValorPorExtenso() {
         <AdSense />
         
         <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
-          <h2>O que é escrever um valor por extenso?</h2>
-          <p>O conversor de valor por extenso é uma ferramenta online e gratuita desenvolvida para transformar automaticamente quantias numéricas (em Reais) na sua forma escrita literal. No Brasil, redigir o valor por extenso é uma exigência formal na emissão de documentos com valor legal, como preencher cheques, recibos de pagamento, contratos de compra e venda, procurações e notas promissórias.</p>
+          <h2>Como Escrever Valores por Extenso em Reais</h2>
+<p>O conversor de valor por extenso é uma ferramenta online gratuita criada para transformar instantaneamente quantias numéricas em texto escrito (reais e centavos). No Brasil, escrever o valor literal é uma obrigação formal em documentos com validade jurídica, incluindo preenchimento de recibos de pagamento, cheques, notas promissórias e contratos comerciais.</p>
 
-          <h3>Por que escrever o valor por completo em documentos?</h3>
-          <p>O preenchimento do valor por extenso é a principal garantia contra rasuras, fraudes e adulterações. Num cheque ou recibo simples, um valor numérico (ex: R$ 1.050,00) pode ser facilmente adulterado com a adição de um número extra a caneta (ex: R$ 11.050,00). Ao descrever o corpo do valor detalhadamente como "<strong>um mil e cinquenta reais</strong>", elimina-se absolutamente a ambiguidade. A legislação brasileira prevê que, em caso de divergência entre o valor em números e o valor em palavras, <strong>o valor por extenso é aquele que tem validade jurídica</strong>.</p>
+<h3>Por que usar um conversor de valor por extenso?</h3>
+<p>Escrever valores por extenso à mão pode gerar dúvidas gramaticais, especialmente com números longos ou quebrados. O uso da ferramenta garante a formatação correta das <strong>centenas, dezenas, milhares e centavos</strong>, evitando erros que podem anular ou gerar confusões em documentos financeiros.</p>
 
-          <h3>Como se escreve valores por extenso: Regras Gramaticais e Boas Práticas do Real e Centavos</h3>
-          <ul>
-            <li><strong>Reais e Centavos:</strong> Sempre una os valores nominais de moeda e os centavos fracionados com a conjunção "e". Exemplo prático: <em>cento e vinte reais e cinquenta centavos</em>.</li>
-            <li><strong>Milhares e Centenas:</strong> Não é obrigatório utilizar "e" entre as casas de milhares e centenas, mas a conjunção aditiva entra obrigatoriamente entre centenas, dezenas e unidades. Exemplo: <em>dois mil, trezentos e quarenta reais</em>.</li>
-            <li><strong>Cem ou Cento?</strong> Usa-se "cem" estritamente quando a centena for redonda e exata (ex: cem reais). Para outras composições quebradas na centena acompanhada de dezenas ou de unidades, deve fluir como "cento" (ex: cento e dez reais, cento e um reais).</li>
-          </ul>
+<h3>Regras Gramaticais para Escrever Dinheiro</h3>
+<h4>Uso da Conjunção "E"</h4>
+<p>A conjunção aditiva "e" deve ser usada para separar os reais dos centavos (ex: <em>dez reais e cinquenta centavos</em>) e também entre as centenas, dezenas e unidades (ex: <em>cento e vinte e cinco reais</em>). No entanto, entre os milhares e as centenas, não é obrigatório o uso do "e", exceto quando a centena terminar em zeros (ex: <em>dois mil e cem reais</em>, mas <em>dois mil trezentos e quarenta reais</em>).</p>
+<h4>Cem ou Cento?</h4>
+<p>Utilize "cem" apenas quando for uma centena exata e redonda. Se houver dezenas ou unidades acompanhando, deve-se usar "cento". Por exemplo: R$ 100,00 (cem reais), mas R$ 105,00 (cento e cinco reais).</p>
 
+<h2>Importância Jurídica do Valor por Extenso em Contratos e Recibos</h2>
+<p>O preenchimento adequado do valor por extenso é o seu principal mecanismo de proteção contra fraudes, rasuras e adulterações de valores. Um número arábico num recibo impresso (R$ 1.500,00) pode ser facilmente alterado (R$ 11.500,00). Ao documentar textualmente como "um mil e quinhentos reais", a divergência é eliminada e a segurança legal é garantida.</p>
+          
           <hr className="my-8" />
           
           <h2>Perguntas Frequentes (FAQ)</h2>
-          
           <div className="space-y-4 not-prose mt-6">
-            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                Como se escreve por extenso R$ 1050?
-                <span className="transition group-open:rotate-180">
-                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                </span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                O valor R$ 1.050,00 deve ser escrito por extenso como: <strong>um mil e cinquenta reais</strong> (uso formal em documentos e cheques) ou simplesmente <strong>mil e cinquenta reais</strong>.
-              </p>
-            </details>
 
             <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                Como digitar R$ 20 por extenso?
+                Como se escreve R$ 1.050,00 por extenso?
                 <span className="transition group-open:rotate-180">
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                A quantia R$ 20,00 escreve-se formalmente como <strong>vinte reais</strong>. Para adicionar segurança na escrita de promissórias e não propiciar que a palavra "vinte" vire outra montagem, muitos fecham em parênteses ou traços.
-              </p>
+              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `O valor R$ 1.050,00 escreve-se por extenso como: <strong>um mil e cinquenta reais</strong>. Em cheques e recibos, essa forma garante validade e evita adulterações.` }} />
             </details>
-
             <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                O que é valor escrito por extenso no cheque ou contrato?
+                Qual valor prevalece em caso de divergência: numérico ou por extenso?
                 <span className="transition group-open:rotate-180">
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Trata-se do desdobramento textual, da vocalização e grafia literal de um número arábico financeiro para as palavras da Língua Portuguesa que o denominam. Transcrever o fator número num documento assinado evita enganos literais no momento de cobrança extrajudicial.
-              </p>
+              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `De acordo com a legislação brasileira (Lei do Cheque), em caso de divergência entre o valor numérico e o valor escrito por extenso, <strong>prevalece o valor por extenso</strong>.` }} />
             </details>
-
             <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                Qual valor prevalece no cheque do banco: o em números ou o em extenso?
+                Como colocar o valor por extenso entre parênteses?
                 <span className="transition group-open:rotate-180">
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                De acordo com a Lei do Cheque brasileira (Lei nº 7.357/1985), sempre que houver dissonância e divergência entre a quantia grafada matemática com algarismos numéricos e a manuscrita/impressa por extenso, <strong>prevalecerá pelo banco a quantia literária por extenso</strong>. Essa regra bloqueia fraudes na pontuação ou acréscimo de zeros.
-              </p>
-            </details>
-            
-            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                Posso e como colocar parênteses no valor por extenso?
-                <span className="transition group-open:rotate-180">
-                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                </span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Sim. Em contratos empresariais e recibos de pagamento de aluguel e veículos, é praxe da rotina contábil e jurídica atrelar primeiro o número arábico precedido de R$ e ladeado pelo valor escrito minuciosamente entre colchetes/parênteses. Exemplo formal de preenchimento comercial: <em>A quantia fechada no acordo é de R$ 5.000,00 (cinco mil reais)</em>.
-              </p>
+              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `A prática recomendada em contratos e recibos é inserir o valor numérico com o símbolo R$ e logo após o valor por extenso entre parênteses. Exemplo: R$ 5.000,00 (cinco mil reais).` }} />
             </details>
           </div>
         </div>

@@ -46,9 +46,10 @@ export function DiasUteis() {
   return (
     <>
       <SEO 
-        title="Calculadora de Dias Úteis e Correntes Online"
-        description="Contagem precisa de dias úteis e correntes entre duas datas para cálculos de multas, juros de boletos e prazos de entrega ou licitações."
-        keywords="calcular dias uteis, diferenca entre datas, dias correntes, prazo boleto"
+        title="Calculadora de Dias Úteis, Feriados e Prazos de Entrega"
+        description="Calcule a diferença de dias úteis entre datas ou some prazos a uma data inicial. Ferramenta online grátis que considera finais de semana (sábados e domingos)."
+        keywords="calculadora de dias uteis, somar dias uteis, prazo de entrega, calcular diferenca em dias uteis, calendario dias uteis, dias corridos"
+        schema={`{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Sábado conta como dia útil?","acceptedAnswer":{"@type":"Answer","text":"Depende. Para questões bancárias e prazos processuais e de entrega da maioria das transportadoras, sábado <strong>não</strong> é considerado dia útil. Contudo, para fins trabalhistas e pagamento de salário de algumas categorias, o sábado pode ser considerado dia útil."}},{"@type":"Question","name":"O que acontece quando o prazo de pagamento cai no final de semana?","acceptedAnswer":{"@type":"Answer","text":"Geralmente, quando o vencimento de um boleto ou fatura cai num sábado, domingo ou feriado bancário, o pagamento pode ser efetuado no <strong>primeiro dia útil subsequente</strong>, sem acréscimo de juros ou multas (Lei 7.089/1983)."}},{"@type":"Question","name":"Como funciona o cálculo de adição de prazos?","acceptedAnswer":{"@type":"Answer","text":"Se um contrato prevê entrega em '15 dias úteis', a calculadora começa na data inicial e avança 15 dias, pulando automaticamente todos os sábados e domingos para encontrar a data exata da entrega ou vencimento final."}}]}`}
       />
       <div className="bg-emerald-700 text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
@@ -108,23 +109,20 @@ export function DiasUteis() {
         <AdSense />
         
         <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
-          <h2>Como usar a Calculadora de Dias Corridos e Úteis online?</h2>
-          <p>Se você precisa de contagem precisa da distância temporal matemática que separa dois eventos passados ou vindouros de forma rápida, a nossa <strong>calculadora de dias úteis</strong> agiliza seu dia a dia e impede erros de contagem no bico de caneta. Para utilizá-la, utilize o campo nativo do calendário no navegador selecionando corretamente sua <strong>Data Inicial</strong> cravando no espaço esquerdo e, sequencialmente assinalando a <strong>Data Final</strong> (dia de vencimento e encerramento da contagem). Em tempo real, a nossa ferramenta emitirá no visor esmeralda inferior os resultados pareados de dias correntes acumulativos totais do período confrontados simultaneamente aos descontos e expurgos dos dias úteis (varrendo o miolo e extraindo apenas os dias de semana comercial: apenas segunda, terça, quarta, quinta e sexta).</p>
+          <h2>Por que Calcular Diferenças de Dias Úteis?</h2>
+<p>A <strong>Calculadora de Dias Úteis</strong> é muito utilizada nas operações corporativas, logística, contabilidade e rotinas bancárias para definir prazos exatos que desconsideram sábados e domingos. Com ela, você não perderá a contagem ao prometer uma entrega de serviço para "dez dias úteis" ou programar vencimentos nos recibos e promissórias.</p>
 
-          <h2>Como funciona a contagem oficial das planilhas de Prazos, Dias Úteis e Correntes no Brasil?</h2>
-          <p>Uma imensa gama rotineira de contratos, de negócios virtuais imobiliários e serviços judiciais costumam atuar ostentando "Acordos de Nível de Serviço" (os enrijecidos SLAs de atendimento de centrais telefônicas), apertados prazos formais sistêmicos de postagem, manuseio e devolução e envio nas transportadoras do veloz mercado de Ecommerce Nacional, bem como cravadíssimas marcações temporais de aberturas contábeis, vencimentos mensais e contagens agressivas processuais diurnas. Portanto se faz mandatoriamente e crucial e estritamente inerente essencial dominar profundamente e compreender de vez a exata diferença e bifurcação de sentido legal e comercial vivo que se impõe formalmente entre a conceituação de um <strong>dia bruto corrido (ou corrente calendário)</strong> se esticando linearmente lado a lado contra a filtrada contagem fracionada de apenas um <strong>dia útil</strong> laborativo isolado na matemática diária operante que tenta apurar a diferença crua final de duas datas pre-lançadas num formulário de base gregoriana moderna.</p>
+<h3>Contagem de Prazos Bancários e Comerciais</h3>
+<p>Nas negociações em que se usa recibos (como na emissão de um <a href="/nota-promissoria">Recibo de Sinal e Arras</a>), o prazo para integralização muitas vezes é atrelado a <strong>dias úteis</strong>. Quando boletos caem em finais de semana, a legislação brasileira garante a postergação para o primeiro dia de expediente bancário seguinte.</p>
 
-          <h3>Contagem ininterrupta em Dias Correntes</h3>
-          <p>Os <strong>dias corridos</strong> significam simplesmente a somatória absoluta em lapso temporal, o número contínuo de dias completos de calendário. A contagem de dias correntes não para para fins de semana. Ela corre direto. Essa métrica é amplamente utilizada em aluguéis estipulados via diárias, assinaturas de telefonia e apps.</p>
+<h3>Prazos Corridos x Prazos Úteis</h3>
+<p>Seja transparente com seus clientes: diferencie o termo "dias corridos" (onde a contagem não para no final de semana) e "dias úteis". Contratos longos (30, 60, 90 dias) costumam usar dias corridos. Já entregas de e-commerce e processamentos de transferência financeira (TED/DOC, liquidação de boletos) operam restritamente sobre os dias úteis.</p>
           
-          <h3>Contagem Sistêmica em Dias Úteis Purificados</h3>
-          <p>O conceito oficial de dia útil civil engloba exclusivamente os dias laborativos da grade diária, compreendendo da <strong>Segunda-Feira avançando em contagem até a Sexta-Feira comercial plena</strong>. O Sábado e o Domingo são geralmente excluídos das contagens de pagamentos de boletos, operações bancárias de transferência financeira (TED) e contagens de prazos processuais estritos, blindados de eventuais juros se a data-fim cair em feriado ou repouso.</p>
-
           <hr className="my-8" />
           
           <h2>Perguntas Frequentes (FAQ)</h2>
-          
           <div className="space-y-4 not-prose mt-6">
+
             <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
                 Sábado conta como dia útil?
@@ -132,21 +130,25 @@ export function DiasUteis() {
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                <strong>Para pagamentos bancários: NÃO.</strong> Operações de bolsa, encerramento de transferências tipo TED, pagamentos de fatura de boleto comercial com vencimento previso na referida data transferem automaticamente para segunda-feira e não acarretam juros. <strong>Para operações CLT (Consolidação das Leis do Trabalho): SIM.</strong> O Sábado é considerado dia útil pelo artigo 64 da mesma para a contagem de férias de um funcionário por exemplo, bem como prazo para entrega e confecção do pagamento do seu salário (quinto dia útil).
-              </p>
+              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `Depende. Para questões bancárias e prazos processuais e de entrega da maioria das transportadoras, sábado <strong>não</strong> é considerado dia útil. Contudo, para fins trabalhistas e pagamento de salário de algumas categorias, o sábado pode ser considerado dia útil.` }} />
             </details>
-            
             <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                A calculadora considera Feriados Nacionais e locais?
+                O que acontece quando o prazo de pagamento cai no final de semana?
                 <span className="transition group-open:rotate-180">
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Neste momento o nosso algoritmo apenas desconsidera e fatora de fora os <strong>Sábados</strong> e <strong>Domingos</strong> absolutos num intervalo matemático. O Brasil conta com feriados estaduais, pontes e municipais altamente dinâmicos (Feriado da Consciência Negra, Aniversários de Cidades no ES, BA e MG). Se ocorrer de possuir 2 feriados durante a semana estipulada, favor subtrair mentalmente 2 da casa total exibida pela nossa tela de Úteis.
-              </p>
+              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `Geralmente, quando o vencimento de um boleto ou fatura cai num sábado, domingo ou feriado bancário, o pagamento pode ser efetuado no <strong>primeiro dia útil subsequente</strong>, sem acréscimo de juros ou multas (Lei 7.089/1983).` }} />
+            </details>
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                Como funciona o cálculo de adição de prazos?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `Se um contrato prevê entrega em '15 dias úteis', a calculadora começa na data inicial e avança 15 dias, pulando automaticamente todos os sábados e domingos para encontrar a data exata da entrega ou vencimento final.` }} />
             </details>
           </div>
         </div>

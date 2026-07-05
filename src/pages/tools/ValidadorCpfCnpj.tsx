@@ -96,9 +96,10 @@ export function ValidadorCpfCnpj() {
   return (
     <>
       <SEO 
-        title="Validador e Formatador de CPF e CNPJ Online"
-        description="Cheque se um número de CPF ou CNPJ é válido de acordo com o algoritmo da Receita Federal. Ferramenta grátis de pontuação e formatação."
-        keywords="validar cpf, checar cnpj, formatador cnpj, validar cnpj algoritmo, verificar validade rf"
+        title="Validador e Formatador de CPF e CNPJ Online - Grátis"
+        description="Teste se um CPF ou CNPJ é válido utilizando a checagem dos Dígitos Verificadores. Formate, coloque máscara ou limpe a pontuação de documentos numéricos."
+        keywords="validador de cpf, validar cnpj, formatar cpf cnpj, tirar pontuacao cnpj, algoritmo cpf, checar cpf falso, mascara cpf cnpj"
+        schema={`{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"O que é um CPF ou CNPJ inválido?","acceptedAnswer":{"@type":"Answer","text":"Um documento é considerado matematicamente inválido quando seus dois últimos dígitos (Dígitos Verificadores) não correspondem à conta matemática atrelada aos primeiros números. Ele é pego em formulários e no site da Receita."}},{"@type":"Question","name":"Esse validador consulta o nome e situação na Receita Federal?","acceptedAnswer":{"@type":"Answer","text":"Não. Esta ferramenta não realiza consultas na base de dados da Receita Federal (como status 'Regular' ou 'Cancelado'). Ela apenas executa o <strong>algoritmo de validação matemática</strong> universal de geração de dígitos verificadores para atestar que o CPF/CNPJ estruturalmente faz sentido e pode existir."}},{"@type":"Question","name":"Por que devo validar o documento antes de emitir o recibo?","acceptedAnswer":{"@type":"Answer","text":"Erros de digitação são comuns. Validar a máscara e o algoritmo do documento impede que você preencha e assine um contrato, nota promissória ou recibo comercial com um CPF incorreto do seu cliente."}}]}`}
       />
       <div className="bg-emerald-700 text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
@@ -146,47 +147,46 @@ export function ValidadorCpfCnpj() {
         <AdSense />
         
         <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
-          <h2>Como Validar e Formatar CPFs e CNPJs grátis online?</h2>
-          <p>O <strong>Validador Inverso de Documentos Brasileiros</strong> é essencial para processos financeiros, auditorias de frete ou cadastros sensíveis de sistema. Basta inserir no campo principal os dados soltos e contíguos de um <strong>Cadastro de Pessoas Físicas (CPF de 11 números)</strong> ou de um <strong>Cadastro Nacional da Pessoa Jurídica (CNPJ de 14 números)</strong> — com ou sem acentos e pontos. Em frações de segundo, nosso motor não só aplica inteligentemente a pontuação padrão legível ("000.000.000-00", ou "00.000.000/0000-00"), como audita a combinação sob a severa régua do algoritmo do governo apontando "Válido" ou "Inválido".</p>
+          <h2>Como funciona a Validação de CPF e CNPJ?</h2>
+<p>O <strong>Validador de CPF e CNPJ</strong> verifica matematicamente a estrutura dos números inseridos. No Brasil, todo documento oficial conta com uma sequência lógica terminada com um ou dois dígitos de verificação, desenhados para mitigar erros comuns de digitação por seres humanos e identificar adulterações primárias.</p>
 
-          <h2>Como funciona a conferência e formatação do Dígito Verificador da Receita?</h2>
-          <p>Tanto o CPF quanto o CNPJ atuam nos dias modernos como peças e chaves-mestras identificadoras de trâmites vitais administradas severamente de ponte a ponta pelas amarras da <strong>Receita Federal do Brasil</strong>. Essa nossa base algorítmica aberta gratuita trabalha destrinchando se o input e formato digitados deságua nos critérios fixos e inquebráveis matemáticos declarados na derradeira e famosa última placa posicional, indicando se os resíduos numéricos condizem ou rebatem e refutam com rigor analítico absoluto para travar checagens e aprovações sensíveis operantes nos nós e nas veias vitais das engrenagens do SERPRO, das barreiras de emissão bancária, e do crivos e barreiras analíticas unificadas do eSocial.</p>
+<h3>O papel do Dígito Verificador</h3>
+<p>Os dois últimos números de um CPF ou de um CNPJ servem exclusivamente como trava de segurança. Um algoritmo padrão pega todos os números anteriores, multiplica-os por pesos diferentes e encontra o que devem ser os números finais. Se você inserir um CPF falso como <em>111.111.111-11</em>, a ferramenta logo avisará que é inválido.</p>
 
-          <h3>A lógica hermética e algorítmica do cálculo do Módulo 11</h3>
-          <p>
-             Um número contínuo regular de <strong>CPF possui 11 algarismos</strong> atrelados, espremidos corriqueiramente na máscara padrão amigável "000.000.000-00", enquanto que o braço corporativo do <strong>CNPJ dispõe de uma grade estendida de 14 casas maciças</strong> travadas operando na máscara exposta diária "00.000.000/0000-00" (onde o bloco das 4 cravadas contra-barras 0001 identifica tipicamente aberturas de filiais matrizes originárias). Os últimos dois blocos terminais nessas strings são o <strong>Dígito Verificador Oficial restrito de chancelamento (conhecidos pela famosa sigla DV)</strong>. 
-          </p>
-          <p>
-             Esses dois algarismos jamais são criados de maneira aleatória: eles são resultantes da equação matemática de <em>Módulo 11</em>. Este cálculo engarrafa todos os numerais de base fixada em multiplicações encadeadas. Quando o nosso validador ou o nosso emissor de recibos e notas no site aponta "Válido", é a garantia de que o documento não contém falsificações matemáticas de digitação ou erros de batida, escapando limpo e válido para faturamentos ou validações bancárias estritas.
-          </p>
-
+<h3>Formatador e Removedor de Máscaras (Pontuação)</h3>
+<p>Frequentemente, plataformas de governo ou notas fiscais (NF-e, NFS-e) exigem que o cadastro da pessoa jurídica vá apenas com números limpos (sem os pontos, traços e barras). Com a funcionalidade de nosso painel de formatar ou limpar, você transita da máscara legível <em>00.000.000/0001-00</em> para a leitura estrita de máquina <em>00000000000100</em> num simples clique, otimizando o envio e integração nas ferramentas burocráticas e emissão de recibos e carnês.</p>
+          
           <hr className="my-8" />
           
           <h2>Perguntas Frequentes (FAQ)</h2>
-          
           <div className="space-y-4 not-prose mt-6">
+
             <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                Se o validador indicar CPF Válido garante que a pessoa não possui nome sujo?
+                O que é um CPF ou CNPJ inválido?
                 <span className="transition group-open:rotate-180">
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                <strong>Não.</strong> O status numérico validado positivo de algarismo <strong>sertifica restrito puramente ao fato de que o bloco preenchido faz sentido prático para os critérios de matemática na engenharia de TI criados pelo SERPRO do governo</strong>. Validar ele aqui no site do Brasil atesta portanto com garantias apenas de que alguém não bateu o dedo errado num botão numérico na hora de você salvar uma venda e do Pix travar — não serve ao propósito ou utilidade para analisar SPC, SEPRASA, situação do SERASA Score ou dívida da União ou Estadual da Receita associado aquela persona real.
-              </p>
+              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `Um documento é considerado matematicamente inválido quando seus dois últimos dígitos (Dígitos Verificadores) não correspondem à conta matemática atrelada aos primeiros números. Ele é pego em formulários e no site da Receita.` }} />
             </details>
-            
             <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                Vocês armazenam meu documento no servidor quando eu valído?
+                Esse validador consulta o nome e situação na Receita Federal?
                 <span className="transition group-open:rotate-180">
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                <strong>Não. Garantido por nós integralmente.</strong> Os nossos blocos em React convertem e reúnem as engrenagens de verificação (o cálculo Módulo 11) de todo modelo client-side rodando as verificações 100% locadas de volta dentro apenas do JavaScript do seu terminal ou do browser nativo de um navegador celular (Chrome). Seu banco de dados privado não aciona requests aos nossos web servers da nuvem para preenchimento.
-              </p>
+              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `Não. Esta ferramenta não realiza consultas na base de dados da Receita Federal (como status 'Regular' ou 'Cancelado'). Ela apenas executa o <strong>algoritmo de validação matemática</strong> universal de geração de dígitos verificadores para atestar que o CPF/CNPJ estruturalmente faz sentido e pode existir.` }} />
+            </details>
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                Por que devo validar o documento antes de emitir o recibo?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `Erros de digitação são comuns. Validar a máscara e o algoritmo do documento impede que você preencha e assine um contrato, nota promissória ou recibo comercial com um CPF incorreto do seu cliente.` }} />
             </details>
           </div>
         </div>

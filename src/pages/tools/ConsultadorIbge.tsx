@@ -51,9 +51,10 @@ export function ConsultadorIbge() {
   return (
     <>
       <SEO 
-        title="Consultar Código IBGE de Município Online"
-        description="Consulte o código IBGE oficial atualizado da sua cidade ou município, exigido na emissão de Notas Fiscais Eletrônicas (NF-e, NFS-e)."
-        keywords="codigo ibge, consultar ibge nfe, codigo municipio nota fiscal, lista ibge ceps"
+        title="Consultar Código IBGE de Municípios e Estados (Tabela 2024)"
+        description="Encontre o código numérico oficial de 7 dígitos de municípios brasileiros no IBGE. A consulta de código IBGE é essencial para a emissão de notas fiscais (NF-e, NFS-e)."
+        keywords="consultar codigo ibge, codigo ibge municipio, tabela ibge cidades, codigo ibge para nf-e, cMun, ibge notas fiscais, codigo uf ibge"
+        schema={`{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"O que é o Código de Município IBGE?","acceptedAnswer":{"@type":"Answer","text":"É uma sequência numérica única de 7 dígitos que identifica, sem margem a ambiguidades, cada um dos 5.570 municípios brasileiros e os 27 estados. É a chave primária geográfica do país."}},{"@type":"Question","name":"Onde o Código IBGE de 7 dígitos é utilizado?","acceptedAnswer":{"@type":"Answer","text":"O uso principal ocorre nas secretarias estaduais da fazenda (SEFAZ). Em toda emissão de conhecimento e documento fiscal brasileiro eletrônico (NF-e, NFS-e, NFC-e, CT-e), você não pode usar o nome da cidade no XML, sendo obrigatório preencher a tag &lt;cMun&gt; com o código de 7 dígitos."}},{"@type":"Question","name":"O que significa cada parte do código IBGE do Município?","acceptedAnswer":{"@type":"Answer","text":"Os dois primeiros dígitos referem-se à Unidade da Federação (UF/Estado). Os cinco dígitos seguintes determinam unicamente a cidade dentro desse estado. Por exemplo, em '3550308' (São Paulo-SP), o '35' representa o Estado de São Paulo."}}]}`}
       />
       <div className="bg-emerald-700 text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
@@ -119,44 +120,46 @@ export function ConsultadorIbge() {
         <AdSense />
         
         <div className="prose prose-emerald max-w-none mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
-          <h2>Entenda o Sistema IBGE, busca de Códigos de Município e XML de Notas Fiscais</h2>
-          <p>Ao se profissionalizar e tentar emitir uma nova documentação tributária e comercial robusta pelo regime e barreiras burocráticas da SEFAZ, todas as interfaces federais e estaduais normativas no Brasil exigidas para a rotineira liberação oficial de um lote validado e pago de certidões vitais para fretes e vendas da sua operação tais quais a nota modelo <strong>NF-e (Nota Fiscal Eletrônica), NFC-e (Consumidor), NF-se (Serviços) ou seu CT-e (Transporte e Frete)</strong>, exigem estritas atitudes técnicas enclausuradas preenchendo as chamadas tags geográficas para faturamentos da base contábil base ali envolvida. Nesse cenário burocrático minucioso, o famoso e absoluto código numérico fechado restrito do <strong>IBGE (Instituto Brasileiro de Geografia e Estatística)</strong> abdicou do senso comum e tornou-se a irrevogável e oficial engrenagem chave primária central de alocação de endereço geográfico exigida para amparo do ecossistema e modelo comercial da emissão de guias SPED no mercado logístico financeiro empresarial.</p>
+          <h2>Por que consultar o Código IBGE de Municípios?</h2>
+<p>O <strong>Consultador de Código IBGE</strong> é uma ferramenta imprescindível para profissionais de logística, tecnologia da informação, contadores e empreendedores em fase de parametrização de seus sistemas de emissão de faturamento ERP (como NF-e e CT-e) no ambiente da SEFAZ nacional.</p>
 
-          <h3>Por que usar obrigatoriamente a base de dados em Código IBGE nacional ao invés do nome legível da própria cidade?</h3>
-          <p>
-             A complexidade imutável do Brasil gera rotineiros impasses contábeis de homônimos de municípios. Por exemplo, a cidade de <strong>"São Domingos" existe sob a mesma nomenclatura exata cruzando as barreiras regionais fiscais de Santa Catarina (SC), Bahia (BA), Sergipe (SE) e Goiás (GO).</strong>
-          </p>
-          <p>
-             Ao tentar faturar a emissão de nota, referenciar puramente a string ou palavra destas cidades traria conflitos incalculáveis aos validadores e banco de dados de destinação e taxação do governo. Dessa forma blindada, os sete dígitos do código IBGE cruzam as barreiras com a certeza singularizada (ID único) do domicílio comercial.
-          </p>
+<h3>Evitando problemas com municípios homônimos</h3>
+<p>O Brasil possui uma grande complexidade e muitas cidades com o mesmo exato nome espalhadas por estados diferentes (ex: "Bom Jesus", "São Domingos"). Para o banco de dados do governo não correr riscos de taxar e atribuir ISS ou ICMS ao cofre da prefeitura/estado errado, a burocracia brasileira não usa textos abertos, e sim uma referência absoluta irrevogável: os <strong>7 dígitos da tabela IBGE</strong>.</p>
 
+<h3>Integração Tributária e Emissão de Notas Fiscais</h3>
+<p>Quando uma empresa prestadora de serviços, autônoma ou LTDA é configurada num portal da prefeitura local, tanto o local da prestação do serviço, quanto o endereço das partes envolvidas exigirão que o código numérico (a famigerada tag <em>&lt;cMun&gt;</em> do XML) represente as posições únicas geográficas sem erros ou falhas de formatação sistêmica e pontual.</p>
+          
           <hr className="my-8" />
           
           <h2>Perguntas Frequentes (FAQ)</h2>
-          
           <div className="space-y-4 not-prose mt-6">
+
             <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                Onde esse código geralmente é utilizado para cadastros?
+                O que é o Código de Município IBGE?
                 <span className="transition group-open:rotate-180">
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                As referências absolutas deste gerador servem para inserção na guia e emissões de conhecimento de nota em sites estaduais municipais de emissão fiscal para PJ (MEI ou Limitadas). Eles servem e alimentam as tags exigidas pelo XML universal nacional: o &lt;cMun&gt; numérico contendo as posições de numeração exclusivas para designar origem primária e base de impostos.
-              </p>
+              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `É uma sequência numérica única de 7 dígitos que identifica, sem margem a ambiguidades, cada um dos 5.570 municípios brasileiros e os 27 estados. É a chave primária geográfica do país.` }} />
             </details>
-            
             <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
-                Os dados aqui desta lista refletem a API original real?
+                Onde o Código IBGE de 7 dígitos é utilizado?
                 <span className="transition group-open:rotate-180">
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Sim, os retornos são instantâneos da autoria do sistema central de localizações do servidor brasileiro, trazendo o mesmo padrão da documentação aberta da federação que lista 5.570 posições com extrema pontualidade estatística para suporte à prefeitura. Acessando com pesquisa direta do front end para garantir zero cache obsoleto e garantia para contadores e empreendedores com escritórios modernos online.
-              </p>
+              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `O uso principal ocorre nas secretarias estaduais da fazenda (SEFAZ). Em toda emissão de conhecimento e documento fiscal brasileiro eletrônico (NF-e, NFS-e, NFC-e, CT-e), você não pode usar o nome da cidade no XML, sendo obrigatório preencher a tag &lt;cMun&gt; com o código de 7 dígitos.` }} />
+            </details>
+            <details className="group bg-gray-50 rounded-xl p-6 border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer font-bold text-gray-900">
+                O que significa cada parte do código IBGE do Município?
+                <span className="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: `Os dois primeiros dígitos referem-se à Unidade da Federação (UF/Estado). Os cinco dígitos seguintes determinam unicamente a cidade dentro desse estado. Por exemplo, em '3550308' (São Paulo-SP), o '35' representa o Estado de São Paulo.` }} />
             </details>
           </div>
         </div>
