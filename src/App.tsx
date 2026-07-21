@@ -66,6 +66,7 @@ export default function App({ url }: { url?: string }) {
         <Route path="como-funciona" element={<ComoFunciona />} />
         <Route path="modelos" element={<AllModels />} />
         <Route path="ferramentas" element={<AllTools />} />
+        <Route path="ferramentas/:tool" element={<ToolRedirect />} />
         <Route path="gerador-carne-pagamento" element={<GeradorCarnePagamento />} />
         <Route path="calculadora-precificacao-produtos" element={<CalculadoraPrecificacao />} />
         <Route path="calculadora-hora-extra" element={<CalculadoraHoraExtra />} />
@@ -99,6 +100,12 @@ export default function App({ url }: { url?: string }) {
       )}
     </>
   );
+}
+
+
+function ToolRedirect() {
+  const { tool } = useParams();
+  return <Navigate to={`/${tool}`} replace />;
 }
 
 function RemoveTrailingSlash() {

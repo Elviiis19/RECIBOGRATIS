@@ -24,6 +24,7 @@ const ferramentasRoutes = [
 ];
 
 const routes = [
+  { path: '/ferramentas', title: 'Ferramentas Online | Recibo Grátis', description: 'Diversas ferramentas úteis.' },
   ...ferramentasRoutes,
   {
     path: '/',
