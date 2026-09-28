@@ -50,9 +50,9 @@ export const richSeoData: Record<string, RichSEOContent> = {
     exampleImageTitle: "Exemplo de Recibo de Pagamento",
   },
   simples: {
-    h1: "Recibo Simples, visualize na hora que preenche e baixe em PDF",
+    h1: "Recibo Simples Online — Modelo Grátis para Preencher, Imprimir ou Baixar em Word",
     intro:
-      "O recibo simples é o instrumento financeiro e jurídico mais utilizado no Brasil para atestar transações cotidianas. Trata-se de uma declaração formal, assinada por quem recebe o dinheiro, afirmando que uma dívida foi integralmente ou parcialmente quitada por quem pagou. Transações informais ou verbais que dependem apenas da confiança são perigosas e frequentemente resultam em severas dores de cabeça, perda financeira ou processos de cobrança em duplicidade.",
+      "Gere seu recibo simples grátis em PDF em menos de 1 minuto ou baixe o modelo pronto em Word (.docx). Documento com validade jurídica em todo o Brasil (arts. 319 e 320 do Código Civil), sem cadastro, sem marca d'água e com opção de QR Code Pix integrado.",
     useCasesTitle:
       "Quando você deve usar este documento? Veja os 6 principais casos de uso:",
     useCasesList: [

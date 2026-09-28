@@ -28,53 +28,92 @@ export const receiptModels = [
     slug: "recibo-simples",
     title: "Recibo Simples",
     shortDescription:
-      "Gere seu recibo simples em segundos. Preencha os dados online, visualize na tela e baixe seu comprovante em PDF na hora. 100% grátis e sem cadastro!",
-    seoTitle: "Recibo Simples Online Grátis | Gere e Baixe em PDF",
+      "Gere seu recibo simples em segundos em PDF ou baixe o modelo editável em Word (.docx). 100% grátis, sem cadastro e sem marca d'água!",
+    seoTitle: "Recibo Simples Online Grátis — Recibo de Pagamento em PDF | Recibo Grátis",
     seoDescription:
-      "Gere recibos simples online grátis. É Rápido, fácil e Sem cadastro, sem instalação. Preencha os dados, baixe em PDF ou imprima",
+      "Gere recibo simples grátis em PDF ou baixe o modelo em Word (.docx). Recibo de pagamento sem cadastro, sem marca d'água, com validade jurídica e QR Code Pix.",
     keywords:
-      "recibo simples, recibo simples online, recibo simples grátis, recibo simples para imprimir, fazer recibo simples, modelo de recibo simples, recibo simples pdf, recibo simples sem cadastro, recibo simples 2026",
+      "recibo simples, recibo simples online, recibo simples grátis, recibo de pagamento, modelo de recibo, modelo de recibo simples word, recibo simples docx, recibo de pagamento simples para imprimir, recibo simples pdf, recibo simples sem cadastro, recibo simples 2026, como fazer recibo simples, modelo de recibo de pagamento",
     defaultReferenteA:
       "Pagamento referente a [descreva o motivo do pagamento].",
     icon: "FileText",
     seoContent: {
       h2: "O que é um Recibo Simples e como ele protege seu dinheiro?",
-      p1: "O recibo simples é o documento financeiro mais comum e versátil utilizado no Brasil para comprovar que uma transação ocorreu entre duas partes. Ele serve como uma declaração formal e legal de que um valor foi pago por uma pessoa (pagador) e recebido por outra (recebedor). Sem um recibo, transações informais baseiam-se apenas na confiança, o que pode gerar sérias dores de cabeça, cobranças em duplicidade e prejuízos financeiros. Ao utilizar nosso gerador de recibo simples online, você cria um documento padronizado, com validade comercial, pronto para ser impresso ou enviado pelo WhatsApp em formato PDF.",
+      p1: "O recibo simples é o documento financeiro mais comum e versátil utilizado no Brasil para comprovar que uma transação ocorreu entre duas partes. Ele serve como uma declaração formal e legal de que um valor foi pago por uma pessoa (pagador) e recebido por outra (recebedor). Sem um recibo, transações informais baseiam-se apenas na confiança, o que pode gerar sérias dores de cabeça, cobranças em duplicidade e prejuízos financeiros. Ao utilizar nosso gerador de recibo simples online, você cria um documento padronizado, com validade comercial e jurídica, pronto para ser impresso, salvo em PDF ou baixado em Word (.docx).",
       h3: "Quando utilizar o Recibo Simples em vez da Nota Fiscal?",
-      p2: "Este modelo é ideal para transações cotidianas que não exigem detalhamentos fiscais complexos. Por exemplo: a compra e venda de um item usado (como um celular ou bicicleta) entre conhecidos, o pagamento de uma pequena dívida, o acerto de uma diária, ou transações informais onde a emissão de Nota Fiscal não é obrigatória por lei (como serviços prestados por pessoas físicas sem CNPJ). Enquanto a Nota Fiscal tem o objetivo de recolher impostos para o governo, o recibo simples tem o objetivo de proteger o cidadão, atestando a quitação de um valor.",
+      p2: "Este modelo é ideal para transações cotidianas que não exigem detalhamentos fiscais complexos. Por exemplo: serviços de autônomos, trabalhos de MEI para pessoas físicas, compra e venda de itens usados (carros, celulares, móveis), pagamento de diárias, sinal de negócios ou pequenos aluguéis diretos. Enquanto a Nota Fiscal tem a função tributária perante o Estado, o recibo simples tem a finalidade jurídica de proteger o cidadão, atestando a quitação irrevogável da dívida.",
     },
     faqs: [
       {
-        question: "O recibo simples tem validade legal?",
+        question: "O recibo simples tem validade jurídica?",
         answer:
-          "Sim. Quando devidamente preenchido e assinado, ele tem validade civil e jurídica garantida pela legislação brasileira como comprovante irrefutável de quitação de dívida, impedindo cobranças indevidas futuras ou duplicadas.",
+          "Sim. O recibo simples tem plena validade jurídica no Brasil, respaldado pelos artigos 319 e 320 do Código Civil (Lei 10.406/2002). Ele serve como prova incontestável de quitação de pagamento, desde que contenha os dados das partes (nome e CPF/CNPJ), valor numérico e por extenso, descrição do pagamento, data e assinatura de quem recebeu."
       },
       {
-        question: "A emissão do recibo substitui a Nota Fiscal?",
+        question: "Preciso reconhecer firma em cartório no recibo simples?",
         answer:
-          "Não. O recibo serve apenas para atestar a transferência do dinheiro. A Nota Fiscal (NF) é exigência fiscal de recolhimento de impostos junto ao Governo. Prestadores Pessoa Física (sem CNPJ) devem emitir recibo; empresas devem emitir NF, podendo também dar recibo conjunto para controle em dinheiro vivo.",
+          "Não é obrigatório. Para a grande maioria das transações do dia a dia (serviços autônomos, diárias, compras de itens usados ou aluguéis), a assinatura simples física ou assinatura eletrônica já é juridicamente válida. O reconhecimento de firma em cartório só é recomendado em transações de valor muito elevado ou quando expressamente exigido em contrato prévio."
       },
       {
-        question: "Precisa de CNPJ para emitir um recibo simples?",
+        question: "Como gerar um recibo simples online sem cadastro?",
         answer:
-          "De forma nenhuma. O recibo simples é a ferramenta máxima do cidadão Pessoa Física (PF). Você não precisa ter empresa ou CNPJ; usando apenas o seu CPF, nome e preenchendo os dados da transação com exatidão, o documento vale integralmente em qualquer negociação.",
+          "Basta preencher os campos do formulário no topo desta página: informe o valor recebido, os dados do pagador, do recebedor e o motivo do pagamento. Conforme você digita, o sistema escreve o valor por extenso automaticamente e monta a prévia em tempo real. Depois, basta clicar em 'Imprimir / Gerar PDF' para salvar no seu celular ou computador. Não precisa criar conta nem fazer login."
       },
       {
-        question: "Qual o prazo de validade jurídica recomendado?",
+        question: "Posso baixar o modelo de recibo em Word (.docx) ou só em PDF?",
         answer:
-          "Sob a ótica do Código Civil e órgãos de defesa do consumidor, todas as partes (pagador e recebedor) devem arquivar os recibos comerciais por pelo menos 5 (cinco) anos. Esse intervalo é o tempo onde juridicamente a maior parte de cobranças pode ser ajuizada no Brasil.",
+          "Você pode escolher o formato que preferir! Nosso site oferece tanto o gerador interativo online para exportar em PDF pronto e sem marcas d'água quanto o botão de download direto do arquivo em Word (.docx) editável na seção de modelo pronto nesta página. O arquivo .docx pode ser aberto no Microsoft Word, Google Docs ou LibreOffice."
       },
       {
-        question: "Posso usar o mesmo modelo para vários dos meus clientes?",
+        question: "Qual a diferença entre recibo simples e recibo de pagamento?",
         answer:
-          "Com certeza! Essa é a grande utilidade do nosso aplicativo online grátis. A estrutura deste gerador adota as normas padrão; portanto, você pode visitar nossa página sempre que fechar um contrato e emitir um recibo padronizado alterando somente as informações e os montantes para o novo cliente.",
+          "Jurídica e formalmente, são o mesmo documento de quitação regulamentado pelo Código Civil. A diferença é apenas no costume de uso: o termo 'recibo simples' costuma ser mais associado a transações do dia a dia, diárias e autônomos, enquanto 'recibo de pagamento' é amplamente buscado para comprovação salarial, serviços corporativos ou quitação de dívidas. O nosso modelo atende perfeitamente a ambos os casos."
       },
       {
-        question:
-          "Qual a diferença entre recibo simples e recibo de pagamento?",
+        question: "O recibo simples substitui a Nota Fiscal?",
         answer:
-          'Juridicamente eles possuem eficácia comprovatória idêntica. A variante no nome se dá por costume: "Recibo simples" é rotineiramente invocado para negociações informais, bens de consumo e diárias. "Recibo de pagamento" costuma ser usado para salários ou prestações prolongadas.',
+          "Não. O recibo simples comprova a quitação financeira entre duas pessoas ou empresas, mas não substitui a Nota Fiscal para fins tributários e recolhimento de impostos (ISS, ICMS). Pessoas físicas e autônomos sem CNPJ podem emitir recibo simples normalmente. Já empresas e MEIs (quando vendem para outras pessoas jurídicas) são obrigados por lei a emitir nota fiscal."
       },
+      {
+        question: "Quando devo usar recibo de prestação de serviços no lugar do recibo simples?",
+        answer:
+          "Recomenda-se usar o Recibo de Prestação de Serviços quando a atividade envolver contratos formais de mão de obra contínua, discriminação detalhada de horas trabalhadas, retenção de impostos (como INSS ou ISS) ou exigência contábil de contratantes corporativos. Para serviços pontuais e avulsos, o recibo simples é suficiente."
+      },
+      {
+        question: "Como imprimir o recibo simples após preencher?",
+        answer:
+          "Após clicar em 'Imprimir / Gerar PDF', a caixa de diálogo de impressão do seu navegador abrirá automaticamente. Você pode selecionar sua impressora física ou escolher 'Salvar como PDF'. O documento é automaticamente formatado no padrão folha A4 com margens perfeitas, pronto para assinar."
+      },
+      {
+        question: "Dá para preencher o recibo à mão depois de imprimir em branco?",
+        answer:
+          "Sim! Você pode baixar o modelo de exemplo em Word (.docx) ou gerar o documento com os campos de identificação em branco para imprimir em papel e preencher com caneta. Ambas as formas — preenchido digitalmente ou manuscrito — possuem a mesma validade jurídica desde que assinadas por quem recebeu o valor."
+      },
+      {
+        question: "Precisa ter CNPJ para emitir um recibo simples?",
+        answer:
+          "Não. O recibo simples é o instrumento perfeito para Pessoas Físicas (CPF). Você não precisa ter empresa, MEI ou registro comercial. Basta informar seu nome completo, CPF e assinar após receber o pagamento."
+      },
+      {
+        question: "Qual o prazo recomendado para guardar o recibo?",
+        answer:
+          "O Código Civil e o Código de Defesa do Consumidor recomendam guardar comprovantes de pagamento e recibos por pelo menos 5 (cinco) anos. Esse é o prazo geral de prescrição de cobranças de dívidas e cobranças judiciais no Brasil."
+      },
+      {
+        question: "Posso usar o gerador para vários clientes diferentes?",
+        answer:
+          "Sim, com uso 100% ilimitado e gratuito! Você pode gerar quantos recibos precisar para clientes diferentes, alterando os dados no formulário sem restrições ou limites de emissão diária."
+      },
+      {
+        question: "O recibo emitido online tem marca d'água ou cobrança oculta?",
+        answer:
+          "Não! Diferente de outros sites que exigem assinaturas pagas 'PRO' ou colocam marcas d'água no documento, o Recibo Grátis entrega o documento 100% limpo, profissional, sem marca d'água e sem cobrar nenhum centavo."
+      },
+      {
+        question: "Como adicionar QR Code Pix no recibo simples?",
+        answer:
+          "No nosso gerador, você pode marcar a opção de Chave Pix, digitar sua chave e o sistema cria automaticamente um QR Code dinâmico/estático direto no corpo do recibo. Seu cliente pode apontar a câmera do celular no documento e pagar na hora!"
+      }
     ],
   },
   {

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 680" width="800" height="680">
+  <rect width="800" height="680" fill="#ffffff" />
+  
+  <!-- Top disclaimer -->
+  <line x1="80" y1="35" x2="720" y2="35" stroke="#e2e8f0" stroke-width="1.5" />
+  <text x="400" y="55" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">
+    Documento gerado gratuitamente pelo site recibogratis.com.br
+  </text>
+  
+  <!-- Outer border box -->
+  <rect x="75" y="85" width="650" height="520" fill="#ffffff" stroke="#1e293b" stroke-width="2" />
+  
+  <!-- RECIBO Title -->
+  <text x="400" y="130" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="bold" fill="#1e40af" text-anchor="middle" letter-spacing="1">
+    RECIBO
+  </text>
+  <text x="400" y="155" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" fill="#334155" text-anchor="middle">
+    Nº 01
+  </text>
+  
+  <!-- Content lines -->
+  <text x="95" y="210" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#0f172a">
+    Recebi de <tspan font-weight="bold">JOSÉ APARECIDO DA SILVA</tspan>, CPF: 123.456.789-00, a importância de <tspan font-weight="bold">R$ 130,00</tspan> (cento
+  </text>
+  <text x="95" y="235" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#0f172a">
+    e trinta reais), referente a <tspan font-weight="bold">serviço de manutenção em computador</tspan>.
+  </text>
+  
+  <!-- Observações -->
+  <text x="95" y="280" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#0f172a">
+    <tspan font-weight="bold">Observações:</tspan> Pagamento recebido em dinheiro.
+  </text>
+  
+  <!-- Quitação -->
+  <text x="95" y="325" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#0f172a">
+    Para maior clareza, firmo o presente recibo para que produza os seus efeitos, dando plena, rasa e
+  </text>
+  <text x="95" y="350" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#0f172a">
+    irrevogável quitação.
+  </text>
+  
+  <!-- Data -->
+  <text x="705" y="410" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#0f172a" text-anchor="end">
+    Rio de Janeiro - RJ, 28 de setembro de 2026
+  </text>
+  
+  <!-- Assinatura -->
+  <line x1="260" y1="520" x2="540" y2="520" stroke="#334155" stroke-width="1.5" />
+  <text x="400" y="542" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" fill="#0f172a" text-anchor="middle">
+    ANTÔNIO JOSÉ PINHEIRO
+  </text>
+  <text x="400" y="562" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#475569" text-anchor="middle">
+    CPF: 123.456.789-00
+  </text>
+</svg>

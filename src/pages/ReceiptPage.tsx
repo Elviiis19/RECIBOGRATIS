@@ -1,17 +1,30 @@
+import { useState } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { ReceiptGenerator } from '../components/ReceiptGenerator';
 import { AdSense } from '../components/AdSense';
 import { receiptModels } from '../data/receiptModels';
-import { CheckCircle2, ChevronRight, FileText, Video } from 'lucide-react';
+import { CheckCircle2, ChevronRight, FileText, Video, Download, Copy, Check, ArrowRight } from 'lucide-react';
 import { richSeoData } from '../data/richSeoContent';
 import { YoutubeEmbed } from '../components/YoutubeEmbed';
 
 export function ReceiptPage() {
   const { slug } = useParams<{ slug: string }>();
+  const [copied, setCopied] = useState(false);
   
   // Find the specific model based on the URL slug
   const model = receiptModels.find(m => m.slug === slug);
+
+  const handleCopyTemplate = () => {
+    const templateText = `RECIBO Nº 01\n\nRecebi de JOSÉ APARECIDO DA SILVA, CPF: 123.456.789-00, a importância de R$ 130,00 (cento e trinta reais), referente a serviço de manutenção em computador.\n\nObservações: Pagamento recebido em dinheiro.\n\nPara maior clareza, firmo o presente recibo para que produza os seus efeitos, dando plena, rasa e irrevogável quitação.\n\nRio de Janeiro - RJ, 28 de setembro de 2026\n\n________________________________________\nANTÔNIO JOSÉ PINHEIRO\nCPF: 123.456.789-00\n\nDocumento gerado gratuitamente pelo site recibogratis.com.br`;
+
+    if (typeof navigator !== 'undefined' && navigator.clipboard) {
+      navigator.clipboard.writeText(templateText).then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 3000);
+      });
+    }
+  };
 
   // If the slug doesn't match any model, redirect to home
   if (!model) {
@@ -45,9 +58,7 @@ export function ReceiptPage() {
   const titleLower = model.title.toLowerCase();
   const baseTitle = `${model.title} | Gerador Online em PDF Grátis`;
   const dynamicTitle = model.seoTitle || baseTitle;
-  const dynamicDesc = model.id === 'simples'
-    ? "Gere seu recibo simples em segundos. Preencha os dados online, visualize na tela e baixe seu comprovante em PDF na hora. 100% grátis e sem cadastro!"
-    : (model.seoDescription || richData?.intro || `Gere gratuitamente seu ${titleLower} online. Preencha, imprima em PDF ou envie por WhatsApp. Rápido, seguro e grátis.`);
+  const dynamicDesc = model.seoDescription || richData?.intro || `Gere gratuitamente seu ${titleLower} online. Preencha, imprima em PDF ou envie por WhatsApp. Rápido, seguro e grátis.`;
 
   const heroSubtitle = model.seoDescription || `Gere seu documento de ${titleLower} grátis, preencha online e baixe em PDF na hora. Sem burocracia e sem cadastro.`;
 
@@ -68,18 +79,14 @@ export function ReceiptPage() {
 
   const softwareSchema = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": `Gerador de ${model.title}`,
-    "operatingSystem": "Any",
+    "@type": "WebApplication",
+    "name": model.id === 'simples' ? "Gerador de Recibo Simples Online e em Word" : `Gerador de ${model.title}`,
+    "operatingSystem": "All",
     "applicationCategory": "BusinessApplication",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "ratingCount": "2150"
-    },
+    "isAccessibleForFree": true,
     "offers": {
       "@type": "Offer",
-      "price": "0",
+      "price": "0.00",
       "priceCurrency": "BRL"
     },
     "description": dynamicDesc
@@ -88,9 +95,30 @@ export function ReceiptPage() {
   const howToSchema: any = {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    "name": `Como preencher o ${model.title}`,
-    "description": `Aprenda passo a passo como gerar seu ${titleLower} facilmente.`,
-    "step": [
+    "name": model.id === 'simples' ? "Como fazer um recibo simples online ou em Word" : `Como preencher o ${model.title}`,
+    "description": model.id === 'simples'
+      ? "Passo a passo para gerar um recibo simples em PDF ou baixar o modelo em Word (.docx) grátis sem cadastro."
+      : `Aprenda passo a passo como gerar seu ${titleLower} facilmente.`,
+    "step": model.id === 'simples' ? [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Preencha os dados essenciais",
+        "text": "Informe valor numérico, pagador, recebedor, motivo (referente a) e a data do pagamento."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Revise a prévia em tempo real",
+        "text": "Confira os dados na tela com conversão automática do valor por extenso e opção de QR Code Pix."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Baixe em PDF ou em Word (.docx)",
+        "text": "Gere o documento final em PDF para imprimir ou compartilhar no WhatsApp, ou baixe o modelo em Word para editar no computador."
+      }
+    ] : [
       {
         "@type": "HowToStep",
         "name": "Acessar o gerador",
@@ -258,7 +286,7 @@ export function ReceiptPage() {
       </section>
 
       {/* Generator Section */}
-      <section className="pb-12 bg-gray-50 relative z-10 pt-4">
+      <section id="generator" className="pb-12 bg-gray-50 relative z-10 pt-4 scroll-mt-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ReceiptGenerator 
             key={model.slug}
@@ -286,6 +314,211 @@ export function ReceiptPage() {
                   {model.seoContent.p2 && (
                     <p className="text-gray-600 text-lg leading-relaxed">{model.seoContent.p2}</p>
                   )}
+                </div>
+              </article>
+            )}
+
+            {/* Seção Exclusiva: Modelo de Recibo Pronto (Exemplo Preenchido e Download Word DOCX) */}
+            {model.id === 'simples' && (
+              <article id="modelo-word-exemplo" className="scroll-mt-6">
+                <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-3 flex items-center gap-3">
+                  <CheckCircle2 className="w-8 h-8 text-emerald-500 flex-shrink-0" />
+                  Modelo de recibo de pagamento pronto (exemplo preenchido)
+                </h2>
+                <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                  Veja abaixo um exemplo real de recibo preenchido conforme as normas jurídicas brasileiras. Você pode <strong>baixar o arquivo original em Word (.docx)</strong> diretamente do nosso site para editar em seu computador, imprimir em branco para preencher com caneta, ou usar nosso gerador online no topo da página:
+                </p>
+
+                {/* Card visual do modelo fiel à imagem enviada */}
+                <div className="bg-white rounded-2xl border-2 border-gray-200 shadow-md p-6 md:p-10 mb-8 transition-shadow hover:shadow-lg">
+                  <div className="text-center text-xs text-gray-500 mb-4 pb-2 border-b border-gray-100 font-sans">
+                    Documento gerado gratuitamente pelo site <span className="font-semibold text-emerald-700">recibogratis.com.br</span>
+                  </div>
+
+                  <div className="border-2 border-gray-800 rounded-lg p-6 md:p-8 bg-white max-w-2xl mx-auto shadow-sm">
+                    <div className="text-center mb-6">
+                      <span className="text-2xl md:text-3xl font-black text-blue-900 tracking-wider uppercase block">
+                        RECIBO
+                      </span>
+                      <span className="text-base font-bold text-gray-700 block mt-1">
+                        Nº 01
+                      </span>
+                    </div>
+
+                    <div className="space-y-4 text-gray-900 text-base md:text-lg leading-relaxed font-sans">
+                      <p>
+                        Recebi de <strong>JOSÉ APARECIDO DA SILVA</strong>, CPF: 123.456.789-00, a importância de <strong>R$ 130,00</strong> (cento e trinta reais), referente a <strong>serviço de manutenção em computador</strong>.
+                      </p>
+
+                      <p>
+                        <strong>Observações:</strong> Pagamento recebido em dinheiro.
+                      </p>
+
+                      <p className="text-sm md:text-base text-gray-800">
+                        Para maior clareza, firmo o presente recibo para que produza os seus efeitos, dando plena, rasa e irrevogável quitação.
+                      </p>
+
+                      <div className="text-right pt-4 text-sm md:text-base font-medium text-gray-800">
+                        Rio de Janeiro - RJ, 28 de setembro de 2026
+                      </div>
+
+                      <div className="pt-8 text-center">
+                        <div className="w-64 sm:w-80 h-0.5 bg-gray-700 mx-auto mb-2"></div>
+                        <p className="font-bold text-gray-900 tracking-wide text-base uppercase">
+                          ANTÔNIO JOSÉ PINHEIRO
+                        </p>
+                        <p className="text-xs sm:text-sm text-gray-600">
+                          CPF: 123.456.789-00
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Botões de Ação */}
+                  <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a 
+                      href="/modelos/modelo-recibo-simples.docx" 
+                      download="modelo-recibo-simples.docx"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-base shadow-sm transition-all hover:shadow-md cursor-pointer"
+                    >
+                      <Download className="w-5 h-5" />
+                      Baixar modelo em Word (.docx)
+                    </a>
+
+                    <button
+                      type="button"
+                      onClick={handleCopyTemplate}
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold rounded-xl text-base transition-colors border border-gray-300 cursor-pointer"
+                    >
+                      {copied ? (
+                        <>
+                          <Check className="w-5 h-5 text-emerald-600" />
+                          <span className="text-emerald-700">Modelo Copiado!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-5 h-5 text-gray-600" />
+                          <span>Copiar Texto do Recibo</span>
+                        </>
+                      )}
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const gen = document.getElementById('generator');
+                        if (gen) gen.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-base shadow-sm transition-colors cursor-pointer"
+                    >
+                      <FileText className="w-5 h-5" />
+                      Preencher no Gerador Online
+                    </button>
+                  </div>
+                  <p className="text-center text-xs text-gray-500 mt-3">
+                    Arquivo Word 100% editável (.docx), sem vírus e com download direto do nosso próprio domínio.
+                  </p>
+                </div>
+              </article>
+            )}
+
+            {/* Recibo de Pagamento x Recibo Simples: É a mesma coisa? */}
+            {model.id === 'simples' && (
+              <article>
+                <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-6 flex items-center gap-3">
+                  <CheckCircle2 className="w-8 h-8 text-emerald-500 flex-shrink-0" />
+                  Recibo de pagamento × recibo simples: é a mesma coisa?
+                </h2>
+                <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8 space-y-4 text-gray-700 text-lg leading-relaxed">
+                  <p>
+                    <strong>Sim, perante a lei brasileira eles têm o mesmo valor e eficácia jurídica.</strong> No Direito Civil brasileiro (Lei nº 10.406/2002, artigos 319 e 320), todo documento emitido pelo credor atestando que recebeu o pagamento e liberando o devedor da obrigação financeira chama-se formalmente de <strong>quitação</strong>.
+                  </p>
+                  <p>
+                    A diferença existe apenas na linguagem cotidiana e no tipo de transação que cada pessoa costuma associar:
+                  </p>
+                  <ul className="list-disc pl-6 space-y-2 text-base md:text-lg">
+                    <li>
+                      <strong>Recibo Simples:</strong> Mais comum em negociações do dia a dia entre pessoas físicas, vendas de produtos usados (carros, celulares, móveis), pequenos serviços de manutenção, reformas e diárias.
+                    </li>
+                    <li>
+                      <strong>Recibo de Pagamento:</strong> Termo muito utilizado em ambientes comerciais, contratos de prestação de serviços continuados, honorários profissionais ou quitação de parcelas financeiras.
+                    </li>
+                  </ul>
+                  <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-100 text-emerald-900 text-base font-medium mt-4">
+                    Tanto quem busca por <em>"recibo simples"</em> quanto por <em>"recibo de pagamento"</em> pode utilizar o gerador e o modelo desta página com 100% de segurança jurídica, pois os campos obrigatórios por lei estão contemplados.
+                  </div>
+                </div>
+              </article>
+            )}
+
+            {/* Recibo simples, nota fiscal ou recibo profissional: quando usar cada um */}
+            {model.id === 'simples' && (
+              <article>
+                <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-6 flex items-center gap-3">
+                  <CheckCircle2 className="w-8 h-8 text-emerald-500 flex-shrink-0" />
+                  Recibo simples, nota fiscal ou recibo profissional: quando usar cada um
+                </h2>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex flex-col justify-between hover:border-emerald-300 transition-colors">
+                    <div>
+                      <span className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full mb-3 uppercase tracking-wider">
+                        Mais Utilizado
+                      </span>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">Recibo Simples</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                        Ideal para autônomos sem CNPJ, venda de itens particulares, acertos de contas, diárias e serviços informais. Simples, rápido e sem burocracia contábil.
+                      </p>
+                    </div>
+                    <span className="text-emerald-700 font-bold text-sm inline-flex items-center gap-1">
+                      Você está nesta página
+                    </span>
+                  </div>
+
+                  <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex flex-col justify-between hover:border-blue-300 transition-colors">
+                    <div>
+                      <span className="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full mb-3 uppercase tracking-wider">
+                        Para Prestadores
+                      </span>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">Recibo de Prestação de Serviços</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                        Recomendado quando o cliente exige discriminação técnica minuciosa da mão de obra, materiais, etapas de execução ou retenção tributária de INSS/ISS.
+                      </p>
+                    </div>
+                    <Link to="/recibo-de-prestacao-de-servicos" className="text-blue-700 font-bold text-sm hover:underline inline-flex items-center gap-1">
+                      Acessar Recibo de Serviços <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+
+                  <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex flex-col justify-between hover:border-amber-300 transition-colors">
+                    <div>
+                      <span className="inline-block px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full mb-3 uppercase tracking-wider">
+                        Imobiliário
+                      </span>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">Recibo de Aluguel</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                        Desenvolvido especialmente para locação de imóveis direto com proprietário, com campos de endereço do imóvel, mês de competência e condomínio/IPTU.
+                      </p>
+                    </div>
+                    <Link to="/recibo-de-aluguel" className="text-amber-700 font-bold text-sm hover:underline inline-flex items-center gap-1">
+                      Acessar Recibo de Aluguel <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+
+                  <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex flex-col justify-between hover:border-purple-300 transition-colors">
+                    <div>
+                      <span className="inline-block px-3 py-1 bg-purple-100 text-purple-800 text-xs font-bold rounded-full mb-3 uppercase tracking-wider">
+                        Tributário Obrigatório
+                      </span>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">Nota Fiscal (NF-e / NFS-e)</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                        Documento fiscal obrigatório por lei quando empresas (CNPJ) realizam vendas de mercadorias ou quando MEIs prestam serviços para outras pessoas jurídicas.
+                      </p>
+                    </div>
+                    <span className="text-gray-500 font-medium text-xs">
+                      Emitido via portal da Receita Federal ou prefeitura
+                    </span>
+                  </div>
                 </div>
               </article>
             )}
