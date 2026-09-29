@@ -28,8 +28,8 @@ const routes = [
   ...ferramentasRoutes,
   {
     path: '/',
-    title: 'Recibo Grátis | Recibo Online Simples e Pagamento em PDF e Word',
-    description: 'Gere recibo online grátis em PDF e Word (.docx) na hora. Recibo simples, de pagamento, prestação de serviços e aluguel com QR Code Pix integrado e sem cadastro.',
+    title: 'Recibo Grátis: Gerador de Recibo Online em PDF e com Pix',
+    description: 'Gere recibo online grátis em PDF e Word (.docx) na hora. Crie comprovantes de pagamento e prestação de serviços com QR Code Pix integrado e sem cadastro.',
   },
   {
     path: '/gerador-qr-code-pix',

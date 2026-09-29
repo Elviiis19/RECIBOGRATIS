@@ -41,8 +41,7 @@ export function SEO({ title, description, keywords, schema, url, image }: SEOPro
       {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={normalizedUrl} />
       
-      <meta name="theme-color" content="#16a34a" />
-      <meta name="google" content="notranslate" />
+      <meta name="theme-color" content="#065f46" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="applicable-device" content="pc,mobile" />
 

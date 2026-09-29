@@ -169,6 +169,26 @@ export function ReceiptGenerator({
         console.error("Failed to parse saved issuer data", e);
       }
     }
+
+    // Read URL search params passed from Home Mini-Generator
+    if (typeof window !== "undefined") {
+      try {
+        const searchParams = new URLSearchParams(window.location.search);
+        const urlValor = searchParams.get("valor");
+        const urlPagador = searchParams.get("pagador");
+        const urlRecebedor = searchParams.get("recebedor");
+        if (urlValor || urlPagador || urlRecebedor) {
+          setData((prev) => ({
+            ...prev,
+            ...(urlValor ? { valor: urlValor } : {}),
+            ...(urlPagador ? { pagadorNome: urlPagador } : {}),
+            ...(urlRecebedor ? { recebedorNome: urlRecebedor } : {}),
+          }));
+        }
+      } catch (e) {
+        // Safe catch
+      }
+    }
   }, []);
 
   useEffect(() => {
