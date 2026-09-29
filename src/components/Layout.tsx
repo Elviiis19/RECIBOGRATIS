@@ -47,7 +47,7 @@ export function Layout() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isMenuOpen]);
 
-  // Group models by category for the dropdown
+  // Group models by category for the drawer and footer
   const categories = {
     'Básicos': ['simples', 'recibo-com-logo', 'quitacao', 'sinal'],
     'Profissionais': ['servicos', 'honorarios', 'mei', 'arquiteto', 'engenheiro', 'corretor', 'termo-de-prestacao-de-servico', 'prestacao-de-servico-com-logo', 'prestacao-com-garantia-e-logo'],
@@ -57,28 +57,20 @@ export function Layout() {
     'Outros': ['aluguel', 'recibo-de-aluguel-com-logo', 'compra-venda', 'pensao', 'doacao', 'adiantamento', 'salario', 'recibo-de-salario-com-logo', 'vale-transporte', 'vale-alimentacao', 'diaria', 'taxi-uber', 'frete', 'fotografo', 'professor', 'veterinario', 'pet-shop', 'costureira', 'promissoria', 'nota-promissoria-com-avalista', 'ordem-servico', 'ordem-de-servico-com-logo', 'orcamento']
   };
 
-  const footerLinks = receiptModels.map(m => ({
-    name: m.title,
-    path: `/${m.slug}`
-  }));
-
-  const quickNavLinks = [
-    { name: 'Todos os Modelos', path: '/modelos', highlight: true },
-    { name: 'Recibo Simples', path: '/recibo-simples' },
-    { name: 'Prestação de Serviços', path: '/recibo-de-prestacao-de-servicos' },
-    { name: 'Recibo de Aluguel', path: '/recibo-de-aluguel' },
-    { name: 'Declarações', path: '/declaracoes' },
-    { name: 'Pix QR Code', path: '/gerador-qr-code-pix' },
-    { name: 'Ferramentas', path: '/ferramentas' },
-    { name: 'Blog', path: '/blog' },
-  ];
-
   return (
     <div className="min-h-screen flex flex-col bg-gray-50 text-gray-900 font-sans">
+      {/* Skip to Main Content Link for WCAG Accessibility */}
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[9999] focus:px-4 focus:py-2.5 focus:bg-emerald-900 focus:text-white focus:rounded-xl focus:shadow-2xl focus:outline-none focus:ring-2 focus:ring-emerald-400 font-bold text-sm"
+      >
+        Pular para o conteúdo principal
+      </a>
+
       <SearchPalette isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
       
       <header className="sticky top-0 z-50 shadow-sm flex flex-col relative">
-        {/* Top Bar with Logo, Search, and Main Links */}
+        {/* Unified Clean Top Bar with Logo, Main Navigation, Search, and Action CTA */}
         <div className="bg-emerald-800 text-white border-b border-emerald-900/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16 sm:h-20 gap-3">
@@ -91,141 +83,169 @@ export function Layout() {
                 </Link>
               </div>
 
-              {/* Center: Search Button (Desktop & Tablet) */}
-              <div className="hidden md:flex flex-1 max-w-xl justify-center mx-4">
+              {/* Center: Desktop Navigation Links */}
+              <nav aria-label="Navegação Principal" className="hidden lg:flex items-center gap-6 xl:gap-8">
+                {/* Modelos Dropdown */}
+                <div className="relative group">
+                  <button 
+                    className="flex items-center gap-1.5 text-sm font-bold text-emerald-50 hover:text-white transition-colors py-6 cursor-pointer"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <span>Modelos de Recibo</span>
+                    <ChevronDown className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity" />
+                  </button>
+                  <div className="absolute top-[85%] left-0 w-80 bg-white border border-gray-100 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-1 group-hover:translate-y-0 transition-all duration-200 ease-in-out z-50 text-left text-gray-900">
+                    <div className="p-3">
+                      <div className="text-[11px] font-bold text-gray-400 uppercase tracking-wider px-3 py-1 mb-1">
+                        Mais Populares
+                      </div>
+                      <ul className="space-y-1">
+                        <li>
+                          <Link to="/recibo-simples" className="text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-xl transition-colors">
+                            <div className="font-bold text-gray-900">Recibo Simples de Pagamento</div>
+                            <div className="text-xs text-gray-500">Quitação rápida para qualquer transação</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/recibo-de-prestacao-de-servicos" className="text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-xl transition-colors">
+                            <div className="font-bold text-gray-900">Prestação de Serviços</div>
+                            <div className="text-xs text-gray-500">Para autônomos, MEI e freelancers</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/recibo-de-aluguel" className="text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-xl transition-colors">
+                            <div className="font-bold text-gray-900">Recibo de Aluguel</div>
+                            <div className="text-xs text-gray-500">Locações com condomínio e encargos</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/recibo-com-logo" className="text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-xl transition-colors">
+                            <div className="font-bold text-gray-900">Recibo com Logotipo</div>
+                            <div className="text-xs text-gray-500">Personalize com a marca da sua empresa</div>
+                          </Link>
+                        </li>
+                      </ul>
+                      <div className="mt-2 pt-2 border-t border-gray-100">
+                        <Link to="/modelos" className="text-xs font-bold text-emerald-700 hover:text-emerald-800 hover:bg-emerald-50 block py-2 px-3 rounded-xl transition-colors text-center">
+                          Ver Todos os 40+ Modelos de Recibo &rarr;
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <Link 
+                  to="/declaracoes" 
+                  className="text-sm font-bold text-emerald-50 hover:text-white transition-colors"
+                >
+                  Declarações
+                </Link>
+
+                {/* Ferramentas Dropdown */}
+                <div className="relative group">
+                  <button 
+                    className="flex items-center gap-1.5 text-sm font-bold text-emerald-50 hover:text-white transition-colors py-6 cursor-pointer"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <Zap className="w-4 h-4 text-emerald-300" />
+                    <span>Ferramentas</span>
+                    <ChevronDown className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity" />
+                  </button>
+                  <div className="absolute top-[85%] left-0 w-80 bg-white border border-gray-100 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-1 group-hover:translate-y-0 transition-all duration-200 ease-in-out z-50 text-left text-gray-900">
+                    <div className="p-3">
+                      <div className="text-[11px] font-bold text-gray-400 uppercase tracking-wider px-3 py-1 mb-1">
+                        Utilitários Financeiros
+                      </div>
+                      <ul className="space-y-1">
+                        <li>
+                          <Link to="/gerador-qr-code-pix" className="text-sm text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-xl transition-colors">
+                            <div className="font-bold text-gray-900">Gerador QR Code Pix</div>
+                            <div className="text-xs text-gray-500">Crie códigos e plaquinhas de balcão</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/valor-por-extenso" className="text-sm text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-xl transition-colors">
+                            <div className="font-bold text-gray-900">Valor por Extenso</div>
+                            <div className="text-xs text-gray-500">Converta reais em texto formal</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/calculadora-retencao-impostos" className="text-sm text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-xl transition-colors">
+                            <div className="font-bold text-gray-900">Retenção de Impostos</div>
+                            <div className="text-xs text-gray-500">ISS, IRRF e INSS para serviços</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/validador-formatador-cpf-cnpj" className="text-sm text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-xl transition-colors">
+                            <div className="font-bold text-gray-900">Validador de CPF / CNPJ</div>
+                            <div className="text-xs text-gray-500">Validação oficial da Receita Federal</div>
+                          </Link>
+                        </li>
+                      </ul>
+                      <div className="mt-2 pt-2 border-t border-gray-100">
+                        <Link to="/ferramentas" className="text-xs font-bold text-emerald-700 hover:text-emerald-800 hover:bg-emerald-50 block py-2 px-3 rounded-xl transition-colors text-center">
+                          Ver Todas as Ferramentas &rarr;
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <Link 
+                  to="/blog" 
+                  className="text-sm font-bold text-emerald-50 hover:text-white transition-colors"
+                >
+                  Blog
+                </Link>
+
+                <Link 
+                  to="/como-funciona" 
+                  className="text-sm font-bold text-emerald-50 hover:text-white transition-colors"
+                >
+                  Como Funciona
+                </Link>
+              </nav>
+
+              {/* Right: Search + Action CTA (Desktop) & Mobile Controls */}
+              <div className="flex items-center justify-end gap-2.5 flex-shrink-0">
+                
+                {/* Search Button (Desktop) */}
                 <button
                   onClick={() => setIsSearchOpen(true)}
-                  className="flex items-center gap-2 sm:gap-3 w-full bg-emerald-900/60 hover:bg-emerald-900/90 border border-emerald-600/40 hover:border-emerald-500/60 text-emerald-50 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition-all focus:outline-none focus:ring-2 focus:ring-emerald-400 shadow-inner group cursor-pointer"
-                  aria-label="Buscar modelos"
+                  className="hidden md:flex items-center gap-2 bg-emerald-900/60 hover:bg-emerald-900 border border-emerald-600/40 text-emerald-100 px-3.5 py-2 rounded-xl transition-all text-xs font-semibold cursor-pointer"
+                  aria-label="Buscar modelos de recibo"
                 >
-                  <Search className="w-5 h-5 shrink-0 opacity-70 group-hover:opacity-100 transition-opacity text-emerald-300" />
-                  <span className="truncate text-left flex-1 font-medium text-sm sm:text-base pr-2">
-                    Buscar modelos de recibo...
-                  </span>
-                  <span className="hidden lg:flex items-center gap-1.5 ml-auto text-xs font-mono font-bold text-emerald-200/90">
-                    <kbd className="px-2 py-1 border border-emerald-700/60 rounded bg-emerald-800 shadow-sm">CTRL</kbd>
-                    <kbd className="px-2 py-1 border border-emerald-700/60 rounded bg-emerald-800 shadow-sm">K</kbd>
-                  </span>
+                  <Search className="w-4 h-4 text-emerald-300" />
+                  <span>Buscar</span>
+                  <kbd className="px-1.5 py-0.5 border border-emerald-700/60 rounded bg-emerald-800 text-[10px] font-mono">⌘K</kbd>
                 </button>
-              </div>
 
-              {/* Right: Desktop Links & Mobile Controls */}
-              <div className="flex items-center justify-end gap-2 flex-shrink-0">
-                
                 {/* Mobile Search Icon Button */}
                 <button
                   onClick={() => setIsSearchOpen(true)}
-                  className="md:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-emerald-900/50 hover:bg-emerald-900 text-emerald-100 hover:text-white border border-emerald-700/60 transition-colors cursor-pointer"
-                  aria-label="Buscar modelos"
+                  className="md:hidden flex items-center justify-center min-w-[44px] min-h-[44px] rounded-xl bg-emerald-900/50 hover:bg-emerald-900 text-emerald-100 hover:text-white border border-emerald-700/60 transition-colors cursor-pointer"
+                  aria-label="Buscar modelos de recibo"
                 >
                   <Search className="w-5 h-5" />
                 </button>
 
-                {/* Desktop Main Links */}
-                <nav aria-label="Navegação Secundária" className="hidden lg:flex items-center gap-6">
-                  <Link 
-                    to="/declaracoes" 
-                    className="text-sm font-semibold text-emerald-50 hover:text-white transition-colors flex items-center gap-1"
-                  >
-                    Declarações
-                  </Link>
-                  <Link 
-                    to="/blog" 
-                    className="text-sm font-semibold text-emerald-50 hover:text-white transition-colors"
-                  >
-                    Blog
-                  </Link>
-                  <Link 
-                    to="/como-funciona" 
-                    className="text-sm font-semibold text-emerald-50 hover:text-white transition-colors"
-                  >
-                    Como Funciona
-                  </Link>
-                  
-                  {/* Ferramentas Dropdown in Top Bar */}
-                  <div className="relative group">
-                    <button 
-                      className="flex items-center gap-1 text-sm font-semibold text-emerald-50 hover:text-white transition-colors py-6 cursor-pointer"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <Zap className="w-4 h-4 text-emerald-300" />
-                      Ferramentas
-                      <ChevronDown className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity" />
-                    </button>
-                    {/* Dropdown Content */}
-                    <div className="absolute top-[80%] right-0 w-80 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-1 group-hover:translate-y-0 transition-all duration-200 ease-in-out z-50">
-                      <div className="p-3 max-h-[75vh] overflow-y-auto custom-scrollbar text-left text-gray-900 font-normal">
-                        <ul className="space-y-1">
-                          <li>
-                            <Link to="/gerador-qr-code-pix" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                              <div className="font-semibold mb-0.5">Gerador QR Code PIX</div>
-                              <div className="text-xs text-gray-400">Gere códigos PIX e plaquinhas</div>
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to="/gerador-pix-copia-e-cola" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                              <div className="font-semibold mb-0.5">PIX Copia e Cola</div>
-                              <div className="text-xs text-gray-400">Gere links de cobrança PIX</div>
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to="/valor-por-extenso" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                              Valor por Extenso
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to="/calculadora-retencao-impostos" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                              Calculadora de Retenção de Impostos
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to="/calculadora-desconto-multa" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                              Calculadora de Descontos e Multas
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to="/calculadora-maquininha-cartao" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                              Calculadora de Taxas de Maquininha
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to="/calculadora-dias-uteis" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                              Calculadora de Dias Úteis
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to="/conversor-horas-trabalhadas" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                              Conversor de Horas p/ Valor Mensal
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to="/validador-formatador-cpf-cnpj" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                              Formatador e Validador de CPF/CNPJ
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to="/consultador-codigo-ibge" className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors">
-                              Consultador de Código IBGE
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to="/ferramentas" className="text-sm font-bold text-emerald-700 hover:text-emerald-800 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors text-center mt-2 border border-emerald-100">
-                              Ver Todas as Ferramentas &rarr;
-                            </Link>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </nav>
+                {/* Desktop Primary CTA */}
+                <Link
+                  to="/recibo-simples"
+                  className="hidden sm:inline-flex items-center gap-1.5 bg-white text-emerald-900 hover:bg-emerald-50 active:bg-emerald-100 px-4 py-2 rounded-xl font-bold text-sm shadow-sm transition-all hover:shadow"
+                >
+                  <FileText className="w-4 h-4 text-emerald-700" />
+                  <span>Gerar Recibo</span>
+                </Link>
 
                 {/* Mobile Menu Button - Highlighted and Easy to Tap */}
                 <button
                   type="button"
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="lg:hidden flex items-center gap-1.5 bg-emerald-700 hover:bg-emerald-600 active:bg-emerald-800 text-white px-3.5 py-2 rounded-xl font-bold text-sm border border-emerald-500/50 shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-emerald-300 cursor-pointer"
-                  aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu principal"}
+                  className="lg:hidden flex items-center gap-1.5 bg-emerald-700 hover:bg-emerald-600 active:bg-emerald-800 text-white px-3.5 py-2 min-h-[44px] rounded-xl font-bold text-sm border border-emerald-500/50 shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-emerald-300 cursor-pointer"
+                  aria-label={isMenuOpen ? "Fechar menu de navegação" : "Abrir menu principal"}
                   aria-expanded={isMenuOpen}
                 >
                   {isMenuOpen ? <X className="h-5 w-5 text-emerald-200" /> : <Menu className="h-5 w-5 text-emerald-200" />}
@@ -235,68 +255,9 @@ export function Layout() {
             </div>
           </div>
         </div>
-
-        {/* Mobile Quick Category Bar (Horizontal Scrollable Chips) */}
-        <div className="lg:hidden bg-emerald-900/95 border-b border-emerald-800/80 px-3 py-2 flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth">
-          {quickNavLinks.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
-                item.highlight
-                  ? 'bg-emerald-600 text-white border border-emerald-400/50 shadow-sm'
-                  : 'bg-emerald-800/90 text-emerald-100 hover:bg-emerald-700 hover:text-white border border-emerald-700/60'
-              }`}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </div>
-
-        {/* Desktop Bottom Bar: Categories Navigation */}
-        <div className="bg-white border-b border-gray-200 hidden lg:block shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav aria-label="Menu Principal" itemScope itemType="https://schema.org/SiteNavigationElement" className="flex items-center justify-center space-x-6 xl:space-x-8">
-              {Object.entries(categories).map(([category, ids]) => (
-                <div key={category} className="relative group">
-                  <button 
-                    className="flex items-center gap-1.5 text-[15px] font-bold text-gray-700 hover:text-emerald-700 transition-colors py-3.5 cursor-pointer"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    {category}
-                    <ChevronDown className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" />
-                  </button>
-                  
-                  <div className={`absolute top-full ${category === 'Outros' ? 'right-0 w-[420px]' : 'left-1/2 -translate-x-1/2 w-64'} bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-1 group-hover:translate-y-0 transition-all duration-200 ease-in-out z-50 text-left`}>
-                    <div className="p-3 max-h-[75vh] overflow-y-auto custom-scrollbar font-normal">
-                      <ul className={category === 'Outros' ? 'grid grid-cols-2 gap-x-2 gap-y-1' : 'space-y-1'}>
-                        {ids.map(id => {
-                          const model = receiptModels.find(m => m.id === id);
-                          if (!model) return null;
-                          return (
-                            <li key={id}>
-                              <Link 
-                                itemProp="url"
-                                to={`/${model.slug}`}
-                                className="text-sm text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors"
-                              >
-                                <span itemProp="name">{model.title}</span>
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </nav>
-          </div>
-        </div>
       </header>
 
-      <main className="flex-grow pb-20 lg:pb-0">
+      <main id="main-content" className="flex-grow pb-20 lg:pb-0 focus:outline-none" tabIndex={-1}>
         <Outlet />
       </main>
 
@@ -313,10 +274,10 @@ export function Layout() {
               </p>
 
               <div className="flex items-center gap-4 mb-6">
-                <a href="https://www.youtube.com/@Recibogratis" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-white transition-colors flex items-center justify-center p-2 rounded-full bg-emerald-900/50 hover:bg-emerald-800" aria-label="Canal do Youtube">
+                <a href="https://www.youtube.com/@Recibogratis" target="_blank" rel="noopener noreferrer" className="text-emerald-300 hover:text-white transition-colors flex items-center justify-center w-11 h-11 rounded-full bg-emerald-900/60 hover:bg-emerald-800" aria-label="Canal oficial do Recibo Grátis no YouTube">
                   <Youtube className="w-5 h-5" />
                 </a>
-                <a href="https://www.instagram.com/recibogratis" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-white transition-colors flex items-center justify-center p-2 rounded-full bg-emerald-900/50 hover:bg-emerald-800" aria-label="Nosso Instagram">
+                <a href="https://www.instagram.com/recibogratis" target="_blank" rel="noopener noreferrer" className="text-emerald-300 hover:text-white transition-colors flex items-center justify-center w-11 h-11 rounded-full bg-emerald-900/60 hover:bg-emerald-800" aria-label="Perfil oficial do Recibo Grátis no Instagram">
                   <Instagram className="w-5 h-5" />
                 </a>
               </div>

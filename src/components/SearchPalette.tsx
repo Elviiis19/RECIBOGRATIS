@@ -64,12 +64,14 @@ export function SearchPalette({ isOpen, onClose }: SearchPaletteProps) {
             type="text"
             className="flex-1 bg-transparent border-0 focus:ring-0 text-gray-900 placeholder:text-gray-400 sm:text-xl w-full outline-none font-medium h-10"
             placeholder="Qual modelo de recibo você precisa hoje?"
+            aria-label="Qual modelo de recibo você precisa hoje?"
             value={query}
             onChange={e => setQuery(e.target.value)}
           />
           
           <button 
             onClick={onClose}
+            aria-label="Fechar janela de busca"
             className="flex items-center gap-1.5 text-sm font-semibold text-gray-500 hover:text-red-600 bg-gray-100 hover:bg-red-50 px-3 py-2 rounded-lg transition-colors border border-gray-200 hover:border-red-200 shadow-sm"
           >
             <X className="w-5 h-5" />
