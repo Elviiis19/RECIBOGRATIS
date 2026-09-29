@@ -412,9 +412,9 @@ export function Home() {
   return (
     <>
       <SEO 
-        title="Gerador de Recibo Online Grátis e com Pix | Recibo Grátis"
-        description="Gere recibo simples, de pagamento, prestação de serviços e aluguel em PDF e Word na hora. 100% grátis, sem cadastro e com QR Code Pix integrado."
-        keywords="recibo simples, gerador de recibo online, recibo de pagamento, recibo de prestacao de servicos, recibo de aluguel, recibo com pix, baixar modelo recibo word, recibo gratis"
+        title="Recibo Grátis | Recibo Online Simples e Pagamento em PDF e Word"
+        description="Gere recibo online grátis em PDF e Word (.docx) na hora. Recibo simples, de pagamento, prestação de serviços e aluguel com QR Code Pix integrado e sem cadastro."
+        keywords="recibo simples, recibo online, recibo gratis, recibo de pagamento, gerador de recibo online, recibo de prestacao de servicos, recibo de aluguel, recibo com pix, baixar modelo recibo word"
         schema={JSON.stringify({ 
           "@context": "https://schema.org", 
           "@graph": [
@@ -446,12 +446,12 @@ export function Home() {
           </a>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4 leading-tight drop-shadow-sm">
-            Gerador de Recibo Online <br className="hidden sm:inline" />
-            <span className="text-emerald-300">Grátis, Rápido e com Pix</span>
+            Recibo Online Grátis <br className="hidden sm:inline" />
+            <span className="text-emerald-300">Simples, de Pagamento e com Pix</span>
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-emerald-100 max-w-3xl mx-auto mb-8 font-normal leading-relaxed">
-            Emita recibos simples, prestação de serviços, aluguel e autônomos em segundos. Preencha no navegador, gere em <strong>PDF ou Word (.docx)</strong> e envie no WhatsApp. Sem cadastro e 100% gratuito.
+            Emita seu comprovante em menos de 1 minuto sem cadastro. Preencha no navegador, personalize com QR Code Pix e baixe na hora em <strong>PDF ou Word (.docx)</strong>.
           </p>
           
           {/* Action CTAs */}
