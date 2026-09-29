@@ -355,9 +355,9 @@ export function Home() {
   return (
     <>
       <SEO 
-        title="Recibo Grátis: Gerador de Recibo Online em PDF e com Pix"
-        description="Gere recibo online grátis em PDF e Word (.docx) na hora. Crie comprovantes de pagamento e prestação de serviços com QR Code Pix integrado e sem cadastro."
-        keywords="recibo gratis, gerador de recibo online, recibo simples, recibo de pagamento, recibo de prestacao de servicos, recibo de aluguel, recibo com pix, baixar modelo recibo word"
+        title="Recibo Grátis | Recibo Online, Simples e de Pagamento"
+        description="Gere recibo online grátis na hora. Emita recibo simples, de pagamento, prestação de serviços e aluguel em PDF e Word sem cadastro e com opção de QR Code Pix."
+        keywords="recibo gratis, recibo online, recibo simples, recibo de pagamento, gerador de recibo online, recibo de prestacao de servicos, recibo de aluguel, recibo com pix, baixar modelo recibo word"
         schema={JSON.stringify({ 
           "@context": "https://schema.org", 
           "@graph": [
@@ -386,12 +386,12 @@ export function Home() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4 leading-tight drop-shadow-sm">
-            Recibo Grátis <br className="hidden sm:inline" />
-            <span className="text-emerald-300">Gerador de Recibos Online e com Pix</span>
+            Recibo Online Grátis <br className="hidden sm:inline" />
+            <span className="text-emerald-300">Simples e de Pagamento</span>
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-emerald-100 max-w-3xl mx-auto mb-8 font-normal leading-relaxed">
-            Emita comprovantes oficiais em menos de 1 minuto sem cadastro. Preencha no navegador, personalize com QR Code Pix e baixe na hora em <strong>PDF ou Word (.docx)</strong>.
+            Emita comprovantes em menos de 1 minuto sem cadastro. Preencha no navegador e baixe na hora em <strong>PDF ou Word (.docx)</strong> com opção de QR Code Pix.
           </p>
 
           {/* Interactive Fast Mini-Generator Widget - Zero friction, beats competitors immediately */}
