@@ -95,6 +95,8 @@ async function prerender() {
 
     
     for (const model of receiptModels) {
+      // Unificação de autoridade: recibo-de-pagamento redireciona para recibo-simples
+      if (model.slug === 'recibo-de-pagamento') continue;
       routes.push({
         path: `/${model.slug}`,
         title: model.seoTitle || `${model.title} | Gerador Online em PDF Grátis`,
@@ -212,6 +214,27 @@ async function prerender() {
       fs.writeFileSync(outputPath, html);
       console.log(`Generated static HTML for ${route.path}`);
     }
+
+    // Criar redirecionamento 301 definitivo para recibo-de-pagamento -> recibo-simples
+    const redirectDir = path.join(distDir, 'recibo-de-pagamento');
+    if (!fs.existsSync(redirectDir)) {
+      fs.mkdirSync(redirectDir, { recursive: true });
+    }
+    const redirectHtml = `<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0; url=/recibo-simples">
+  <link rel="canonical" href="https://recibogratis.com.br/recibo-simples" />
+  <title>Recibo Simples e Recibo de Pagamento Online | Recibo Grátis</title>
+  <script>window.location.replace("/recibo-simples");</script>
+</head>
+<body>
+  <p>Redirecionando para <a href="/recibo-simples">Recibo Simples e Recibo de Pagamento Online</a>...</p>
+</body>
+</html>`;
+    fs.writeFileSync(path.join(redirectDir, 'index.html'), redirectHtml, 'utf-8');
+    console.log('Generated 301 redirect for /recibo-de-pagamento -> /recibo-simples');
   } catch (e) {
     console.error(e);
   } finally {

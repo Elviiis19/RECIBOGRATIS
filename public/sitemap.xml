@@ -133,12 +133,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://recibogratis.com.br/recibo-de-pagamento</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://recibogratis.com.br/recibo-de-prestacao-de-servicos</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>

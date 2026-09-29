@@ -1,30 +1,55 @@
-import { Link, Outlet } from 'react-router-dom';
-import { FileText, Menu, X, ChevronDown, Zap, Youtube, Instagram, Search } from 'lucide-react';
+import { Link, Outlet, useLocation } from 'react-router-dom';
+import { 
+  FileText, Menu, X, ChevronDown, ChevronRight, Zap, Youtube, Instagram, 
+  Search, Layers, FileCheck2, Wrench, BookOpen, HelpCircle, Home, 
+  Sparkles, ShieldCheck, Phone, Briefcase 
+} from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { receiptModels } from '../data/receiptModels';
 import { CookieBanner } from './CookieBanner';
 import { SearchPalette } from './SearchPalette';
 
 export function Layout() {
+  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [currentYear, setCurrentYear] = useState('2024');
+  const [openMobileCategory, setOpenMobileCategory] = useState<string | null>('Básicos');
+  const currentYear = new Date().getFullYear().toString();
+
+  // Close mobile drawer on route change
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
+  // Lock body scroll when mobile drawer is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
 
   useEffect(() => {
-    setCurrentYear(new Date().getFullYear().toString());
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
         setIsSearchOpen(true);
       }
+      if (e.key === 'Escape' && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [isMenuOpen]);
 
   // Group models by category for the dropdown
   const categories = {
-    'Básicos': ['simples', 'recibo-com-logo', 'pagamento', 'quitacao', 'sinal'],
+    'Básicos': ['simples', 'recibo-com-logo', 'quitacao', 'sinal'],
     'Profissionais': ['servicos', 'honorarios', 'mei', 'arquiteto', 'engenheiro', 'corretor', 'termo-de-prestacao-de-servico', 'prestacao-de-servico-com-logo', 'prestacao-com-garantia-e-logo'],
     'Saúde & Bem-estar': ['dentista', 'psicologo', 'fisioterapeuta', 'nutricionista', 'estetica'],
     'Serviços Domésticos': ['diarista', 'baba', 'cuidador', 'jardinagem'],
@@ -37,6 +62,17 @@ export function Layout() {
     path: `/${m.slug}`
   }));
 
+  const quickNavLinks = [
+    { name: 'Todos os Modelos', path: '/modelos', highlight: true },
+    { name: 'Recibo Simples', path: '/recibo-simples' },
+    { name: 'Prestação de Serviços', path: '/recibo-de-prestacao-de-servicos' },
+    { name: 'Recibo de Aluguel', path: '/recibo-de-aluguel' },
+    { name: 'Declarações', path: '/declaracoes' },
+    { name: 'Pix QR Code', path: '/gerador-qr-code-pix' },
+    { name: 'Ferramentas', path: '/ferramentas' },
+    { name: 'Blog', path: '/blog' },
+  ];
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-50 text-gray-900 font-sans">
       <SearchPalette isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
@@ -45,22 +81,21 @@ export function Layout() {
         {/* Top Bar with Logo, Search, and Main Links */}
         <div className="bg-emerald-800 text-white border-b border-emerald-900/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-16 sm:h-20 gap-4">
+            <div className="flex justify-between items-center h-16 sm:h-20 gap-3">
               
               {/* Left: Logo */}
-              <div className="flex items-center flex-shrink-0 w-auto">
+              <div className="flex items-center flex-shrink-0">
                 <Link to="/" className="flex items-center gap-2 text-white hover:text-emerald-100 transition-colors">
-                  <FileText className="h-7 w-7 sm:h-8 sm:w-8" />
-                  <span className="font-bold text-xl sm:text-2xl tracking-tight hidden sm:block">Recibo Grátis</span>
-                  <span className="font-bold text-xl tracking-tight sm:hidden">Recibo</span>
+                  <FileText className="h-7 w-7 sm:h-8 sm:w-8 text-emerald-300" />
+                  <span className="font-bold text-xl sm:text-2xl tracking-tight">Recibo Grátis</span>
                 </Link>
               </div>
 
-              {/* Center: Search Button */}
-              <div className="flex-1 max-w-xl flex justify-center mx-4">
+              {/* Center: Search Button (Desktop & Tablet) */}
+              <div className="hidden md:flex flex-1 max-w-xl justify-center mx-4">
                 <button
                   onClick={() => setIsSearchOpen(true)}
-                  className="flex items-center gap-2 sm:gap-3 w-full bg-emerald-900/60 hover:bg-emerald-900/90 border border-emerald-600/40 hover:border-emerald-500/60 text-emerald-50 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition-all focus:outline-none focus:ring-2 focus:ring-emerald-400 shadow-inner group"
+                  className="flex items-center gap-2 sm:gap-3 w-full bg-emerald-900/60 hover:bg-emerald-900/90 border border-emerald-600/40 hover:border-emerald-500/60 text-emerald-50 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition-all focus:outline-none focus:ring-2 focus:ring-emerald-400 shadow-inner group cursor-pointer"
                   aria-label="Buscar modelos"
                 >
                   <Search className="w-5 h-5 shrink-0 opacity-70 group-hover:opacity-100 transition-opacity text-emerald-300" />
@@ -74,9 +109,18 @@ export function Layout() {
                 </button>
               </div>
 
-              {/* Right: Desktop Links & Mobile Menu */}
-              <div className="flex items-center justify-end flex-shrink-0 w-auto">
+              {/* Right: Desktop Links & Mobile Controls */}
+              <div className="flex items-center justify-end gap-2 flex-shrink-0">
                 
+                {/* Mobile Search Icon Button */}
+                <button
+                  onClick={() => setIsSearchOpen(true)}
+                  className="md:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-emerald-900/50 hover:bg-emerald-900 text-emerald-100 hover:text-white border border-emerald-700/60 transition-colors cursor-pointer"
+                  aria-label="Buscar modelos"
+                >
+                  <Search className="w-5 h-5" />
+                </button>
+
                 {/* Desktop Main Links */}
                 <nav aria-label="Navegação Secundária" className="hidden lg:flex items-center gap-6">
                   <Link 
@@ -101,7 +145,7 @@ export function Layout() {
                   {/* Ferramentas Dropdown in Top Bar */}
                   <div className="relative group">
                     <button 
-                      className="flex items-center gap-1 text-sm font-semibold text-emerald-50 hover:text-white transition-colors py-6"
+                      className="flex items-center gap-1 text-sm font-semibold text-emerald-50 hover:text-white transition-colors py-6 cursor-pointer"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
@@ -165,7 +209,7 @@ export function Layout() {
                               Consultador de Código IBGE
                             </Link>
                           </li>
-                                                  <li>
+                          <li>
                             <Link to="/ferramentas" className="text-sm font-bold text-emerald-700 hover:text-emerald-800 hover:bg-emerald-50 block py-2 px-3 rounded-lg transition-colors text-center mt-2 border border-emerald-100">
                               Ver Todas as Ferramentas &rarr;
                             </Link>
@@ -176,27 +220,47 @@ export function Layout() {
                   </div>
                 </nav>
 
-                {/* Mobile Menu Button */}
+                {/* Mobile Menu Button - Highlighted and Easy to Tap */}
                 <button
+                  type="button"
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="xl:hidden text-emerald-50 hover:text-white focus:outline-none ml-2 p-1.5 rounded-lg hover:bg-emerald-700/50 transition-colors"
-                  aria-label="Menu principal"
+                  className="lg:hidden flex items-center gap-1.5 bg-emerald-700 hover:bg-emerald-600 active:bg-emerald-800 text-white px-3.5 py-2 rounded-xl font-bold text-sm border border-emerald-500/50 shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-emerald-300 cursor-pointer"
+                  aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu principal"}
+                  aria-expanded={isMenuOpen}
                 >
-                  {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                  {isMenuOpen ? <X className="h-5 w-5 text-emerald-200" /> : <Menu className="h-5 w-5 text-emerald-200" />}
+                  <span>Menu</span>
                 </button>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar: Categories Navigation */}
+        {/* Mobile Quick Category Bar (Horizontal Scrollable Chips) */}
+        <div className="lg:hidden bg-emerald-900/95 border-b border-emerald-800/80 px-3 py-2 flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth">
+          {quickNavLinks.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
+                item.highlight
+                  ? 'bg-emerald-600 text-white border border-emerald-400/50 shadow-sm'
+                  : 'bg-emerald-800/90 text-emerald-100 hover:bg-emerald-700 hover:text-white border border-emerald-700/60'
+              }`}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+
+        {/* Desktop Bottom Bar: Categories Navigation */}
         <div className="bg-white border-b border-gray-200 hidden lg:block shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav aria-label="Menu Principal" itemScope itemType="https://schema.org/SiteNavigationElement" className="flex items-center justify-center space-x-6 xl:space-x-8">
               {Object.entries(categories).map(([category, ids]) => (
                 <div key={category} className="relative group">
                   <button 
-                    className="flex items-center gap-1.5 text-[15px] font-bold text-gray-700 hover:text-emerald-700 transition-colors py-3.5"
+                    className="flex items-center gap-1.5 text-[15px] font-bold text-gray-700 hover:text-emerald-700 transition-colors py-3.5 cursor-pointer"
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
@@ -230,77 +294,9 @@ export function Layout() {
             </nav>
           </div>
         </div>
-
-        {/* Mobile Nav */}
-        {isMenuOpen && (
-          <div className="xl:hidden bg-white border-b border-gray-100 max-h-[80vh] overflow-y-auto w-full absolute top-full left-0 z-40 shadow-xl">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Link
-                to="/"
-                onClick={() => setIsMenuOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-bold text-emerald-700 hover:bg-emerald-50 border-b border-gray-50 mb-2"
-              >
-                Página Inicial (Todos os Modelos)
-              </Link>
-              <Link
-                to="/declaracoes"
-                onClick={() => setIsMenuOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-bold text-gray-700 hover:bg-emerald-50 hover:text-emerald-700"
-              >
-                Modelos de Declaração
-              </Link>
-              <Link
-                to="/blog"
-                onClick={() => setIsMenuOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-bold text-gray-700 hover:bg-emerald-50 hover:text-emerald-700"
-              >
-                Nosso Blog
-              </Link>
-              <Link
-                to="/como-funciona"
-                onClick={() => setIsMenuOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-bold text-gray-700 hover:bg-emerald-50 hover:text-emerald-700"
-              >
-                Como Funciona
-              </Link>
-              <div className="pt-4 pb-2">
-                <p className="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">
-                  Ferramentas
-                </p>
-              </div>
-              <Link to="/gerador-qr-code-pix" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50">Gerador QR Code PIX</Link>
-              <Link to="/gerador-pix-copia-e-cola" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50">Gerador PIX Copia e Cola</Link>
-              <Link to="/valor-por-extenso" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50">Valor por Extenso</Link>
-              <Link to="/calculadora-retencao-impostos" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50">Retenção de Impostos</Link>
-              <Link to="/calculadora-desconto-multa" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50">Descontos e Multas</Link>
-              <Link to="/calculadora-maquininha-cartao" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50">Taxas de Maquininha</Link>
-              <Link to="/calculadora-dias-uteis" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50">Dias Úteis</Link>
-              <Link to="/conversor-horas-trabalhadas" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50">Horas p/ Valor Monetário</Link>
-              <Link to="/validador-formatador-cpf-cnpj" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50">Validador de CPF/CNPJ</Link>
-              <Link to="/consultador-codigo-ibge" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50">Consultador Código IBGE</Link>
-              <Link to="/ferramentas" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 mt-2">Ver Todas as Ferramentas &rarr;</Link>
-              
-              <div className="pt-6 pb-2">
-                <p className="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">
-                  Modelos de Recibo
-                </p>
-              </div>
-              {footerLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-emerald-700 hover:bg-gray-50"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
       </header>
 
-      <main className="flex-grow">
+      <main className="flex-grow pb-20 lg:pb-0">
         <Outlet />
       </main>
 
@@ -328,56 +324,122 @@ export function Layout() {
               <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">Ferramentas Extras</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link to="/gerador-qr-code-pix" className="text-sm font-medium text-emerald-400 hover:text-white flex items-center gap-1 transition-colors">
+                  <Link to="/gerador-qr-code-pix" className="text-sm text-emerald-100/70 hover:text-white transition-colors">
                     Gerador de QR Code PIX
                   </Link>
                 </li>
-                <li><Link to="/valor-por-extenso" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Valor por Extenso</Link></li>
-                <li><Link to="/calculadora-retencao-impostos" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Calculadora de Retenção de Impostos</Link></li>
-                <li><Link to="/calculadora-desconto-multa" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Descontos e Multas</Link></li>
-                <li><Link to="/calculadora-maquininha-cartao" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Taxas de Maquininha</Link></li>
+                <li>
+                  <Link to="/gerador-pix-copia-e-cola" className="text-sm text-emerald-100/70 hover:text-white transition-colors">
+                    Gerador PIX Copia e Cola
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/valor-por-extenso" className="text-sm text-emerald-100/70 hover:text-white transition-colors">
+                    Valor por Extenso
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/calculadora-retencao-impostos" className="text-sm text-emerald-100/70 hover:text-white transition-colors">
+                    Calculadora de Retenção de Impostos
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/calculadora-desconto-multa" className="text-sm text-emerald-100/70 hover:text-white transition-colors">
+                    Calculadora de Descontos e Multas
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/calculadora-maquininha-cartao" className="text-sm text-emerald-100/70 hover:text-white transition-colors">
+                    Calculadora de Taxas de Maquininha
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/calculadora-dias-uteis" className="text-sm text-emerald-100/70 hover:text-white transition-colors">
+                    Calculadora de Dias Úteis
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/conversor-horas-trabalhadas" className="text-sm text-emerald-100/70 hover:text-white transition-colors">
+                    Conversor de Horas p/ Valor Mensal
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/validador-formatador-cpf-cnpj" className="text-sm text-emerald-100/70 hover:text-white transition-colors">
+                    Validador de CPF/CNPJ
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/consultador-codigo-ibge" className="text-sm text-emerald-100/70 hover:text-white transition-colors">
+                    Consultador de Código IBGE
+                  </Link>
+                </li>
               </ul>
             </div>
-            
+
             <div>
               <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">Mais Usados</h3>
               <ul className="space-y-2">
-                {footerLinks.slice(0, 8).map((link) => (
-                  <li key={link.path}>
-                    <Link to={link.path} className="text-sm text-emerald-100/70 hover:text-white transition-colors">
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
+                {categories['Básicos'].map(id => {
+                  const model = receiptModels.find(m => m.id === id);
+                  if (!model) return null;
+                  return (
+                    <li key={id}>
+                      <Link to={`/${model.slug}`} className="text-sm text-emerald-100/70 hover:text-white transition-colors">
+                        {model.title}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 
             <div>
               <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">Profissionais</h3>
               <ul className="space-y-2">
-                {footerLinks.slice(8, 16).map((link) => (
-                  <li key={link.path}>
-                    <Link to={link.path} className="text-sm text-emerald-100/70 hover:text-white transition-colors">
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
+                {categories['Profissionais'].slice(0, 5).map(id => {
+                  const model = receiptModels.find(m => m.id === id);
+                  if (!model) return null;
+                  return (
+                    <li key={id}>
+                      <Link to={`/${model.slug}`} className="text-sm text-emerald-100/70 hover:text-white transition-colors">
+                        {model.title}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 
             <div>
               <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">Institucional</h3>
-              <ul className="space-y-2 mb-6">
-                <li><Link to="/como-funciona" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Como Funciona</Link></li>
-                <li><Link to="/blog" className="text-sm inline-flex items-center gap-1 font-bold text-emerald-400 hover:text-white transition-colors">Nosso Blog</Link></li>
-                <li><Link to="/declaracoes" className="text-sm inline-flex items-center gap-1 font-bold text-emerald-400 hover:text-white transition-colors">Declarações Diversas</Link></li>
-                <li><Link to="/faq" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Perguntas Frequentes (FAQ)</Link></li>
-                <li><Link to="/termos-de-uso" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Termos de Uso</Link></li>
-                <li><Link to="/politica-de-privacidade" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Política de Privacidade</Link></li>
-                <li><Link to="/contato" className="text-sm text-emerald-100/70 hover:text-white transition-colors">Contato</Link></li>
+              <ul className="space-y-2">
+                <li>
+                  <Link to="/como-funciona" className="text-sm text-emerald-100/70 hover:text-white transition-colors">
+                    Como Funciona
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/faq" className="text-sm text-emerald-100/70 hover:text-white transition-colors">
+                    Dúvidas Frequentes (FAQ)
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contato" className="text-sm text-emerald-100/70 hover:text-white transition-colors">
+                    Contato
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/termos-de-uso" className="text-sm text-emerald-100/70 hover:text-white transition-colors">
+                    Termos de Uso
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/politica-de-privacidade" className="text-sm text-emerald-100/70 hover:text-white transition-colors">
+                    Política de Privacidade
+                  </Link>
+                </li>
               </ul>
-
-              <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">Nosso Ecossistema</h3>
+              <h3 className="text-sm font-semibold text-white tracking-wider uppercase mt-8 mb-4">Nosso Ecossistema</h3>
               <ul className="space-y-2">
                 <li>
                   <a href="https://declaracaoonline.com.br" target="_blank" rel="noopener noreferrer" className="text-sm text-emerald-100/70 hover:text-white transition-colors">
@@ -403,8 +465,402 @@ export function Layout() {
           </div>
         </div>
       </footer>
+
+      {/* Mobile Fixed Bottom Navigation Bar (Sempre visível no celular) */}
+      <nav 
+        aria-label="Navegação inferior mobile"
+        className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-[0_-4px_16px_rgba(0,0,0,0.08)]"
+        style={{ paddingBottom: 'max(env(safe-area-inset-bottom, 0px), 6px)' }}
+      >
+        <div className="flex items-center justify-around h-14 max-w-lg mx-auto px-1">
+          <Link
+            to="/"
+            onClick={() => setIsMenuOpen(false)}
+            className={`flex flex-col items-center justify-center flex-1 py-1 px-1 transition-all ${
+              location.pathname === '/'
+                ? 'text-emerald-600 font-bold'
+                : 'text-gray-500 hover:text-gray-900 font-medium'
+            }`}
+          >
+            <div className={`p-1 rounded-xl transition-all ${location.pathname === '/' ? 'bg-emerald-50 text-emerald-600 scale-105' : ''}`}>
+              <Home className="w-5 h-5" />
+            </div>
+            <span className="text-[11px] leading-tight mt-0.5 tracking-tight">
+              Início
+            </span>
+          </Link>
+
+          <Link
+            to="/modelos"
+            onClick={() => setIsMenuOpen(false)}
+            className={`flex flex-col items-center justify-center flex-1 py-1 px-1 transition-all ${
+              location.pathname === '/modelos' || location.pathname.startsWith('/recibo-')
+                ? 'text-emerald-600 font-bold'
+                : 'text-gray-500 hover:text-gray-900 font-medium'
+            }`}
+          >
+            <div className={`p-1 rounded-xl transition-all ${location.pathname === '/modelos' || location.pathname.startsWith('/recibo-') ? 'bg-emerald-50 text-emerald-600 scale-105' : ''}`}>
+              <FileText className="w-5 h-5" />
+            </div>
+            <span className="text-[11px] leading-tight mt-0.5 tracking-tight">
+              Modelos
+            </span>
+          </Link>
+
+          <Link
+            to="/declaracoes"
+            onClick={() => setIsMenuOpen(false)}
+            className={`flex flex-col items-center justify-center flex-1 py-1 px-1 transition-all ${
+              location.pathname.startsWith('/declaracoes')
+                ? 'text-emerald-600 font-bold'
+                : 'text-gray-500 hover:text-gray-900 font-medium'
+            }`}
+          >
+            <div className={`p-1 rounded-xl transition-all ${location.pathname.startsWith('/declaracoes') ? 'bg-emerald-50 text-emerald-600 scale-105' : ''}`}>
+              <FileCheck2 className="w-5 h-5" />
+            </div>
+            <span className="text-[11px] leading-tight mt-0.5 tracking-tight">
+              Declarações
+            </span>
+          </Link>
+
+          <Link
+            to="/ferramentas"
+            onClick={() => setIsMenuOpen(false)}
+            className={`flex flex-col items-center justify-center flex-1 py-1 px-1 transition-all ${
+              location.pathname === '/ferramentas' || location.pathname.startsWith('/calculadora-') || location.pathname.startsWith('/gerador-') || location.pathname.startsWith('/validador-') || location.pathname === '/valor-por-extenso'
+                ? 'text-emerald-600 font-bold'
+                : 'text-gray-500 hover:text-gray-900 font-medium'
+            }`}
+          >
+            <div className={`p-1 rounded-xl transition-all ${location.pathname === '/ferramentas' || location.pathname.startsWith('/calculadora-') || location.pathname.startsWith('/gerador-') || location.pathname.startsWith('/validador-') || location.pathname === '/valor-por-extenso' ? 'bg-emerald-50 text-emerald-600 scale-105' : ''}`}>
+              <Zap className="w-5 h-5" />
+            </div>
+            <span className="text-[11px] leading-tight mt-0.5 tracking-tight">
+              Ferramentas
+            </span>
+          </Link>
+
+          {/* Menu Drawer Toggle Button */}
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className={`flex flex-col items-center justify-center flex-1 py-1 px-1 transition-all cursor-pointer ${
+              isMenuOpen
+                ? 'text-emerald-600 font-bold'
+                : 'text-gray-500 hover:text-gray-900 font-medium'
+            }`}
+            aria-label={isMenuOpen ? "Fechar menu principal" : "Abrir menu principal"}
+            aria-expanded={isMenuOpen}
+          >
+            <div className={`p-1 rounded-xl transition-all ${isMenuOpen ? 'bg-emerald-100 text-emerald-700 scale-105' : ''}`}>
+              {isMenuOpen ? <X className="w-5 h-5 text-emerald-700" /> : <Menu className="w-5 h-5" />}
+            </div>
+            <span className="text-[11px] leading-tight mt-0.5 tracking-tight">
+              {isMenuOpen ? 'Fechar' : 'Menu'}
+            </span>
+          </button>
+        </div>
+      </nav>
+
+      {/* Enhanced Full Mobile Drawer Menu Modal */}
+      {isMenuOpen && (
+        <div className="lg:hidden fixed inset-0 z-50 flex flex-col justify-end">
+          {/* Backdrop overlay (tap to close) */}
+          <div 
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+            onClick={() => setIsMenuOpen(false)}
+            aria-hidden="true"
+          />
+
+          {/* Drawer Container (Slide-up Bottom Sheet) */}
+          <div 
+            className="relative z-10 w-full max-h-[92vh] bg-white rounded-t-3xl shadow-2xl flex flex-col overflow-hidden border-t border-gray-200"
+          >
+            {/* Visual drag indicator */}
+            <div className="w-12 h-1.5 bg-gray-300 rounded-full mx-auto mt-3 mb-1" />
+
+            {/* Drawer Header */}
+            <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100 bg-white">
+              <div className="flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-xl bg-emerald-700 flex items-center justify-center text-white shadow-sm">
+                  <FileText className="w-5 h-5 text-emerald-200" />
+                </div>
+                <div>
+                  <span className="font-black text-lg text-gray-900 block leading-tight tracking-tight">Recibo Grátis</span>
+                  <span className="text-xs text-gray-500 font-medium">Menu Principal de Navegação</span>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setIsMenuOpen(false)}
+                className="p-2 rounded-xl text-gray-600 hover:text-gray-900 hover:bg-gray-100 flex items-center gap-1.5 font-bold text-sm transition-colors border border-gray-200 cursor-pointer shadow-sm"
+                aria-label="Fechar menu"
+              >
+                <X className="w-5 h-5" />
+                <span>Fechar</span>
+              </button>
+            </div>
+
+            {/* Scrollable Content inside Drawer */}
+            <div className="p-4 overflow-y-auto space-y-4 max-h-[calc(92vh-4.5rem)] overscroll-contain pb-24">
+              
+              {/* Search Bar in Drawer */}
+              <button
+                type="button"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setIsSearchOpen(true);
+                }}
+                className="w-full flex items-center gap-3 bg-gray-100 hover:bg-gray-200 text-gray-600 px-4 py-3 rounded-2xl text-left font-medium text-sm transition-colors border border-gray-200 cursor-pointer shadow-inner"
+              >
+                <Search className="w-5 h-5 text-emerald-600 shrink-0" />
+                <span className="flex-1 truncate">Buscar recibo, declaração ou ferramenta...</span>
+                <span className="text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">Buscar</span>
+              </button>
+
+              {/* Destaques Rápidos */}
+              <div>
+                <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2 px-1">
+                  Modelos Mais Usados
+                </span>
+                <div className="grid grid-cols-2 gap-2">
+                  <Link
+                    to="/recibo-simples"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 hover:bg-emerald-100 transition-colors flex flex-col"
+                  >
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-xs font-bold text-emerald-700 bg-emerald-200/70 px-2 py-0.5 rounded-full">Top 1</span>
+                      <Sparkles className="w-4 h-4 text-emerald-600" />
+                    </div>
+                    <span className="font-bold text-sm text-emerald-950">Recibo Simples</span>
+                    <span className="text-[11px] text-emerald-700/90 font-medium">Em PDF ou Word</span>
+                  </Link>
+
+                  <Link
+                    to="/recibo-de-prestacao-de-servicos"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="p-3 rounded-xl bg-blue-50 border border-blue-200 hover:bg-blue-100 transition-colors flex flex-col"
+                  >
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-xs font-bold text-blue-700 bg-blue-200/70 px-2 py-0.5 rounded-full">Serviços</span>
+                      <Briefcase className="w-4 h-4 text-blue-600" />
+                    </div>
+                    <span className="font-bold text-sm text-blue-950">Prestação Serviços</span>
+                    <span className="text-[11px] text-blue-700/90 font-medium">Mão de obra e taxas</span>
+                  </Link>
+
+                  <Link
+                    to="/recibo-de-aluguel"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="p-3 rounded-xl bg-amber-50 border border-amber-200 hover:bg-amber-100 transition-colors flex flex-col"
+                  >
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-xs font-bold text-amber-700 bg-amber-200/70 px-2 py-0.5 rounded-full">Imóveis</span>
+                      <Home className="w-4 h-4 text-amber-600" />
+                    </div>
+                    <span className="font-bold text-sm text-amber-950">Recibo de Aluguel</span>
+                    <span className="text-[11px] text-amber-700/90 font-medium">Locatário e condomínio</span>
+                  </Link>
+
+                  <Link
+                    to="/gerador-qr-code-pix"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="p-3 rounded-xl bg-purple-50 border border-purple-200 hover:bg-purple-100 transition-colors flex flex-col"
+                  >
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-xs font-bold text-purple-700 bg-purple-200/70 px-2 py-0.5 rounded-full">PIX</span>
+                      <Zap className="w-4 h-4 text-purple-600" />
+                    </div>
+                    <span className="font-bold text-sm text-purple-950">Gerador QR Pix</span>
+                    <span className="text-[11px] text-purple-700/90 font-medium">Com valor e plaquinha</span>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Seções do Portal */}
+              <div>
+                <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2 px-1">
+                  Navegação do Portal
+                </span>
+                <div className="grid grid-cols-2 gap-2">
+                  <Link
+                    to="/modelos"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex items-center gap-2.5 p-3 rounded-xl bg-gray-50 border border-gray-200 hover:bg-gray-100 transition-colors"
+                  >
+                    <FileText className="w-5 h-5 text-emerald-600 shrink-0" />
+                    <div className="truncate">
+                      <span className="font-bold text-sm text-gray-900 block truncate">Todos os Modelos</span>
+                      <span className="text-[11px] text-gray-500 font-medium">40+ Recibos</span>
+                    </div>
+                  </Link>
+
+                  <Link
+                    to="/declaracoes"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex items-center gap-2.5 p-3 rounded-xl bg-gray-50 border border-gray-200 hover:bg-gray-100 transition-colors"
+                  >
+                    <FileCheck2 className="w-5 h-5 text-blue-600 shrink-0" />
+                    <div className="truncate">
+                      <span className="font-bold text-sm text-gray-900 block truncate">Declarações</span>
+                      <span className="text-[11px] text-gray-500 font-medium">Modelos Prontos</span>
+                    </div>
+                  </Link>
+
+                  <Link
+                    to="/ferramentas"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex items-center gap-2.5 p-3 rounded-xl bg-gray-50 border border-gray-200 hover:bg-gray-100 transition-colors"
+                  >
+                    <Wrench className="w-5 h-5 text-amber-600 shrink-0" />
+                    <div className="truncate">
+                      <span className="font-bold text-sm text-gray-900 block truncate">Ferramentas</span>
+                      <span className="text-[11px] text-gray-500 font-medium">Calculadoras</span>
+                    </div>
+                  </Link>
+
+                  <Link
+                    to="/blog"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex items-center gap-2.5 p-3 rounded-xl bg-gray-50 border border-gray-200 hover:bg-gray-100 transition-colors"
+                  >
+                    <BookOpen className="w-5 h-5 text-purple-600 shrink-0" />
+                    <div className="truncate">
+                      <span className="font-bold text-sm text-gray-900 block truncate">Nosso Blog</span>
+                      <span className="text-[11px] text-gray-500 font-medium">Dicas & Leis</span>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Categorias de Recibos em Accordion */}
+              <div className="pt-2">
+                <div className="flex items-center justify-between mb-2 px-1">
+                  <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">
+                    Categorias de Recibos
+                  </span>
+                  <Link
+                    to="/modelos"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-xs font-bold text-emerald-700 hover:underline"
+                  >
+                    Ver todos &rarr;
+                  </Link>
+                </div>
+
+                <div className="space-y-2">
+                  {Object.entries(categories).map(([category, ids]) => {
+                    const isOpen = openMobileCategory === category;
+                    return (
+                      <div key={category} className="border border-gray-200 rounded-2xl overflow-hidden bg-gray-50/60 shadow-sm">
+                        <button
+                          type="button"
+                          onClick={() => setOpenMobileCategory(isOpen ? null : category)}
+                          className="w-full flex items-center justify-between p-3.5 text-left font-bold text-gray-800 hover:text-emerald-700 hover:bg-emerald-50/50 transition-colors cursor-pointer"
+                        >
+                          <span className="text-sm font-bold flex items-center gap-2">
+                            {category}
+                          </span>
+                          <span className="flex items-center gap-1.5 text-xs font-semibold text-gray-500 bg-white px-2 py-0.5 rounded-full border border-gray-200">
+                            <span>{ids.length}</span>
+                            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180 text-emerald-600' : ''}`} />
+                          </span>
+                        </button>
+
+                        {isOpen && (
+                          <div className="px-3 pb-3 pt-1 border-t border-gray-200/80 bg-white">
+                            <ul className="space-y-1">
+                              {ids.map(id => {
+                                const model = receiptModels.find(m => m.id === id);
+                                if (!model) return null;
+                                return (
+                                  <li key={id}>
+                                    <Link
+                                      to={`/${model.slug}`}
+                                      onClick={() => setIsMenuOpen(false)}
+                                      className="text-xs text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-2.5 rounded-xl transition-colors font-medium flex items-center justify-between"
+                                    >
+                                      <span>{model.title}</span>
+                                      <ChevronRight className="w-3.5 h-3.5 opacity-40 text-emerald-600" />
+                                    </Link>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Links Institucionais */}
+              <div className="pt-2 border-t border-gray-200">
+                <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2 px-1">
+                  Institucional & Suporte
+                </span>
+                <div className="grid grid-cols-2 gap-2 text-xs font-semibold text-gray-600">
+                  <Link
+                    to="/como-funciona"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="p-2.5 rounded-xl bg-gray-50 hover:bg-gray-100 hover:text-emerald-700 transition-colors flex items-center gap-1.5 border border-gray-200"
+                  >
+                    <HelpCircle className="w-4 h-4 text-emerald-600" />
+                    <span>Como Funciona</span>
+                  </Link>
+
+                  <Link
+                    to="/faq"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="p-2.5 rounded-xl bg-gray-50 hover:bg-gray-100 hover:text-emerald-700 transition-colors flex items-center gap-1.5 border border-gray-200"
+                  >
+                    <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                    <span>Dúvidas (FAQ)</span>
+                  </Link>
+
+                  <Link
+                    to="/contato"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="p-2.5 rounded-xl bg-gray-50 hover:bg-gray-100 hover:text-emerald-700 transition-colors flex items-center gap-1.5 border border-gray-200"
+                  >
+                    <Phone className="w-4 h-4 text-emerald-600" />
+                    <span>Fale Conosco</span>
+                  </Link>
+
+                  <Link
+                    to="/termos-de-uso"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="p-2.5 rounded-xl bg-gray-50 hover:bg-gray-100 hover:text-emerald-700 transition-colors flex items-center gap-1.5 border border-gray-200"
+                  >
+                    <FileText className="w-4 h-4 text-gray-500" />
+                    <span>Termos & Privacidade</span>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Redes Sociais */}
+              <div className="pt-3 pb-6 border-t border-gray-200 flex items-center justify-between text-xs text-gray-500">
+                <span>© {currentYear} Recibo Grátis</span>
+                <div className="flex items-center gap-3">
+                  <a href="https://www.youtube.com/@Recibogratis" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-emerald-700 p-1.5 rounded-full hover:bg-gray-100" aria-label="YouTube">
+                    <Youtube className="w-4 h-4" />
+                  </a>
+                  <a href="https://www.instagram.com/recibogratis" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-emerald-700 p-1.5 rounded-full hover:bg-gray-100" aria-label="Instagram">
+                    <Instagram className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      )}
+
       <CookieBanner />
     </div>
   );
 }
-

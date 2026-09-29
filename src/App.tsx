@@ -80,6 +80,8 @@ export default function App({ url }: { url?: string }) {
         <Route path="blog" element={<BlogIndex />} />
         <Route path="blog/categoria/:category" element={<BlogIndex />} />
         <Route path="blog/:slug" element={<BlogPostView />} />
+        {/* Unificação de autoridade SEO: recibo-de-pagamento redireciona para recibo-simples */}
+        <Route path="recibo-de-pagamento" element={<Navigate to="/recibo-simples" replace />} />
         <Route path=":slug" element={<ReceiptPage />} />
       </Route>
     </Routes>

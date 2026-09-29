@@ -28,20 +28,20 @@ export const receiptModels = [
     slug: "recibo-simples",
     title: "Recibo Simples",
     shortDescription:
-      "Gere seu recibo simples em segundos em PDF ou baixe o modelo editável em Word (.docx). 100% grátis, sem cadastro e sem marca d'água!",
-    seoTitle: "Recibo Simples Online Grátis — Recibo de Pagamento em PDF | Recibo Grátis",
+      "Gere seu recibo simples e de pagamento em segundos em PDF ou baixe o modelo editável em Word (.docx). 100% grátis, sem cadastro e sem marca d'água!",
+    seoTitle: "Recibo Simples e Recibo de Pagamento Online — Modelo Grátis",
     seoDescription:
-      "Gere recibo simples grátis em PDF ou baixe o modelo em Word (.docx). Recibo de pagamento sem cadastro, sem marca d'água, com validade jurídica e QR Code Pix.",
+      "Gere seu recibo simples e recibo de pagamento online em segundos. Baixe em PDF ou Word (.docx). 100% grátis, sem cadastro, sem marca d'água e válido em todo o Brasil.",
     keywords:
-      "recibo simples, recibo simples online, recibo simples grátis, recibo de pagamento, modelo de recibo, modelo de recibo simples word, recibo simples docx, recibo de pagamento simples para imprimir, recibo simples pdf, recibo simples sem cadastro, recibo simples 2026, como fazer recibo simples, modelo de recibo de pagamento",
+      "recibo simples, recibo de pagamento, recibo simples online, recibo de pagamento online, modelo de recibo, modelo de recibo simples, modelo de recibo de pagamento, recibo simples word, recibo simples docx, recibo de pagamento simples para imprimir, recibo simples pdf, recibo simples sem cadastro, recibo simples 2026, como fazer recibo simples, comprovante de pagamento, recibo de pagamento gratis",
     defaultReferenteA:
       "Pagamento referente a [descreva o motivo do pagamento].",
     icon: "FileText",
     seoContent: {
-      h2: "O que é um Recibo Simples e como ele protege seu dinheiro?",
-      p1: "O recibo simples é o documento financeiro mais comum e versátil utilizado no Brasil para comprovar que uma transação ocorreu entre duas partes. Ele serve como uma declaração formal e legal de que um valor foi pago por uma pessoa (pagador) e recebido por outra (recebedor). Sem um recibo, transações informais baseiam-se apenas na confiança, o que pode gerar sérias dores de cabeça, cobranças em duplicidade e prejuízos financeiros. Ao utilizar nosso gerador de recibo simples online, você cria um documento padronizado, com validade comercial e jurídica, pronto para ser impresso, salvo em PDF ou baixado em Word (.docx).",
-      h3: "Quando utilizar o Recibo Simples em vez da Nota Fiscal?",
-      p2: "Este modelo é ideal para transações cotidianas que não exigem detalhamentos fiscais complexos. Por exemplo: serviços de autônomos, trabalhos de MEI para pessoas físicas, compra e venda de itens usados (carros, celulares, móveis), pagamento de diárias, sinal de negócios ou pequenos aluguéis diretos. Enquanto a Nota Fiscal tem a função tributária perante o Estado, o recibo simples tem a finalidade jurídica de proteger o cidadão, atestando a quitação irrevogável da dívida.",
+      h2: "Para que serve o Recibo Simples e de Pagamento?",
+      p1: "O recibo simples e de pagamento é o comprovante mais seguro do Brasil para atestar que um valor foi pago e recebido. Ele serve para proteger você de cobranças indevidas no futuro, provar acertos financeiros e formalizar transações entre pessoas físicas ou autônomos. Se você pagou por um serviço, comprou um veículo usado ou fez um acerto de contas, o recibo assinado é sua garantia de tranquilidade.",
+      h3: "Quem pode emitir e quem deve assinar?",
+      p2: "Qualquer pessoa física (CPF) ou profissional autônomo sem CNPJ pode emitir um recibo simples. A regra de ouro é: quem recebeu o dinheiro deve assinar o recibo e entregar uma via original a quem pagou. Para compras e serviços do dia a dia, a assinatura simples tem validade jurídica imediata em todo o território nacional, sem precisar de cartório.",
     },
     faqs: [
       {
@@ -114,64 +114,6 @@ export const receiptModels = [
         answer:
           "No nosso gerador, você pode marcar a opção de Chave Pix, digitar sua chave e o sistema cria automaticamente um QR Code dinâmico/estático direto no corpo do recibo. Seu cliente pode apontar a câmera do celular no documento e pagar na hora!"
       }
-    ],
-  },
-  {
-    id: "pagamento",
-    slug: "recibo-de-pagamento",
-    title: "Recibo de Pagamento",
-    shortDescription:
-      "Gere recibo de pagamento online grátis em segundos. Sem cadastro, sem instalação. Preencha, visualize e baixe em PDF na hora.",
-    seoTitle: "Recibo de Pagamento Online Grátis | Gere e Baixe em PDF",
-    seoDescription:
-      "Gerador de Recibo de pagamento, visualiza na hora que preenche e imprime ou baixe em PDF. Gere o recibo online grátis. É Rápido, fácil e Sem cadastro, sem instalação.",
-    keywords:
-      "recibo de pagamento, recibo de pagamento online, recibo de pagamento grátis, comprovante de pagamento, gerar recibo de pagamento, modelo recibo pagamento, recibo pagamento pdf, recibo de pagamento sem cadastro, recibo pagamento 2026",
-    defaultReferenteA:
-      "Quitação do pagamento referente a [descreva o produto, serviço ou dívida].",
-    icon: "BadgeDollarSign",
-    seoContent: {
-      h2: "A importância do Recibo de Pagamento na quitação de dívidas",
-      p1: "O recibo de pagamento é a prova definitiva de que uma obrigação financeira foi cumprida. No direito brasileiro (Código Civil), quem paga tem o direito absoluto de exigir a quitação regular, e pode reter o pagamento enquanto o recibo não for fornecido. Emitir um recibo de pagamento online garante que todas as informações essenciais (como valor por extenso, CPF/CNPJ e datas) fiquem registradas de forma clara, evitando fraudes, erros de caligrafia ou perda de comprovantes em papel. É o documento ideal para formalizar pagamentos de prestação de serviços, compras parceladas, honorários e quitação de dívidas entre pessoas físicas ou jurídicas.",
-      h3: "Como preencher um Recibo de Pagamento com validade legal?",
-      p2: 'Para que o recibo de pagamento tenha validade incontestável, é crucial preencher corretamente o valor (em números e por extenso, para evitar adulterações), os dados completos de quem paga (pagador) e quem recebe (recebedor), incluindo CPF ou CNPJ. A descrição no campo "Referente a" deve ser o mais detalhada possível (ex: "Referente à 2ª parcela da pintura do imóvel X"). Por fim, a data, o local e, o mais importante, a assinatura física ou digital do recebedor são obrigatórios. Nosso gerador de recibo de pagamento em PDF já organiza todos esses campos no formato exigido pela lei.',
-    },
-    faqs: [
-      {
-        question: "Como preencher um recibo de pagamento?",
-        answer:
-          "Preencha o valor numérico e por extenso, o nome e CPF/CNPJ de quem está pagando, a descrição exata do que está sendo pago, a cidade, a data e, por fim, a assinatura de quem está recebendo o dinheiro.",
-      },
-      {
-        question: "Posso emitir recibo de pagamento sendo Pessoa Física?",
-        answer:
-          "Sim, qualquer pessoa física pode emitir um recibo de pagamento para comprovar que recebeu um valor de outra pessoa ou empresa. Não é necessário ter CNPJ para emitir um recibo.",
-      },
-      {
-        question: "O recibo de pagamento serve para comprovar renda?",
-        answer:
-          "Depende da instituição. Alguns bancos e financeiras aceitam recibos (especialmente o RPA - Recibo de Pagamento Autônomo) como comprovante de renda, mas geralmente exigem que sejam acompanhados da declaração de Imposto de Renda ou extratos bancários.",
-      },
-      {
-        question: "Qual a diferença entre recibo de pagamento e nota fiscal?",
-        answer:
-          "O recibo apenas comprova que um pagamento foi realizado, protegendo o pagador de cobranças futuras. A nota fiscal, por outro lado, é um documento oficial exigido por lei para empresas, que registra a transação para fins de tributação governamental e recolhimento de impostos.",
-      },
-      {
-        question: "Recibo de pagamento tem prazo de validade?",
-        answer:
-          'O recibo em si não tem "prazo de validade", pois é o comprovante de um fato ocorrido. Contudo, é recomendado guardá-lo por pelo menos 5 anos, que é o prazo prescricional para a maioria das cobranças em geral no Brasil.',
-      },
-      {
-        question: "Posso usar recibo de pagamento como comprovante de renda?",
-        answer:
-          "Depende da instituição financeira ou órgão. Alguns aceitam recibos, especialmente o Recibo de Pagamento Autônomo (RPA), como comprovante de renda informal, mas na maior parte dos casos para transações maiores (como financiamentos) é necessário apresentar a Declaração de Imposto de Renda.",
-      },
-      {
-        question: "Recibo de pagamento precisa de assinatura?",
-        answer:
-          "Sim, a assinatura de quem recebe o valor é o requisito mais importante do recibo. É a assinatura que dá validade jurídica à quitação do pagamento. Sem a assinatura do recebedor, o recibo perde sua validade como prova.",
-      },
     ],
   },
   {

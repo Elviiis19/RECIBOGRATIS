@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { SEO } from '../../components/SEO';
 import { AdSense } from '../../components/AdSense';
 import { FileText, Printer, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
-import jsPDF from 'jspdf';
 
 export function GeradorCarnePagamento() {
   const [empresa, setEmpresa] = useState('');
@@ -16,7 +15,7 @@ export function GeradorCarnePagamento() {
 
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const gerarPDF = (e: React.FormEvent) => {
+  const gerarPDF = async (e: React.FormEvent) => {
     e.preventDefault();
     const vTotal = parseFloat(valorTotal.replace(',', '.'));
     const nParcelas = parseInt(parcelas);
@@ -29,6 +28,7 @@ export function GeradorCarnePagamento() {
     const valorParcela = vTotal / nParcelas;
     const dataInicial = new Date(vencimentoInicial + 'T12:00:00');
 
+    const { default: jsPDF } = await import('jspdf');
     const doc = new jsPDF({
       orientation: 'portrait',
       unit: 'mm',

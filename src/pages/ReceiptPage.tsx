@@ -4,13 +4,14 @@ import { SEO } from '../components/SEO';
 import { ReceiptGenerator } from '../components/ReceiptGenerator';
 import { AdSense } from '../components/AdSense';
 import { receiptModels } from '../data/receiptModels';
-import { CheckCircle2, ChevronRight, FileText, Video, Download, Copy, Check, ArrowRight } from 'lucide-react';
+import { CheckCircle2, ChevronRight, FileText, Video, Download, Copy, Check, ArrowRight, Zap, Sparkles } from 'lucide-react';
 import { richSeoData } from '../data/richSeoContent';
 import { YoutubeEmbed } from '../components/YoutubeEmbed';
 
 export function ReceiptPage() {
   const { slug } = useParams<{ slug: string }>();
   const [copied, setCopied] = useState(false);
+  const [copiedExampleIndex, setCopiedExampleIndex] = useState<number | null>(null);
   
   // Find the specific model based on the URL slug
   const model = receiptModels.find(m => m.slug === slug);
@@ -22,6 +23,15 @@ export function ReceiptPage() {
       navigator.clipboard.writeText(templateText).then(() => {
         setCopied(true);
         setTimeout(() => setCopied(false), 3000);
+      });
+    }
+  };
+
+  const handleCopyExample = (index: number, text: string) => {
+    if (typeof navigator !== 'undefined' && navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(() => {
+        setCopiedExampleIndex(index);
+        setTimeout(() => setCopiedExampleIndex(null), 3000);
       });
     }
   };
@@ -282,6 +292,43 @@ export function ReceiptPage() {
           <p className="text-lg md:text-xl text-gray-800 leading-relaxed font-medium m-0">
             {richData?.intro || model.seoContent?.p1 || defaultIntro}
           </p>
+
+          {model.id === 'simples' && (
+            <div className="mt-6 pt-6 border-t border-gray-100 grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <button
+                type="button"
+                onClick={() => {
+                  const el = document.getElementById('generator');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold text-sm shadow-sm transition-all cursor-pointer hover:shadow-md"
+              >
+                <Zap className="w-4 h-4 text-emerald-200" />
+                <span>Preencher Online (PDF)</span>
+              </button>
+
+              <a
+                href="/modelos/modelo-recibo-simples.docx"
+                download="modelo-recibo-simples.docx"
+                className="flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold text-sm shadow-sm transition-all cursor-pointer hover:shadow-md"
+              >
+                <Download className="w-4 h-4 text-blue-200" />
+                <span>Baixar Modelo em Word</span>
+              </a>
+
+              <button
+                type="button"
+                onClick={() => {
+                  const el = document.getElementById('exemplos-prontos');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-gray-800 font-bold text-sm border border-gray-300 transition-all cursor-pointer"
+              >
+                <FileText className="w-4 h-4 text-gray-600" />
+                <span>Ver Modelos Prontos</span>
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
@@ -422,6 +469,129 @@ export function ReceiptPage() {
               </article>
             )}
 
+            {/* Modelos Prontos para Copiar por Situação Real */}
+            {model.id === 'simples' && (
+              <article id="exemplos-prontos" className="scroll-mt-6">
+                <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-3 flex items-center gap-3">
+                  <CheckCircle2 className="w-8 h-8 text-emerald-500 flex-shrink-0" />
+                  Modelos de recibo prontos para copiar (por situação)
+                </h2>
+                <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                  Precisa de um modelo pronto para mandar pelo WhatsApp, imprimir ou colar no seu editor? Escolha a sua situação abaixo e clique em <strong>"Copiar Modelo"</strong>:
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                  {/* Exemplo 1: Prestação de Serviços */}
+                  <div className="bg-white rounded-2xl border-2 border-emerald-100 p-6 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="px-2.5 py-1 bg-emerald-100 text-emerald-800 font-bold text-xs rounded-full uppercase tracking-wider">
+                          Mão de Obra
+                        </span>
+                        <Zap className="w-4 h-4 text-emerald-600" />
+                      </div>
+                      <h3 className="font-bold text-gray-900 text-lg mb-2">Serviços Autônomos</h3>
+                      <p className="text-xs text-gray-500 mb-4">
+                        Para pedreiros, diaristas, pintores, encanadores, mecânicos e freelancers.
+                      </p>
+                      <div className="bg-gray-50 p-3.5 rounded-xl border border-gray-200 text-xs text-gray-800 font-mono leading-relaxed mb-4 select-all">
+                        {`RECEBI de [Nome do Cliente], CPF nº [000.000.000-00], a quantia de R$ 350,00 (trezentos e cinquenta reais), referente a serviços de reparos e pintura residencial realizados no endereço [Endereço], dando plena e geral quitação.`}
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleCopyExample(1, `RECEBI de [Nome do Cliente], CPF nº [000.000.000-00], a quantia de R$ 350,00 (trezentos e cinquenta reais), referente a serviços de reparos e pintura residencial realizados no endereço [Endereço], dando plena e geral quitação.\n\n[Cidade - UF], [Data]\n_______________________\n[Nome de Quem Recebeu]\nCPF: [000.000.000-00]`)}
+                      className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-sm border border-emerald-200 transition-colors cursor-pointer"
+                    >
+                      {copiedExampleIndex === 1 ? (
+                        <>
+                          <Check className="w-4 h-4 text-emerald-600" />
+                          <span>Copiado com Sucesso!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-4 h-4 text-emerald-700" />
+                          <span>Copiar Modelo</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                  {/* Exemplo 2: Venda de Veículo ou Item Usado */}
+                  <div className="bg-white rounded-2xl border-2 border-blue-100 p-6 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="px-2.5 py-1 bg-blue-100 text-blue-800 font-bold text-xs rounded-full uppercase tracking-wider">
+                          Compra e Venda
+                        </span>
+                        <FileText className="w-4 h-4 text-blue-600" />
+                      </div>
+                      <h3 className="font-bold text-gray-900 text-lg mb-2">Venda de Veículo / Item</h3>
+                      <p className="text-xs text-gray-500 mb-4">
+                        Para venda de carros, motos, celulares e móveis usados no OLX ou Marketplace.
+                      </p>
+                      <div className="bg-gray-50 p-3.5 rounded-xl border border-gray-200 text-xs text-gray-800 font-mono leading-relaxed mb-4 select-all">
+                        {`RECEBI de [Nome do Comprador], CPF nº [000.000.000-00], a quantia de R$ 15.000,00 (quinze mil reais), referente à compra do veículo [Marca/Modelo], Placa [ABC-1234], no estado em que se encontra.`}
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleCopyExample(2, `RECEBI de [Nome do Comprador], CPF nº [000.000.000-00], a quantia de R$ 15.000,00 (quinze mil reais), referente à compra do veículo [Marca/Modelo], Placa [ABC-1234], Renavam [00000000000], no estado em que se encontra, nada mais havendo a reclamar.\n\n[Cidade - UF], [Data]\n_______________________\n[Nome de Quem Vendeu]\nCPF: [000.000.000-00]`)}
+                      className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-800 font-bold text-sm border border-blue-200 transition-colors cursor-pointer"
+                    >
+                      {copiedExampleIndex === 2 ? (
+                        <>
+                          <Check className="w-4 h-4 text-blue-600" />
+                          <span>Copiado com Sucesso!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-4 h-4 text-blue-700" />
+                          <span>Copiar Modelo</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                  {/* Exemplo 3: Pagamento de Sinal / Acerto */}
+                  <div className="bg-white rounded-2xl border-2 border-purple-100 p-6 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="px-2.5 py-1 bg-purple-100 text-purple-800 font-bold text-xs rounded-full uppercase tracking-wider">
+                          Sinal ou Acerto
+                        </span>
+                        <Sparkles className="w-4 h-4 text-purple-600" />
+                      </div>
+                      <h3 className="font-bold text-gray-900 text-lg mb-2">Sinal / Acerto de Contas</h3>
+                      <p className="text-xs text-gray-500 mb-4">
+                        Para garantir reserva de serviços, entrada de compras ou acertos entre conhecidos.
+                      </p>
+                      <div className="bg-gray-50 p-3.5 rounded-xl border border-gray-200 text-xs text-gray-800 font-mono leading-relaxed mb-4 select-all">
+                        {`RECEBI de [Nome do Pagador], CPF nº [000.000.000-00], a quantia de R$ 800,00 (oitocentos reais), a título de sinal e início de pagamento referente a [Descrever o Serviço ou Negócio].`}
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleCopyExample(3, `RECEBI de [Nome do Pagador], CPF nº [000.000.000-00], a quantia de R$ 800,00 (oitocentos reais), a título de sinal e início de pagamento referente a [Descrever o Serviço ou Negócio], restando o saldo a ser quitado na conclusão.\n\n[Cidade - UF], [Data]\n_______________________\n[Nome de Quem Recebeu]\nCPF: [000.000.000-00]`)}
+                      className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-800 font-bold text-sm border border-purple-200 transition-colors cursor-pointer"
+                    >
+                      {copiedExampleIndex === 3 ? (
+                        <>
+                          <Check className="w-4 h-4 text-purple-600" />
+                          <span>Copiado com Sucesso!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-4 h-4 text-purple-700" />
+                          <span>Copiar Modelo</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </article>
+            )}
+
             {/* Recibo de Pagamento x Recibo Simples: É a mesma coisa? */}
             {model.id === 'simples' && (
               <article>
@@ -431,21 +601,27 @@ export function ReceiptPage() {
                 </h2>
                 <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8 space-y-4 text-gray-700 text-lg leading-relaxed">
                   <p>
-                    <strong>Sim, perante a lei brasileira eles têm o mesmo valor e eficácia jurídica.</strong> No Direito Civil brasileiro (Lei nº 10.406/2002, artigos 319 e 320), todo documento emitido pelo credor atestando que recebeu o pagamento e liberando o devedor da obrigação financeira chama-se formalmente de <strong>quitação</strong>.
+                    <strong>Sim! Perante a lei brasileira eles têm exatamente o mesmo valor e a mesma validade jurídica.</strong> Ambos são o comprovante oficial de quitação que prova que o pagador entregou o dinheiro e o recebedor deu baixa na dívida.
                   </p>
                   <p>
-                    A diferença existe apenas na linguagem cotidiana e no tipo de transação que cada pessoa costuma associar:
+                    A única diferença é na forma como as pessoas pesquisam no dia a dia:
                   </p>
-                  <ul className="list-disc pl-6 space-y-2 text-base md:text-lg">
-                    <li>
-                      <strong>Recibo Simples:</strong> Mais comum em negociações do dia a dia entre pessoas físicas, vendas de produtos usados (carros, celulares, móveis), pequenos serviços de manutenção, reformas e diárias.
-                    </li>
-                    <li>
-                      <strong>Recibo de Pagamento:</strong> Termo muito utilizado em ambientes comerciais, contratos de prestação de serviços continuados, honorários profissionais ou quitação de parcelas financeiras.
-                    </li>
-                  </ul>
-                  <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-100 text-emerald-900 text-base font-medium mt-4">
-                    Tanto quem busca por <em>"recibo simples"</em> quanto por <em>"recibo de pagamento"</em> pode utilizar o gerador e o modelo desta página com 100% de segurança jurídica, pois os campos obrigatórios por lei estão contemplados.
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4">
+                    <div className="p-4 rounded-xl bg-gray-50 border border-gray-200">
+                      <strong className="text-gray-900 block mb-1">Recibo Simples</strong>
+                      <span className="text-sm text-gray-600">
+                        Termo mais popular para transações do dia a dia entre pessoas físicas: venda de itens usados (carros, motos, celulares), diárias de pedreiros e faxineiras, e pequenos acertos.
+                      </span>
+                    </div>
+                    <div className="p-4 rounded-xl bg-gray-50 border border-gray-200">
+                      <strong className="text-gray-900 block mb-1">Recibo de Pagamento</strong>
+                      <span className="text-sm text-gray-600">
+                        Termo muito buscado para ambientes de trabalho, contratos de prestação de serviços continuados, honorários profissionais ou quitação de parcelas financeiras.
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-100 text-emerald-900 text-base font-medium">
+                    Portanto, quem busca por <em>"recibo simples"</em> ou por <em>"recibo de pagamento"</em> pode utilizar o gerador e o modelo desta página com 100% de segurança e tranquilidade jurídica.
                   </div>
                 </div>
               </article>

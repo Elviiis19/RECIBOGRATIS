@@ -2,7 +2,6 @@ import React, { useState, useRef, ChangeEvent } from 'react';
 import { SEO } from '../../components/SEO';
 import { AdSense } from '../../components/AdSense';
 import { QrCode, Upload, Copy, Check, Link as LinkIcon, Camera, ChevronDown, ChevronUp, ShieldCheck } from 'lucide-react';
-import jsQR from 'jsqr';
 import { Link } from 'react-router-dom';
 
 export function LeitorQrCode() {
@@ -23,7 +22,7 @@ export function LeitorQrCode() {
     const reader = new FileReader();
     reader.onload = (event) => {
       const img = new Image();
-      img.onload = () => {
+      img.onload = async () => {
         const canvas = document.createElement('canvas');
         canvas.width = img.width;
         canvas.height = img.height;
@@ -35,6 +34,7 @@ export function LeitorQrCode() {
         ctx.drawImage(img, 0, 0, img.width, img.height);
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         
+        const { default: jsQR } = await import('jsqr');
         const code = jsQR(imageData.data, imageData.width, imageData.height);
         if (code) {
           setResult(code.data);
