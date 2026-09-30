@@ -263,15 +263,15 @@ export function Layout() {
       {/* Banners Laterais (Skyscrapers) no Desktop - Exclusivo para páginas internas, exceto home */}
       {!isHomePage && (
         <>
-          <LateralAdsKeeper side="left" widgetId="2089546" />
-          <LateralAdsKeeper side="right" widgetId="2089546" />
+          <LateralAdsKeeper key={`lateral-left-${location.pathname}`} side="left" widgetId="2089546" refreshKey={location.pathname} />
+          <LateralAdsKeeper key={`lateral-right-${location.pathname}`} side="right" widgetId="2089546" refreshKey={location.pathname} />
         </>
       )}
 
       {/* Banner Mobile no Topo - Exclusivo para celular em todas as páginas internas (exceto home) */}
       {!isHomePage && (
         <div className="block xl:hidden w-full max-w-lg mx-auto px-4 pt-2 print:hidden">
-          <AdsKeeper target="mobile" mobileWidgetId="2089552" className="my-1" />
+          <AdsKeeper key={`mobile-top-${location.pathname}`} target="mobile" mobileWidgetId="2089552" className="my-1" refreshKey={location.pathname} />
         </div>
       )}
 
@@ -288,7 +288,7 @@ export function Layout() {
       {/* Banner Mobile no Rodapé do Conteúdo - Exclusivo para celular em todas as páginas internas (exceto home) */}
       {!isHomePage && (
         <div className="block xl:hidden w-full max-w-lg mx-auto px-4 pb-4 print:hidden">
-          <AdsKeeper target="mobile" mobileWidgetId="2089552" className="my-2" />
+          <AdsKeeper key={`mobile-bottom-${location.pathname}`} target="mobile" mobileWidgetId="2089552" className="my-2" refreshKey={location.pathname} />
         </div>
       )}
 

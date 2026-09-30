@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 
 interface LateralAdsKeeperProps {
+  key?: string | number;
   side: 'left' | 'right';
   widgetId?: string;
+  refreshKey?: any;
 }
 
-export function LateralAdsKeeper({ side, widgetId = "2089546" }: LateralAdsKeeperProps) {
+export function LateralAdsKeeper({ side, widgetId = "2089546", refreshKey }: LateralAdsKeeperProps) {
   const [isDev, setIsDev] = useState(false);
 
   useEffect(() => {
@@ -20,7 +22,7 @@ export function LateralAdsKeeper({ side, widgetId = "2089546" }: LateralAdsKeepe
     } catch (e) {
       // Safe catch
     }
-  }, []);
+  }, [refreshKey]);
 
   const positionClass = side === 'left' 
     ? 'left-1 2xl:left-4' 
@@ -40,7 +42,7 @@ export function LateralAdsKeeper({ side, widgetId = "2089546" }: LateralAdsKeepe
           <div className="py-8 px-2 text-center text-[11px] text-gray-500 bg-emerald-50/60 border border-dashed border-emerald-300 rounded-xl mb-2">
             <span className="font-bold text-emerald-800 block">Banner Lateral {side === 'left' ? 'Esq.' : 'Dir.'}</span>
             <span className="font-mono text-[9px] text-gray-400 block mt-1">ID: {widgetId}</span>
-            <span className="text-[9px] text-emerald-600 block mt-2">Ativo em recibogratis.com.br</span>
+            <span className="text-[9px] text-emerald-600 block mt-2">Nova impressão por rota</span>
           </div>
         )}
 

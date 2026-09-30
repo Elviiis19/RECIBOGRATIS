@@ -1030,7 +1030,7 @@ export function ReceiptPage() {
 
           <AdSense />
 
-          <AdsKeeper className="my-8" />
+          <AdsKeeper key={`receipt-seo-ad-${model.slug}`} refreshKey={model.slug} className="my-8" />
 
           {/* Related Models (Internal Linking) */}
           <div className="mt-16 border-t border-gray-100 pt-12">

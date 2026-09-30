@@ -2470,9 +2470,9 @@ export function ReceiptGenerator({
           )}
         </div>
 
-        {/* Adskeeper Widget below the form card */}
+        {/* Adskeeper Widget below the form card - Nova impressão a cada etapa do formulário */}
         <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 print:hidden">
-          <AdsKeeper />
+          <AdsKeeper key={`form-ad-step-${currentStep}`} refreshKey={currentStep} />
         </div>
       </div>
 
@@ -2714,16 +2714,16 @@ export function ReceiptGenerator({
             </div>
           </div>
 
-          {/* Adskeeper Widget below the preview card (lateral direita do gerador) */}
+          {/* Adskeeper Widget below the preview card (lateral direita do gerador) - Nova impressão por etapa */}
           <div className="mt-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-100 print:hidden">
-            <AdsKeeper />
+            <AdsKeeper key={`preview-ad-step-${currentStep}`} refreshKey={currentStep} />
           </div>
         </div>
       </div>
 
       {/* Adskeeper Widget below entire generator */}
       <div className="mt-8 print:hidden">
-        <AdsKeeper />
+        <AdsKeeper key={`bottom-ad-step-${currentStep}`} refreshKey={currentStep} />
       </div>
     </>
   );
