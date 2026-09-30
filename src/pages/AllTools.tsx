@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { AdSense } from '../components/AdSense';
+import { AdsKeeper } from '../components/AdsKeeper';
 
 export function AllTools() {
   const tools = [
@@ -187,8 +188,9 @@ export function AllTools() {
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 py-12 mt-8">
+      <div className="max-w-4xl mx-auto px-4 py-8">
         <AdSense />
+        <AdsKeeper className="my-8" />
       </div>
     </div>
   );

@@ -2713,6 +2713,11 @@ export function ReceiptGenerator({
               )}
             </div>
           </div>
+
+          {/* Adskeeper Widget below the preview card (lateral direita do gerador) */}
+          <div className="mt-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-100 print:hidden">
+            <AdsKeeper />
+          </div>
         </div>
       </div>
 

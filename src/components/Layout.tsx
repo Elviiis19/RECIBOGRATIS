@@ -8,6 +8,8 @@ import { useState, useEffect } from 'react';
 import { receiptModels } from '../data/receiptModels';
 import { CookieBanner } from './CookieBanner';
 import { SearchPalette } from './SearchPalette';
+import { LateralAdsKeeper } from './LateralAdsKeeper';
+import { AdsKeeper } from './AdsKeeper';
 
 export function Layout() {
   const location = useLocation();
@@ -15,6 +17,7 @@ export function Layout() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [openMobileCategory, setOpenMobileCategory] = useState<string | null>('Básicos');
   const currentYear = new Date().getFullYear().toString();
+  const isHomePage = location.pathname === '/';
 
   // Close mobile drawer on route change
   useEffect(() => {
@@ -256,10 +259,38 @@ export function Layout() {
           </div>
         </div>
       </header>
+ 
+      {/* Banners Laterais (Skyscrapers) no Desktop - Exclusivo para páginas internas, exceto home */}
+      {!isHomePage && (
+        <>
+          <LateralAdsKeeper side="left" widgetId="2089546" />
+          <LateralAdsKeeper side="right" widgetId="2089546" />
+        </>
+      )}
 
-      <main id="main-content" className="flex-grow pb-20 lg:pb-0 focus:outline-none" tabIndex={-1}>
+      {/* Banner Mobile no Topo - Exclusivo para celular em todas as páginas internas (exceto home) */}
+      {!isHomePage && (
+        <div className="block xl:hidden w-full max-w-lg mx-auto px-4 pt-2 print:hidden">
+          <AdsKeeper target="mobile" mobileWidgetId="2089552" className="my-1" />
+        </div>
+      )}
+
+      <main 
+        id="main-content" 
+        className={`flex-grow pb-20 lg:pb-0 focus:outline-none transition-all ${
+          !isHomePage ? 'xl:px-20 2xl:px-32' : ''
+        }`} 
+        tabIndex={-1}
+      >
         <Outlet />
       </main>
+
+      {/* Banner Mobile no Rodapé do Conteúdo - Exclusivo para celular em todas as páginas internas (exceto home) */}
+      {!isHomePage && (
+        <div className="block xl:hidden w-full max-w-lg mx-auto px-4 pb-4 print:hidden">
+          <AdsKeeper target="mobile" mobileWidgetId="2089552" className="my-2" />
+        </div>
+      )}
 
       <footer className="bg-emerald-950 border-t border-emerald-900 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
