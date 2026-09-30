@@ -3,6 +3,7 @@ import { useParams, Navigate, Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { ReceiptGenerator } from '../components/ReceiptGenerator';
 import { AdSense } from '../components/AdSense';
+import { AdsKeeper } from '../components/AdsKeeper';
 import { receiptModels } from '../data/receiptModels';
 import { CheckCircle2, ChevronRight, FileText, Video, Download, Copy, Check, ArrowRight, Zap, Sparkles } from 'lucide-react';
 import { richSeoData } from '../data/richSeoContent';
@@ -1028,6 +1029,8 @@ export function ReceiptPage() {
           </div>
 
           <AdSense />
+
+          <AdsKeeper className="my-8" />
 
           {/* Related Models (Internal Linking) */}
           <div className="mt-16 border-t border-gray-100 pt-12">

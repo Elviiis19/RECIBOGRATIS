@@ -5,6 +5,7 @@ import CurrencyInput from 'react-currency-input-field';
 import { Copy, CheckCircle2, QrCode, AlertCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { AdSense } from '../components/AdSense';
+import { AdsKeeper } from '../components/AdsKeeper';
 import { cn } from '../utils/cn';
 import { generatePixPayload } from '../utils/pix';
 
@@ -228,6 +229,8 @@ export function PixGenerator() {
             )}
           </div>
         </div>
+
+        <AdsKeeper className="my-8" />
         
         {/* Info Section */}
         <div className="mt-12 bg-blue-50 p-6 rounded-2xl border border-blue-100 flex gap-4 items-start">

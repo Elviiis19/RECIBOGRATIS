@@ -2,6 +2,7 @@ import { useParams, Navigate, Link } from 'react-router-dom';
 import { SEO } from '../../components/SEO';
 import { DeclarationGenerator } from '../../components/DeclarationGenerator';
 import { AdSense } from '../../components/AdSense';
+import { AdsKeeper } from '../../components/AdsKeeper';
 import { declarationModels } from '../../data/declarationModels';
 import { CheckCircle2, ChevronRight, FileText } from 'lucide-react';
 import { declarationSeoData } from '../../data/declarationSeoContent';
@@ -123,6 +124,8 @@ export default function DeclarationPage() {
         <div className="mb-16">
           <DeclarationGenerator modelId={model.id} />
         </div>
+
+        <AdsKeeper className="mb-12" />
 
         <AdSense slot="1234567890" className="mb-16" />
 

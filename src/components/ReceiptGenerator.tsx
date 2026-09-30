@@ -19,6 +19,7 @@ import { cn } from "../utils/cn";
 import { generatePixPayload } from "../utils/pix";
 
 import { AdSense } from "./AdSense";
+import { AdsKeeper } from "./AdsKeeper";
 
 interface ReceiptData {
   numero: string;
@@ -1175,7 +1176,8 @@ export function ReceiptGenerator({
     <>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mt-8">
         {/* Form Section - Wizard */}
-        <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
+        <div className="flex flex-col gap-6">
+          <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
               <FileText className="text-emerald-700" />
@@ -2468,6 +2470,12 @@ export function ReceiptGenerator({
           )}
         </div>
 
+        {/* Adskeeper Widget below the form card */}
+        <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 print:hidden">
+          <AdsKeeper />
+        </div>
+      </div>
+
         {/* Preview Section */}
         <div className="sticky top-24">
           <div className="bg-white p-2 rounded-2xl shadow-sm border border-gray-100 mb-4">
@@ -2706,6 +2714,11 @@ export function ReceiptGenerator({
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Adskeeper Widget below entire generator */}
+      <div className="mt-8 print:hidden">
+        <AdsKeeper />
       </div>
     </>
   );
