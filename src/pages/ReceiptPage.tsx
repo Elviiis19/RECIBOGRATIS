@@ -8,6 +8,7 @@ import { receiptModels } from '../data/receiptModels';
 import { CheckCircle2, ChevronRight, FileText, Video, Download, Copy, Check, ArrowRight, Zap, Sparkles, ShieldCheck, AlertTriangle, AlertCircle } from 'lucide-react';
 import { richSeoData } from '../data/richSeoContent';
 import { YoutubeEmbed } from '../components/YoutubeEmbed';
+import { getReceiptGuide } from '../data/receiptGuides';
 
 export function ReceiptPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -16,6 +17,7 @@ export function ReceiptPage() {
   
   // Find the specific model based on the URL slug
   const model = receiptModels.find(m => m.slug === slug);
+  const guide = model ? getReceiptGuide(model.slug, model.title) : null;
 
   const handleCopyTemplate = () => {
     const templateText = `RECIBO Nº 01\n\nRecebi de JOSÉ APARECIDO DA SILVA, CPF: 123.456.789-00, a importância de R$ 130,00 (cento e trinta reais), referente a serviço de manutenção em computador.\n\nObservações: Pagamento recebido em dinheiro.\n\nPara maior clareza, firmo o presente recibo para que produza os seus efeitos, dando plena, rasa e irrevogável quitação.\n\nRio de Janeiro - RJ, 28 de setembro de 2026\n\n________________________________________\nANTÔNIO JOSÉ PINHEIRO\nCPF: 123.456.789-00\n\nDocumento gerado gratuitamente pelo site recibogratis.com.br`;
@@ -369,8 +371,8 @@ export function ReceiptPage() {
               </article>
             )}
 
-            {/* Seções Exclusivas para Recibo PIX: E-E-A-T Máximo, Erros Comuns e Quando Não Usar */}
-            {model.slug === 'recibo-pix' && (
+            {/* Seções de Alta Confiança E-E-A-T: Aviso Legal, Erros Comuns e Quando Não Usar */}
+            {guide && (
               <>
                 {/* Box de Segurança e Aviso Legal */}
                 <article>
@@ -382,90 +384,62 @@ export function ReceiptPage() {
                       <div className="space-y-2">
                         <div className="flex items-center gap-2 flex-wrap">
                           <span className="text-xs uppercase font-extrabold tracking-wider bg-emerald-200 text-emerald-900 px-2.5 py-0.5 rounded-full">
-                            Segurança Jurídica
+                            {guide.legalDisclaimer.badge}
                           </span>
                           <span className="text-xs text-emerald-800 font-semibold">
-                            Em conformidade com a Lei Federal nº 10.406/2002
+                            {guide.legalDisclaimer.lawReference}
                           </span>
                         </div>
                         <h3 className="text-xl font-bold text-emerald-950">
-                          Aviso Legal e Validade Probatória perante a Lei
+                          {guide.legalDisclaimer.title}
                         </h3>
                         <p className="text-emerald-900/90 text-base leading-relaxed">
-                          Os recibos gerados nesta plataforma têm caráter utilitário e pleno valor probatório de quitação civil (Artigos 319 e 320 do Código Civil Brasileiro). O documento atesta irrevogavelmente que o valor acordado foi recebido. Para operações de compra de imóveis, dissolução de sociedades empresariais ou transações com exigência fiscal contábil, consulte sempre um advogado ou contador registrado no CRC.
+                          {guide.legalDisclaimer.description}
                         </p>
                       </div>
                     </div>
                   </div>
                 </article>
 
-                {/* 4 Erros Comuns ao Emitir Recibo PIX */}
+                {/* 4 Erros Comuns */}
                 <article>
                   <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-6 flex items-center gap-3">
                     <AlertTriangle className="w-8 h-8 text-amber-500 shrink-0" />
-                    4 Erros Fatais ao Emitir um Recibo PIX (e Como Evitar)
+                    {guide.commonErrors.title}
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:border-amber-300 transition-colors">
-                      <div className="w-8 h-8 rounded-full bg-red-100 text-red-700 font-bold flex items-center justify-center mb-3">1</div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-2">Achar que o print do banco basta</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        O print bancário só atesta que o dinheiro saiu de uma conta e entrou na outra. Ele <strong>não prova o motivo</strong>, não detalha qual serviço foi prestado e não dá quitação formal. Sem o recibo assinado, você fica desprotegido em caso de cobrança indevida.
-                      </p>
-                    </div>
-
-                    <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:border-amber-300 transition-colors">
-                      <div className="w-8 h-8 rounded-full bg-red-100 text-red-700 font-bold flex items-center justify-center mb-3">2</div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-2">Aceitar comprovante de PIX Agendado</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        Golpistas costumam agendar a transferência para o dia seguinte, enviam o print com aspecto de pago e cancelam o agendamento minutos depois. Só emita o recibo de quitação após o valor <strong>cair de fato no extrato</strong> da sua conta.
-                      </p>
-                    </div>
-
-                    <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:border-amber-300 transition-colors">
-                      <div className="w-8 h-8 rounded-full bg-red-100 text-red-700 font-bold flex items-center justify-center mb-3">3</div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-2">Usar descrições vagas como "serviços"</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        No campo "Referente a", descreva detalhadamente a entrega (ex: <em>"Pintura interna de 3 cômodos residenciais com acabamento fosco"</em>). Descrições genéricas enfraquecem a prova perante a justiça ou Procon.
-                      </p>
-                    </div>
-
-                    <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:border-amber-300 transition-colors">
-                      <div className="w-8 h-8 rounded-full bg-red-100 text-red-700 font-bold flex items-center justify-center mb-3">4</div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-2">Não colher a assinatura de quem recebeu</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        Pelo Código Civil (Art. 320), o recibo só é formalmente perfeito com a <strong>assinatura de quem recebeu o dinheiro</strong>. Nosso gerador já prepara o campo de assinatura no PDF para assinatura física com caneta ou assinatura digital.
-                      </p>
-                    </div>
+                    {guide.commonErrors.errors.map((err) => (
+                      <div key={err.number} className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:border-amber-300 transition-colors">
+                        <div className="w-8 h-8 rounded-full bg-red-100 text-red-700 font-bold flex items-center justify-center mb-3">{err.number}</div>
+                        <h3 className="text-lg font-bold text-gray-900 mb-2">{err.title}</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">
+                          {err.description}
+                        </p>
+                      </div>
+                    ))}
                   </div>
                 </article>
 
-                {/* Quando NÃO Usar o Recibo PIX */}
+                {/* Quando NÃO Usar */}
                 <article>
                   <h2 className="text-3xl tracking-tight font-bold text-gray-900 mb-6 flex items-center gap-3">
                     <CheckCircle2 className="w-8 h-8 text-emerald-500 shrink-0" />
-                    Quando NÃO Usar o Recibo PIX
+                    {guide.whenNotToUse.title}
                   </h2>
                   <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 md:p-8 space-y-4">
                     <p className="text-gray-700 text-lg leading-relaxed">
-                      Embora o Recibo PIX seja perfeito para autônomos, diaristas, prestadores de serviços, aluguéis e negócios particulares, a legislação brasileira exige outros documentos específicos em certas situações:
+                      {guide.whenNotToUse.description}
                     </p>
                     <ul className="space-y-3 text-gray-700 text-base">
-                      <li className="flex items-start gap-2.5">
-                        <span className="text-red-500 font-bold text-lg leading-none mt-1">✕</span>
-                        <span><strong>Venda de mercadorias no comércio:</strong> Empresas comerciais (ME, EPP, LTDA) que vendem produtos físicos devem emitir obrigatoriamente a Nota Fiscal Eletrônica (NF-e ou NFC-e) para apuração de ICMS.</span>
-                      </li>
-                      <li className="flex items-start gap-2.5">
-                        <span className="text-red-500 font-bold text-lg leading-none mt-1">✕</span>
-                        <span><strong>Serviços corporativos com retenção de tributos federais/municipais:</strong> Empresas tomadoras que exigem retenção na fonte de ISS, PIS, COFINS ou IRRF demandam Nota Fiscal de Serviço (NFS-e).</span>
-                      </li>
-                      <li className="flex items-start gap-2.5">
-                        <span className="text-red-500 font-bold text-lg leading-none mt-1">✕</span>
-                        <span><strong>Transferência oficial de imóveis e veículos:</strong> A transferência de veículos exige o ATPV-e no Detran, e imóveis acima de 30 salários mínimos exigem Escritura Pública em Cartório de Notas.</span>
-                      </li>
+                      {guide.whenNotToUse.items.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2.5">
+                          <span className="text-red-500 font-bold text-lg leading-none mt-1">✕</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
                     </ul>
                     <div className="bg-emerald-100/70 border border-emerald-300 rounded-xl p-4 text-emerald-950 text-sm font-medium mt-4">
-                      💡 <strong>Regra prática:</strong> Para serviços autônomos, diaristas, freelances, aluguéis de particulares e vendas de itens usados entre pessoas físicas ou MEI, o Recibo PIX é 100% legal, suficiente e recomendado.
+                      💡 <strong>Regra prática:</strong> {guide.whenNotToUse.practicalRule}
                     </div>
                   </div>
                 </article>
