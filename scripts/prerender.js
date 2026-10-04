@@ -84,6 +84,17 @@ async function prerender() {
 
   const template = fs.readFileSync(indexHtmlPath, 'utf-8');
 
+  // Load CSS for inlining to eliminate render-blocking stylesheet
+  const assetsDir = path.join(distDir, 'assets');
+  let inlineCss = '';
+  if (fs.existsSync(assetsDir)) {
+    const cssFiles = fs.readdirSync(assetsDir).filter(f => f.endsWith('.css'));
+    if (cssFiles.length > 0) {
+      inlineCss = fs.readFileSync(path.join(assetsDir, cssFiles[0]), 'utf-8');
+      console.log(`Loaded CSS for inlining (${Math.round(inlineCss.length / 1024)} KB)`);
+    }
+  }
+
   try {
     
     const { render } = await vite.ssrLoadModule('/src/entry-server.tsx');
@@ -160,6 +171,41 @@ async function prerender() {
       originalHeadContent = originalHeadContent.replace(/<meta[^>]*property="og:[^"]+"[^>]*>/ig, '');
       originalHeadContent = originalHeadContent.replace(/<meta[^>]*name="twitter:[^"]+"[^>]*>/ig, '');
       originalHeadContent = originalHeadContent.replace(/<link[^>]*rel="canonical"[^>]*>/ig, '');
+
+      // Inline CSS to eliminate render-blocking stylesheet request
+      if (inlineCss) {
+        originalHeadContent = originalHeadContent.replace(
+          /<link rel="stylesheet"[^>]*href="\/assets\/index-[^"]+\.css"[^>]*>/i,
+          `<style id="critical-css">${inlineCss}</style>`
+        );
+      }
+
+      // Filter route-specific modulepreload links to save mobile bandwidth
+      if (route.path === '/') {
+        originalHeadContent = originalHeadContent.replace(
+          /<link rel="modulepreload"[^>]*href="\/assets\/(data-blog|data-declarations|data-receipt-seo|pages-tools|pages-blog)[^"]*"[^>]*>\s*/ig,
+          ''
+        );
+      } else {
+        if (!route.path.startsWith('/blog')) {
+          originalHeadContent = originalHeadContent.replace(
+            /<link rel="modulepreload"[^>]*href="\/assets\/(data-blog|pages-blog)[^"]*"[^>]*>\s*/ig,
+            ''
+          );
+        }
+        if (!route.path.startsWith('/declaracoes')) {
+          originalHeadContent = originalHeadContent.replace(
+            /<link rel="modulepreload"[^>]*href="\/assets\/data-declarations[^"]*"[^>]*>\s*/ig,
+            ''
+          );
+        }
+        if (!route.path.startsWith('/calculadora') && !route.path.startsWith('/conversor') && !route.path.startsWith('/gerador') && !route.path.startsWith('/leitor') && !route.path.startsWith('/validador') && !route.path.startsWith('/consultador') && !route.path.startsWith('/controle') && !route.path.startsWith('/valor')) {
+          originalHeadContent = originalHeadContent.replace(
+            /<link rel="modulepreload"[^>]*href="\/assets\/pages-tools[^"]*"[^>]*>\s*/ig,
+            ''
+          );
+        }
+      }
 
       let cleanAppHtml = appHtml;
       

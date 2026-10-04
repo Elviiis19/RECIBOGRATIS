@@ -73,15 +73,22 @@ export function SEO({ title, description, keywords, schema, url, image }: SEOPro
         type="application/ld+json" 
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "FinancialService",
+          "@type": "Organization",
+          "@id": "https://recibogratis.com.br/#organization",
           "name": "Recibo Grátis",
           "url": "https://recibogratis.com.br",
-          "logo": "https://recibogratis.com.br/logo.png",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://recibogratis.com.br/logo.png",
+            "width": 512,
+            "height": 512
+          },
           "image": "https://recibogratis.com.br/og-image.webp",
-          "description": "Plataforma gratuita de emissão e geração de recibos online.",
+          "description": "Plataforma de emissão e geração de recibos online gratuitos com validade jurídica.",
           "founder": {
             "@type": "Person",
-            "name": "Elvis Dias"
+            "name": "Elvis Dias",
+            "jobTitle": "Jornalista Profissional (DRT 1466/RO)"
           },
           "contactPoint": {
             "@type": "ContactPoint",
@@ -94,7 +101,10 @@ export function SEO({ title, description, keywords, schema, url, image }: SEOPro
             "@type": "PropertyValue",
             "name": "CNPJ",
             "value": "43.027.941/0001-21"
-          }
+          },
+          "sameAs": [
+            "https://recibogratis.com.br"
+          ]
         }) }} 
         data-schema-org-ssr="true"
       />

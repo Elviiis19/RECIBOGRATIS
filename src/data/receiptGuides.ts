@@ -677,6 +677,1192 @@ export const specificReceiptGuides: Record<string, ReceiptGuide> = {
       practicalRule:
         'Na entrega amigável de imóvel alugado, a assinatura deste termo é a certidão de óbito do contrato de locação e a paz jurídica do inquilino e do proprietário.'
     }
+  },
+
+  'recibo-de-montador-de-moveis': {
+    legalDisclaimer: {
+      badge: 'Contrato de Empreitada',
+      lawReference: 'Artigos 610 a 626 do Código Civil e Art. 26 do CDC',
+      title: 'Aviso Legal para Serviços de Montagem de Móveis',
+      description:
+        'O recibo de montador de móveis atesta a execução e conclusão da montagem nas dependências do cliente. O Código de Defesa do Consumidor concede 90 dias de garantia legal sobre a mão de obra prestada (nivelamento, regulagem de dobradiças e fixações).'
+    },
+    commonErrors: {
+      title: '4 Erros Comuns ao Emitir Recibo de Montador de Móveis',
+      errors: [
+        {
+          number: 1,
+          title: 'Não inspecionar peças arranhadas antes da montagem',
+          description:
+            'Se a caixa do móvel tiver peças danificadas de fábrica, alerte o cliente antes de montar e anote no recibo para não ser responsabilizado por avarias da loja ou transporte.'
+        },
+        {
+          number: 2,
+          title: 'Não pedir conferência das portas e gavetas',
+          description:
+            'Sempre peça para o cliente abrir e fechar gavetas e portas na sua presença antes de assinar a quitação do recibo.'
+        },
+        {
+          number: 3,
+          title: 'Fixação em paredes com canos sem verificação prévia',
+          description:
+            'Ao furar paredes para painéis de TV ou armários suspensos, peça ao morador a confirmação de que não passam tubulações de água ou gás no alinhamento da furação.'
+        },
+        {
+          number: 4,
+          title: 'Não constar se a desmontagem estava inclusa',
+          description:
+            'Separe no recibo o valor da desmontagem do móvel antigo do valor da montagem do móvel novo.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar o Recibo Comum de Montador',
+      description:
+        'Evite usar este modelo simples nas seguintes situações:',
+      items: [
+        'Montagem industrial ou corporativa com exigência de Nota Fiscal: Lojas de departamento e grandes empresas com CNPJ exigem a emissão de NFS-e.',
+        'Móveis planejados sob medida com fabricação própria: Exigem contrato prévio de marcenaria com projeto executivo 3D.'
+      ],
+      practicalRule:
+        'Para montagens residenciais avulsas de móveis comprados na internet ou lojas físicas, este recibo assinado é a prova irrefutável de serviço concluído com excelência.'
+    }
+  },
+
+  'recibo-de-instalador-de-ar-condicionado': {
+    legalDisclaimer: {
+      badge: 'Garantia de Climatização',
+      lawReference: 'Artigo 26 do Código de Defesa do Consumidor (Lei 8.078/90)',
+      title: 'Termo de Entrega Técnica e Garantia de Ar-Condicionado',
+      description:
+        'A instalação de aparelhos de climatização (Split e ACJ) exige protocolo técnico de estanqueidade e vácuo. Este recibo comprova a entrega do equipamento em pleno funcionamento e fixa a garantia legal de 90 dias sobre as conexões frigorígenas e a fiação de comando.'
+    },
+    commonErrors: {
+      title: '4 Erros Fatais na Instalação de Ar-Condicionado',
+      errors: [
+        {
+          number: 1,
+          title: 'Não especificar se houve vácuo na linha frigorígena',
+          description:
+            'O teste de vácuo com vacuômetro digital é exigência de todos os fabricantes. Mencionar no recibo que o procedimento foi realizado protege o instalador perante assistências autorizadas.'
+        },
+        {
+          number: 2,
+          title: 'Não informar a metragem de tubulação de cobre instalada',
+          description:
+            'Fabricantes exigem distância mínima (geralmente de 2 a 3 metros) para evitar vibração excessiva no compressor. Registre a metragem no campo de descrição.'
+        },
+        {
+          number: 3,
+          title: 'Assumir garantia de defeito de fabricação do aparelho',
+          description:
+            'O instalador responde apenas pela mão de obra de fixação, tubos e gás. Deixe claro no recibo que defeitos eletrônicos ou mecânicos do motor são cobertos pelo fabricante.'
+        },
+        {
+          number: 4,
+          title: 'Não testar o dreno de condensado na frente do cliente',
+          description:
+            'Despeje água na bandeja evaporadora para testar o escoamento antes de colher a assinatura de quitação do cliente.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar Apenas este Recibo de Instalação',
+      description:
+        'Não substitui documentações regulatórias em casos específicos:',
+      items: [
+        'Edifícios comerciais com PMOC compulsório: Ambientes climatizados de uso coletivo exigem Plano de Manutenção, Operação e Controle assinado por engenheiro mecânico (Lei 13.589/18).',
+        'Contratações corporativas com retenção de ISS: Empresas tomadoras exigem a Nota Fiscal de Serviços eletrônica (NFS-e).'
+      ],
+      practicalRule:
+        'Para instalações residenciais de ar-condicionado direto para o proprietário ou inquilino, o recibo assinado garante segurança técnica e quitação imediata.'
+    }
+  },
+
+  'recibo-de-gesseiro-e-drywall': {
+    legalDisclaimer: {
+      badge: 'Construção Civil',
+      lawReference: 'Artigos 610 e seguintes do Código Civil Brasileiro',
+      title: 'Aviso Legal de Medição e Quitação de Gesso e Drywall',
+      description:
+        'Este recibo formaliza a entrega e a medição de forros, molduras, sancas e divisórias em gesso acartonado. Ele comprova que a área em metros quadrados ou lineares foi conferida e aceita pelo contratante.'
+    },
+    commonErrors: {
+      title: '4 Erros na Emissão do Recibo de Gesso e Drywall',
+      errors: [
+        {
+          number: 1,
+          title: 'Não discriminar a metragem quadrada (m²) medida',
+          description:
+            'Sempre coloque o total de m² executado no texto para evitar que o cliente tente renegociar o valor após a entrega.'
+        },
+        {
+          number: 2,
+          title: 'Não definir se os materiais foram fornecidos pelo gesseiro',
+          description:
+            'Deixe explícito se o preço inclui chapas de gesso, tabicas, tirantes e massa ou apenas a mão de obra de colocação.'
+        },
+        {
+          number: 3,
+          title: 'Não avisar sobre o tempo de secagem antes da pintura',
+          description:
+            'O gesso precisa de cura completa (7 a 15 dias) antes da primeira demão de tinta para não descascar. Alerte o cliente no recibo.'
+        },
+        {
+          number: 4,
+          title: 'Não colher o ateste de nivelamento do teto',
+          description:
+            'Verifique com laser ou nível bolha na presença do cliente antes de assinar a quitação definitiva.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar o Recibo Simples de Gesso',
+      description:
+        'Existem obras que demandam controle documental formal:',
+      items: [
+        'Grandes construtoras e incorporadoras: Exigem medições técnicas com emissão de Nota Fiscal Eletrônica e retenção previdenciária de INSS de mão de obra.',
+        'Reformas estruturais em condomínios com ART/RRT: Condomínios que exigem laudo de arquiteto conforme a NBR 16280.'
+      ],
+      practicalRule:
+        'Para reformas residenciais e comerciais diretas com donos de imóveis, o recibo com metragem e assinatura é a prova de execução perfeita.'
+    }
+  },
+
+  'recibo-de-serralheiro': {
+    legalDisclaimer: {
+      badge: 'Serralheria e Estruturas',
+      lawReference: 'Artigos 481 e 610 do Código Civil e Art. 26 do CDC',
+      title: 'Aviso Legal de Entrega e Fabricação de Portões e Grades',
+      description:
+        'Comprovante civil de fabricação, montagem e instalação de estruturas metálicas. Garante ao serralheiro o recebimento do sinal de entrada para compra do ferro e a quitação do saldo após a instalação.'
+    },
+    commonErrors: {
+      title: '4 Erros Graves ao Emitir Recibo de Serralheria',
+      errors: [
+        {
+          number: 1,
+          title: 'Não especificar as medidas e tipo de ferro empregado',
+          description:
+            'Indique se o portão é em chapa galvanizada, tubo quadrado ou ferro fundido para demonstrar que o material entregue confere com o orçamento.'
+        },
+        {
+          number: 2,
+          title: 'Não separar a venda mecânica da motorização eletrônica',
+          description:
+            'Se você fabricou o portão mas o motor foi fornecido por terceiro, declare no recibo que a garantia é restrita à parte mecânica e balanceamento.'
+        },
+        {
+          number: 3,
+          title: 'Não emitir recibo de sinal de entrada para compra do material',
+          description:
+            'Sempre emita o recibo no momento em que receber o adiantamento para compra do ferro na distribuidora.'
+        },
+        {
+          number: 4,
+          title: 'Não discriminar se a pintura definitiva está inclusa',
+          description:
+            'Deixe claro se o portão foi entregue apenas com zarcão/primer ou com esmalte sintético automotivo final.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar o Recibo Simples de Serralheria',
+      description:
+        'Casos com obrigatoriedade fiscal adicional:',
+      items: [
+        'Venda de esquadrias em série para lojas revendedoras: Exige emissão de NF-e com IPI e ICMS de indústria metalúrgica.',
+        'Estruturas metálicas de grande vão com cálculo de engenharia: Galpões que exigem projeto assinado por engenheiro calculista com ART.'
+      ],
+      practicalRule:
+        'Para portões residenciais basculantes, grades, corrimãos e reparos sob medida para particulares, este recibo garante segurança total.'
+    }
+  },
+
+  'recibo-de-vidraceiro': {
+    legalDisclaimer: {
+      badge: 'Norma ABNT NBR 14207',
+      lawReference: 'Artigo 26 do Código de Defesa do Consumidor e ABNT',
+      title: 'Aviso Legal para Instalação de Vidros e Boxes',
+      description:
+        'O recibo de vidraçaria atesta a entrega de vidros temperados, laminados e espelhos instalados de acordo com as normas de segurança. A garantia legal cobre roldanas, perfis e vedação por 90 dias.'
+    },
+    commonErrors: {
+      title: '4 Erros na Instalação de Vidros e Espelhos',
+      errors: [
+        {
+          number: 1,
+          title: 'Não anotar a espessura e cor do vidro no recibo',
+          description:
+            'Sempre indique no texto se o vidro instalado é de 6mm, 8mm ou 10mm, incolor, fumê ou verde.'
+        },
+        {
+          number: 2,
+          title: 'Não colher a assinatura atestando vidros intactos',
+          description:
+            'Certifique-se de que o cliente conferiu que não há lascas ou trincas nos cantos do vidro antes de assinar a quitação.'
+        },
+        {
+          number: 3,
+          title: 'Não orientar a cura do silicone antifungo',
+          description:
+            'Oriente o cliente a não utilizar o box de banheiro nas primeiras 24 horas para garantir a cura completa do silicone vedante.'
+        },
+        {
+          number: 4,
+          title: 'Não alertar sobre a revisão preventiva anual do box',
+          description:
+            'A norma NBR 14207 recomenda revisão de roldanas e batedores a cada 12 meses para prevenir quebras espontâneas.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar Apenas este Recibo de Vidro',
+      description:
+        'Situações que demandam documentação técnica suplementar:',
+      items: [
+        'Fechamento de sacadas em edifícios que exigem ART: Exige laudo técnico assinado por engenheiro mecânico registrado no CREA.',
+        'Vidros antivandalismo e blindados para bancos: Regidos por certificação específica do Exército Brasileiro.'
+      ],
+      practicalRule:
+        'Para boxes de banheiro, espelhos lapidados, portas blindex e janelas residenciais, este recibo confere respaldo ao profissional e tranquilidade ao cliente.'
+    }
+  },
+
+  'recibo-de-calheiro': {
+    legalDisclaimer: {
+      badge: 'Funilaria e Calhas',
+      lawReference: 'Artigos 610 a 626 do Código Civil Brasileiro',
+      title: 'Aviso Legal para Instalação de Calhas e Rufos',
+      description:
+        'Comprovante civil de fabricação e montagem de calhas galvanizadas, pingadeiras e condutores. Comprova que o teste de caimento e vedação foi executado antes da quitação.'
+    },
+    commonErrors: {
+      title: '4 Erros na Fabricação e Colocação de Calhas',
+      errors: [
+        {
+          number: 1,
+          title: 'Não discriminar a metragem linear total instalada',
+          description:
+            'Indique os metros lineares exatos das calhas e rufos para não haver divergência com a medição do telhado.'
+        },
+        {
+          number: 2,
+          title: 'Não especificar o tipo de chapa utilizada (ex: chapa 28 ou 26)',
+          description:
+            'Informar a espessura da chapa galvanizada prova que o material atende à resistência mecânica orçada.'
+        },
+        {
+          number: 3,
+          title: 'Não constar o teste de escoamento de água',
+          description:
+            'Faça o teste de queda dágua para garantir que não haverá acúmulo de água parada na calha antes de liberar o recibo.'
+        },
+        {
+          number: 4,
+          title: 'Não definir a responsabilidade pelo descarte das calhas velhas',
+          description:
+            'Alerte se o entulho de ferro enferrujado retirado foi descartado pelo cliente ou transportado pelo calheiro.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar este Recibo de Calhas',
+      description:
+        'Casos onde a legislação exige notas fiscais:',
+      items: [
+        'Fornecimento para grandes galpões industriais com exigência de NF-e corporativa.',
+        'Obras públicas licitadas que exigem medição por boletim e certidões negativas de débito.'
+      ],
+      practicalRule:
+        'Para residências, sítios e comércios locais, o recibo de calheiro assinado é a garantia de telhado protegido contra infiltrações.'
+    }
+  },
+
+  'recibo-de-motoboy-e-entregador': {
+    legalDisclaimer: {
+      badge: 'Transporte e Motofrete',
+      lawReference: 'Lei Federal nº 12.009/2009 e Art. 442-B da CLT',
+      title: 'Aviso Legal de Quitação de Entregas e Motofrete',
+      description:
+        'Comprovante de pagamento de corridas de transporte rápido de mercadorias, documentos e encomendas. Atesta o recebimento da remuneração e a inexistência de subordinação contínua de emprego.'
+    },
+    commonErrors: {
+      title: '4 Erros no Pagamento de Motoboys e Entregadores',
+      errors: [
+        {
+          number: 1,
+          title: 'Não discriminar a quantidade de entregas ou saídas',
+          description:
+            'Registre se o valor é por corrida avulsa, por quilômetro rodado ou diária fechada de entrega.'
+        },
+        {
+          number: 2,
+          title: 'Não exigir a assinatura do protocolo de entrega dos pacotes',
+          description:
+            'O recibo quita o frete, mas o protocolo assinado pelo destinatário prova que a mercadoria chegou ao destino.'
+        },
+        {
+          number: 3,
+          title: 'Deixar acumular pagamentos semanais sem assinatura',
+          description:
+            'Colha a assinatura no recibo em cada fechamento para evitar alegações de corridas não pagas.'
+        },
+        {
+          number: 4,
+          title: 'Não discriminar taxa de chuva ou sobretaxa noturna',
+          description:
+            'Se houver adicionais acordados, detalhe no texto para manter a clareza do repasse financeiro.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar o Recibo de Motoboy Avulso',
+      description:
+        'Situações em que há relação de emprego formal:',
+      items: [
+        'Entregador com horário fixo diário, obrigatoriedade de presença exclusiva e subordinação direta: Relação que configura vínculo de emprego regido pela CLT.',
+        'Transporte de cargas perigosas ou inflamáveis sem credenciamento no Contran.'
+      ],
+      practicalRule:
+        'Para motofretistas autônomos e entregas pontuais para empresas e comércios, o recibo assinado no fechamento confere total segurança financeira.'
+    }
+  },
+
+  'recibo-de-guincho-e-reboque': {
+    legalDisclaimer: {
+      badge: 'Auto Socorro e Remoção',
+      lawReference: 'Código Civil (Arts. 730 a 756) e Código de Trânsito Brasileiro',
+      title: 'Aviso Legal de Remoção e Transporte de Veículos',
+      description:
+        'Comprovante de socorro mecânico e reboque rodoviário ou urbano em plataforma hidráulica. Serve como comprovante de despesa para reembolso de seguradoras e quitação de frete de veículos.'
+    },
+    commonErrors: {
+      title: '4 Erros na Emissão do Recibo de Guincho',
+      errors: [
+        {
+          number: 1,
+          title: 'Não colocar a placa e modelo do veículo transportado',
+          description:
+            'A identificação completa do automóvel é indispensável para pedidos de reembolso em seguradoras e associações de proteção veicular.'
+        },
+        {
+          number: 2,
+          title: 'Omitir o trajeto (endereço de origem e destino)',
+          description:
+            'Descreva de onde o carro foi removido até onde foi entregue para comprovar a distância percorrida.'
+        },
+        {
+          number: 3,
+          title: 'Não apontar avarias anteriores na lataria do veículo',
+          description:
+            'Se o carro sofreu colisão prévia, mencione na descrição para afastar acusações de danos causados durante o içamento na prancha.'
+        },
+        {
+          number: 4,
+          title: 'Não conferir se a chave do veículo foi entregue à oficina',
+          description:
+            'Colha a assinatura de quem recebeu o carro no destino (mecânico ou proprietário).'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar este Recibo de Reboque',
+      description:
+        'Casos especiais que exigem outros documentos:',
+      items: [
+        'Veículos apreendidos por autoridade policial ou de trânsito em pátios públicos: Exigem liberação formal pelo Detran ou órgão municipal.',
+        'Transporte interestadual de frotas com emissão obrigatória de Conhecimento de Transporte Eletrônico (CT-e) e MDF-e.'
+      ],
+      practicalRule:
+        'Para remoções urbanas particulares de carros com pane ou colisão, este recibo é o documento oficial para acerto e reembolso.'
+    }
+  },
+
+  'recibo-de-estetica-automotiva': {
+    legalDisclaimer: {
+      badge: 'Detailing Automotivo',
+      lawReference: 'Artigo 26 do Código de Defesa do Consumidor e Código Civil',
+      title: 'Termo de Entrega Técnica e Garantia de Estética Automotiva',
+      description:
+        'Comprovante de execução de polimento comercial/técnico, vitrificação cerâmica, descontaminação de pintura e higienização interna de veículos. Fixa os prazos de durabilidade e quitação.'
+    },
+    commonErrors: {
+      title: '4 Erros Comuns em Estúdios de Estética Automotiva',
+      errors: [
+        {
+          number: 1,
+          title: 'Não discriminar a marca do vitrificador e tempo de proteção',
+          description:
+            'Se o serviço incluiu vitrificação 9H com garantia de 1 a 3 anos, o produto e a durabilidade devem constar expressamente no recibo.'
+        },
+        {
+          number: 2,
+          title: 'Não orientar sobre o tempo de cura antes da primeira lavagem',
+          description:
+            'A vitrificação exige até 7 dias sem lavagens agressivas com shampoo ácido/alcalino para fixar a ancoragem do produto.'
+        },
+        {
+          number: 3,
+          title: 'Não inspecionar a lataria na entrega com o cliente',
+          description:
+            'Aponte sob luz de inspeção que todos os hologramas foram eliminados e colha a assinatura no recibo.'
+        },
+        {
+          number: 4,
+          title: 'Omitir a placa e cor do veículo tratado',
+          description:
+            'Identifique claramente o carro no recibo para vincular o serviço àquele chassi e placa.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar o Recibo Simples de Detailing',
+      description:
+        'Casos corporativos:',
+      items: [
+        'Frotistas e concessionárias que exigem Nota Fiscal de Serviços eletrônica (NFS-e) para abatimento contábil de manutenção de frota.'
+      ],
+      practicalRule:
+        'Para clientes particulares que buscam proteção e brilho para seus veículos, o recibo assinado é o certificado de garantia definitivo.'
+    }
+  },
+
+  'recibo-de-personal-trainer': {
+    legalDisclaimer: {
+      badge: 'Profissional de Educação Física',
+      lawReference: 'Lei Federal nº 9.696/1998 e Resoluções do CONFEF / CREF',
+      title: 'Aviso Legal para Serviços de Personal Trainer',
+      description:
+        'Comprovante de remuneração de serviços de Educação Física e treinamento esportivo individualizado. O registro regular no Conselho Regional de Educação Física (CREF) é indispensável para validade ética e reembolsos.'
+    },
+    commonErrors: {
+      title: '4 Erros ao Emitir Recibo de Personal Trainer',
+      errors: [
+        {
+          number: 1,
+          title: 'Não constar o número de registro do CREF',
+          description:
+            'A ausência do número do CREF no recibo inviabiliza pedidos de reembolso dos alunos perante planos de saúde e convênios corporativos.'
+        },
+        {
+          number: 2,
+          title: 'Não especificar a quantidade de aulas contratadas no mês',
+          description:
+            'Discrimine se a mensalidade contempla 2x, 3x ou 5x na semana, e a duração de cada sessão (ex: 60 minutos).'
+        },
+        {
+          number: 3,
+          title: 'Não definir a política de desmarcações e reposições',
+          description:
+            'Insira no recibo ou contrato que faltas sem aviso prévio de 24 horas não dão direito à reposição de aula.'
+        },
+        {
+          number: 4,
+          title: 'Esquecer de declarar no Carnê-Leão da Receita Federal',
+          description:
+            'Personal trainers autônomos que recebem de pessoas físicas devem lançar os recibos no Carnê-Leão mensalmente.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar o Recibo de Personal Autônomo',
+      description:
+        'Situações em que há relação institucional:',
+      items: [
+        'Aulas ministradas como instrutor contratado de academia sob CLT: Devem ser pagas mediante folha de salário da empresa.',
+        'Atuação sem registro ativo no CREF: O exercício da profissão de Educação Física sem registro constitui contravenção penal de exercício ilegal de profissão.'
+      ],
+      practicalRule:
+        'Para personal trainers autônomos atendendo alunos em academias, condomínios ou residências, este recibo cumpre todos os requisitos fiscais e de reembolso.'
+    }
+  },
+
+  'recibo-de-chaveiro': {
+    legalDisclaimer: {
+      badge: 'Segurança Patrimonial',
+      lawReference: 'Artigo 26 do Código de Defesa do Consumidor e Código Civil',
+      title: 'Aviso Legal para Serviços de Chaveiro',
+      description:
+        'Comprovante de abertura técnica de fechaduras, cópias de chaves codificadas e substituição de cilindros de segurança. Comprova quem solicitou a intervenção e a quitação do serviço prestado.'
+    },
+    commonErrors: {
+      title: '4 Erros na Emissão do Recibo de Chaveiro',
+      errors: [
+        {
+          number: 1,
+          title: 'Não conferir a identidade de quem contratou a abertura',
+          description:
+            'Exija documento com foto do morador ou condutor antes de abrir a porta para se resguardar contra invasões de domicílio ou furtos.'
+        },
+        {
+          number: 2,
+          title: 'Não anotar a quantidade de cópias de chaves entregues',
+          description:
+            'Discrimine quantas chaves foram fornecidas e testadas na presença do cliente.'
+        },
+        {
+          number: 3,
+          title: 'Não indicar a marca e modelo da fechadura trocada',
+          description:
+            'Informar a marca (Pado, Yale, Papaiz, Stam, Aliança) comprova a qualidade da peça de reposição utilizada.'
+        },
+        {
+          number: 4,
+          title: 'Não testar a abertura interna e externa antes de sair',
+          description:
+            'Certifique-se de que a lingueta e trancas correm suaves sem prender na contra-testa do batente.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar o Recibo de Chaveiro',
+      description:
+        'Situações de risco legal:',
+      items: [
+        'Aberturas de portas judiciais sem mandado: Aberturas de imóveis litigiosos exigem ordem judicial expressa e acompanhamento de Oficial de Justiça.'
+      ],
+      practicalRule:
+        'Para aberturas residenciais e automotivas convencionais, trocas de segredo e cópias de chaves, o recibo assinado garante respaldo total.'
+    }
+  },
+
+  'recibo-de-lavagem-de-estofados': {
+    legalDisclaimer: {
+      badge: 'Higienização Têxtil',
+      lawReference: 'Artigos 593 e seguintes do Código Civil e Art. 26 do CDC',
+      title: 'Aviso Legal para Lavagem e Impermeabilização de Estofados',
+      description:
+        'Comprovante de higienização por extração e aplicação de protetores de tecidos. Comprova a entrega dos estofados limpos e fixa as condições de secagem e garantia da blindagem impermeabilizante.'
+    },
+    commonErrors: {
+      title: '4 Erros na Higienização e Blindagem de Sofás',
+      errors: [
+        {
+          number: 1,
+          title: 'Não apontar manchas profundas pré-existentes',
+          description:
+            'Manchas antigas de gordura ou queimaduras químicas que não saem 100% devem ser registradas no recibo antes do início do procedimento.'
+        },
+        {
+          number: 2,
+          title: 'Não alertar o tempo de secagem (6 a 12 horas)',
+          description:
+            'Oriente o cliente a manter o ambiente ventilado e não cobrir o sofá com mantas antes da secagem completa.'
+        },
+        {
+          number: 3,
+          title: 'Não especificar o tipo de produto impermeabilizante usado',
+          description:
+            'Utilize apenas produtos não inflamáveis registrados na Anvisa e anote no recibo para segurança contra riscos de incêndio.'
+        },
+        {
+          number: 4,
+          title: 'Não demonstrar o teste de repelência com gotas de água',
+          description:
+            'Faça o teste de gotas dágua na frente do cliente após a secagem para atestar o efeito lótus da impermeabilização.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar este Recibo de Estofados',
+      description:
+        'Situações em que é necessária documentação fiscal:',
+      items: [
+        'Higienização de frotas de ônibus ou aeronaves: Exige laudo químico e Nota Fiscal Eletrônica de prestação de serviços.'
+      ],
+      practicalRule:
+        'Para lavagem e impermeabilização residencial de sofás, poltronas e colchões, este recibo confere garantia e profissionalismo.'
+    }
+  },
+
+  'recibo-de-tatuador': {
+    legalDisclaimer: {
+      badge: 'Biossegurança e Arte',
+      lawReference: 'Normas da Vigilância Sanitária (Anvisa) e Código Civil',
+      title: 'Aviso Legal para Serviços de Tatuagem e Body Piercing',
+      description:
+        'Comprovante de remuneração de serviços artísticos de tatuagem e perfurações corporais. Atesta a realização do procedimento com insumos estéreis e descartáveis em conformidade sanitária.'
+    },
+    commonErrors: {
+      title: '4 Erros Críticos no Estúdio de Tatuagem',
+      errors: [
+        {
+          number: 1,
+          title: 'Não exigir a assinatura do Termo de Consentimento e Saúde',
+          description:
+            'O recibo quita o valor financeiro, mas a ficha de anamnese assinada com perguntas sobre alergias, hepatite e gravidez é indispensável.'
+        },
+        {
+          number: 2,
+          title: 'Não discriminar sinal de reserva e valor da sessão',
+          description:
+            'Deixe claro no texto se o valor recebido é o sinal não reembolsável para criação do desenho ou o pagamento da sessão executada.'
+        },
+        {
+          number: 3,
+          title: 'Não fornecer as instruções escritas de pós-cuidados',
+          description:
+            'Entregue as orientações de higienização com sabonete neutro e uso de pomada para afastar acusações de infecções causadas por descuido do cliente.'
+        },
+        {
+          number: 4,
+          title: 'Tatuar menores de idade sem autorização legal',
+          description:
+            'Certifique-se da maioridade do cliente ou da autorização formal com firma reconhecida dos pais conforme a lei estadual aplicável.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Emitir Apenas o Recibo de Tatuagem',
+      description:
+        'Exigências mandatórias:',
+      items: [
+        'O recibo não substitui o Termo de Responsabilidade e Consentimento Informado exigido pela Vigilância Sanitária.'
+      ],
+      practicalRule:
+        'Para tatuadores e body piercers autônomos, este recibo emitido a clientes particulares formaliza a quitação com máxima seriedade.'
+    }
+  },
+
+  'recibo-de-limpeza-pos-obra': {
+    legalDisclaimer: {
+      badge: 'Limpeza Técnica Especializada',
+      lawReference: 'Artigos 593 a 609 do Código Civil Brasileiro',
+      title: 'Aviso Legal de Entrega e Vistoria de Limpeza Pós-Obra',
+      description:
+        'Comprovante de execução de faxina técnica pós-reforma com remoção de incrustações, respingos de tinta e pó de gesso. Comprova que os pisos e vidros foram entregues vistoriados e íntegros.'
+    },
+    commonErrors: {
+      title: '4 Erros na Limpeza Pós-Obra',
+      errors: [
+        {
+          number: 1,
+          title: 'Não fazer a vistoria prévia de riscos em vidros e pisos',
+          description:
+            'Vidros e porcelanatos frequentemente já chegam riscados pelos pedreiros. Registre no recibo que os danos anteriores foram apontados na entrada.'
+        },
+        {
+          number: 2,
+          title: 'Usar ácidos em porcelanatos sem teste de mancha',
+          description:
+            'Removedores ácidos atacam o esmalte do porcelanato polido. Use apenas produtos neutros ou alcalinos específicos pós-obra.'
+        },
+        {
+          number: 3,
+          title: 'Não estipular a metragem quadrada do imóvel atendido',
+          description:
+            'Informe a área do imóvel no texto para justificar o valor da diária técnica da equipe.'
+        },
+        {
+          number: 4,
+          title: 'Não colher a assinatura da vistoria final de saída',
+          description:
+            'Peça para o proprietário ou arquiteto assinar o recibo no local após checar a limpeza de rodapés, esquadrias e vidraças.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar o Recibo Simples de Limpeza Técnica',
+      description:
+        'Grandes empreendimentos:',
+      items: [
+        'Limpeza de entregas de torres prediais para incorporadoras: Exigem medição por lote e emissão obrigatória de Nota Fiscal de Serviços.'
+      ],
+      practicalRule:
+        'Para apartamentos e casas residenciais recém-reformadas, este recibo assinado no término do serviço encerra a obra com chave de ouro.'
+    }
+  },
+
+  'recibo-de-diaria-de-garcom': {
+    legalDisclaimer: {
+      badge: 'Serviço Eventual',
+      lawReference: 'Artigo 442-B da CLT (Trabalho Autônomo Eventual)',
+      title: 'Aviso Legal de Diária de Garçom e Equipe de Eventos',
+      description:
+        'Comprovante civil de remuneração de diária avulsa de garçom, copeiro ou barman para eventos sociais pontuais. Atesta o pagamento imediato e a ausência de subordinação contínua de emprego.'
+    },
+    commonErrors: {
+      title: '4 Erros no Pagamento de Garçons Avulsos',
+      errors: [
+        {
+          number: 1,
+          title: 'Não colher a assinatura no término da festa',
+          description:
+            'Nunca deixe para pagar ou colher a assinatura no dia seguinte. Diária de evento cumprida deve ser paga e assinada na saída da equipe.'
+        },
+        {
+          number: 2,
+          title: 'Não discriminar a carga horária trabalhada',
+          description:
+            'Mencione quantas horas durou o atendimento (ex: 6 horas de plantão) para comprovar a inexistência de horas extras pendentes.'
+        },
+        {
+          number: 3,
+          title: 'Não incluir ajuda de custo de transporte e alimentação',
+          description:
+            'Se você pagou o transporte ou forneceu a refeição, declare no recibo para afastar questionamentos trabalhistas.'
+        },
+        {
+          number: 4,
+          title: 'Contratar o mesmo garçom com habitualidade semanal',
+          description:
+            'Trabalho semanal contínuo no mesmo restaurante gera risco de vínculo CLT. O recibo de diária destina-se a eventos avulsos.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar o Recibo de Diária de Garçom',
+      description:
+        'Restaurantes e bares comerciais:',
+      items: [
+        'Garçons que cumprem escala fixa semanal em bares e restaurantes: Devem ser registrados em carteira de trabalho ou sob contrato de trabalho intermitente (Art. 452-A da CLT).'
+      ],
+      practicalRule:
+        'Para casamentos, aniversários, churrascos e eventos particulares de finais de semana, este recibo é a quitação perfeita da equipe.'
+    }
+  },
+
+  'recibo-de-churrasqueiro': {
+    legalDisclaimer: {
+      badge: 'Gastronomia em Eventos',
+      lawReference: 'Artigos 593 e seguintes do Código Civil Brasileiro',
+      title: 'Aviso Legal para Serviços de Churrasqueiro em Festas',
+      description:
+        'Comprovante de prestação de serviços culinários especializados para eventos particulares e corporativos. Atesta a realização do serviço de assador e quitação integral.'
+    },
+    commonErrors: {
+      title: '4 Erros Comuns ao Contratar Churrasqueiro',
+      errors: [
+        {
+          number: 1,
+          title: 'Não definir o horário de início e término do serviço',
+          description:
+            'Estabeleça no recibo a duração do atendimento (ex: das 12h às 17h) e o valor acordado caso o cliente solicite horas extras.'
+        },
+        {
+          number: 2,
+          title: 'Não discriminar se os insumos foram comprados pelo cliente',
+          description:
+            'Deixe claro que o valor refere-se exclusivamente à mão de obra de assador profissional, tendo o cliente fornecido carnes e carvão.'
+        },
+        {
+          number: 3,
+          title: 'Não cobrar sinal para reserva da data',
+          description:
+            'Churrasqueiros devem sempre emitir recibo do sinal de agendamento de 30% a 50% para garantir a reserva do fim de semana.'
+        },
+        {
+          number: 4,
+          title: 'Não combinar a limpeza da grelha na saída',
+          description:
+            'Alerte na contratação se o churrasqueiro entrega a bancada e espetos limpos ao encerrar o corte das carnes.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar o Recibo de Churrasqueiro',
+      description:
+        'Casos comerciais:',
+      items: [
+        'Trabalho diário em churrascarias ou restaurantes comerciais com subordinação direta (exige carteira de trabalho assinada).'
+      ],
+      practicalRule:
+        'Para confraternizações residenciais, chácaras e festas particulares, o recibo assinado garante a tranquilidade do churrasqueiro e dos anfitriões.'
+    }
+  },
+
+  'recibo-de-seguranca-de-eventos': {
+    legalDisclaimer: {
+      badge: 'Vigilância Desarmada',
+      lawReference: 'Lei Federal nº 7.102/1983 e Art. 442-B da CLT',
+      title: 'Aviso Legal para Segurança e Controle de Portaria em Eventos',
+      description:
+        'Comprovante de pagamento de serviços autônomos de recepção, fiscalização de acesso e segurança patrimonial preventiva desarmada em eventos sociais privados.'
+    },
+    commonErrors: {
+      title: '4 Erros na Contratação de Segurança para Festas',
+      errors: [
+        {
+          number: 1,
+          title: 'Não discriminar a natureza desarmada da atividade',
+          description:
+            'Sempre declare no texto que o serviço prestado foi de vigilância e fiscalização de acesso desarmada, em estrita conformidade com a lei.'
+        },
+        {
+          number: 2,
+          title: 'Omitir o horário exato da jornada cumprida',
+          description:
+            'Registre o horário de início e término do plantão (ex: das 21h às 04h) para comprovar a quitação total da diária.'
+        },
+        {
+          number: 3,
+          title: 'Não colher a assinatura no término do evento',
+          description:
+            'Realize o pagamento e colha a assinatura no recibo na liberação da equipe ao final da festa.'
+        },
+        {
+          number: 4,
+          title: 'Não fornecer água e alimentação durante plantões longos',
+          description:
+            'Declare no recibo que as condições acordadas de alimentação e repouso foram cumpridas satisfatoriamente.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar este Recibo de Segurança',
+      description:
+        'Situações vedadas:',
+      items: [
+        'Vigilância armada ou transporte de valores (atividade privativa de empresas de segurança privada autorizadas pelo Departamento de Polícia Federal).',
+        'Vigilância contínua diária em condomínios (exige contratação formal sob a CLT).'
+      ],
+      practicalRule:
+        'Para eventos privados, formaturas, aniversários e casamentos, o recibo de diária assinado confere respaldo jurídico absoluto aos contratantes.'
+    }
+  },
+
+  'recibo-de-musico-e-dj': {
+    legalDisclaimer: {
+      badge: 'Cachê Artístico',
+      lawReference: 'Lei Federal nº 6.533/1978 (Profissão de Artista) e Código Civil',
+      title: 'Aviso Legal de Quitação de Cachê Musical e Sonorização',
+      description:
+        'Comprovante de remuneração de apresentação artística musical, performance ao vivo ou discotecagem de DJ. Comprova o cumprimento do tempo de palco e a quitação do cachê acordado.'
+    },
+    commonErrors: {
+      title: '4 Erros no Pagamento de Músicos e DJs',
+      errors: [
+        {
+          number: 1,
+          title: 'Não especificar a duração da apresentação (tempo de show)',
+          description:
+            'Mencione quantas horas durou o show ou discotecagem (ex: 3 horas de apresentação com intervalo de 15 minutos).'
+        },
+        {
+          number: 2,
+          title: 'Não discriminar se o som e iluminação estavam inclusos',
+          description:
+            'Deixe claro se o artista forneceu apenas sua voz e instrumentos ou se também levou PA, caixas de som e iluminação.'
+        },
+        {
+          number: 3,
+          title: 'Não cobrar sinal para segurar a data na agenda',
+          description:
+            'Artistas devem cobrar de 30% a 50% de sinal de reserva para garantir a data do show na agenda do fim de semana.'
+        },
+        {
+          number: 4,
+          title: 'Achar que o recibo do músico quita a taxa do ECAD',
+          description:
+            'O recibo quita apenas o cachê do profissional; o recolhimento de direitos autorais do ECAD cabe ao organizador do evento.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar o Recibo Simples de Cachê',
+      description:
+        'Grandes produções:',
+      items: [
+        'Contratações artísticas por órgãos públicos com verba de prefeitura ou governo: Exigem emissão obrigatória de Nota Fiscal de Serviços e certidões negativas.'
+      ],
+      practicalRule:
+        'Para apresentações em bares, casamentos, aniversários e festas particulares, este recibo formaliza o cachê artístico com rapidez e fé pública.'
+    }
+  },
+
+  'recibo-de-animador-de-festas': {
+    legalDisclaimer: {
+      badge: 'Recreação Infantil',
+      lawReference: 'Artigos 593 e seguintes do Código Civil Brasileiro',
+      title: 'Aviso Legal para Serviços de Animação e Recreação',
+      description:
+        'Comprovante de realização de atividades lúdicas, gincanas, maquiagem artística e esculturas em balões para festas de aniversário. Formaliza a quitação da equipe de recreação.'
+    },
+    commonErrors: {
+      title: '4 Erros Comuns na Recreação Infantil',
+      errors: [
+        {
+          number: 1,
+          title: 'Não especificar as atividades contratadas',
+          description:
+            'Liste no texto se foram realizadas brincadeiras com bola, caça ao tesouro, pintura facial e esculturas de bexigas.'
+        },
+        {
+          number: 2,
+          title: 'Usar maquiagens e tintas não hipoalergênicas',
+          description:
+            'Declare no recibo que as tintas faciais são atóxicas e aprovadas pela Anvisa para evitar alegações de alergias em crianças.'
+        },
+        {
+          number: 3,
+          title: 'Não definir a quantidade de recreadores presentes',
+          description:
+            'Informar o tamanho da equipe no recibo comprova a proporcionalidade de monitores por quantidade de crianças na festa.'
+        },
+        {
+          number: 4,
+          title: 'Não estipular a taxa de hora adicional caso a festa atrase',
+          description:
+            'Deixe acordado o valor da hora extra de recreação caso os pais peçam para estender a brincadeira até mais tarde.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar o Recibo de Recreação',
+      description:
+        'Eventos corporativos de grande porte:',
+      items: [
+        'Contratos com shoppings centers e grandes empresas que exigem emissão de NFS-e e seguro de responsabilidade civil para eventos.'
+      ],
+      practicalRule:
+        'Para aniversários infantis residenciais e salões de festas, este recibo emitido aos pais garante tranquilidade financeira total.'
+    }
+  },
+
+  'recibo-de-adestrador-de-caes': {
+    legalDisclaimer: {
+      badge: 'Comportamento Canino',
+      lawReference: 'Artigos 593 a 609 do Código Civil Brasileiro',
+      title: 'Aviso Legal de Adestramento Canino e Dog Walking',
+      description:
+        'Comprovante de prestação de serviços de adestramento comportamental, aulas de obediência e passeios diários. Atesta a aplicação de metodologia técnica e a quitação do pacote contratado.'
+    },
+    commonErrors: {
+      title: '4 Erros no Adestramento e Passeio de Cães',
+      errors: [
+        {
+          number: 1,
+          title: 'Não identificar o nome e raça do animal no recibo',
+          description:
+            'Vincule o serviço ao cão específico para comprovar perante o tutor o histórico das aulas ministradas.'
+        },
+        {
+          number: 2,
+          title: 'Não registrar a quantidade de aulas do pacote',
+          description:
+            'Discrimine quantas aulas práticas foram contratadas no mês (ex: 8 aulas semanais de 50 minutos).'
+        },
+        {
+          number: 3,
+          title: 'Não alertar que o tutor precisa praticar os comandos em casa',
+          description:
+            'Alerte no texto que o adestramento é um processo contínuo que depende da cooperação de toda a família no domicílio.'
+        },
+        {
+          number: 4,
+          title: 'Dog Walkers sem confirmação de vacinação do cão',
+          description:
+            'Certifique-se de que o animal possui vacina antirrábica e polivalente (V10) em dia antes de realizar passeios em vias públicas.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar o Recibo de Adestrador',
+      description:
+        'Situações médicas:',
+      items: [
+        'Procedimentos cirúrgicos ou tratamentos de saúde animal (atividade privativa de médicos veterinários com CRMV ativo).'
+      ],
+      practicalRule:
+        'Para adestradores e passeadores autônomos que atendem famílias e tutores de pets, este recibo confere respaldo profissional indiscutível.'
+    }
+  },
+
+  'recibo-de-manutencao-de-portao-eletronico': {
+    legalDisclaimer: {
+      badge: 'Automação Predial',
+      lawReference: 'Artigo 26 do Código de Defesa do Consumidor e Código Civil',
+      title: 'Aviso Legal de Assistência Técnica de Portões Eletrônicos',
+      description:
+        'Comprovante de manutenção corretiva, substituição de peças, motores e centrais de comando em portões automáticos. Fixa a garantia legal de 90 dias nas peças instaladas e na mão de obra.'
+    },
+    commonErrors: {
+      title: '4 Erros na Manutenção de Motores de Portão',
+      errors: [
+        {
+          number: 1,
+          title: 'Não listar os componentes substituídos (ex: placa, capacitor, cremalheira)',
+          description:
+            'Discriminar exatamente o que foi trocado prova a transparência do orçamento e a origem das peças novas.'
+        },
+        {
+          number: 2,
+          title: 'Não testar a trava de segurança anti-esmagamento na presença do cliente',
+          description:
+            'Verifique se o sensor antiesmagamento e o freio do motor estão funcionando perfeitamente antes de colher a assinatura.'
+        },
+        {
+          number: 3,
+          title: 'Não informar a quantidade de controles codificados e entregues',
+          description:
+            'Anote no recibo quantos controles remotos novos foram programados e entregues ao morador ou síndico.'
+        },
+        {
+          number: 4,
+          title: 'Não ressalvar queimas decorrentes de raios e tempestades',
+          description:
+            'Alerte que descargas elétricas atmosféricas na rede pública não são cobertas pela garantia do fabricante da placa.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar o Recibo Simples de Portão',
+      description:
+        'Grandes contratos:',
+      items: [
+        'Contratos mensais de manutenção preventiva de condomínios com exigência de emissão compulsória de Nota Fiscal Eletrônica (NFS-e).'
+      ],
+      practicalRule:
+        'Para manutenções emergenciais e reparos avulsos em residências e pequenos condomínios, o recibo assinado garante a quitação e a segurança do serviço.'
+    }
+  },
+
+  'recibo-de-dedetizacao': {
+    legalDisclaimer: {
+      badge: 'Controle de Pragas',
+      lawReference: 'RDC nº 52/2009 da Anvisa e Código de Defesa do Consumidor',
+      title: 'Aviso Legal e Garantia de Dedetização e Controle de Pragas',
+      description:
+        'Comprovante de execução de controle químico de pragas urbanas (desinsetização, desratização e descupinização). Fixa o prazo de assistência técnica garantida e as orientações de biossegurança.'
+    },
+    commonErrors: {
+      title: '4 Erros Graves na Emissão do Recibo de Dedetização',
+      errors: [
+        {
+          number: 1,
+          title: 'Não constar o tempo mínimo de afastamento do imóvel',
+          description:
+            'Alerte no texto que pessoas, crianças e animais domésticos devem permanecer fora do local pelo período orientado pelo químico responsável (geralmente de 4 a 12 horas).'
+        },
+        {
+          number: 2,
+          title: 'Não discriminar quais pragas foram combatidas',
+          description:
+            'Indique se o serviço combateu baratas, formigas, cupins de madeira, escorpiões ou roedores, evitando cobranças de pragas não tratadas.'
+        },
+        {
+          number: 3,
+          title: 'Não especificar o prazo de assistência garantida',
+          description:
+            'Informe claramente se a garantia de reforço pontual é de 3 meses, 6 meses ou 1 ano a contar da aplicação.'
+        },
+        {
+          number: 4,
+          title: 'Não orientar sobre a limpeza de superfícies após o retorno',
+          description:
+            'Oriente sobre a limpeza de bancadas de alimentos com pano úmido e descarte de materiais contaminados.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar Apenas o Recibo de Dedetização',
+      description:
+        'Comércio de alimentos e indústrias:',
+      items: [
+        'Restaurantes, padarias, hospitais e cozinhas industriais exigem obrigatoriamente o Certificado de Desinsetização assinado pelo Responsável Técnico químico/biólogo (CRQ/CRBio) perante a Vigilância Sanitária.'
+      ],
+      practicalRule:
+        'Para dedetizações em residências, condomínios particulares e chácaras, este recibo emitido pelo aplicador atesta a quitação e o prazo de garantia contratado.'
+    }
+  },
+
+  'recibo-de-tapeceiro': {
+    legalDisclaimer: {
+      badge: 'Tapeçaria Artesanal',
+      lawReference: 'Artigo 26 do Código de Defesa do Consumidor e Código Civil',
+      title: 'Aviso Legal para Serviços de Tapeçaria e Reforma de Sofás',
+      description:
+        'Comprovante civil de reforma de móveis estofados, substituição de tecidos, costuras e espumas. Assegura a quitação do sinal para compra dos insumos e a entrega técnica do estofado renovado.'
+    },
+    commonErrors: {
+      title: '4 Erros Comuns na Reforma de Sofás e Tapeçaria',
+      errors: [
+        {
+          number: 1,
+          title: 'Não especificar o código e tipo do tecido aprovado pelo cliente',
+          description:
+            'Registre o nome do tecido (ex: Linho Bege ref. 104) para comprovar que a forração coincide com a amostra escolhida no mostruário.'
+        },
+        {
+          number: 2,
+          title: 'Não discriminar a densidade da espuma instalada',
+          description:
+            'Mencione a densidade da espuma substituída (ex: D28 ou D33) para atestar a firmeza e qualidade estrutural do assento.'
+        },
+        {
+          number: 3,
+          title: 'Não emitir recibo do sinal para compra do tecido',
+          description:
+            'Tapeceiros devem sempre formalizar o recebimento do sinal de entrada que custeia a compra dos metros de tecido e insumos.'
+        },
+        {
+          number: 4,
+          title: 'Não registrar pequenas avarias na madeira ao retirar o móvel',
+          description:
+            'Se a carcaça de madeira do sofá já apresentava pés quebrados ou cupim ao ser recolhido na casa do cliente, anote no recibo inicial.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar o Recibo Simples de Tapeceiro',
+      description:
+        'Casos especiais:',
+      items: [
+        'Revestimento de estofados aeronáuticos ou navais com exigência de tecidos antichamas certificados pela ANAC/Marinha do Brasil.'
+      ],
+      practicalRule:
+        'Para sofás, poltronas, cadeiras de jantar e cabeceiras residenciais sob medida, o recibo assinado é a garantia da arte e da durabilidade do móvel.'
+    }
+  },
+
+  'recibo-de-telhadista': {
+    legalDisclaimer: {
+      badge: 'Construção e Telhados',
+      lawReference: 'Artigos 610 a 626 do Código Civil Brasileiro',
+      title: 'Aviso Legal para Serviços de Telhadista e Conserto de Telhados',
+      description:
+        'Comprovante de execução de reparos em coberturas residenciais, troca de telhas trincadas, impermeabilização e alinhamento de madeiramento. Formaliza a entrega do telhado estanque e sem vazamentos.'
+    },
+    commonErrors: {
+      title: '4 Erros na Manutenção de Telhados e Coberturas',
+      errors: [
+        {
+          number: 1,
+          title: 'Não detalhar os pontos reparados no telhado',
+          description:
+            'Indique se o conserto foi realizado nas cumeeiras, espigões, águas-furtadas ou troca pontual de telhas quebradas.'
+        },
+        {
+          number: 2,
+          title: 'Não definir se os materiais foram fornecidos pelo telhadista',
+          description:
+            'Esclareça se as telhas cerâmicas/esmaltadas e argamassas foram custeadas pelo cliente ou se estavam inclusas no preço total.'
+        },
+        {
+          number: 3,
+          title: 'Não realizar o teste com mangueira dágua antes de descer',
+          description:
+            'Simule a chuva nos pontos consertados e confira a ausência de pingueiras no forro antes de colher a assinatura do proprietário.'
+        },
+        {
+          number: 4,
+          title: 'Não alertar sobre a fragilidade de telhas antigas',
+          description:
+            'Alerte se o telhado possui telhas ressecadas pelo tempo que demandam cautela de circulação.'
+        }
+      ]
+    },
+    whenNotToUse: {
+      title: 'Quando NÃO Usar o Recibo Simples de Telhadista',
+      description:
+        'Grandes coberturas industriais:',
+      items: [
+        'Instalação de galpões com estruturas metálicas pesadas que exigem projeto estrutural com ART registrada no CREA.'
+      ],
+      practicalRule:
+        'Para consertos de goteiras, troca de telhas e reformas residenciais, este recibo assinado garante a quitação e comprova a entrega técnica sem infiltrações.'
+    }
   }
 };
 

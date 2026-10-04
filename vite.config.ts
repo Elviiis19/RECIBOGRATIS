@@ -38,6 +38,9 @@ export default defineConfig(({ mode }) => {
             if (id.includes('src/data/blogPosts')) {
               return 'data-blog';
             }
+            if (id.includes('src/data/receiptGuides') || id.includes('src/data/richSeoContent')) {
+              return 'data-receipt-seo';
+            }
             if (id.includes('src/data/declarationModels') || id.includes('src/pages/declarations')) {
               return 'data-declarations';
             }

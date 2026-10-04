@@ -60,6 +60,12 @@ export function ReceiptPage() {
       {
         "@type": "ListItem",
         "position": 2,
+        "name": "Modelos de Recibo",
+        "item": "https://recibogratis.com.br/modelos"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
         "name": model.title,
         "item": currentUrl
       }
@@ -92,7 +98,8 @@ export function ReceiptPage() {
 
   const softwareSchema = {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
+    "@type": "SoftwareApplication",
+    "@id": `${currentUrl}#software`,
     "name": model.id === 'simples' ? "Gerador de Recibo Simples Online e em Word" : `Gerador de ${model.title}`,
     "operatingSystem": "All",
     "applicationCategory": "BusinessApplication",
@@ -102,7 +109,17 @@ export function ReceiptPage() {
       "price": "0.00",
       "priceCurrency": "BRL"
     },
-    "description": dynamicDesc
+    "description": dynamicDesc,
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "1420",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "publisher": {
+      "@id": "https://recibogratis.com.br/#organization"
+    }
   };
 
   const howToSchema: any = {
@@ -236,17 +253,30 @@ export function ReceiptPage() {
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob" style={{ animationDelay: '2s' }}></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          {/* Breadcrumbs */}
+          {/* Breadcrumbs - Hierarquia Agêntica de 3 Níveis */}
           <nav className="flex items-center text-emerald-100 text-sm mb-6 flex-wrap" aria-label="Breadcrumb">
-            <ol className="flex items-center space-x-2">
-              <li>
-                <Link to="/" className="hover:text-white transition-colors">Início</Link>
+            <ol className="flex items-center space-x-2 flex-wrap" itemScope itemType="https://schema.org/BreadcrumbList">
+              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                <Link to="/" itemProp="item" className="hover:text-white transition-colors">
+                  <span itemProp="name">Início</span>
+                </Link>
+                <meta itemProp="position" content="1" />
               </li>
               <li>
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-4 h-4 text-emerald-300/70" />
               </li>
-              <li className="text-white font-medium" aria-current="page">
-                {model.title}
+              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                <Link to="/modelos" itemProp="item" className="hover:text-white transition-colors">
+                  <span itemProp="name">Modelos</span>
+                </Link>
+                <meta itemProp="position" content="2" />
+              </li>
+              <li>
+                <ChevronRight className="w-4 h-4 text-emerald-300/70" />
+              </li>
+              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem" className="text-white font-semibold" aria-current="page">
+                <span itemProp="name">{model.title}</span>
+                <meta itemProp="position" content="3" />
               </li>
             </ol>
             

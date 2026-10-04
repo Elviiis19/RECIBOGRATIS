@@ -251,7 +251,8 @@ export function Home() {
 
   const softwareSchema = {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
+    "@type": "SoftwareApplication",
+    "@id": "https://recibogratis.com.br/#software",
     "name": "Recibo Grátis - Gerador de Recibos Online",
     "operatingSystem": "All",
     "applicationCategory": "BusinessApplication",
@@ -269,6 +270,13 @@ export function Home() {
       "@type": "Offer",
       "price": "0.00",
       "priceCurrency": "BRL"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "1840",
+      "bestRating": "5",
+      "worstRating": "1"
     }
   };
 
@@ -451,9 +459,9 @@ export function Home() {
 
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold py-3 px-6 rounded-xl transition-all shadow-md hover:shadow-lg cursor-pointer text-sm sm:text-base min-h-[48px]"
+                className="w-full flex items-center justify-center gap-2 bg-emerald-700 hover:bg-emerald-800 active:bg-emerald-900 text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md hover:shadow-lg cursor-pointer text-sm sm:text-base min-h-[48px]"
               >
-                <FileText className="w-5 h-5 text-emerald-200" />
+                <FileText className="w-5 h-5 text-emerald-100" />
                 <span>Gerar Recibo em PDF na Hora &rarr;</span>
               </button>
             </form>

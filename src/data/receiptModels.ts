@@ -1290,4 +1290,844 @@ export const receiptModels = [
       },
     ],
   },
+  {
+    id: "montador-de-moveis",
+    slug: "recibo-de-montador-de-moveis",
+    title: "Recibo de Montador de Móveis",
+    shortDescription: "Comprovante de montagem e desmontagem de móveis residenciais e corporativos. Gere em PDF grátis.",
+    seoTitle: "Recibo de Montador de Móveis Online | Gerador em PDF Grátis",
+    seoDescription: "Gere recibo de montagem de móveis online em PDF. Comprove serviços de montagem, desmontagem, ajustes e fixação de painéis. Rápido e sem cadastro.",
+    keywords: "recibo de montador de moveis, recibo montagem de moveis, recibo desmontagem moveis, recibo servico montador, modelo recibo montador moveis",
+    defaultReferenteA: "Serviços de montagem completa de [descreva o móvel, ex: guarda-roupas 6 portas e fixação de painel de TV em alvenaria], com nivelamento e regulagem de portas e gavetas testados e aprovados pelo cliente.",
+    icon: "Hammer",
+    seoContent: {
+      h2: "Por que emitir o Recibo de Montagem de Móveis?",
+      p1: "Montadores autônomos e lojas de móveis enfrentam frequentemente reclamações de clientes alegando peças arranhadas ou gavetas desalinhadas semanas após o serviço. O recibo de montador de móveis comprova formalmente que o serviço foi concluído, inspecionado e entregue em perfeitas condições de uso.",
+      h3: "O que deve constar no recibo do montador?",
+      p2: "Além dos valores e dados do cliente, é fundamental discriminar os móveis montados (ex: guarda-roupas, cama box, armários de cozinha modulados, painel de TV) e constar que o cliente conferiu a regulagem de portas, puxadores e o estado estético das peças no ato da entrega."
+    },
+    faqs: [
+      {
+        question: "O montador de móveis autônomo é obrigado a emitir nota fiscal?",
+        answer: "Se o montador atuar como pessoa física (CPF) ou MEI prestando serviços para consumidor final (pessoa física), o recibo simples é 100% legal e aceito para comprovação de renda e quitação. Caso atenda pessoa jurídica (loja ou empresa com CNPJ), o MEI deve emitir a Nota Fiscal de Serviços."
+      },
+      {
+        question: "Como o recibo protege o montador contra peças faltantes da fábrica?",
+        answer: "Ao descrever no campo de observações que o móvel foi montado com as peças fornecidas na embalagem lacrada, o montador se resguarda contra a cobrança indevida de ferragens ou tábuas faltantes que são de responsabilidade do fabricante ou da loja vendedora."
+      },
+      {
+        question: "Posso cobrar taxa de visita ou desmontagem no mesmo recibo?",
+        answer: "Sim. Basta discriminar no campo 'Referente a' o valor da desmontagem no endereço de origem e o valor da remontagem no novo endereço, consolidando o pagamento total."
+      },
+      {
+        question: "Como baixar o recibo de montador de móveis em PDF?",
+        answer: "Preencha o formulário acima com seus dados, os dados do cliente, o valor e a descrição dos móveis. Em seguida, clique em 'Imprimir / Gerar PDF' para salvar gratuitamente o documento em alta resolução no celular ou computador."
+      }
+    ]
+  },
+  {
+    id: "instalador-de-ar-condicionado",
+    slug: "recibo-de-instalador-de-ar-condicionado",
+    title: "Recibo de Instalador de Ar-Condicionado",
+    shortDescription: "Comprovante de instalação, limpeza química e recarga de gás em ar-condicionado Split e ACJ.",
+    seoTitle: "Recibo de Instalação de Ar-Condicionado Online | Baixar PDF Grátis",
+    seoDescription: "Gere recibo de instalação de ar-condicionado Split, manutenção preventiva e recarga de gás em PDF. 100% grátis, sem cadastro e com garantia discriminada.",
+    keywords: "recibo instalador de ar condicionado, recibo instalacao ar condicionado split, recibo manutencao ar condicionado, recibo higienizacao ar condicionado, modelo recibo climatizacao",
+    defaultReferenteA: "Serviços de instalação de ar-condicionado [ex: Split Inverter 12.000 BTUs], incluindo furação em alvenaria, tubulação de cobre até 3m, fiação de comando, vácuo na linha e teste operacional com garantia de 90 dias da mão de obra.",
+    icon: "Wrench",
+    seoContent: {
+      h2: "Importância do Recibo com Termo de Garantia para Climatização",
+      p1: "Serviços de refrigeração e ar-condicionado exigem alto rigor técnico. O recibo formaliza não apenas o recebimento dos valores, mas estabelece o prazo da garantia legal da mão de obra (90 dias conforme o Art. 26 do Código de Defesa do Consumidor) e atesta que o teste de estanqueidade e vácuo foi realizado com sucesso.",
+      h3: "Quais detalhes técnicos devem ser descritos?",
+      p2: "Sempre mencione a capacidade do aparelho (BTUs), modelo (Split Hi-Wall, Cassete, Piso Teto), metragem da tubulação fornecida, se houve recarga de fluido refrigerante (R410A ou R32) e se o dreno foi testado."
+    },
+    faqs: [
+      {
+        question: "Qual o prazo de garantia que o instalador deve conceder?",
+        answer: "Pelo Código de Defesa do Consumidor (Art. 26, II), serviços de natureza durável como a instalação de equipamentos têm garantia legal mínima de 90 dias referente à mão de obra prestada, contados a partir da data de entrega."
+      },
+      {
+        question: "O instalador de ar responde por defeito de fábrica do aparelho?",
+        answer: "Não. O instalador responde apenas pela qualidade da instalação (vazamento na tubulação, fixação do suporte, conexões elétricas e vácuo). Vícios de fabricação do compressor ou placa eletrônica são cobertos pela garantia do fabricante do ar-condicionado."
+      },
+      {
+        question: "O recibo serve como comprovante para a garantia do fabricante?",
+        answer: "Muitos fabricantes exigem a comprovação de que a instalação foi realizada por profissional capacitado ou credenciado. O recibo discriminado com CPF/CNPJ e dados do serviço auxilia o cliente a comprovar a instalação técnica perante a assistência autorizada."
+      },
+      {
+        question: "Como emitir o recibo de instalação de ar-condicionado em PDF?",
+        answer: "Preencha o valor, dados do cliente e os detalhes da instalação no formulário acima. Depois, clique em 'Imprimir / Gerar PDF' para salvar no seu celular ou imprimir para o cliente assinar na hora."
+      }
+    ]
+  },
+  {
+    id: "gesseiro-e-drywall",
+    slug: "recibo-de-gesseiro-e-drywall",
+    title: "Recibo de Gesseiro e Drywall",
+    shortDescription: "Comprovante de forros de gesso, molduras, sancas e divisórias em drywall por m² ou empreitada.",
+    seoTitle: "Recibo de Gesseiro e Drywall Online | Gerador em PDF Grátis",
+    seoDescription: "Emita recibo de serviços de gesso liso, rebaixamento de teto, forro acartonado, sancas e drywall em PDF. Grátis, sem cadastro e com metragem quadrada discriminada.",
+    keywords: "recibo de gesseiro, recibo drywall, recibo gesso liso, recibo forro de gesso, recibo sanca gesso, modelo recibo gesseiro pdf",
+    defaultReferenteA: "Execução de serviços de [ex: instalação de 42m² de forro de gesso acartonado estruturado F530 com tabica metálica perimetral e furação para 8 pontos de spots de luz], conforme metragem conferida no local.",
+    icon: "Hammer",
+    seoContent: {
+      h2: "Por que o Gesseiro deve emitir recibo discriminado?",
+      p1: "Serviços de gesso e drywall envolvem medição de área (m²) e consumo de materiais pesados (placas, tirantes, massas de acabamento). O recibo de gesseiro comprova a metragem exata executada, resguardando o profissional caso o cliente queira descontar valores após a conclusão da obra.",
+      h3: "O que deve constar no recibo de gesso?",
+      p2: "Discrimine se o valor cobrado refere-se apenas à mão de obra ou se inclui o fornecimento das placas de gesso, perfis metálicos, fitas e parafusos. Indique também se o serviço já inclui o lixamento final para pintura."
+    },
+    faqs: [
+      {
+        question: "Como calcular a metragem no recibo de gesso?",
+        answer: "Multiplica-se a largura pelo comprimento do teto ou parede para obter os metros quadrados (m²). Em sancas e molduras, a cobrança geralmente é feita por metro linear (m). Deixe essa especificação clara no campo 'Referente a'."
+      },
+      {
+        question: "O recibo de gesseiro precisa de assinatura do contratante?",
+        answer: "Sim. A assinatura do contratante (proprietário da obra ou engenheiro) confirma que a área foi devidamente medida, o forro nivelado e entregue pronto para o pintor."
+      },
+      {
+        question: "O gesseiro autônomo pode comprovar renda com este recibo?",
+        answer: "Sim. O recibo assinado junto ao comprovante de recebimento bancário (PIX ou transferência) serve como comprovante lícito de rendimentos para abertura de conta, compras a prazo e declaração de Imposto de Renda."
+      },
+      {
+        question: "Como gerar e imprimir o recibo de drywall?",
+        answer: "Insira os dados no gerador online acima e clique em 'Imprimir / Gerar PDF' para salvar instantaneamente no seu dispositivo."
+      }
+    ]
+  },
+  {
+    id: "serralheiro",
+    slug: "recibo-de-serralheiro",
+    title: "Recibo de Serralheiro",
+    shortDescription: "Comprovante de fabricação e conserto de portões, grades, corrimãos, esquadrias e estruturas de ferro.",
+    seoTitle: "Recibo de Serralheiro e Portões de Ferro | Baixar em PDF Grátis",
+    seoDescription: "Gere recibo de serralheria em PDF online. Ideal para portões basculantes, grades de proteção, corrimãos e estruturas metálicas. Rápido e gratuito.",
+    keywords: "recibo de serralheiro, recibo serralheria, recibo fabricacao portao, recibo grades de ferro, modelo recibo serralheiro pdf",
+    defaultReferenteA: "Fabricação e instalação de [ex: portão basculante em tubos de ferro galvanizado nas medidas 2,50m x 2,20m, com fechadura tetra e fundo primer anticorrosivo aplicado], com garantia legal de fabricação de 90 dias.",
+    icon: "Hammer",
+    seoContent: {
+      h2: "Segurança Jurídica para Serralherias e Profissionais de Ferro",
+      p1: "A confecção de portões e grades metálicas envolve adiantamentos para compra de tubos, perfis e chapas de aço. O recibo de serralheiro formaliza tanto o recebimento do sinal de entrada quanto a quitação final após a instalação e balanceamento dos contrapesos no imóvel do cliente.",
+      h3: "Cuidados essenciais no preenchimento",
+      p2: "Descreva o tipo de material empregado (ferro galvanizado, alumínio ou ferro preto), dimensões aproximadas do produto e se a pintura final de acabamento faz parte do contrato ou se o serviço contempla apenas o fundo anticorrosivo."
+    },
+    faqs: [
+      {
+        question: "O serralheiro pode emitir recibo do sinal de entrada?",
+        answer: "Sim, e deve! Ao receber 50% de entrada para compra do ferro, emita um recibo com o termo 'Recebimento de sinal e princípio de pagamento para compra de materiais do portão', informando o saldo restante a ser pago na entrega."
+      },
+      {
+        question: "Quem responde pela instalação do motor eletrônico no portão?",
+        answer: "Se a serralheria vendeu apenas o portão mecânico, declare no recibo: 'Venda de portão manual, não inclusa motorização ou automação elétrica'. Isso afasta responsabilidades sobre defeitos em motores comprados de terceiros."
+      },
+      {
+        question: "Como o recibo protege contra clientes inadimplentes?",
+        answer: "O recibo com a discriminação do saldo em aberto ou a nota promissória vinculada é documento probatório cabal para cobrança judicial em Juizados Especiais Cíveis."
+      },
+      {
+        question: "Como imprimir o recibo de serralheria?",
+        answer: "Preencha os campos no topo da página e clique em 'Imprimir / Gerar PDF' para emitir o documento pronto com formatação profissional."
+      }
+    ]
+  },
+  {
+    id: "vidraceiro",
+    slug: "recibo-de-vidraceiro",
+    title: "Recibo de Vidraceiro",
+    shortDescription: "Comprovante de instalação de box Blindex, espelhos, janelas, portas de vidro e guarda-corpos.",
+    seoTitle: "Recibo de Vidraceiro e Box Blindex | Gerador em PDF Grátis",
+    seoDescription: "Emita recibo de vidraçaria online em PDF. Ideal para instalação de box temperado, espelhos sob medida, fechamento de sacada e janelas de vidro. Grátis e sem cadastro.",
+    keywords: "recibo de vidraceiro, recibo vidracaria, recibo box blindex, recibo espelho sob medida, recibo fechamento de sacada vidro, modelo recibo vidraceiro",
+    defaultReferenteA: "Fornecimento e instalação de [ex: box para banheiro em vidro temperado incolor 8mm padrão Blindex nas medidas 1,20m x 1,90m, com kit de alumínio fosco e roldanas blindadas], devidamente vedado com silicone acético antifungo.",
+    icon: "Layers",
+    seoContent: {
+      h2: "Por que a vidraçaria deve fornecer recibo formal?",
+      p1: "O vidro temperado e laminado exige manuseio seguro conforme as normas da ABNT (NBR 14207 para boxes). O recibo de vidraceiro comprova a entrega técnica, a espessura do vidro instalado (6mm, 8mm, 10mm) e a cor dos perfis de alumínio, atestando a conformidade da instalação.",
+      h3: "Informações indispensáveis no recibo de vidraçaria",
+      p2: "Registre a espessura e tonalidade do vidro (incolor, fumê, verde, jateado), modelo dos trilhos e fechaduras, e a recomendação de revisão preventiva anual do box de banheiro conforme orienta o manual de uso."
+    },
+    faqs: [
+      {
+        question: "Qual a garantia legal para instalação de vidros e espelhos?",
+        answer: "A garantia legal prevista no Código de Defesa do Consumidor é de 90 dias para serviços duráveis (vedação, alinhamento e roldanas). Ela não cobre quebras por impacto mecânico externo ou uso inadequado após a entrega."
+      },
+      {
+        question: "Como o recibo protege o vidraceiro em casos de quebra por mau uso?",
+        answer: "Ao colher a assinatura do cliente atestando que o vidro foi entregue intacto, liso e sem lascas ou trincas, o profissional se resguarda contra acusações de que o vidro já teria sido entregue danificado."
+      },
+      {
+        question: "Pessoas físicas que contratam vidraceiro exigem recibo?",
+        answer: "Sim. Clientes que estão reformando apartamentos precisam do comprovante para prestação de contas no condomínio ou liberação de caução de aluguel."
+      },
+      {
+        question: "Como gerar o recibo de vidraceiro em PDF?",
+        answer: "Basta preencher os campos do formulário no início desta página e clicar no botão 'Imprimir / Gerar PDF' para salvar gratuitamente."
+      }
+    ]
+  },
+  {
+    id: "calheiro",
+    slug: "recibo-de-calheiro",
+    title: "Recibo de Calheiro",
+    shortDescription: "Comprovante de fabricação e colocação de calhas, rufos, pingadeiras e condutores galvanizados.",
+    seoTitle: "Recibo de Calheiro e Rufos Online | Gerador em PDF Grátis",
+    seoDescription: "Gere recibo de calheiro online em PDF. Ideal para instalação de calhas galvanizadas, rufos, pingadeiras e condutores pluviais. 100% grátis e rápido.",
+    keywords: "recibo de calheiro, recibo instalacao de calhas, recibo de rufos e pingadeiras, modelo recibo calhas galvanizadas, recibo servico calheiro pdf",
+    defaultReferenteA: "Fabricação e colocação de [ex: 18 metros lineares de calha moldura em chapa galvanizada nº 28, com vedação em silicone PU e 2 bocais de descida pluvial], com teste de escoamento aprovado.",
+    icon: "Hammer",
+    seoContent: {
+      h2: "A Importância do Recibo de Calheiro na Construção Civil",
+      p1: "Infiltrações e vazamentos em telhados são as maiores causas de dores de cabeça entre clientes e prestadores de serviços. O recibo de calheiro comprova a metragem linear instalada, o tipo de chapa metálica utilizada e os pontos de fixação vedados, atestando a entrega do serviço antes do período de chuvas.",
+      h3: "Dicas para um preenchimento perfeito",
+      p2: "Sempre mencione se o serviço abrangeu apenas a troca de calhas ou também a colocação de rufos de encosto, rufos de capa em muros e tubos de descida (condutores), além do tipo de selante utilizado na emenda das chapas."
+    },
+    faqs: [
+      {
+        question: "Qual o prazo de garantia para serviços de calhas e rufos?",
+        answer: "O Código de Defesa do Consumidor estipula garantia de 90 dias para a mão de obra. Se houver vazamento na emenda com selante durante esse prazo, o calheiro deve realizar o reparo sem custo adicional."
+      },
+      {
+        question: "Como discriminar metragem linear e peças no recibo?",
+        answer: "No campo 'Referente a', informe a metragem total das calhas (ex: 20m lineares) e a quantidade de peças especiais instaladas (ex: 4 curvas, 2 cabeceiras e 3 condutores)."
+      },
+      {
+        question: "O recibo de calheiro serve para abatimento no imposto de renda?",
+        answer: "Sim. Recibos de melhorias e reformas em imóveis residenciais podem ser anexados pelo proprietário na declaração do IRPF para atualização do custo de aquisição do bem."
+      },
+      {
+        question: "Como salvar o recibo de calheiro no celular?",
+        answer: "Preencha as informações no formulário acima e clique em 'Imprimir / Gerar PDF' para fazer o download direto do documento formatado."
+      }
+    ]
+  },
+  {
+    id: "motoboy-e-entregador",
+    slug: "recibo-de-motoboy-e-entregador",
+    title: "Recibo de Motoboy e Entregador",
+    shortDescription: "Comprovante de entregas expressas, malotes, encomendas e diárias avulsas de motofrete.",
+    seoTitle: "Recibo de Motoboy e Diária de Entregas | Gerador em PDF Grátis",
+    seoDescription: "Emita recibo de motoboy e entregas rápidas online em PDF. Ideal para motofretistas autônomos, diárias em restaurantes e entregas corporativas. Grátis e sem cadastro.",
+    keywords: "recibo de motoboy, recibo entregador, recibo motofrete, recibo corrida motoboy, recibo entrega documentos, modelo recibo motoboy pdf",
+    defaultReferenteA: "Prestação de serviços de transporte e entrega rápida de [ex: encomendas/malotes corporativos, totalizando 6 corridas realizadas na data de hoje], com protocolos de recebimento anexados.",
+    icon: "Car",
+    seoContent: {
+      h2: "Por que o Motoboy autônomo precisa emitir recibo?",
+      p1: "Motoboys e entregadores que atendem escritórios, restaurantes, farmácias e pessoas físicas precisam comprovar a execução das viagens para receber seus pagamentos sem contestações de valores. O recibo formaliza a rota ou o fechamento semanal/mensal de corridas.",
+      h3: "O que deve constar no recibo de motofrete?",
+      p2: "Além da data e valor recebido, indique se o pagamento é por corrida individual, quilometragem ou diária fechada de entrega, garantindo clareza total entre as partes."
+    },
+    faqs: [
+      {
+        question: "O recibo de motoboy autônomo gera vínculo empregatício com a empresa?",
+        answer: "Não, desde que o motoboy atue com autonomia, sem habitualidade obrigatória exclusiva e receba por serviço prestado ou diária esporádica (Art. 442-B da CLT). O recibo de autônomo comprova o pagamento da corrida avulsa."
+      },
+      {
+        question: "Posso incluir a taxa de espera ou pedágio no mesmo recibo?",
+        answer: "Sim. Basta somar ao valor final e discriminar na descrição (ex: 'R$ 60 de corrida + R$ 15 de taxa de espera/estacionamento')."
+      },
+      {
+        question: "O motoboy pode usar esse recibo para comprovar renda?",
+        answer: "Sim. Juntar os recibos semanais de entregas assinados pelas empresas é a forma mais prática do entregador autônomo comprovar renda para financiamentos e aluguéis."
+      },
+      {
+        question: "Como gerar o recibo de entregador em segundos?",
+        answer: "Preencha o valor e os dados no topo desta página e clique em 'Imprimir / Gerar PDF' para salvar instantaneamente."
+      }
+    ]
+  },
+  {
+    id: "guincho-e-reboque",
+    slug: "recibo-de-guincho-e-reboque",
+    title: "Recibo de Guincho e Reboque",
+    shortDescription: "Comprovante de reboque, socorro mecânico e transporte de veículos leves e pesados por KM rodado.",
+    seoTitle: "Recibo de Guincho e Reboque de Veículos | Baixar em PDF Grátis",
+    seoDescription: "Gere recibo de serviço de guincho e socorro automotivo online em PDF. Discrimine placa do veículo, trajeto, quilometragem e quitação imediata. 100% gratuito.",
+    keywords: "recibo de guincho, recibo auto socorro, recibo reboque veiculo, recibo guincho plataforma, modelo recibo guincho pdf",
+    defaultReferenteA: "Serviço de reboque e transporte de veículo [Marca/Modelo, Placa], do local de pane [Origem] até o destino [Oficina/Destino], totalizando [X] quilômetros rodados em plataforma hidráulica.",
+    icon: "Truck",
+    seoContent: {
+      h2: "Segurança Jurídica no Transporte de Veículos por Guincho",
+      p1: "O socorro automotivo lida com patrimônio de alto valor de terceiros. O recibo de guincho atesta o trajeto percorrido, o valor cobrado por saída ou quilometragem e a quitação do serviço pelo motorista ou seguradora.",
+      h3: "Dados cruciais no recibo de socorro mecânico",
+      p2: "Sempre registre a placa do veículo rebocado, marca, modelo e o estado visual da lataria no momento do embarque (se havia avarias anteriores), protegendo o operador do guincho contra cobranças indevidas de arranhões pré-existentes."
+    },
+    faqs: [
+      {
+        question: "O cliente pode solicitar reembolso do guincho no seguro com este recibo?",
+        answer: "Sim. A maioria das seguradoras exige a apresentação do recibo discriminado com placa do carro, CPF/CNPJ do prestador de guincho, trajeto percorrido e valor para autorizar o reembolso de socorro emergencial."
+      },
+      {
+        question: "Como calcular a quilometragem excedente no recibo?",
+        answer: "Informe a taxa básica de saída (ex: R$ 150) somada ao valor por quilômetro rodado multiplicado pela distância percorrida no campo de descrição."
+      },
+      {
+        question: "O operador de guincho MEI pode emitir este recibo?",
+        answer: "Sim. Para serviços prestados a pessoas físicas, o recibo do MEI é plenamente válido perante a lei e a Receita Federal."
+      },
+      {
+        question: "Como emitir o recibo de guincho no celular?",
+        answer: "Preencha os dados da remoção no formulário e clique em 'Imprimir / Gerar PDF' para salvar na hora no smartphone."
+      }
+    ]
+  },
+  {
+    id: "estetica-automotiva",
+    slug: "recibo-de-estetica-automotiva",
+    title: "Recibo de Estética Automotiva e Lava-Rápido",
+    shortDescription: "Comprovante de polimento, vitrificação de pintura, cristalização e higienização interna de veículos.",
+    seoTitle: "Recibo de Estética Automotiva e Polimento | Gerador PDF Grátis",
+    seoDescription: "Emita recibo de estética automotiva, polimento técnico, lavagem detalhada e higienização interna em PDF. Ideal para detailers e lava-rápidos. Grátis e online.",
+    keywords: "recibo de estetica automotiva, recibo polimento automotivo, recibo vitrificacao pintura, recibo higienizacao interna carro, recibo lava rapido pdf",
+    defaultReferenteA: "Serviços de estética automotiva no veículo [Marca/Modelo, Placa], incluindo [ex: polimento técnico comercial, vitrificação cerâmica de pintura e higienização profunda de bancos e teto], entregue limpo e revisado.",
+    icon: "Sparkles",
+    seoContent: {
+      h2: "Por que Detailers e Estúdios Automotivos devem emitir recibo?",
+      p1: "Serviços de embelezamento automotivo (como polimento, vitrificação e higienização de couro) agregam alto valor ao veículo. O recibo formaliza a entrega do carro com a pintura protegida e os prazos de durabilidade da proteção cerâmica aplicada.",
+      h3: "O que deve constar no recibo de estética automotiva?",
+      p2: "Além da placa e modelo do automóvel, liste os tratamentos realizados, o produto utilizado (ex: vitrificador 9H com garantia de 1 ano) e as instruções de lavagem para manutenção da camada de proteção."
+    },
+    faqs: [
+      {
+        question: "O recibo serve como certificado de garantia da vitrificação?",
+        answer: "Sim. O recibo discriminado com a data de aplicação e especificação do vitrificador é a comprovação legal da garantia de serviço para o cliente exigir manutenções periódicas."
+      },
+      {
+        question: "Como o recibo protege o lava-rápido contra queixas de riscos?",
+        answer: "Ao colher a assinatura do proprietário do veículo na entrega final atestando a inspeção das superfícies, o estúdio de estética afasta alegações de riscos posteriores causados em garagens ou vias públicas."
+      },
+      {
+        question: "Posso emitir recibo para frotas de empresas?",
+        answer: "Para empresas (PJ), se você for MEI ou ME, o recibo atesta a quitação, mas a empresa contratante geralmente solicitará a respectiva Nota Fiscal Eletrônica de Serviços."
+      },
+      {
+        question: "Como baixar o recibo de estética automotiva em PDF?",
+        answer: "Preencha o formulário acima e clique em 'Imprimir / Gerar PDF' para gerar o documento formatado em PDF pronto para assinatura."
+      }
+    ]
+  },
+  {
+    id: "personal-trainer",
+    slug: "recibo-de-personal-trainer",
+    title: "Recibo de Personal Trainer",
+    shortDescription: "Comprovante de aulas particulares de musculação, funcional e consultoria esportiva para reembolso.",
+    seoTitle: "Recibo de Personal Trainer Online | Gerador em PDF Grátis",
+    seoDescription: "Gere recibo de personal trainer em PDF online. Ideal para comprovação de mensalidades de treino funcional, musculação e reembolso em planos de saúde. 100% grátis.",
+    keywords: "recibo personal trainer, recibo aulas particulares musculacao, recibo consultoria esportiva, recibo treino funcional, modelo recibo personal pdf",
+    defaultReferenteA: "Prestação de serviços profissionais de Educação Física / Personal Trainer no mês de [Mês/Ano], compreendendo [ex: 12 sessões práticas de treinamento individualizado e prescrição de rotina de exercícios], conforme contratado.",
+    icon: "Activity",
+    seoContent: {
+      h2: "A Importância do Recibo Profissional de Educação Física",
+      p1: "Profissionais de Educação Física habilitados pelo CREF devem registrar seus recebimentos para transparência com os alunos e conformidade fiscal. O recibo atesta a realização das aulas mensais e serve como base para a declaração de rendimentos.",
+      h3: "Reembolso em planos de saúde e benefícios corporativos",
+      p2: "Muitos convênios médicos e programas corporativos de bem-estar (Gympass, TotalPass ou reembolso médico com laudo de saúde) exigem a apresentação do recibo discriminado com o número de inscrição no CREF para liberar o reembolso ao aluno."
+    },
+    faqs: [
+      {
+        question: "O número do CREF deve constar obrigatoriamente no recibo?",
+        answer: "Sim. O número do registro no Conselho Regional de Educação Física (CREF) garante que o serviço foi prestado por profissional habilitado, sendo exigência indispensável para pedidos de reembolso em operadoras de saúde."
+      },
+      {
+        question: "Como declarar os valores de personal trainer no Imposto de Renda?",
+        answer: "O profissional autônomo que recebe valores de pessoas físicas deve escriturar esses recebimentos mensalmente no programa Carnê-Leão da Receita Federal, gerando a guia DARF se ultrapassar o limite de isenção."
+      },
+      {
+        question: "O recibo deve estipular regras sobre faltas e reposição de aulas?",
+        answer: "Sim, é uma excelente prática. Pode-se colocar no campo de observações: 'Aulas canceladas com menos de 24 horas de antecedência são consideradas realizadas para efeito de cobrança'."
+      },
+      {
+        question: "Como gerar e imprimir o recibo de personal trainer?",
+        answer: "Insira os dados das aulas e valores no gerador acima e clique em 'Imprimir / Gerar PDF' para salvar instantaneamente."
+      }
+    ]
+  },
+  {
+    id: "chaveiro",
+    slug: "recibo-de-chaveiro",
+    title: "Recibo de Chaveiro",
+    shortDescription: "Comprovante de abertura de portas, cópias de chaves codificadas, travas e troca de segredos.",
+    seoTitle: "Recibo de Chaveiro Residencial e Automotivo | PDF Grátis",
+    seoDescription: "Gere recibo de chaveiro online em PDF. Comprove serviços de abertura emergencial residencial, chaves codificadas e troca de fechaduras. Sem cadastro e gratuito.",
+    keywords: "recibo de chaveiro, recibo abertura de porta, recibo chave codificada, recibo troca de segredo fechadura, modelo recibo chaveiro pdf",
+    defaultReferenteA: "Serviços de chaveiro profissional de [ex: abertura emergencial residencial de fechadura tetra e fornecimento de 3 novas cópias de chaves com troca de cilindro], com teste de funcionamento aprovado.",
+    icon: "Key",
+    seoContent: {
+      h2: "Por que o Chaveiro profissional deve emitir recibo?",
+      p1: "Serviços de chaveiro envolvem a segurança patrimonial de residências e veículos. A emissão do recibo com a identificação do cliente e a discriminação da abertura ou troca de segredo confere transparência e comprova quem solicitou o acesso ao imóvel.",
+      h3: "O que deve constar no recibo do chaveiro?",
+      p2: "Além do valor e data, indique o endereço onde o serviço foi executado, se foram fornecidas chaves cópias (e quantas), marca da fechadura ou modelo da chave codificada do veículo."
+    },
+    faqs: [
+      {
+        question: "O chaveiro pode exigir identificação do cliente antes de abrir a porta?",
+        answer: "Sim, é dever de prudência do chaveiro solicitar documento com foto do morador para certificar-se de que quem está contratando a abertura é o legítimo possuidor do imóvel ou veículo."
+      },
+      {
+        question: "Qual o prazo de garantia para fechaduras e cópias de chaves?",
+        answer: "O Código de Defesa do Consumidor concede 90 dias de garantia contra vícios de corte na chave ou defeito mecânico na instalação do miolo/fechadura."
+      },
+      {
+        question: "Inquilinos podem usar o recibo para abater custos com o proprietário?",
+        answer: "Sim. Quando a fechadura quebra por desgaste natural do tempo, o inquilino apresenta o recibo do chaveiro ao locador para pedir o reembolso das despesas de conservação do imóvel."
+      },
+      {
+        question: "Como gerar o recibo de chaveiro no celular?",
+        answer: "Preencha os campos no formulário acima e clique em 'Imprimir / Gerar PDF' para emitir o documento na hora."
+      }
+    ]
+  },
+  {
+    id: "lavagem-de-estofados",
+    slug: "recibo-de-lavagem-de-estofados",
+    title: "Recibo de Lavagem e Impermeabilização de Estofados",
+    shortDescription: "Comprovante de higienização de sofás, colchões, poltronas, tapetes e blindagem de tecidos.",
+    seoTitle: "Recibo de Lavagem e Impermeabilização de Sofás | PDF Grátis",
+    seoDescription: "Emita recibo de lavagem de estofados a seco, higienização de sofás e impermeabilização de tecidos em PDF. 100% grátis, rápido e profissional.",
+    keywords: "recibo lavagem de estofados, recibo higienizacao de sofas, recibo impermeabilizacao de estofados, recibo limpeza de tapetes, modelo recibo estofados pdf",
+    defaultReferenteA: "Serviços de higienização profunda por extração e [ex: impermeabilização com resina nanotecnológica à base de água em sofá retrátil de 3 lugares], com teste de repelência e secagem orientada.",
+    icon: "Sofa",
+    seoContent: {
+      h2: "Garantia e Segurança na Limpeza de Sofás e Colchões",
+      p1: "A higienização de estofados remove ácaros, fungos e odores, enquanto a impermeabilização protege o tecido contra líquidos. O recibo formaliza a entrega do sofá limpo e estabelece o tempo de cura da blindagem para evitar manchas acidentais.",
+      h3: "Cuidados especiais no preenchimento",
+      p2: "Descreva o tipo de estofado (sofá, poltrona, colchão casal, cadeiras de jantar), o tipo de tecido (suede, linho, veludo, couro) e o prazo de garantia da impermeabilização contra derramamento de líquidos à base de água."
+    },
+    faqs: [
+      {
+        question: "Qual o prazo de garantia de uma impermeabilização de sofá?",
+        answer: "A garantia comercial média é de 6 a 12 meses contra penetração de líquidos frios (café, suco, refrigerante). O recibo emitido é a garantia formal que o cliente guarda para comprovar o tratamento."
+      },
+      {
+        question: "Como o recibo protege o profissional contra manchas antigas irreversíveis?",
+        answer: "Ao registrar no campo de observações que o estofado possuía manchas pré-existentes de urina, vinho ou tinta que não puderam ser 100% removidas sem danificar a fibra, o prestador se blinda contra reclamações infundadas."
+      },
+      {
+        question: "O recibo serve para comprovar dedução em condomínios?",
+        answer: "Sim. Síndicos e administradoras de condomínio exigem o recibo assinado para justificar despesas de higienização das poltronas do hall e salão de festas na prestação de contas mensal."
+      },
+      {
+        question: "Como gerar o recibo em PDF?",
+        answer: "Basta preencher os dados no formulário no topo desta página e clicar em 'Imprimir / Gerar PDF' para salvar instantaneamente."
+      }
+    ]
+  },
+  {
+    id: "tatuador",
+    slug: "recibo-de-tatuador",
+    title: "Recibo de Tatuador e Body Piercing",
+    shortDescription: "Comprovante de sessões de tatuagem artística permanente e perfuração corporal de piercing.",
+    seoTitle: "Recibo de Tatuador e Sessão de Tatuagem | Gerador em PDF Grátis",
+    seoDescription: "Gere recibo de tatuagem e aplicação de piercing online em PDF. Discrimine sinal de agendamento, sessão e quitação com conformidade sanitária. 100% gratuito.",
+    keywords: "recibo de tatuador, recibo de tatuagem, recibo body piercing, recibo sessao tatuagem, modelo recibo estudio tatuagem pdf",
+    defaultReferenteA: "Prestação de serviços artísticos de tatuagem [ex: sessão de 3 horas para execução de arte autoral exclusiva no antebraço, com tintas e agulhas 100% descartáveis registradas na Anvisa], com orientações pós-procedimento entregues.",
+    icon: "Paintbrush",
+    seoContent: {
+      h2: "Por que estúdios de tatuagem e tatuadores devem emitir recibo?",
+      p1: "A tatuagem é uma arte invasiva que exige responsabilidade técnica e biológica. O recibo formaliza o pagamento do sinal de agendamento (reserva de data) e a quitação final da sessão, resguardando o artista contra cancelamentos de última hora.",
+      h3: "Conformidade sanitária e cuidados pós-tatuagem",
+      p2: "Sempre mencione que o procedimento utilizou materiais descartáveis e esterilizados em autoclave e que o cliente recebeu as orientações escritas de cicatrização (higienização, pomada cicatrizante e restrição solar)."
+    },
+    faqs: [
+      {
+        question: "O sinal de agendamento da tatuagem pode ser retido em caso de falta?",
+        answer: "Sim, desde que informado previamente. Se o cliente faltar sem aviso prévio de 48 horas, o sinal serve como indenização pelo tempo de estúdio reservado que não pôde ser ocupado por outro cliente."
+      },
+      {
+        question: "Menor de 18 anos pode pagar e fazer tatuagem com este recibo?",
+        answer: "A legislação da maioria dos estados brasileiros veda expressamente tatuagens em menores de 18 anos, ou exige autorização formal com firma reconhecida dos pais. O recibo não substitui o termo legal de consentimento dos responsáveis."
+      },
+      {
+        question: "O tatuador MEI precisa de alvará para emitir recibo?",
+        answer: "Sim. O estúdio deve possuir Alvará Sanitário municipal. Para clientes particulares, o recibo do MEI é 100% suficiente para comprovação tributária e de receitas."
+      },
+      {
+        question: "Como gerar e baixar o recibo de tatuador?",
+        answer: "Preencha os valores e dados no formulário e clique em 'Imprimir / Gerar PDF' para salvar gratuitamente o documento profissional."
+      }
+    ]
+  },
+  {
+    id: "limpeza-pos-obra",
+    slug: "recibo-de-limpeza-pos-obra",
+    title: "Recibo de Limpeza Pós-Obra",
+    shortDescription: "Comprovante de faxina pesada pós-reforma com remoção de tintas, cimento, rejunte e poeira fina.",
+    seoTitle: "Recibo de Limpeza Pós-Obra | Gerador em PDF Grátis",
+    seoDescription: "Emita recibo de limpeza pós-obra e pós-reforma em PDF. Discrimine metragem do imóvel, produtos químicos especiais utilizados e quitação integral. Grátis e online.",
+    keywords: "recibo de limpeza pos obra, recibo faxina pos obra, recibo limpeza tecnica pos reforma, modelo recibo limpeza pos obra pdf",
+    defaultReferenteA: "Serviços especializados de limpeza pesada pós-obra em imóvel [ex: residencial de 120m², compreendendo desincrustação de rejuntes, limpeza de vidros e caixilhos, e aspiração de pó fino de gesso], vistoriado e aprovado pelo contratante.",
+    icon: "Sparkles",
+    seoContent: {
+      h2: "A Importância do Recibo de Limpeza Pós-Obra",
+      p1: "A limpeza técnica de final de obra difere completamente de uma faxina comum: ela exige removedores de cimento, solventes de tinta e discos abrasivos especiais para não riscar porcelanatos e esquadrias de alumínio. O recibo atesta a entrega do imóvel habitável e livre de resíduos.",
+      h3: "Cuidados para o prestador de limpeza pós-obra",
+      p2: "Conste expressamente que o contratante realizou a vistoria conjunta no término da limpeza, verificando que os pisos, vidraças e louças foram entregues sem danos decorrentes do uso dos produtos químicos desincrustantes."
+    },
+    faqs: [
+      {
+        question: "Como o recibo protege a equipe de limpeza de riscos já existentes no piso?",
+        answer: "Ao registrar na descrição que 'pequenos riscos e avarias anteriores decorrentes da obra foram apontados na vistoria inicial', a equipe de limpeza evita ser responsabilizada por danos cometidos por pedreiros ou eletricistas."
+      },
+      {
+        question: "Quem fornece os produtos químicos e maquinários de limpeza?",
+        answer: "Especifique no campo 'Referente a' se o valor contratado incluiu os produtos desincrustantes e o maquinário (enceradeiras industriais, lavadoras de alta pressão e aspiradores de líquido) ou apenas a mão de obra."
+      },
+      {
+        question: "O recibo de limpeza pós-obra serve para prestação de contas na construção?",
+        answer: "Sim. Empreiteiras, arquitetos e proprietários de imóveis utilizam o recibo como comprovante legal de despesa da etapa final de acabamento da obra."
+      },
+      {
+        question: "Como emitir o recibo em PDF?",
+        answer: "Preencha os dados no gerador online acima e clique em 'Imprimir / Gerar PDF' para salvar instantaneamente."
+      }
+    ]
+  },
+  {
+    id: "diaria-de-garcom",
+    slug: "recibo-de-diaria-de-garcom",
+    title: "Recibo de Diária de Garçom para Eventos",
+    shortDescription: "Comprovante de pagamento de diárias avulsas para garçons, barmans e equipe de copa em festas.",
+    seoTitle: "Recibo de Diária de Garçom e Eventos | Gerador em PDF Grátis",
+    seoDescription: "Gere recibo de diária de garçom para casamentos, aniversários e eventos em PDF. Afaste riscos trabalhistas com quitação imediata da diária. 100% grátis e sem cadastro.",
+    keywords: "recibo de garcom, recibo diaria de garcom, recibo garcom evento, recibo barman festa, modelo recibo garcom freelance pdf",
+    defaultReferenteA: "Pagamento de diária avulsa de prestação de serviços de garçom no evento realizado na data de [Data], com carga horária de [ex: 6 horas de atendimento de mesas e bebidas], devidamente quitada ao término do trabalho.",
+    icon: "Wine",
+    seoContent: {
+      h2: "Segurança Jurídica na Contratação de Garçons Avulsos",
+      p1: "Contratantes de festas, buffets e organizadores de eventos contratam equipes de atendimento sob o regime de prestador de serviços autônomo e eventual (Art. 442-B da CLT). O recibo de diária assinado no término do evento comprova a quitação pontual da jornada acordada.",
+      h3: "O que deve constar no recibo da diária?",
+      p2: "Informe o número de horas trabalhadas, o nome e data do evento e se a alimentação e o transporte foram repassados juntamente com o cachê da diária."
+    },
+    faqs: [
+      {
+        question: "O recibo de diária de garçom afasta o vínculo empregatício?",
+        answer: "Sim, para eventos pontuais e esporádicos. A legislação trabalhista reconhece a figura do trabalhador autônomo eventual. O recibo assinado dia a dia prova a descontinuidade e a quitação integral das horas trabalhadas."
+      },
+      {
+        question: "A gorjeta deve ser discriminada no recibo?",
+        answer: "Se houver repasse de taxa de serviço (10%) ou gorjeta espontânea, discrimine no texto: 'R$ [X] de diária fixa + R$ [Y] de comissão/gorjeta'."
+      },
+      {
+        question: "O garçom pode usar esse documento para comprovar renda?",
+        answer: "Sim. Juntar os recibos de eventos com os comprovantes bancários (PIX) é o principal meio que garçons autônomos têm para comprovar movimentação financeira regular."
+      },
+      {
+        question: "Como gerar e imprimir o recibo de garçom?",
+        answer: "Preencha os campos no formulário acima e clique em 'Imprimir / Gerar PDF' para salvar no seu celular em segundos."
+      }
+    ]
+  },
+  {
+    id: "churrasqueiro",
+    slug: "recibo-de-churrasqueiro",
+    title: "Recibo de Churrasqueiro para Festas",
+    shortDescription: "Comprovante de serviços de churrasqueiro profissional, assador e corte de carnes para confraternizações.",
+    seoTitle: "Recibo de Churrasqueiro para Festas e Confraternizações | PDF Grátis",
+    seoDescription: "Emita recibo de churrasqueiro profissional para eventos particulares e empresariais em PDF. Comprove a prestação de serviços e evite dores de cabeça. Grátis e online.",
+    keywords: "recibo de churrasqueiro, recibo assador eventos, recibo churrasqueiro festa, modelo recibo churrasqueiro pdf",
+    defaultReferenteA: "Prestação de serviços profissionais de churrasqueiro para [ex: preparo, corte e serviço de carnes e acompanhamentos em festa de confraternização com duração de 5 horas na data de hoje], com higienização do espaço de churrasqueira entregue.",
+    icon: "Utensils",
+    seoContent: {
+      h2: "Por que contratar churrasqueiro profissional com recibo?",
+      p1: "Churrasqueiros autônomos que atendem festas de família, casamentos e confraternizações de empresas precisam garantir o recebimento do sinal de reserva de data e o pagamento do saldo no final do evento. O recibo formaliza a diária e a entrega do serviço gastronômico.",
+      h3: "Dicas de preenchimento para churrasqueiros",
+      p2: "Especifique se o churrasqueiro forneceu apenas a mão de obra com facas e tábuas próprias, ou se também intermediou a compra do carvão, carnes e guarnições."
+    },
+    faqs: [
+      {
+        question: "O churrasqueiro pode cobrar sinal para reservar o sábado ou domingo?",
+        answer: "Sim. Como a agenda de finais de semana é concorrida, é praxe cobrar 30% a 50% de sinal de reserva. Emita o recibo indicando o sinal pago e o saldo a ser quitado no início ou fim da festa."
+      },
+      {
+        question: "Quem se responsabiliza pela limpeza da churrasqueira?",
+        answer: "Deixe explícito no recibo se o serviço engloba a limpeza básica da grelha e bancada de trabalho no término do atendimento."
+      },
+      {
+        question: "Como comprovar renda de churrasqueiro autônomo?",
+        answer: "Arquive os recibos mensais de todos os eventos realizados acompanhados dos extratos bancários de PIX para prestação de contas na Declaração Anual de Isento ou IRPF."
+      },
+      {
+        question: "Como imprimir o recibo de churrasqueiro?",
+        answer: "Insira os dados no topo da página e clique em 'Imprimir / Gerar PDF' para salvar o documento formatado."
+      }
+    ]
+  },
+  {
+    id: "seguranca-de-eventos",
+    slug: "recibo-de-seguranca-de-eventos",
+    title: "Recibo de Segurança e Vigia de Eventos",
+    shortDescription: "Comprovante de serviços de vigilância preventiva, controle de portaria e segurança em festas privadas.",
+    seoTitle: "Recibo de Segurança e Vigia de Eventos | Gerador em PDF Grátis",
+    seoDescription: "Gere recibo de segurança particular e vigia de eventos em PDF. Ideal para festas sociais, formaturas e casamentos. 100% grátis, sem cadastro e com respaldo legal.",
+    keywords: "recibo de seguranca de eventos, recibo vigia de festa, recibo seguranca particular freelance, modelo recibo seguranca eventos pdf",
+    defaultReferenteA: "Prestação de serviços de segurança preventiva e [ex: controle de acesso de portaria e recepção em evento social realizado no dia de hoje, no período das 20h às 03h], devidamente quitado.",
+    icon: "Shield",
+    seoContent: {
+      h2: "Validade e Importância do Recibo de Segurança de Eventos",
+      p1: "Organizadores de festas e feiras contratam agentes de apoio e controle de portaria para assegurar a ordem do recinto. O recibo de diária comprova que a equipe cumpriu o horário acordado e recebeu a remuneração estipulada de forma avulsa.",
+      h3: "Cuidados jurídicos indispensáveis",
+      p2: "Conste claramente que o serviço desempenhado tem natureza de controle de acesso, orientação de público e vigilância patrimonial desarmada, evitando qualquer confusão com atividade de transporte de valores ou vigilância armada."
+    },
+    faqs: [
+      {
+        question: "A atividade de segurança de festas privadas exige carteira assinada?",
+        answer: "Para eventos avulsos e eventuais, a contratação como prestador de serviços autônomo eventual é admitida pela CLT (Art. 442-B). O pagamento imediato com recibo formaliza a ausência de continuidade empregatícia."
+      },
+      {
+        question: "O que deve constar no recibo do segurança?",
+        answer: "Horário de início e término do plantão, nome do evento ou contratante, valor total pago e declaração de que nada mais é devido a título de horas extras ou alimentação."
+      },
+      {
+        question: "O segurança autônomo pode comprovar renda com o recibo?",
+        answer: "Sim. A somatória dos recibos mensais assinados é o comprovante padrão de rendimentos para profissionais que atuam no setor de eventos."
+      },
+      {
+        question: "Como baixar o recibo de segurança em PDF?",
+        answer: "Preencha o formulário acima e clique em 'Imprimir / Gerar PDF' para salvar gratuitamente o documento profissional."
+      }
+    ]
+  },
+  {
+    id: "musico-e-dj",
+    slug: "recibo-de-musico-e-dj",
+    title: "Recibo de Músico e DJ para Eventos",
+    shortDescription: "Comprovante de cachê musical, apresentação ao vivo, som, iluminação e discotecagem em festas.",
+    seoTitle: "Recibo de Músico e DJ (Cachê Artístico) | Gerador em PDF Grátis",
+    seoDescription: "Emita recibo de cachê para músicos, cantores, bandas e DJs em PDF. Ideal para apresentações ao vivo em bares, casamentos e aniversários. Grátis e online.",
+    keywords: "recibo de musico, recibo de dj, recibo cache musical, recibo show ao vivo, recibo apresentacao artistica, modelo recibo dj pdf",
+    defaultReferenteA: "Pagamento de cachê referente a [ex: apresentação artística musical / discotecagem de DJ em evento com duração de 4 horas de performance], com fornecimento de mesa de som e iluminação básica inclusa.",
+    icon: "Music",
+    seoContent: {
+      h2: "Formalização de Cachês Artísticos para Músicos e DJs",
+      p1: "Artistas independentes, bandas e DJs frequentemente realizam apresentações em casas de show, casamentos e aniversários sem emissão de nota fiscal quando contratados por pessoas físicas. O recibo formaliza a quitação do cachê e a carga horária da apresentação ao vivo.",
+      h3: "O que não pode faltar no recibo do músico?",
+      p2: "Além da data do show e valor, indique a duração da apresentação (em horas), se o valor contemplou o aluguel de caixas de som e iluminação (rider técnico) e a confirmação de que os intervalos de descanso foram cumpridos."
+    },
+    faqs: [
+      {
+        question: "O músico deve cobrar sinal de reserva de data?",
+        answer: "Sim. Para garantir a data na agenda, é padrão cobrar de 30% a 50% de entrada. Emita o recibo indicando o sinal e o saldo restante a ser pago no dia do evento antes de subir ao palco."
+      },
+      {
+        question: "O recibo de cachê serve para prestação de contas de editais de cultura?",
+        answer: "Sim. Recibos com CPF, assinatura e dados bancários de artistas são aceitos em prestações de contas de projetos culturais e incentivos da Lei Paulo Gustavo e Lei Aldir Blanc, conforme o regulamento de cada edital."
+      },
+      {
+        question: "Quem é responsável pelo pagamento de taxas do ECAD?",
+        answer: "Salvo disposição expressa em contrato, a responsabilidade legal pelo recolhimento dos direitos autorais do ECAD cabe ao organizador do evento ou proprietário do estabelecimento que executa a música pública."
+      },
+      {
+        question: "Como gerar o recibo de DJ ou músico em PDF?",
+        answer: "Basta preencher os dados no gerador acima e clicar em 'Imprimir / Gerar PDF' para salvar na hora no seu aparelho."
+      }
+    ]
+  },
+  {
+    id: "animador-de-festas",
+    slug: "recibo-de-animador-de-festas",
+    title: "Recibo de Animador e Recreador de Festas",
+    shortDescription: "Comprovante de recreação infantil, gincanas, pintura facial, escultura em balões e personagens.",
+    seoTitle: "Recibo de Animador de Festas e Recreação Infantil | PDF Grátis",
+    seoDescription: "Gere recibo de recreação infantil, animador de festas de aniversário e maquiagem artística em PDF. 100% grátis, sem cadastro e com validação imediata.",
+    keywords: "recibo animador de festas, recibo recreador infantil, recibo pintura facial aniversario, recibo personagem vivo festa, modelo recibo animacao infantil",
+    defaultReferenteA: "Prestação de serviços de [ex: animação e recreação infantil para festa de aniversário com duração de 3 horas, compreendendo gincanas recreativas, esculturas em balões e pintura facial artística], com materiais atóxicos fornecidos.",
+    icon: "Smile",
+    seoContent: {
+      h2: "Por que Animadores e Recreadores Infantis devem emitir recibo?",
+      p1: "Profissionais de animação infantil lidam diretamente com o momento mais especial das famílias: os aniversários dos filhos. Emitir um recibo profissional passa credibilidade aos pais, assegura o recebimento do sinal de agendamento e formaliza a entrega pontual da festa.",
+      h3: "Dicas de preenchimento para recreadores",
+      p2: "Discrimine as atividades contratadas (gincanas com bola, caça ao tesouro, oficinas manuais, maquiagem artística com tintas hipoalergênicas) e a quantidade de recreadores presentes na equipe."
+    },
+    faqs: [
+      {
+        question: "O que acontece se a festa atrasar e passar do horário contratado?",
+        answer: "É recomendável estipular no recibo ou contrato prévio o valor da hora adicional de recreação (ex: 'R$ [X] por hora extra excedente'), caso os pais solicitem que a equipe fique até o corte do bolo."
+      },
+      {
+        question: "O sinal de agendamento é devolvido em caso de cancelamento da festa?",
+        answer: "Se o cliente cancelar com menos de 7 a 15 dias de antecedência, o animador pode reter o sinal para cobrir materiais já comprados (bexigas, tintas) e a perda da data na agenda."
+      },
+      {
+        question: "Recreadores autônomos podem comprovar renda com o recibo?",
+        answer: "Sim. O recibo assinado junto ao comprovante de recebimento bancário (PIX) é o comprovante legítimo de faturamento do profissional de eventos."
+      },
+      {
+        question: "Como emitir o recibo de animador de festas em PDF?",
+        answer: "Preencha o formulário online no início da página e clique em 'Imprimir / Gerar PDF' para salvar o arquivo pronto."
+      }
+    ]
+  },
+  {
+    id: "adestrador-de-caes",
+    slug: "recibo-de-adestrador-de-caes",
+    title: "Recibo de Adestrador e Passeador de Cães",
+    shortDescription: "Comprovante de adestramento comportamental, obediência básica e passeios diários (Dog Walker).",
+    seoTitle: "Recibo de Adestrador de Cães e Dog Walker | Gerador em PDF Grátis",
+    seoDescription: "Emita recibo de adestramento canino, correção comportamental e pacotes de passeios dog walker em PDF. Grátis, sem cadastro e com respaldo profissional.",
+    keywords: "recibo de adestrador de caes, recibo adestramento canino, recibo dog walker, recibo passeador de caes, modelo recibo adestrador pdf",
+    defaultReferenteA: "Prestação de serviços profissionais de adestramento canino para o cão [Nome do Pet / Raça], compreendendo [ex: pacote mensal com 8 aulas práticas de obediência básica e controle de ansiedade em domicílio], com acompanhamento do tutor.",
+    icon: "Dog",
+    seoContent: {
+      h2: "Segurança e Clareza no Adestramento Canino e Dog Walking",
+      p1: "O adestramento de animais de estimação requer acompanhamento constante e parceria com a família. O recibo formaliza o pagamento do pacote de aulas ou das mensalidades de passeios diários, atestando a metodologia positiva aplicada e o cronograma de treinos.",
+      h3: "O que não pode faltar no recibo do adestrador?",
+      p2: "Identifique o nome e raça do animal, a quantidade de aulas contratadas no mês e a orientação expressa de que o sucesso do comportamento depende da continuidade dos comandos praticados pela família no dia a dia."
+    },
+    faqs: [
+      {
+        question: "O adestrador pode garantir que o cão ficará 100% adestrado?",
+        answer: "Não. A obrigação do adestrador é de meio e técnica, não de resultado absoluto, pois o comportamento animal depende também da genética, ambiente e consistência do tutor. Deixe isso claro no recibo ou contrato."
+      },
+      {
+        question: "Como o recibo protege o passeador (Dog Walker) contra imprevistos de saúde do pet?",
+        answer: "É prudente constar no termo ou recibo que o pet possui vacinação e vermifugação em dia, e autorização prévia de atendimento veterinário emergencial com repasse de despesas ao tutor."
+      },
+      {
+        question: "O adestrador autônomo pode comprovar faturamento com o recibo?",
+        answer: "Sim. O recibo de prestação de serviços emitido para os tutores é documento hábil perante a Receita Federal e instituições bancárias."
+      },
+      {
+        question: "Como gerar e imprimir o recibo de adestrador de cães?",
+        answer: "Basta preencher os dados no formulário no topo da página e clicar no botão 'Imprimir / Gerar PDF' para salvar o documento em alta qualidade."
+      }
+    ]
+  },
+  {
+    id: "manutencao-de-portao-eletronico",
+    slug: "recibo-de-manutencao-de-portao-eletronico",
+    title: "Recibo de Manutenção de Portão Eletrônico",
+    shortDescription: "Comprovante de conserto de motor, placa de comando, cremalheira, travas e interfonia residencial.",
+    seoTitle: "Recibo de Manutenção de Portão Eletrônico | Baixar em PDF Grátis",
+    seoDescription: "Gere recibo de conserto de portão eletrônico, troca de motor, placas e controles remotos em PDF. 100% grátis, sem cadastro e com garantia técnica discriminada.",
+    keywords: "recibo manutencao portao eletronico, recibo conserto motor portao, recibo troca placa portao, recibo interfone residencial, modelo recibo portao eletronico",
+    defaultReferenteA: "Serviços de assistência técnica em portão eletrônico [ex: substituição da central eletrônica de comando, troca de capacitor de partida e codificação de 3 novos controles remotos], com garantia de 90 dias nas peças e mão de obra.",
+    icon: "Settings",
+    seoContent: {
+      h2: "Garantia e Responsabilidade em Automação de Portões",
+      p1: "A manutenção de motores de portões deslizantes, basculantes e pivotantes envolve segurança física e patrimonial de residências e condomínios. O recibo comprova as peças substituídas, a mão de obra técnica e a regulagem do fim de curso anti-esmagamento.",
+      h3: "O que deve ser discriminado no recibo?",
+      p2: "Sempre liste a marca da central e do motor (PPA, Peccinin, Rossi, Garen, Intelbras), se os controles foram entregues codificados e o prazo de garantia legal de 90 dias conforme o Código de Defesa do Consumidor."
+    },
+    faqs: [
+      {
+        question: "O técnico responde por queima de placa causada por descargas elétricas (raios)?",
+        answer: "Não. A garantia de mão de obra e peças cobre defeitos naturais de fabricação. Danos causados por tempestades elétricas ou oscilação brusca na rede da concessionária são excludentes de garantia que devem ser informados no recibo."
+      },
+      {
+        question: "Síndicos podem usar este recibo para prestar contas no condomínio?",
+        answer: "Sim. Recibos com identificação clara do técnico (CPF ou CNPJ) e descrição das peças trocadas são amplamente aceitos em assembleias de prestação de contas de condomínios."
+      },
+      {
+        question: "Qual o prazo de garantia para conserto de portão eletrônico?",
+        answer: "A garantia legal prevista no CDC para mão de obra e peças novas instaladas é de 90 dias corridos a partir da data de entrega do serviço em funcionamento."
+      },
+      {
+        question: "Como emitir o recibo de manutenção de portão em PDF?",
+        answer: "Preencha o formulário acima e clique em 'Imprimir / Gerar PDF' para salvar instantaneamente no seu celular ou computador."
+      }
+    ]
+  },
+  {
+    id: "dedetizacao",
+    slug: "recibo-de-dedetizacao",
+    title: "Recibo de Dedetização e Controle de Pragas",
+    shortDescription: "Comprovante de desinsetização, desratização, descupinização e sanitização com prazo de garantia.",
+    seoTitle: "Recibo de Dedetização e Controle de Pragas | Gerador PDF Grátis",
+    seoDescription: "Emita recibo de dedetização residencial e comercial em PDF. Discrimine pragas tratadas (baratas, cupins, ratos), produtos químicos e certificado de garantia. Grátis.",
+    keywords: "recibo de dedetizacao, recibo controle de pragas, recibo descupinizacao, recibo desratizacao, certificado dedetizacao modelo pdf",
+    defaultReferenteA: "Execução de serviços especializados de controle químico de pragas urbanas por [ex: pulverização e aplicação de gel contra baratas e formigas em imóvel residencial de 90m²], com garantia de assistência técnica de 6 meses.",
+    icon: "Shield",
+    seoContent: {
+      h2: "Importância do Recibo e Certificado de Dedetização",
+      p1: "O controle de pragas urbanas é essencial para a saúde pública e a conservação patrimonial. O recibo de dedetização atesta a realização da aplicação química, as pragas-alvo combatidas e o prazo de eficácia do veneno/gel, servindo como comprovante sanitário.",
+      h3: "Cuidados e orientações que devem constar no documento",
+      p2: "É fundamental indicar o tempo mínimo de afastamento do imóvel após a pulverização (especialmente para crianças, gestantes e animais de estimação) e as medidas de segurança e arejamento recomendadas pela Anvisa."
+    },
+    faqs: [
+      {
+        question: "O recibo de dedetização tem validade perante a Vigilância Sanitária?",
+        answer: "Para estabelecimentos comerciais que manipulam alimentos, exige-se o Certificado de Desinsetização acompanhado do comprovante de Responsabilidade Técnica da empresa. Para residências particulares, o recibo discrimina a quitação e o prazo de assistência do aplicador."
+      },
+      {
+        question: "O que a garantia de 6 meses da dedetização cobre?",
+        answer: "A garantia cobre a realização de um reforço químico pontual sem custos caso haja reincidência das pragas-alvo contratadas durante o prazo estipulado no recibo."
+      },
+      {
+        question: "Como o aplicador se protege se o cliente não seguir as instruções de higiene?",
+        answer: "O profissional deve fazer constar no recibo que a garantia pressupõe a manutenção de condições básicas de asseio no local, sem acúmulo de entulhos ou vazamentos de água que atraiam novas pragas."
+      },
+      {
+        question: "Como gerar e baixar o recibo de dedetização em PDF?",
+        answer: "Preencha as informações do serviço no formulário e clique em 'Imprimir / Gerar PDF' para salvar na hora no seu dispositivo."
+      }
+    ]
+  },
+  {
+    id: "tapeceiro",
+    slug: "recibo-de-tapeceiro",
+    title: "Recibo de Tapeceiro e Reforma de Estofados",
+    shortDescription: "Comprovante de reforma de sofás, troca de tecidos, costuras, espumas e restauração de móveis.",
+    seoTitle: "Recibo de Tapeceiro e Reforma de Sofás | Gerador em PDF Grátis",
+    seoDescription: "Gere recibo de serviços de tapeçaria e reforma de estofados em PDF. Discrimine troca de tecido, espuma, alinhamento de molas e quitação. Grátis e online.",
+    keywords: "recibo de tapeceiro, recibo reforma de sofa, recibo tapecaria residencial, recibo troca de tecido sofa, modelo recibo tapecaria pdf",
+    defaultReferenteA: "Reforma artesanal completa de [ex: sofá retrátil de 3 lugares, compreendendo troca do revestimento por tecido linho bege, substituição das espumas dos assentos por densidade D33 e reforço de percintas elásticas], entregue e revisado.",
+    icon: "Sofa",
+    seoContent: {
+      h2: "Segurança e Clareza na Tapeçaria Artesanal",
+      p1: "A reforma de estofados envolve trabalho minucioso e adiantamentos para aquisição de tecidos e espumas de alta densidade. O recibo de tapeceiro protege o artesão ao discriminar o valor recebido como sinal de entrada e a quitação no ato da entrega do móvel reformado.",
+      h3: "O que deve constar no recibo da tapeçaria?",
+      p2: "Especifique o modelo do móvel (sofá, poltrona, cadeiras de jantar), o tipo e metragem do tecido escolhido (linho, courino, veludo), a densidade da espuma substituída e o prazo de garantia da estrutura e costura."
+    },
+    faqs: [
+      {
+        question: "O tapeceiro deve emitir recibo ao retirar o móvel na casa do cliente?",
+        answer: "Sim! Ao retirar o sofá para levar para a oficina, deve-se emitir um recibo ou termo de retirada descrevendo o estado geral da peça e o valor do sinal pago para início do trabalho."
+      },
+      {
+        question: "Qual o prazo de garantia legal de uma reforma de estofados?",
+        answer: "Conforme o Artigo 26 do Código de Defesa do Consumidor, serviços duráveis têm 90 dias de garantia legal cobrindo costuras, afundamento prematuro de espumas e fixação de percintas."
+      },
+      {
+        question: "Como o tapeceiro se resguarda contra tonalidades diferentes de tecidos?",
+        answer: "O profissional deve registrar o código de catálogo do tecido aprovado pelo cliente, informando que pequenas variações de lote de tingimento são normais da indústria têxtil."
+      },
+      {
+        question: "Como gerar e imprimir o recibo de tapeçaria?",
+        answer: "Preencha o formulário online no topo da página e clique em 'Imprimir / Gerar PDF' para salvar o documento em alta resolução."
+      }
+    ]
+  },
+  {
+    id: "telhadista",
+    slug: "recibo-de-telhadista",
+    title: "Recibo de Telhadista e Reforma de Telhados",
+    shortDescription: "Comprovante de conserto de goteiras, troca de telhas, montagem de madeiramento e impermeabilização.",
+    seoTitle: "Recibo de Telhadista e Conserto de Telhados | PDF Grátis",
+    seoDescription: "Emita recibo de serviços de telhadista, troca de telhas e conserto de goteiras em PDF. Comprovante formal de quitação de mão de obra de telhados. 100% grátis e rápido.",
+    keywords: "recibo de telhadista, recibo reforma de telhado, recibo conserto de goteiras, recibo troca de telhas, modelo recibo telhadista pdf",
+    defaultReferenteA: "Serviços especializados de telhadista em imóvel residencial, incluindo [ex: substituição de 45 telhas cerâmicas trincadas, alinhamento de ripamento de madeira e vedação de cumeeiras com massa impermeabilizada], eliminando goteiras.",
+    icon: "Hammer",
+    seoContent: {
+      h2: "Por que contratar serviços de Telhadista com recibo formal?",
+      p1: "O trabalho em telhados envolve riscos em altura e exige precisão para evitar infiltrações graves que danificam forros e instalações elétricas. O recibo de telhadista comprova a execução da manutenção preventiva ou corretiva e atesta o término das obras.",
+      h3: "Detalhes essenciais no recibo do telhadista",
+      p2: "Mencione a quantidade aproximada de telhas substituídas, se houve troca de vigas ou caibros de madeira, se foi aplicada manta térmica aluminizada ou manta asfáltica, e o teste de estanqueidade para confirmação de ausência de goteiras."
+    },
+    faqs: [
+      {
+        question: "Qual o prazo de garantia para conserto de vazamentos no telhado?",
+        answer: "O Código de Defesa do Consumidor concede 90 dias de garantia para serviços duráveis. O telhadista deve garantir que os pontos consertados não apresentem novas goteiras durante o período de chuvas da garantia."
+      },
+      {
+        question: "Quem se responsabiliza pela compra de telhas novas?",
+        answer: "Deixe claro no recibo se o valor pactuado foi apenas pela mão de obra ou se incluiu a compra e entrega das telhas, argamassa e materiais de fixação no local da obra."
+      },
+      {
+        question: "O recibo de telhadista pode ser usado no abatimento de despesas de aluguel?",
+        answer: "Sim. Consertos estruturais no telhado são de responsabilidade do proprietário (locador). O inquilino que pagou o serviço apresenta o recibo assinado pelo telhadista para ser reembolsado integralmente."
+      },
+      {
+        question: "Como gerar o recibo de telhadista em PDF?",
+        answer: "Preencha os valores e detalhes no formulário acima e clique em 'Imprimir / Gerar PDF' para salvar instantaneamente no seu celular ou computador."
+      }
+    ]
+  },
 ];

@@ -41,7 +41,6 @@
     <meta name="twitter:description" content="Gere recibos de pagamento, aluguel e prestação de serviços gratuitamente. Crie seu recibo online, preencha os dados e baixe em PDF na hora." />
     <meta name="twitter:image" content="https://recibogratis.com.br/og-image.webp" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preload" as="image" href="/cubes.png" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <script>
       (function() {
@@ -63,6 +62,12 @@
           gtagScript.async = true;
           document.head.appendChild(gtagScript);
 
+          // Adskeeper
+          var adskeeperScript = document.createElement('script');
+          adskeeperScript.src = "https://jsc.adskeeper.com/site/1113429.js";
+          adskeeperScript.async = true;
+          document.head.appendChild(adskeeperScript);
+
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
           gtag('js', new Date());
@@ -75,13 +80,11 @@
           window.addEventListener(event, loadScripts, { once: true, passive: true });
         });
 
-        // Fallback
-        setTimeout(loadScripts, 5000);
+        // Fallback after 6s idle
+        setTimeout(loadScripts, 6000);
       })();
     </script>
     <link rel="alternate" type="application/rss+xml" title="Blog - Recibo Grátis RSS Feed" href="/rss.xml" />
-    <!-- Adskeeper Loader -->
-    <script src="https://jsc.adskeeper.com/site/1113429.js" async></script>
   </head>
   <body>
     <div id="root"></div>
