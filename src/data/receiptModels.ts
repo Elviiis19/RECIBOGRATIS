@@ -44,6 +44,21 @@ export const receiptModels = [
         question: "Como gerar e baixar o Recibo PIX em PDF?",
         answer:
           "Basta preencher os campos do formulário no topo desta página: digite o valor, selecione sua chave PIX, preencha os dados das partes e a descrição. O sistema formata a prévia instantaneamente em tempo real. Depois, clique no botão 'Imprimir / Gerar PDF' para salvar o documento em alta resolução no seu dispositivo, totalmente grátis e sem necessidade de cadastro."
+      },
+      {
+        question: "Quando NÃO devo usar o Recibo PIX?",
+        answer:
+          "Você não deve usar o recibo simples de PIX em operações comerciais que exijam obrigatoriamente Nota Fiscal Eletrônica (como venda de produtos no varejo com ICMS por empresas ou serviços B2B com retenção de impostos federais e municipais). Também não substitui escritura pública em cartório para compra de imóveis ou transferência oficial de veículos no Detran."
+      },
+      {
+        question: "Quais são os erros mais comuns ao emitir um Recibo PIX?",
+        answer:
+          "Os 4 erros mais graves são: 1) Aceitar comprovante de PIX agendado sem verificar se o dinheiro caiu na conta; 2) Usar descrições vagas como apenas 'serviços prestados' em vez de especificar o trabalho; 3) Esquecer de colher a assinatura de quem recebeu o valor; e 4) Confundir o print da tela do banco com quitação de obrigação contratual."
+      },
+      {
+        question: "O que é o ID da Transação (EndToEnd ID) e por que colocá-lo no recibo?",
+        answer:
+          "O EndToEnd ID é o código identificador único e universal gerado pelo Banco Central para cada transferência PIX (iniciado pela letra 'E'). Inserir esse código no recibo cria um vínculo digital inquestionável entre o documento assinado e o registro oficial do Banco Central, blindando o pagador contra qualquer questionamento judicial."
       }
     ]
   },
