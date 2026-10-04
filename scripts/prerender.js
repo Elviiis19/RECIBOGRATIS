@@ -65,6 +65,11 @@ const routes = [
     path: '/modelos',
     title: 'Todos os Modelos de Recibos | Recibo Grátis',
     description: 'Confira nossa lista completa com mais de 40 modelos de recibos prontos para preencher e imprimir em PDF gratuitamente.',
+  },
+  {
+    path: '/meus-documentos',
+    title: 'Meus Documentos Salvos | Histórico de Recibos | Recibo Grátis',
+    description: 'Acesse e gerencie seus recibos e declarações gerados. Duplique documentos com 1 clique, compartilhe no WhatsApp ou reabra sem custos ou marcas d\'água.',
   }
 ];
 
@@ -281,6 +286,14 @@ async function prerender() {
 </html>`;
     fs.writeFileSync(path.join(redirectDir, 'index.html'), redirectHtml, 'utf-8');
     console.log('Generated 301 redirect for /recibo-de-pagamento -> /recibo-simples');
+
+    // Ensure ads.txt is present in dist directory
+    const publicAdsPath = path.resolve(__dirname, '../public/ads.txt');
+    const distAdsPath = path.join(distDir, 'ads.txt');
+    if (fs.existsSync(publicAdsPath)) {
+      fs.copyFileSync(publicAdsPath, distAdsPath);
+      console.log('Ensured ads.txt is present in dist/');
+    }
   } catch (e) {
     console.error(e);
   } finally {

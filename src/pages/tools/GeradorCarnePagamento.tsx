@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { SEO } from '../../components/SEO';
 import { AdSense } from '../../components/AdSense';
 import { FileText, Printer, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
+import { saveDocument } from '../../utils/documentHistory';
 
 export function GeradorCarnePagamento() {
   const [empresa, setEmpresa] = useState('');
@@ -143,6 +144,23 @@ export function GeradorCarnePagamento() {
     }
 
     doc.save("Carne_de_Pagamento.pdf");
+
+    try {
+      saveDocument({
+        category: 'outro',
+        modelSlug: 'gerador-carne-pagamento',
+        title: `Carnê de Pagamento (${parcelas}x)`,
+        formattedDate: new Date().toLocaleDateString('pt-BR'),
+        valor: valorTotal,
+        pagador: cliente || undefined,
+        recebedor: empresa || undefined,
+        descricao: descricao ? `${descricao} (${parcelas} parcelas)` : `${parcelas} parcelas de ${valorParcela.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`,
+        url: '/gerador-carne-pagamento',
+        formData: { empresa, cliente, cpf, endereco, valorTotal, parcelas, vencimentoInicial, descricao },
+      });
+    } catch (err) {
+      console.warn("Erro ao salvar histórico do carnê:", err);
+    }
   };
 
   const faqs = [

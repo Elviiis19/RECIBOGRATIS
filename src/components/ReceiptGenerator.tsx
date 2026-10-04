@@ -17,6 +17,7 @@ import {
 import { QRCodeCanvas } from "qrcode.react";
 import { cn } from "../utils/cn";
 import { generatePixPayload } from "../utils/pix";
+import { saveDocument, getDocumentToPrefill } from "../utils/documentHistory";
 
 import { AdSense } from "./AdSense";
 import { AdsKeeper } from "./AdsKeeper";
@@ -175,23 +176,31 @@ export function ReceiptGenerator({
       }
     }
 
-    // Read URL search params passed from Home Mini-Generator
+    // Read prefill data from document history or URL search params
     if (typeof window !== "undefined") {
-      try {
-        const searchParams = new URLSearchParams(window.location.search);
-        const urlValor = searchParams.get("valor");
-        const urlPagador = searchParams.get("pagador");
-        const urlRecebedor = searchParams.get("recebedor");
-        if (urlValor || urlPagador || urlRecebedor) {
-          setData((prev) => ({
-            ...prev,
-            ...(urlValor ? { valor: urlValor } : {}),
-            ...(urlPagador ? { pagadorNome: urlPagador } : {}),
-            ...(urlRecebedor ? { recebedorNome: urlRecebedor } : {}),
-          }));
+      const prefill = getDocumentToPrefill();
+      if (prefill && prefill.doc && prefill.doc.formData) {
+        setData((prev) => ({
+          ...prev,
+          ...prefill.doc.formData,
+        }));
+      } else {
+        try {
+          const searchParams = new URLSearchParams(window.location.search);
+          const urlValor = searchParams.get("valor");
+          const urlPagador = searchParams.get("pagador");
+          const urlRecebedor = searchParams.get("recebedor");
+          if (urlValor || urlPagador || urlRecebedor) {
+            setData((prev) => ({
+              ...prev,
+              ...(urlValor ? { valor: urlValor } : {}),
+              ...(urlPagador ? { pagadorNome: urlPagador } : {}),
+              ...(urlRecebedor ? { recebedorNome: urlRecebedor } : {}),
+            }));
+          }
+        } catch (e) {
+          // Safe catch
         }
-      } catch (e) {
-        // Safe catch
       }
     }
   }, []);
@@ -617,6 +626,25 @@ export function ReceiptGenerator({
       setIsGeneratingPDF(true);
       const blob = await generatePDFBlob();
       if (blob) {
+        // Automatically save to local document history
+        try {
+          const currentSlug = typeof window !== 'undefined' ? window.location.pathname.replace(/^\//, '') || 'recibo-simples' : 'recibo-simples';
+          saveDocument({
+            category: 'recibo',
+            modelSlug: currentSlug,
+            title: getDocTitle() || title || 'Recibo de Pagamento',
+            formattedDate: new Date().toLocaleDateString('pt-BR'),
+            valor: data.valor,
+            pagador: data.pagadorNome,
+            recebedor: data.recebedorNome,
+            descricao: data.referenteA,
+            url: window.location.pathname,
+            formData: data,
+          });
+        } catch (e) {
+          // Safe catch
+        }
+
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;

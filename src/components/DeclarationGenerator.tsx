@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { cn } from "../utils/cn";
 import { AdSense } from "./AdSense";
+import { saveDocument } from "../utils/documentHistory";
 
 interface DeclarationData {
   // Common Declarante
@@ -128,6 +129,23 @@ export function DeclarationGenerator({ modelId }: { modelId: string }) {
       const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
       pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight);
       pdf.save(`Declaracao_${modelId}_${Date.now()}.pdf`);
+
+      // Save to local document history
+      try {
+        saveDocument({
+          category: 'declaracao',
+          modelSlug: modelId,
+          title: `Declaração: ${data.declaranteNome || 'Documento'}`,
+          formattedDate: new Date().toLocaleDateString('pt-BR'),
+          pagador: data.declaranteNome,
+          recebedor: data.titularNome || data.proprietarioNome || data.empresaNome,
+          descricao: `Declaração de ${modelId.replace(/-/g, ' ')}`,
+          url: window.location.pathname,
+          formData: data,
+        });
+      } catch (e) {
+        // Safe catch
+      }
     } catch (error) {
       console.error("Erro ao gerar PDF:", error);
       alert("Ocorreu um erro ao gerar o PDF. Tente usar o botão de Imprimir e selecione 'Salvar como PDF'.");

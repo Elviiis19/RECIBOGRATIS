@@ -104,6 +104,12 @@ ${ferramentas.map(slug => `  <url>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>${baseUrl}/meus-documentos</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>${baseUrl}/contato</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>

@@ -2,10 +2,11 @@ import { Link, Outlet, useLocation } from 'react-router-dom';
 import { 
   FileText, Menu, X, ChevronDown, ChevronRight, Zap, Youtube, Instagram, 
   Search, Layers, FileCheck2, Wrench, BookOpen, HelpCircle, Home, 
-  Sparkles, ShieldCheck, Phone, Briefcase 
+  Sparkles, ShieldCheck, Phone, Briefcase, FolderArchive 
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { receiptModels } from '../data/receiptModels';
+import { getSavedDocuments } from '../utils/documentHistory';
 import { CookieBanner } from './CookieBanner';
 import { SearchPalette } from './SearchPalette';
 import { LateralAdsKeeper } from './LateralAdsKeeper';
@@ -15,9 +16,20 @@ export function Layout() {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [docCount, setDocCount] = useState(0);
   const [openMobileCategory, setOpenMobileCategory] = useState<string | null>('Básicos');
   const currentYear = new Date().getFullYear().toString();
   const isHomePage = location.pathname === '/';
+
+  // Listen for local storage document updates
+  useEffect(() => {
+    const updateCount = () => {
+      setDocCount(getSavedDocuments().length);
+    };
+    updateCount();
+    window.addEventListener('rg-documents-updated', updateCount);
+    return () => window.removeEventListener('rg-documents-updated', updateCount);
+  }, []);
 
   // Close mobile drawer on route change
   useEffect(() => {
@@ -243,6 +255,21 @@ export function Layout() {
                   <Search className="w-5 h-5" />
                 </button>
 
+                {/* Meus Documentos Button */}
+                <Link
+                  to="/meus-documentos"
+                  className="inline-flex items-center gap-1.5 bg-emerald-900/70 hover:bg-emerald-950 border border-emerald-600/40 text-emerald-100 hover:text-white px-3.5 py-2 rounded-xl font-bold text-xs sm:text-sm transition-all shadow-sm"
+                  title="Visualize e gerencie seus documentos salvos"
+                >
+                  <FolderArchive className="w-4 h-4 text-emerald-300" />
+                  <span className="hidden sm:inline">Meus Documentos</span>
+                  {docCount > 0 && (
+                    <span className="bg-emerald-400 text-emerald-950 text-[10px] font-black px-1.5 py-0.5 rounded-full min-w-[18px] text-center leading-none">
+                      {docCount}
+                    </span>
+                  )}
+                </Link>
+
                 {/* Desktop Primary CTA */}
                 <Link
                   to="/recibo-simples"
@@ -407,6 +434,12 @@ export function Layout() {
             <div>
               <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">Institucional</h3>
               <ul className="space-y-2">
+                <li>
+                  <Link to="/meus-documentos" className="text-sm text-emerald-300 font-bold hover:text-white transition-colors flex items-center gap-1.5">
+                    <FolderArchive className="w-3.5 h-3.5" />
+                    <span>Meus Documentos</span>
+                  </Link>
+                </li>
                 <li>
                   <Link to="/como-funciona" className="text-sm text-emerald-100/70 hover:text-white transition-colors">
                     Como Funciona
@@ -613,6 +646,32 @@ export function Layout() {
                 <span className="flex-1 truncate">Buscar recibo, declaração ou ferramenta...</span>
                 <span className="text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">Buscar</span>
               </button>
+
+              {/* Meus Documentos Card in Drawer */}
+              <Link
+                to="/meus-documentos"
+                onClick={() => setIsMenuOpen(false)}
+                className="w-full flex items-center justify-between p-3.5 bg-gradient-to-r from-emerald-800 to-teal-800 text-white rounded-2xl shadow-sm hover:shadow transition-all"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+                    <FolderArchive className="w-5 h-5 text-emerald-300" />
+                  </div>
+                  <div>
+                    <span className="font-bold text-sm block">Meus Documentos</span>
+                    <span className="text-xs text-emerald-200">Consulte recibos salvos neste celular</span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  {docCount > 0 ? (
+                    <span className="bg-emerald-400 text-emerald-950 font-extrabold text-xs px-2.5 py-0.5 rounded-full">
+                      {docCount}
+                    </span>
+                  ) : (
+                    <ChevronRight className="w-4 h-4 text-emerald-300" />
+                  )}
+                </div>
+              </Link>
 
               {/* Destaques Rápidos */}
               <div>

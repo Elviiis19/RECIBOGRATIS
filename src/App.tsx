@@ -38,6 +38,8 @@ import { ConsultadorIbge } from './pages/tools/ConsultadorIbge';
 import { GeradorPixCopiaECola } from './pages/tools/GeradorPixCopiaECola';
 import { LeitorQrCode } from './pages/tools/LeitorQrCode';
 
+import { DocumentHistory } from './pages/DocumentHistory';
+
 export default function App({ url }: { url?: string }) {
   const isServer = typeof window === 'undefined';
 
@@ -46,6 +48,8 @@ export default function App({ url }: { url?: string }) {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="gerador-qr-code-pix" element={<PixGenerator />} />
+        <Route path="meus-documentos" element={<DocumentHistory />} />
+        <Route path="historico" element={<Navigate to="/meus-documentos" replace />} />
         
         {/* Ferramentas */}
         <Route path="gerador-pix-copia-e-cola" element={<GeradorPixCopiaECola />} />
