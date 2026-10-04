@@ -2470,9 +2470,14 @@ export function ReceiptGenerator({
           )}
         </div>
 
-        {/* Adskeeper Widget below the form card - Nova impressão a cada etapa do formulário */}
-        <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 print:hidden">
-          <AdsKeeper key={`form-ad-step-${currentStep}`} refreshKey={currentStep} />
+        {/* Adskeeper Widget below the form card - Widget ID 2090668 (Desktop) / 2089552 (Mobile) */}
+        <div className="mt-4 print:hidden">
+          <AdsKeeper 
+            key={`form-ad-step-${currentStep}`} 
+            desktopWidgetId="2090668"
+            mobileWidgetId="2089552"
+            refreshKey={currentStep} 
+          />
         </div>
       </div>
 
@@ -2714,16 +2719,26 @@ export function ReceiptGenerator({
             </div>
           </div>
 
-          {/* Adskeeper Widget below the preview card (lateral direita do gerador) - Nova impressão por etapa */}
-          <div className="mt-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-100 print:hidden">
-            <AdsKeeper key={`preview-ad-step-${currentStep}`} refreshKey={currentStep} />
+          {/* Adskeeper Widget below the preview card (lateral direita do gerador) - Widget ID 2090671 */}
+          <div className="mt-4 print:hidden">
+            <AdsKeeper 
+              key={`preview-ad-step-${currentStep}`} 
+              desktopWidgetId="2090671"
+              mobileWidgetId="2089552"
+              refreshKey={currentStep} 
+            />
           </div>
         </div>
       </div>
 
       {/* Adskeeper Widget below entire generator */}
       <div className="mt-8 print:hidden">
-        <AdsKeeper key={`bottom-ad-step-${currentStep}`} refreshKey={currentStep} />
+        <AdsKeeper 
+          key={`bottom-ad-step-${currentStep}`} 
+          desktopWidgetId="2090668"
+          mobileWidgetId="2089552"
+          refreshKey={currentStep} 
+        />
       </div>
     </>
   );

@@ -264,7 +264,7 @@ export function Layout() {
       {!isHomePage && (
         <>
           <LateralAdsKeeper key={`lateral-left-${location.pathname}`} side="left" widgetId="2089546" refreshKey={location.pathname} />
-          <LateralAdsKeeper key={`lateral-right-${location.pathname}`} side="right" widgetId="2089546" refreshKey={location.pathname} />
+          <LateralAdsKeeper key={`lateral-right-${location.pathname}`} side="right" widgetId="2090666" refreshKey={location.pathname} />
         </>
       )}
 
