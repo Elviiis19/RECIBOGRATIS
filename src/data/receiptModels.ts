@@ -1,5 +1,53 @@
 export const receiptModels = [
   {
+    id: "recibo-pix",
+    slug: "recibo-pix",
+    title: "Recibo PIX",
+    shortDescription:
+      "Gere seu recibo de pagamento PIX online com QR Code Copia e Cola funcional, valor por extenso e comprovante de quitação em PDF. 100% grátis e sem cadastro!",
+    seoTitle: "Recibo PIX Online com QR Code para Pagar | Gerador em PDF Grátis",
+    seoDescription:
+      "Gere recibo de pagamento PIX online e grátis em PDF. Comprovante com Chave PIX, valor por extenso e QR Code Copia e Cola funcional para pagar no banco. Sem cadastro!",
+    keywords:
+      "recibo pix, recibo de pagamento pix, gerar recibo pix, modelo de recibo pix, recibo pix pdf, recibo pix com qr code, comprovante pix recibo, recibo de quitação pix, recibo pix online gratis, recibo pix mei, recibo pix prestação de serviços",
+    defaultReferenteA:
+      "Pagamento de [descreva o serviço ou produto], quitado integralmente por meio de transferência instantânea via PIX.",
+    icon: "QrCode",
+    seoContent: {
+      h2: "Por que o Recibo PIX é indispensável se já existe o comprovante do banco?",
+      p1: "Muitas pessoas acreditam erroneamente que o print ou PDF do comprovante bancário de transferência do PIX substitui um recibo formal. Na verdade, perante a lei e a Receita Federal, o comprovante bancário apenas prova que o dinheiro saiu de uma conta e entrou em outra. Ele NÃO comprova o que foi comprado, qual serviço foi prestado, nem dá quitação de obrigações contratuais. O Recibo PIX formaliza a quitação definitiva do negócio jurídico entre as partes, detalhando o valor, a chave utilizada e o motivo exato do pagamento.",
+      h3: "Diferencial Exclusivo: QR Code PIX Real do Banco Central",
+      p2: "Ao contrário de outros sites que geram apenas um QR Code figurativo de texto que não serve para efetuar pagamentos, o nosso gerador utiliza o padrão oficial do Banco Central (BR Code EMV). Você pode emitir um recibo com a cobrança ativa: quem receber o documento (impresso ou em PDF no celular) pode simplesmente abrir o aplicativo do seu banco (Nubank, Itaú, Caixa, Bradesco, Inter, etc.) e escanear o QR Code para pagar na hora com o valor e a chave preenchidos automaticamente!",
+    },
+    faqs: [
+      {
+        question: "O comprovante de transferência do PIX substitui o recibo de pagamento?",
+        answer:
+          "Não. O comprovante do aplicativo do banco serve apenas como prova bancária da transação financeira (transferência de saldo). Já o Recibo PIX é o documento formal que discrimina a causa do pagamento (serviço realizado, produto vendido, aluguel, etc.) e confere quitação jurídica nos termos dos artigos 319 e 320 do Código Civil, protegendo quem paga de cobranças indevidas no futuro."
+      },
+      {
+        question: "O QR Code gerado neste recibo funciona para pagar no banco?",
+        answer:
+          "Sim! Nosso gerador gera o Payload oficial do BR Code estabelecido pelo Banco Central do Brasil. Ao escanear o QR Code impresso no recibo ou na tela com qualquer aplicativo bancário habilitado para PIX, o app reconhece o recebedor, a chave e o valor do pagamento instantaneamente."
+      },
+      {
+        question: "Quem pode emitir um Recibo PIX?",
+        answer:
+          "Qualquer pessoa física (CPF), profissional autônomo, freelancer ou Microempreendedor Individual (MEI) que receba ou pague valores através do sistema PIX. O documento é amplamente aceito para comprovação de renda, controle financeiro, prestação de contas e declaração de Imposto de Renda."
+      },
+      {
+        question: "Quais informações não podem faltar em um Recibo PIX?",
+        answer:
+          "Para ter plena validade, o recibo deve conter: valor numérico e por extenso, nome completo e CPF/CNPJ de quem pagou, nome e CPF/CNPJ de quem recebeu, Chave PIX utilizada na operação, descrição clara do serviço ou produto quitado, data do pagamento, cidade e a assinatura de quem recebeu os recursos."
+      },
+      {
+        question: "Como gerar e baixar o Recibo PIX em PDF?",
+        answer:
+          "Basta preencher os campos do formulário no topo desta página: digite o valor, selecione sua chave PIX, preencha os dados das partes e a descrição. O sistema formata a prévia instantaneamente em tempo real. Depois, clique no botão 'Imprimir / Gerar PDF' para salvar o documento em alta resolução no seu dispositivo, totalmente grátis e sem necessidade de cadastro."
+      }
+    ]
+  },
+  {
     id: "entrega-chaves",
     slug: "recibo-de-entrega-de-chaves",
     title: "Recibo de Entrega de Chaves",

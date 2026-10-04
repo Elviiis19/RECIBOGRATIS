@@ -9,10 +9,11 @@ import {
   Wrench, Truck, Settings, Smile, Brain, Activity, Apple, Camera, 
   GraduationCap, Baby, HeartPulse, Scissors, Sofa, Monitor, Leaf, 
   Building, PenTool, HardHat, Stethoscope, Dog, Search,
-  Key
+  Key, QrCode
 } from 'lucide-react';
 
 const iconMap: Record<string, React.ReactNode> = {
+  QrCode: <QrCode className="w-8 h-8 text-emerald-700" />,
   FileText: <FileText className="w-8 h-8 text-emerald-700" />,
   Key: <Key className="w-8 h-8 text-emerald-700" />,
   BadgeDollarSign: <BadgeDollarSign className="w-8 h-8 text-emerald-700" />,

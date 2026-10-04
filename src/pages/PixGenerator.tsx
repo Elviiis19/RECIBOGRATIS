@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { QRCodeSVG } from 'qrcode.react';
 import CurrencyInput from 'react-currency-input-field';
-import { Copy, CheckCircle2, QrCode, AlertCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import { Copy, CheckCircle2, QrCode, AlertCircle, ChevronDown, ChevronUp, FileText } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { AdSense } from '../components/AdSense';
 import { AdsKeeper } from '../components/AdsKeeper';
@@ -340,6 +340,23 @@ export function PixGenerator() {
                 ))}
               </div>
             </article>
+
+            {/* Cross-link to Recibo PIX */}
+            <div className="bg-emerald-50 border-2 border-emerald-200 rounded-2xl p-6 text-center shadow-sm">
+              <h3 className="text-xl font-bold text-emerald-950 mb-2">
+                Precisa emitir um Recibo de Pagamento com Chave PIX?
+              </h3>
+              <p className="text-sm text-emerald-800 mb-4 max-w-xl mx-auto">
+                Gere um documento formal de quitação jurídica com os dados do pagador, recebedor, valor por extenso e o QR Code PIX oficial para imprimir ou baixar em PDF.
+              </p>
+              <Link
+                to="/recibo-pix"
+                className="inline-flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-6 py-3 rounded-xl shadow transition-all hover:scale-105"
+              >
+                <FileText className="w-5 h-5 text-emerald-200" />
+                <span>Gerar Recibo PIX em PDF Grátis &rarr;</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

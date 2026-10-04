@@ -52,7 +52,7 @@ export function Layout() {
 
   // Group models by category for the drawer and footer
   const categories = {
-    'Básicos': ['simples', 'recibo-com-logo', 'quitacao', 'sinal'],
+    'Básicos': ['simples', 'recibo-pix', 'recibo-com-logo', 'quitacao', 'sinal'],
     'Profissionais': ['servicos', 'honorarios', 'mei', 'arquiteto', 'engenheiro', 'corretor', 'termo-de-prestacao-de-servico', 'prestacao-de-servico-com-logo', 'prestacao-com-garantia-e-logo'],
     'Saúde & Bem-estar': ['dentista', 'psicologo', 'fisioterapeuta', 'nutricionista', 'estetica'],
     'Serviços Domésticos': ['diarista', 'baba', 'cuidador', 'jardinagem'],
@@ -104,6 +104,15 @@ export function Layout() {
                         Mais Populares
                       </div>
                       <ul className="space-y-1">
+                        <li>
+                          <Link to="/recibo-pix" className="text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-xl transition-colors">
+                            <div className="font-bold text-gray-900 flex items-center gap-1.5">
+                              <span>Recibo PIX</span>
+                              <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded-full">QR Code</span>
+                            </div>
+                            <div className="text-xs text-gray-500">Com chave e QR Code oficial para pagar</div>
+                          </Link>
+                        </li>
                         <li>
                           <Link to="/recibo-simples" className="text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-xl transition-colors">
                             <div className="font-bold text-gray-900">Recibo Simples de Pagamento</div>

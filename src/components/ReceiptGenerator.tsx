@@ -34,6 +34,8 @@ interface ReceiptData {
   formaPagamento: string;
   logo: string;
   chavePix: string;
+  pixTransacaoId?: string;
+  incluirQrCodePix?: boolean;
   // Novos campos para Aluguel
   aluguelMesRef?: string;
   aluguelAnoRef?: string;
@@ -94,12 +96,14 @@ export function ReceiptGenerator({
     pagadorDocumento: "",
     recebedorNome: "",
     recebedorDocumento: "",
-    referenteA: defaultReferenteA,
+    referenteA: defaultReferenteA || (title.toLowerCase().includes("pix") ? "Pagamento referente a [serviço ou produto], quitado integralmente por meio de transferência instantânea via PIX." : ""),
     cidade: "",
     data: "",
-    formaPagamento: "Dinheiro",
+    formaPagamento: title.toLowerCase().includes("pix") ? "PIX" : "Dinheiro",
     logo: "",
     chavePix: "",
+    pixTransacaoId: "",
+    incluirQrCodePix: true,
     aluguelMesRef: "Janeiro",
     aluguelAnoRef: "",
     aluguelCep: "",
@@ -282,6 +286,7 @@ export function ReceiptGenerator({
 
   const getDocType = () => {
     const t = title.toLowerCase();
+    if (t.includes("pix")) return "pix";
     if (t.includes("promissória")) return "promissoria";
     if (t.includes("orçamento")) return "orcamento";
     if (t.includes("ordem de serviço")) return "os";
@@ -659,6 +664,7 @@ export function ReceiptGenerator({
   };
 
   const getDocTitle = () => {
+    if (docType === "pix") return "RECIBO DE PAGAMENTO PIX";
     if (docType === "promissoria") return "NOTA PROMISSÓRIA";
     if (docType === "orcamento") return "ORÇAMENTO";
     if (docType === "os") return "ORDEM DE SERVIÇO";
@@ -920,7 +926,8 @@ export function ReceiptGenerator({
             <p>
               <span className="font-bold">Forma de Pagamento:</span>{" "}
               {data.formaPagamento}{" "}
-              {data.pagamentoDetalhes ? ` - ${data.pagamentoDetalhes}` : ""}
+              {data.pagamentoDetalhes ? `(${data.formaPagamento === "PIX" ? "Chave: " : ""}${data.pagamentoDetalhes})` : ""}
+              {data.pixTransacaoId ? ` | Autenticação/ID: ${data.pixTransacaoId}` : ""}
             </p>
           </>
         );
@@ -1363,8 +1370,89 @@ export function ReceiptGenerator({
                       </div>
                     </div>
 
-                    {(data.formaPagamento === "PIX" ||
-                      data.formaPagamento.includes("Transferência") ||
+                    {data.formaPagamento === "PIX" && (
+                      <div className="p-4 bg-emerald-50/70 border border-emerald-200 rounded-2xl space-y-4 animate-in fade-in duration-200">
+                        <div className="flex items-center gap-2 text-emerald-900 font-bold text-sm">
+                          <QrCode className="w-5 h-5 text-emerald-700" />
+                          <span>Configurações do Pagamento PIX</span>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <label
+                              htmlFor="chavePix"
+                              className="block text-xs font-bold text-gray-800 mb-1"
+                            >
+                              Chave PIX do Recebedor (para o QR Code)
+                            </label>
+                            <input
+                              id="chavePix"
+                              type="text"
+                              name="chavePix"
+                              value={data.chavePix}
+                              onChange={(e) => {
+                                const val = e.target.value;
+                                setData((prev) => ({
+                                  ...prev,
+                                  chavePix: val,
+                                  pagamentoDetalhes: val,
+                                }));
+                              }}
+                              placeholder="CPF, CNPJ, Celular, E-mail ou Aleatória"
+                              className="w-full px-4 py-3 text-base border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all bg-white font-mono"
+                            />
+                            <span className="text-[11px] text-gray-500 mt-1 block">
+                              Ex: 123.456.789-00, contato@email.com ou (11) 99999-9999
+                            </span>
+                          </div>
+
+                          <div>
+                            <label
+                              htmlFor="pixTransacaoId"
+                              className="block text-xs font-bold text-gray-800 mb-1"
+                            >
+                              ID da Transação / Comprovante (Opcional)
+                            </label>
+                            <input
+                              id="pixTransacaoId"
+                              type="text"
+                              name="pixTransacaoId"
+                              value={data.pixTransacaoId || ""}
+                              onChange={handleChange}
+                              placeholder="Ex: E1234567820261003..."
+                              className="w-full px-4 py-3 text-base border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all bg-white font-mono"
+                            />
+                            <span className="text-[11px] text-gray-500 mt-1 block">
+                              Código EndToEnd ou autenticação gerada pelo banco
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center gap-2.5 pt-1">
+                          <input
+                            type="checkbox"
+                            id="incluirQrCodePix"
+                            name="incluirQrCodePix"
+                            checked={data.incluirQrCodePix !== false}
+                            onChange={(e) =>
+                              setData((prev) => ({
+                                ...prev,
+                                incluirQrCodePix: e.target.checked,
+                              }))
+                            }
+                            className="w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500 border-gray-300 cursor-pointer"
+                          />
+                          <label
+                            htmlFor="incluirQrCodePix"
+                            className="text-xs font-semibold text-gray-800 cursor-pointer select-none"
+                          >
+                            Exibir QR Code PIX oficial (BR Code do Banco Central) no documento impresso
+                          </label>
+                        </div>
+                      </div>
+                    )}
+
+                    {(data.formaPagamento.includes("Transferência") ||
                       data.formaPagamento.includes("Cartão") ||
                       data.formaPagamento === "Cheque") && (
                       <div className="animate-in fade-in slide-in-from-top-2 duration-300">
@@ -1372,8 +1460,6 @@ export function ReceiptGenerator({
                           htmlFor="pagamentoDetalhes"
                           className="block text-sm font-semibold text-gray-900 mb-2"
                         >
-                          {data.formaPagamento === "PIX" &&
-                            "Qual a chave PIX utilizada? (Opcional)"}
                           {data.formaPagamento.includes("Transferência") &&
                             "Banco, Agência e Conta (Opcional)"}
                           {data.formaPagamento.includes("Cartão") &&
@@ -1388,13 +1474,11 @@ export function ReceiptGenerator({
                           value={data.pagamentoDetalhes}
                           onChange={handleChange}
                           placeholder={
-                            data.formaPagamento === "PIX"
-                              ? "Ex: (11) 99999-9999"
-                              : data.formaPagamento.includes("Transferência")
-                                ? "Ex: Banco Itaú, Ag 1234, Cc 12345-6"
-                                : data.formaPagamento.includes("Cartão")
-                                  ? "Ex: Visa final 1234"
-                                  : "Ex: Cheque nº 000001 Banco Bradesco"
+                            data.formaPagamento.includes("Transferência")
+                              ? "Ex: Banco Itaú, Ag 1234, Cc 12345-6"
+                              : data.formaPagamento.includes("Cartão")
+                                ? "Ex: Visa final 1234"
+                                : "Ex: Cheque nº 000001 Banco Bradesco"
                           }
                           className="w-full px-4 py-3 text-lg border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
                         />
@@ -2592,12 +2676,12 @@ export function ReceiptGenerator({
                           )}
                         </div>
 
-                        {data.chavePix && data.formaPagamento === "PIX" && (
+                        {data.chavePix && (data.formaPagamento === "PIX" || docType === "pix") && data.incluirQrCodePix !== false && (
                           <div className="flex flex-col items-center p-3 border-2 border-black rounded-xl bg-gray-50">
-                            <p className="text-xs font-bold text-black mb-2 uppercase tracking-wide">
+                            <p className="text-xs font-bold text-black mb-1 uppercase tracking-wide">
                               Pague com PIX
                             </p>
-                            <div className="bg-white p-2 rounded-lg shadow-sm mb-2 border border-gray-300">
+                            <div className="bg-white p-2 rounded-lg shadow-sm mb-1.5 border border-gray-300">
                               <QRCodeCanvas
                                 value={generatePixPayload(
                                   data.chavePix,
@@ -2605,13 +2689,16 @@ export function ReceiptGenerator({
                                   data.cidade || "Cidade",
                                   data.valor,
                                 )}
-                                size={80}
+                                size={88}
                                 level="M"
                               />
                             </div>
-                            <p className="text-[10px] text-black font-mono break-all text-center max-w-[120px]">
+                            <p className="text-[10px] text-black font-mono break-all text-center max-w-[130px] font-semibold leading-tight">
                               Chave: {data.chavePix}
                             </p>
+                            <span className="text-[8px] text-gray-600 mt-0.5 text-center">
+                              Escaneie no app do seu banco
+                            </span>
                           </div>
                         )}
                       </div>
@@ -2687,12 +2774,12 @@ export function ReceiptGenerator({
                               )}
                             </div>
 
-                            {data.chavePix && data.formaPagamento === "PIX" && (
+                            {data.chavePix && (data.formaPagamento === "PIX" || docType === "pix") && data.incluirQrCodePix !== false && (
                               <div className="flex flex-col items-center p-3 border-2 border-black rounded-xl bg-gray-50">
-                                <p className="text-xs font-bold text-black mb-2 uppercase tracking-wide">
+                                <p className="text-xs font-bold text-black mb-1 uppercase tracking-wide">
                                   Pague com PIX
                                 </p>
-                                <div className="bg-white p-2 rounded-lg shadow-sm mb-2 border border-gray-300">
+                                <div className="bg-white p-2 rounded-lg shadow-sm mb-1.5 border border-gray-300">
                                   <QRCodeCanvas
                                     value={generatePixPayload(
                                       data.chavePix,
@@ -2700,13 +2787,16 @@ export function ReceiptGenerator({
                                       data.cidade || "Cidade",
                                       data.valor,
                                     )}
-                                    size={80}
+                                    size={88}
                                     level="M"
                                   />
                                 </div>
-                                <p className="text-[10px] text-black font-mono break-all text-center max-w-[120px]">
+                                <p className="text-[10px] text-black font-mono break-all text-center max-w-[130px] font-semibold leading-tight">
                                   Chave: {data.chavePix}
                                 </p>
+                                <span className="text-[8px] text-gray-600 mt-0.5 text-center">
+                                  Escaneie no app do seu banco
+                                </span>
                               </div>
                             )}
                           </div>

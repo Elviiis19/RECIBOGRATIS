@@ -15,6 +15,38 @@ export interface RichSEOContent {
 }
 
 export const richSeoData: Record<string, RichSEOContent> = {
+  "recibo-pix": {
+    h1: "Recibo PIX Online: Gerador com QR Code e Comprovante de Quitação em PDF",
+    intro:
+      "Gere seu recibo de pagamento PIX online com total validade jurídica e segurança. O nosso gerador integra o padrão oficial do Banco Central (BR Code EMV), permitindo emitir recibos com QR Code funcional e chave PIX para pagamentos na hora, além de comprovar quitações definitivas de compras e serviços.",
+    useCasesTitle: "Quando você deve emitir um Recibo de Pagamento PIX?",
+    useCasesList: [
+      "Serviços prestados por autônomos, diaristas, pedreiros, técnicos e freelancers que recebem via PIX;",
+      "Comprovação de pagamento de aluguel residencial ou comercial direto com proprietário;",
+      "Quitação de vendas de produtos, veículos usados, móveis ou eletrônicos entre particulares;",
+      "Comprovação de honorários profissionais e mensalidades de cursos ou academias;",
+      "Documentação de despesas e prestação de contas contábeis para Microempreendedores Individuais (MEI)."
+    ],
+    useCasesConclusion:
+      "Mesmo que a transferência bancária gere um comprovante no aplicativo, apenas o Recibo PIX formaliza a quitação do contrato perante a legislação civil.",
+    specificDetailsTitle: "O que deve constar no Recibo PIX para garantir validade jurídica",
+    specificDetailsList: [
+      "Valor em números e escrito por extenso de forma automática para evitar adulterações.",
+      "Identificação completa do pagador e do recebedor (Nome e CPF ou CNPJ).",
+      "Chave PIX utilizada na operação (CPF/CNPJ, Telefone, E-mail ou Chave Aleatória EVP).",
+      "Descrição minuciosa do produto entregue ou serviço realizado (campo 'Referente a').",
+      "Código de Identificação da Transação (ID/EndToEnd) ou QR Code oficial do Banco Central.",
+      "Data da liquidação, cidade e assinatura do recebedor dando plena e irrevogável quitação."
+    ],
+    lsiText:
+      "Atenção: O comprovante de transferência emitido pelo aplicativo do banco apenas atesta a movimentação financeira entre contas bancárias, mas não dá quitação jurídica sobre o objeto da negociação. O Recibo PIX emitido nesta plataforma cumpre todos os requisitos dos Artigos 319 e 320 do Código Civil Brasileiro, assegurando que o credor não possa cobrar o mesmo valor no futuro.",
+    legalText: [
+      "Sim. O recibo emitido possui pleno valor probatório no âmbito do direito civil e nos Juizados Especiais. Ele serve como lastro contábil idôneo perante a Receita Federal e órgãos de defesa do consumidor (Procon).",
+      "Para transações comerciais entre empresas com retenção tributária obrigatória, o recibo não anula a obrigação acessória de emissão da respectiva Nota Fiscal."
+    ],
+    ctaText:
+      "Preencha o formulário acima, visualize a prévia em tempo real com o QR Code funcional e baixe seu recibo em PDF gratuito sem precisar criar conta."
+  },
   pagamento: {
     h1: "Recibo de Pagamento Online: Preencha e Imprima em PDF",
     intro:
