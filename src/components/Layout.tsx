@@ -268,13 +268,6 @@ export function Layout() {
         </>
       )}
 
-      {/* Banner Mobile no Topo - Exclusivo para celular em todas as páginas internas (exceto home) */}
-      {!isHomePage && (
-        <div className="block xl:hidden w-full max-w-lg mx-auto px-4 pt-2 print:hidden">
-          <AdsKeeper key={`mobile-top-${location.pathname}`} target="mobile" mobileWidgetId="2089552" className="my-1" refreshKey={location.pathname} />
-        </div>
-      )}
-
       <main 
         id="main-content" 
         className={`flex-grow pb-20 lg:pb-0 focus:outline-none transition-all ${
