@@ -1647,4 +1647,1157 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    "slug": "recibo-simples-imposto-de-renda-como-comprovar",
+    "title": "Recibo Simples no Imposto de Renda: O que o Leão Aceita",
+    "category": "financas-pessoais",
+    "seoTitle": "Recibo Simples no Imposto de Renda: O que o Leão Aceita | Guia IRPF",
+    "seoDescription": "Descubra se o recibo simples serve para comprovar renda e deduções no Imposto de Renda (IRPF). Veja as regras da Receita Federal e como emitir grátis.",
+    "intro": {
+      "acordo": "Declarar o Imposto de Renda todo ano gera apreensão em milhões de autônomos e contribuintes que não possuem carteira assinada nem contracheque formal.",
+      "promessa": "Neste artigo, você entenderá exatamente quando o recibo simples é aceito pela Receita Federal, como preencher os dados obrigatórios e como evitar cair na malha fina.",
+      "previa": "Analisaremos a validade jurídica do comprovante perante o Fisco, os cuidados com CPF do pagador e como gerar documentos no padrão exigido pelo Carnê-Leão."
+    },
+    "sections": [
+      {
+        "h2": "O recibo simples tem validade perante a Receita Federal?",
+        "content": "<p>Sim! O recibo simples tem plena validade legal perante a Receita Federal do Brasil, desde que preenchido com todos os requisitos legais exigidos pelos <strong>artigos 319 e 320 do Código Civil (Lei 10.406/2002)</strong> e pelas instruções normativas da Receita Federal relativas ao IRPF e ao Carnê-Leão.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">⚡ Precisa emitir um recibo simples válido agora mesmo?</p><p class=\"text-sm text-emerald-800 mb-3\">Preencha online em 30 segundos, com conversão automática de valor por extenso e baixe em PDF ou envie no WhatsApp sem cadastro.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo Simples Oficial em PDF →</a></div><p>Para o Leão, o recibo comprova tanto a <strong>origem do rendimento</strong> (para quem recebeu e precisa justificar aumento patrimonial) quanto a <strong>efetiva quitação da despesa</strong> (para quem pagou e deseja deduzir ou comprovar despesas operacionais no Livro Caixa).</p>",
+        "hasAd": true
+      },
+      {
+        "h2": "Quais dados não podem faltar no recibo para não cair na malha fina?",
+        "content": "<p>A Receita Federal cruza informações através do sistema de inteligência fiscal. Para que seu comprovante seja inquestionável em caso de fiscalização, ele deve conter obrigatoriamente:</p><ul class=\"list-disc pl-5 my-4 space-y-2\"><li><strong>Nome completo e CPF de quem pagou</strong> (e CPF/CNPJ de quem recebeu).</li><li><strong>Valor numérico e escrito por extenso</strong> (para eliminar dúvidas de digitação).</li><li><strong>Descrição clara e específica do serviço prestado ou quitação</strong> (evite descrições genéricas como apenas \"serviços\").</li><li><strong>Data exata da operação e cidade</strong>.</li><li><strong>Assinatura física ou eletrônica de quem recebeu os valores</strong>.</li></ul>"
+      },
+      {
+        "h2": "Modelo de Recibo Simples Aceito pela Receita Federal",
+        "content": "<p>Veja a estrutura textual ideal aceita por auditores fiscais e contadores:</p><div class=\"bg-gray-100 p-5 rounded-xl border border-gray-300 font-mono text-xs sm:text-sm text-gray-800 my-4 leading-relaxed\">RECEBEMOS de CARLOS EDUARDO DA SILVA, inscrito no CPF nº 123.456.789-00, a quantia de R$ 1.850,00 (um mil, oitocentos e cinquenta reais), referente à prestação de serviços de consultoria financeira e elaboração de planejamento orçamentário. Para clareza e cumprimento do art. 320 do Código Civil, firmo o presente recibo dando plena e geral quitação.<br><br>São Paulo - SP, 15 de abril de 2026.<br><br>____________________________________________<br>MARCOS VINICIUS PEREIRA - CPF: 987.654.321-00</div><p class=\"mt-4\">Em vez de digitar manualmente no Word, você pode usar o nosso <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">gerador de recibo simples em PDF</a> que já calcula o valor por extenso e entrega o layout formatado em folha A4.</p>",
+        "hasCta": {
+          "text": "Evite problemas com a malha fina. Crie seu comprovante profissional:",
+          "link": "/recibo-simples",
+          "ctaLabel": "EMITIR RECIBO SIMPLES EM PDF"
+        }
+      }
+    ],
+    "conclusion": "Manter seus comprovantes organizados e emitidos nos moldes do Código Civil é o segredo para ter paz perante a Receita Federal. Ao receber qualquer valor autônomo, emita o recibo simples na hora e guarde o PDF por pelo menos 5 anos.",
+    "faqs": [
+      {
+        "question": "O recibo simples precisa ter firma reconhecida em cartório para o IRPF?",
+        "answer": "Não. A Receita Federal não exige reconhecimento de firma em cartório para a comprovação ordinária de despesas e rendimentos de autônomos. A assinatura simples das partes é suficiente."
+      },
+      {
+        "question": "Quanto tempo devo guardar os recibos emitidos?",
+        "answer": "O prazo legal recomendado pelo Código Tributário Nacional e pelo Código Civil é de 5 anos, contados a partir do primeiro dia do exercício seguinte à declaração."
+      },
+      {
+        "question": "Quem recebe por Pix ainda precisa de recibo?",
+        "answer": "Sim! O extrato bancário do Pix prova apenas a transferência financeira, mas não comprova qual serviço foi prestado nem concede quitação formal de obrigações contratuais."
+      }
+    ]
+  },
+
+  {
+    "slug": "artigo-319-codigo-civil-quem-e-obrigado-dar-recibo",
+    "title": "Quem é Obrigado a Dar Recibo por Lei? O Artigo 319 do Código Civil",
+    "category": "burocracia-descomplicada",
+    "seoTitle": "Quem é Obrigado a Dar Recibo por Lei? Art. 319 Código Civil Explicado",
+    "seoDescription": "Descubra quem é obrigado por lei a fornecer recibo de pagamento no Brasil. Conheça seus direitos segundo o artigo 319 do Código Civil e gere grátis.",
+    "intro": {
+      "acordo": "Você já fez um pagamento por um serviço ou compra e a pessoa ou empresa se recusou a entregar um comprovante por escrito?",
+      "promessa": "Pouca gente sabe, mas o direito ao recibo é garantido pela legislação brasileira com penalidades expressas para quem se recusa a emitir.",
+      "previa": "Neste artigo, explicamos detalhadamente o Artigo 319 do Código Civil e o que você pode fazer legalmente caso não queiram lhe fornecer o documento."
+    },
+    "sections": [
+      {
+        "h2": "O que diz o Artigo 319 da Lei Federal 10.406/2002?",
+        "content": "<p>O texto do <strong>Artigo 319 do Código Civil Brasileiro</strong> é categórico e direto:</p><blockquote class=\"border-l-4 border-emerald-600 pl-4 italic my-4 text-gray-800 bg-gray-50 py-3 rounded-r-lg\">\"O devedor que paga tem direito a quitação regular, e pode reter o pagamento, enquanto não lhe for dada.\"</blockquote><p>Isso significa que toda pessoa física ou jurídica que recebe um pagamento é <strong>obrigada por lei</strong> a fornecer a quitação por escrito. Mais do que isso: quem está pagando tem o direito legal de <strong>reter o dinheiro e não pagar</strong> até que o recebedor apresente ou assine o recibo.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">📄 Emita a quitação regular do seu cliente em segundos:</p><p class=\"text-sm text-emerald-800 mb-3\">Evite constrangimentos e garanta segurança jurídica com o modelo oficial de quitação do Código Civil.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Acessar Gerador de Recibo Simples →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "E se o credor se recusar a emitir o recibo?",
+        "content": "<p>Caso você se depare com uma situação em que o prestador ou credor se recusa a emitir o recibo, a lei lhe confere mecanismos de proteção:</p><ul class=\"list-disc pl-5 my-4 space-y-2\"><li><strong>Retenção do pagamento:</strong> Você pode suspender o pagamento imediatamente sem que isso configure mora (inadimplência) ou gere juros contra você.</li><li><strong>Ação de Consignação em Pagamento:</strong> Se houver recusa injustificada em dar quitação e você não quiser reter o dinheiro, pode depositar o valor em juízo perante o Juizado Especial Cível.</li><li><strong>Crime contra a ordem tributária:</strong> No caso de comerciantes e empresas que se negam a fornecer comprovante, a conduta pode configurar infração à Lei nº 8.137/1990.</li></ul><p>Para evitar esse atrito, qualquer autônomo pode abrir no celular o <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples online</a> e entregar o documento assinado digitalmente ou em PDF em menos de 1 minuto.</p>"
+      },
+      {
+        "h2": "Modelo de Quitação Formal Conforme o Artigo 320",
+        "content": "<p>O Artigo 320 complementa que a quitação deve conter o valor, a espécie da dívida quitada, o nome do devedor, a data, o lugar do pagamento e a assinatura. Veja o modelo:</p><div class=\"bg-gray-100 p-5 rounded-xl border border-gray-300 font-mono text-xs sm:text-sm text-gray-800 my-4 leading-relaxed\">DECLARAÇÃO DE QUITAÇÃO REGULAR (ART. 319 DO CÓDIGO CIVIL)<br><br>Declaro para os devidos fins de direito que recebi de JOÃO DA COSTA, CPF nº 000.111.222-33, o valor integral de R$ 900,00 (novecentos reais), em moeda corrente, correspondente à quitação integral do conserto residencial executado nesta data. Dou plena, rasa e irrevogável quitação.<br><br>Belo Horizonte - MG, 10 de maio de 2026.<br><br>Assinatura do Recebedor: __________________________________<br>Nome: ROBERTO ALMEIDA - CPF: 444.555.666-77</div>",
+        "hasCta": {
+          "text": "Garanta a quitação regular prevista em lei sem burocracia:",
+          "link": "/recibo-simples",
+          "ctaLabel": "GERAR QUITAÇÃO NO RECIBO SIMPLES"
+        }
+      }
+    ],
+    "conclusion": "A quitação é a única certidão de nascimento da extinção de uma dívida. Nunca pague sem exigir o documento correspondente e nunca receba valores sem entregá-lo assinado ao pagador.",
+    "faqs": [
+      {
+        "question": "Posso me recusar a pagar se não me derem o recibo na hora?",
+        "answer": "Sim. O Artigo 319 do Código Civil expressamente autoriza a retenção do pagamento enquanto a quitação regular não for fornecida."
+      },
+      {
+        "question": "Recibo feito à mão em papel de pão tem validade?",
+        "answer": "Sim, se tiver os dados das partes, valor, motivo, data e assinatura. No entanto, o recibo em PDF digital transmite maior credibilidade e evita rasuras ou perdas."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-de-quitacao-total-e-irrevogavel-modelo",
+    "title": "Recibo de Quitação Total e Irrevogável: Modelo e Como Escrever",
+    "category": "burocracia-descomplicada",
+    "seoTitle": "Recibo de Quitação Total e Irrevogável: Modelo Pronto e Válido",
+    "seoDescription": "Aprenda como fazer um recibo de quitação total e irrevogável. Veja o texto exato para se blindar contra cobranças indevidas futuras e baixe grátis.",
+    "intro": {
+      "acordo": "Pagar um acordo, uma rescisão ou a compra de um bem e depois ser cobrado novamente é um dos maiores pesadelos financeiros.",
+      "promessa": "Com as palavras certas no recibo de quitação plena, geral e irrevogável, você extingue qualquer obrigação financeira de forma definitiva.",
+      "previa": "Veja a diferença entre quitação parcial e total, as cláusulas de segurança indispensáveis e o modelo pronto para copiar ou emitir em PDF."
+    },
+    "sections": [
+      {
+        "h2": "O que significa dar quitação \"plena, geral e irrevogável\"?",
+        "content": "<p>No Direito Civil brasileiro, a expressão <strong>\"plena, geral, rasa e irrevogável quitação\"</strong> tem um peso colossal. Ela indica que o credor declara ter recebido tudo o que lhe era devido, renunciando expressamente ao direito de cobrar qualquer diferença futura, juros, correções ou pendências relacionadas àquela obrigação.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">🔒 Blinde seus acordos com um recibo simples de quitação:</p><p class=\"text-sm text-emerald-800 mb-3\">Gere seu comprovante com validade jurídica instantânea no nosso gerador gratuito sem marcas d'água.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo de Quitação Agora →</a></div><p>Se você pagou uma dívida renegociada, um veículo usado ou um acerto de serviços avulsos, é esse tipo de recibo que você deve exigir para não correr o risco de ter o nome negativado no Serasa ou SPC meses depois.</p>",
+        "hasAd": true
+      },
+      {
+        "h2": "Quando usar a quitação total e quando usar a quitação parcial?",
+        "content": "<p>É fundamental não confundir as duas modalidades:</p><ul class=\"list-disc pl-5 my-4 space-y-2\"><li><strong>Quitação Parcial:</strong> Usada em pagamentos parcelados ou entrada. O recibo deve declarar expressamente: <em>\"recebi a quantia de R$ X referente à parcela 2 de 5, restando o saldo devedor de R$ Y\"</em>.</li><li><strong>Quitação Total:</strong> Usada na última parcela ou no pagamento à vista integral, encerrando o contrato em definitivo.</li></ul><p>No nosso <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">gerador de recibo simples</a>, você pode preencher o campo \"referente a\" especificando se o valor quita uma parcela avulsa ou se confere quitação total.</p>"
+      },
+      {
+        "h2": "Texto Modelo do Recibo de Quitação Plena",
+        "content": "<p>Copie e use a fórmula textual consagrada na jurisprudência brasileira:</p><div class=\"bg-gray-100 p-5 rounded-xl border border-gray-300 font-mono text-xs sm:text-sm text-gray-800 my-4 leading-relaxed\">RECIBO DE QUITAÇÃO PLENA E IRREVOGÁVEL<br><br>VALOR: R$ 3.500,00 (três mil e quinhentos reais)<br><br>Recebi de FERNANDO AUGUSTO LIMA, CPF nº 222.333.444-55, a importância supra de R$ 3.500,00, paga via PIX nesta data, referente à liquidação final e integral do contrato verbal de reforma e pintura residencial. Pelo presente documento, dou plena, geral, rasa e irrevogável quitação de todas as obrigações principais e acessórias decorrentes do negócio, nada mais tendo a reclamar em juízo ou fora dele a qualquer título e em qualquer tempo.<br><br>Curitiba - PR, 22 de junho de 2026.<br><br>Recebedor: ____________________________________________<br>Nome: GUSTAVO HENRIQUE BORGES - CPF: 777.888.999-00</div>",
+        "hasCta": {
+          "text": "Economize tempo e gere o PDF pronto para assinar na hora:",
+          "link": "/recibo-simples",
+          "ctaLabel": "GERAR EM PDF NO RECIBO SIMPLES"
+        }
+      }
+    ],
+    "conclusion": "Um recibo bem redigido com cláusula de quitação irrevogável encerra discussões e dá paz de espírito para ambas as partes. Guarde sempre uma cópia física assinada ou o arquivo digital em PDF.",
+    "faqs": [
+      {
+        "question": "O recibo de quitação irrevogável pode ser anulado depois?",
+        "answer": "Apenas em casos graves comprovados na Justiça de vício de consentimento (como coação física, fraude comprovada ou simulação). Fora isso, é documento com força vinculante."
+      },
+      {
+        "question": "Precisa de testemunhas no recibo de quitação?",
+        "answer": "Não é obrigatório para recibos simples, mas a assinatura de duas testemunhas confere força de título executivo extrajudicial (Artigo 784 do Código de Processo Civil)."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-pagamento-em-dinheiro-vivo-especie",
+    "title": "Pagamento em Dinheiro Vivo: Por que o Recibo é a Única Segurança?",
+    "category": "financas-pessoais",
+    "seoTitle": "Pagamento em Dinheiro Vivo: Por que o Recibo Simples é Essencial",
+    "seoDescription": "Pagou ou recebeu em dinheiro físico? Entenda por que sem recibo não há prova de pagamento e aprenda a formalizar qualquer transação na hora.",
+    "intro": {
+      "acordo": "Com a popularidade do Pix, muitas transações ainda continuam sendo realizadas em cédulas de papel (dinheiro em espécie).",
+      "promessa": "Neste artigo, você verá os riscos astronômicos de pagar ou receber em dinheiro vivo sem um recibo assinado na mesma hora.",
+      "previa": "Entenda como a Justiça julga disputas de pagamentos em espécie e veja o passo a passo para gerar o comprovante antes de entregar as notas."
+    },
+    "sections": [
+      {
+        "h2": "Por que pagar em dinheiro vivo sem recibo é quase um tiro no escuro?",
+        "content": "<p>Diferente de um Pix, TED ou cartão onde o extrato bancário registra o fluxo financeiro entre duas contas identificadas, o <strong>dinheiro em espécie não tem rastro</strong>. Uma vez que as cédulas mudam de mão, é a sua palavra contra a da outra parte.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">💵 Vai receber ou pagar em cédulas?</p><p class=\"text-sm text-emerald-800 mb-3\">Abra o gerador no smartphone e gere o recibo de dinheiro físico em segundos para assinatura imediata.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo Simples em PDF →</a></div><p>No Judiciário brasileiro, vigora a regra milenar consolidada no <strong>artigo 320 do Código Civil</strong>: <em>quem paga mal, paga duas vezes</em>. Se você pagar R$ 2.000 em dinheiro para um profissional e não exigir o recibo na hora, ele pode alegar que nunca recebeu e a lei exigirá de você a prova cabal da quitação.</p>",
+        "hasAd": true
+      },
+      {
+        "h2": "Os 3 cuidados essenciais no pagamento em espécie",
+        "content": "<p>Ao realizar pagamentos em dinheiro físico, siga religiosamente estas 3 etapas:</p><ol class=\"list-decimal pl-5 my-4 space-y-2\"><li><strong>Conte o dinheiro na presença de quem vai receber:</strong> Ambas as partes devem conferir nota por nota antes de fechar o envelope.</li><li><strong>Colha a assinatura no exato instante da entrega:</strong> Nunca entregue o dinheiro com a promessa de que a pessoa \"assina depois\" ou \"manda o recibo amanhã\".</li><li><strong>Especifique no recibo a expressão \"em moeda corrente nacional\":</strong> Isso comprova a liquidação em dinheiro vivo, afastando dúvidas sobre cheques ou depósitos bancários.</li></ol><p>Com nosso <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">modelo de recibo de pagamento simples</a>, você preenche em 1 minuto direto pelo navegador do celular.</p>"
+      },
+      {
+        "h2": "Exemplo de Recibo Simples para Dinheiro em Espécie",
+        "content": "<div class=\"bg-gray-100 p-5 rounded-xl border border-gray-300 font-mono text-xs sm:text-sm text-gray-800 my-4 leading-relaxed\">COMPROVANTE DE PAGAMENTO EM MOEDA CORRENTE<br><br>Recebi de PATRÍCIA MENEZES, CPF nº 333.444.555-66, a quantia de R$ 650,00 (seiscentos e cinquenta reais) em moeda corrente nacional (dinheiro em espécie), referente ao pagamento integral da diária de faxina e higienização residencial realizada no imóvel da Rua das Flores, 120.<br><br>Por ser verdade, firmo o presente dando plena quitação.<br><br>Campinas - SP, 14 de julho de 2026.<br><br>Assinatura: ____________________________________________<br>Recebedora: CLÁUDIA DOS SANTOS - CPF: 111.222.333-44</div>",
+        "hasCta": {
+          "text": "Proteja seu patrimônio com recibos gerados em alta definição:",
+          "link": "/recibo-simples",
+          "ctaLabel": "CRIAR RECIBO EM DINHEIRO AGORA"
+        }
+      }
+    ],
+    "conclusion": "O dinheiro de papel continua sendo amplamente aceito no Brasil, mas exige zelo redobrado. Uma folha de recibo assinada custa centavos de impressão e evita processos de milhares de reais.",
+    "faqs": [
+      {
+        "question": "Testemunha que viu a entrega do dinheiro substitui o recibo?",
+        "answer": "A prova testemunhal ajuda em juízo, mas é muito mais frágil e sujeita a contestações. O recibo escrito e assinado é a prova rainha do pagamento perante o Código Civil."
+      },
+      {
+        "question": "Posso fotografar a pessoa com o dinheiro recebido?",
+        "answer": "Fotos e vídeos ajudam a comprovar a transação, mas o documento formal de quitação assinado continua sendo a forma jurídica correta e padrão."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-no-nome-de-outra-pessoa-cuidados-legais",
+    "title": "Emitir Recibo no Nome de Outra Pessoa Dá Problema? O Que Diz a Lei",
+    "category": "burocracia-descomplicada",
+    "seoTitle": "Recibo no Nome de Outra Pessoa Dá Problema? Cuidados e Lei",
+    "seoDescription": "Descubra se é permitido emitir recibo no nome do cônjuge, parente ou terceiro. Entenda o risco de crime tributário e falsidade ideológica.",
+    "intro": {
+      "acordo": "É comum no dia a dia um cliente pedir: \"Pode colocar o recibo no nome da minha mãe ou da empresa do meu irmão para eu pegar reembolso?\".",
+      "promessa": "Neste artigo, você entenderá onde termina a gentileza comercial e onde começa o risco de crime fiscal e falsidade ideológica.",
+      "previa": "Analisaremos as hipóteses legais de representação, procuração e o modo seguro de registrar pagamentos feitos por terceiros."
+    },
+    "sections": [
+      {
+        "h2": "O perigo da Falsidade Ideológica (Artigo 299 do Código Penal)",
+        "content": "<p>Emitir um recibo com o nome ou CPF de uma pessoa que não participou da relação jurídica ou que não realizou o serviço pode configurar o crime de <strong>falsidade ideológica (art. 299 do Código Penal)</strong> ou sonegação fiscal (Lei 8.137/1990).</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">⚖️ Emita sempre com os dados corretos e seguros:</p><p class=\"text-sm text-emerald-800 mb-3\">Nosso gerador de recibo simples permite incluir pagador, recebedor e observações legais com facilidade.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Preencher Recibo Correto Online →</a></div><p>O recibo tem a função de retratar a verdade fática de quem pagou e quem recebeu. Se João prestou o serviço, o recibo não pode sair assinado por Maria sem que exista um contrato formal de representação ou subcontratação.</p>",
+        "hasAd": true
+      },
+      {
+        "h2": "Como resolver legalmente quando um terceiro paga a conta?",
+        "content": "<p>O Código Civil Brasileiro, em seus artigos 304 e 305, prevê a figura do <strong>\"terceiro interessado\" e \"terceiro não interessado\"</strong> que quita a dívida de outrem. Para que o recibo seja 100% legal nessa situação, basta colocar no corpo do texto:</p><div class=\"bg-gray-100 p-4 rounded-xl border border-gray-300 font-mono text-xs sm:text-sm text-gray-800 my-4\">\"Recebi de PEDRO SANTOS (CPF: 111...), por conta e ordem do beneficiário LUCAS SANTOS (CPF: 222...), a quantia de R$ 500,00 referente à...\"</div><p>Dessa forma, o recibo identifica transparentemente quem desembolsou os fundos e quem foi o beneficiário do serviço, garantindo conformidade perante a contabilidade e a Receita Federal.</p><p>No <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples preenchido</a> do nosso site, você pode inserir essa discriminação diretamente no campo de descrição.</p>"
+      }
+    ],
+    "conclusion": "Nunca falseie dados cadastrais em recibos. A melhor prática é sempre declarar a verdade com clareza documental: quem pagou, a mando de quem, e quem prestou o serviço.",
+    "faqs": [
+      {
+        "question": "Empresa pode pagar serviço prestado ao sócio?",
+        "answer": "Sim, mas a empresa deve registrar isso contabilmente como antecipação de lucros ou despesa própria justificada. O recibo deve discriminar o serviço real."
+      },
+      {
+        "question": "Marido pode assinar recibo pela esposa?",
+        "answer": "Somente se tiver procuração com poderes específicos para dar quitação em nome dela."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-simples-pedreiro-reformas-modelo",
+    "title": "Recibo Simples de Pedreiro e Reformas: Modelo e Como Fazer",
+    "category": "prestacao-de-servicos",
+    "seoTitle": "Recibo Simples de Pedreiro e Obras: Modelo em PDF Grátis",
+    "seoDescription": "Aprenda como emitir recibo simples de pedreiro, reformas e diárias de construção civil. Baixe modelo pronto ou gere em PDF no celular grátis.",
+    "intro": {
+      "acordo": "Contratar pedreiro ou trabalhar na construção civil sem recibos claros por etapa é a receita certa para desentendimentos no final da obra.",
+      "promessa": "Neste guia, você verá como formalizar pagamentos de diárias, empreitadas e etapas concluídas com total respaldo do Código Civil.",
+      "previa": "Confira os dados obrigatórios para evitar processos trabalhistas ou alegações de abandono de obra e use o modelo pronto."
+    },
+    "sections": [
+      {
+        "h2": "Por que emitir recibo a cada etapa da obra é indispensável?",
+        "content": "<p>Na construção civil, desentendimentos sobre o que já foi pago e o que ainda falta fazer são extremamente comuns. O recibo por etapa comprova que o pedreiro entregou a fase combinada (ex: fundação, alvenaria, reboco ou piso) e recebeu a remuneração devida.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">🧱 Precisa fazer o recibo do pedreiro agora?</p><p class=\"text-sm text-emerald-800 mb-3\">Preencha no celular em segundos, baixe em PDF e envie no WhatsApp do pedreiro ou do cliente.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo de Obra em PDF →</a></div><p>Além de proteger o contratante contra cobranças em duplicidade, o documento resguarda o profissional comprovando sua remuneração e idoneidade profissional nos termos do <strong>Artigo 320 do Código Civil</strong>.</p>",
+        "hasAd": true
+      },
+      {
+        "h2": "O que colocar no campo \"Referente a\" na construção civil?",
+        "content": "<p>A maior falha é escrever apenas \"serviço de pedreiro\". O correto é especificar detalhadamente a etapa e o endereço:</p><ul class=\"list-disc pl-5 my-4 space-y-2\"><li><em>\"Pagamento referente à conclusão da alvenaria do 2º pavimento do imóvel situado na Rua X, nº Y.\"</em></li><li><em>\"Adiantamento referente à colocação de 80m² de porcelanato na sala e cozinha.\"</em></li><li><em>\"Quitação de 5 diárias de reforma hidráulica e elétrica executadas de 01 a 05 de junho.\"</em></li></ul><p>Você pode emitir esse comprovante em folha A4 no <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">gerador de recibo simples</a> em menos de 1 minuto.</p>"
+      },
+      {
+        "h2": "Modelo de Recibo Simples de Obra Residencial",
+        "content": "<div class=\"bg-gray-100 p-5 rounded-xl border border-gray-300 font-mono text-xs sm:text-sm text-gray-800 my-4 leading-relaxed\">RECIBO DE PRESTAÇÃO DE SERVIÇOS DE PEDREIRO<br><br>VALOR: R$ 1.200,00 (um mil e duzentos reais)<br><br>Recebi de MARCELO TEIXEIRA, CPF nº 555.666.777-88, a quantia supra de R$ 1.200,00, via transferência PIX nesta data, referente ao pagamento da 2ª etapa de assentamento de tijolos e reboco da varanda residencial na Rua dos Pinheiros, 45, Bairro Jardim, nesta cidade. Dou plena e geral quitação referente a esta etapa.<br><br>Goiânia - GO, 18 de agosto de 2026.<br><br>Assinatura do Profissional: __________________________________<br>Nome: JOSÉ FRANCISCO MENDES (Pedreiro) - CPF: 333.222.111-00</div>",
+        "hasCta": {
+          "text": "Formalize sua obra com recibos limpos e sem dor de cabeça:",
+          "link": "/recibo-simples",
+          "ctaLabel": "GERAR RECIBO DE PEDREIRO EM PDF"
+        }
+      }
+    ],
+    "conclusion": "Quem constrói ou reforma com recibos datados e assinados dorme tranquilo. Mantenha uma pasta digital ou impressa com todos os recibos da sua obra para fins de valorização imobiliária e segurança fiscal.",
+    "faqs": [
+      {
+        "question": "O recibo de pedreiro gera vínculo empregatício de carteira assinada?",
+        "answer": "Não, desde que o profissional atue com autonomia, sem habitualidade diária contínua e sem subordinação direta característica da CLT. Para reformas pontuais, o recibo simples de autônomo é legal e suficiente."
+      },
+      {
+        "question": "Posso deduzir o recibo de pedreiro no ganho de capital do imóvel?",
+        "answer": "Sim! Guardar recibos detalhados com CPF de pedreiros e notas fiscais de materiais permite incorporar esses custos ao valor do imóvel na declaração do IRPF, reduzindo imposto sobre ganho de capital em futura venda."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-de-frete-e-carreto-simples-como-fazer",
+    "title": "Recibo Simples para Frete e Carretos: Como Fazer e Modelo",
+    "category": "autonomos",
+    "seoTitle": "Recibo Simples de Frete e Carreto: Modelo em PDF Grátis",
+    "seoDescription": "Aprenda a fazer recibo de frete, carretos e pequenas mudanças. Veja modelo pronto com origem, destino e valor para imprimir ou enviar no WhatsApp.",
+    "intro": {
+      "acordo": "Fazer transporte de cargas, mudanças e carretos exige comprovação imediata de entrega e quitação do frete combinado.",
+      "promessa": "Neste artigo, você aprenderá a estruturar um recibo simples de frete profissional que protege motorista e contratante contra extravios e cobranças.",
+      "previa": "Veja os dados do veículo, rota de origem e destino e como gerar o comprovante em PDF na hora direto pelo celular."
+    },
+    "sections": [
+      {
+        "h2": "Por que o motorista autônomo de frete deve emitir recibo?",
+        "content": "<p>Para quem trabalha com carreto e frete, o recibo simples assinado pelo cliente é a prova máxima de que a carga foi entregue no endereço de destino acordado e que o valor do serviço foi liquidado sem avarias.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">🚚 Terminou o frete? Emita o recibo em 30 segundos:</p><p class=\"text-sm text-emerald-800 mb-3\">Preencha placa do veículo, trajeto e valor. Baixe o PDF na hora ou envie direto no WhatsApp do cliente.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo de Frete em PDF →</a></div><p>Além disso, muitas empresas que contratam carretos autônomos exigem o recibo com CPF do motorista para prestar contas ao setor financeiro e contábil.</p>",
+        "hasAd": true
+      },
+      {
+        "h2": "O que não pode faltar no recibo de carreto e transporte?",
+        "content": "<p>Para conferir total segurança jurídica com base no <strong>Artigo 320 do Código Civil</strong>, insira:</p><ul class=\"list-disc pl-5 my-4 space-y-2\"><li>Endereço de partida (origem) e endereço de entrega (destino).</li><li>Breve descrição da carga transportada (ex: móveis residenciais, materiais de escritório).</li><li>Placa do veículo utilitário ou caminhão.</li><li>Valor do frete pago em moeda corrente ou Pix.</li></ul><p>Utilize o nosso <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples oficial</a> para formatar tudo automaticamente.</p>"
+      },
+      {
+        "h2": "Modelo de Recibo de Frete e Pequena Mudança",
+        "content": "<div class=\"bg-gray-100 p-5 rounded-xl border border-gray-300 font-mono text-xs sm:text-sm text-gray-800 my-4 leading-relaxed\">RECIBO DE FRETE E TRANSPORTE DE CARGA<br><br>VALOR: R$ 380,00 (trezentos e oitenta reais)<br><br>Recebi de RENATA ALMEIDA, CPF nº 444.333.222-11, o valor de R$ 380,00, quitado via Pix, referente ao serviço de transporte e carreto de eletrodomésticos e caixas, realizado no veículo utilitário placa ABC-1D23, partindo de Porto Alegre - RS com destino a Canoas - RS, com entrega concluída em perfeito estado.<br><br>Canoas - RS, 05 de setembro de 2026.<br><br>Motorista: ____________________________________________<br>Nome: SÉRGIO ANTÔNIO LOPES - CPF: 888.777.666-55</div>",
+        "hasCta": {
+          "text": "Envie comprovantes profissionais para seus clientes de transporte:",
+          "link": "/recibo-simples",
+          "ctaLabel": "CRIAR RECIBO DE FRETE EM PDF"
+        }
+      }
+    ],
+    "conclusion": "Formalizar o frete com recibo evita questionamentos posteriores sobre entrega e atrasos. Tenha sempre o atalho do gerador no seu navegador para emitir na cabine do veículo.",
+    "faqs": [
+      {
+        "question": "Freteiro autônomo pessoa física pode emitir recibo simples?",
+        "answer": "Sim! O motorista autônomo sem CNPJ tem total respaldo da legislação civil para emitir recibo simples com seu CPF, dando quitação de transporte avulso."
+      },
+      {
+        "question": "Precisa discriminar o ajudante de carga no recibo?",
+        "answer": "Se o valor combinado já inclui ajudante, é recomendável citar \"serviço de transporte com ajudante incluso\" para clareza da contratação."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-de-sinal-compra-e-venda-itens-usados",
+    "title": "Recibo de Sinal de Pagamento: Como Proteger Negócios Usados",
+    "category": "financas-pessoais",
+    "seoTitle": "Recibo de Sinal (Entrada): Modelo Pronto e Válido no Código Civil",
+    "seoDescription": "Aprenda como fazer um recibo de sinal (arras) na compra e venda de carros, motos e itens usados. Entenda o que acontece em caso de desistência.",
+    "intro": {
+      "acordo": "Negociar veículos, eletrônicos ou itens usados na internet quase sempre envolve o pagamento de um sinal para \"segurar o negócio\".",
+      "promessa": "Neste artigo, você entenderá o poder das arras penitenciais e confirmatórias e como o recibo simples protege quem compra e quem vende.",
+      "previa": "Descubra o que a lei determina caso o comprador desista ou o vendedor venda para outro, com modelo pronto para emitir."
+    },
+    "sections": [
+      {
+        "h2": "O que são arras ou sinal perante o Código Civil?",
+        "content": "<p>No ordenamento jurídico brasileiro (<strong>artigos 417 a 420 do Código Civil</strong>), o sinal dado em um negócio tem efeito vinculante:</p><ul class=\"list-disc pl-5 my-4 space-y-2\"><li><strong>Se o comprador desistir:</strong> Ele perde o valor do sinal em favor do vendedor.</li><li><strong>Se o vendedor desistir:</strong> Ele deve devolver o sinal em dobro (o valor recebido mais o equivalente).</li></ul><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">🤝 Fechou negócio e vai pagar entrada?</p><p class=\"text-sm text-emerald-800 mb-3\">Não transfira nenhum sinal sem o recibo assinado detalhando o bem e a data limite para liquidação.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo de Sinal em PDF →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "O que deve constar no recibo de sinal de compra e venda?",
+        "content": "<p>Para evitar discussões na Justiça, o recibo deve discriminar:</p><ol class=\"list-decimal pl-5 my-4 space-y-2\"><li>Descrição exata do bem (marca, modelo, chassi ou número de série).</li><li>Valor total da negociação e valor pago como sinal.</li><li>Data limite improrrogável para pagamento do saldo restante.</li><li>Cláusula de perda ou devolução em dobro do sinal conforme o art. 418 do Código Civil.</li></ol><p>Você pode redigir isso rapidamente em nosso <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">modelo de recibo simples</a>.</p>"
+      },
+      {
+        "h2": "Exemplo de Recibo Simples de Sinal (Arras)",
+        "content": "<div class=\"bg-gray-100 p-5 rounded-xl border border-gray-300 font-mono text-xs sm:text-sm text-gray-800 my-4 leading-relaxed\">RECIBO DE SINAL E PRINCÍPIO DE PAGAMENTO (ARRAS)<br><br>VALOR DO SINAL: R$ 2.000,00 (dois mil reais)<br>VALOR TOTAL DO BEM: R$ 25.000,00 (vinte e cinco mil reais)<br><br>Recebi de TIAGO MARTINS, CPF nº 666.777.888-99, a quantia de R$ 2.000,00 a título de sinal e princípio de pagamento (arras) pela compra do veículo Honda Civic 2014, placa XYZ-9A88. O saldo restante de R$ 23.000,00 deverá ser quitado impreterivelmente até o dia 30/10/2026, data em que será assinado o documento de transferência no Detran. Em caso de desistência do comprador, perderá o sinal; em caso de desistência do vendedor, o sinal será restituído em dobro, nos termos dos arts. 418 a 420 do Código Civil.<br><br>Salvador - BA, 15 de outubro de 2026.<br><br>Vendedor: ____________________________________________<br>Nome: CLAUDIO MOREIRA - CPF: 111.999.888-77</div>",
+        "hasCta": {
+          "text": "Blinde sua compra e venda com recibo de sinal formalizado:",
+          "link": "/recibo-simples",
+          "ctaLabel": "CRIAR RECIBO DE ENTRADA AGORA"
+        }
+      }
+    ],
+    "conclusion": "Nunca envie dinheiro de entrada baseado em conversas informais de WhatsApp. Um recibo simples de sinal com cláusula de arras confere certeza e segurança patrimonial a ambos os lados.",
+    "faqs": [
+      {
+        "question": "Print de conversa no WhatsApp vale como recibo de sinal?",
+        "answer": "Serve como indício de prova, mas o recibo assinado formalizando as arras com base no Código Civil é infinitamente superior e tem eficácia jurídica incontestável."
+      },
+      {
+        "question": "O sinal pode ser pago via Pix?",
+        "answer": "Sim, o Pix é o meio mais comum. O recibo deve citar que o valor foi pago via Pix na data especificada."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-de-aula-particular-reforco-escolar",
+    "title": "Recibo de Aula Particular e Reforço Escolar: Modelo Pronto",
+    "category": "autonomos",
+    "seoTitle": "Recibo de Aula Particular e Reforço Escolar: Modelo em PDF Grátis",
+    "seoDescription": "Como fazer recibo de aulas particulares, reforço escolar, idiomas e música. Modelo simples com valor, horas e quitação para pais e alunos.",
+    "intro": {
+      "acordo": "Professores particulares, instrutores de idiomas e educadores lidam mensalmente com a cobrança de alunos e pais que precisam de comprovantes.",
+      "promessa": "Neste artigo, você verá como formalizar pacotes de horas e mensalidades de aulas particulares com agilidade e total profissionalismo.",
+      "previa": "Apresentamos os campos indispensáveis para emissão, organização de fluxo de caixa e o modelo pronto para gerar em PDF."
+    },
+    "sections": [
+      {
+        "h2": "Por que o professor particular deve emitir recibo simples?",
+        "content": "<p>A emissão de recibo para aulas particulares transmite credibilidade imediata aos pais e responsáveis, além de servir como suporte para o controle financeiro do educador e para o preenchimento do Carnê-Leão no Imposto de Renda.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">🎓 Professor, emita recibos elegantes em 30 segundos:</p><p class=\"text-sm text-emerald-800 mb-3\">Preencha o nome do aluno, disciplina e valor. Gere em PDF para impressão ou envie direto no WhatsApp da família.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo de Aulas Particulares →</a></div><p>Comprovantes formais eliminam dúvidas sobre quantas aulas já foram ministradas e quais mensalidades foram quitadas nos termos do <strong>Artigo 320 do Código Civil</strong>.</p>",
+        "hasAd": true
+      },
+      {
+        "h2": "O que colocar na descrição da aula particular?",
+        "content": "<p>Recomenda-se especificar a matéria, a quantidade de horas ou o mês letivo de referência:</p><ul class=\"list-disc pl-5 my-4 space-y-2\"><li><em>\"Pagamento referente a 8 horas de aulas particulares de Matemática e Física para o aluno Pedro Souza, no mês de abril.\"</em></li><li><em>\"Mensalidade do curso de Inglês Instrumental referente ao mês de maio de 2026.\"</em></li><li><em>\"Pacote preparatório intensivo de Redação para o ENEM (10 encontros semanais).\"</em></li></ul><p>Você pode emitir com layout perfeito no <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples em PDF</a> do nosso portal.</p>"
+      },
+      {
+        "h2": "Modelo de Recibo de Aula Particular",
+        "content": "<div class=\"bg-gray-100 p-5 rounded-xl border border-gray-300 font-mono text-xs sm:text-sm text-gray-800 my-4 leading-relaxed\">RECIBO DE PRESTAÇÃO DE SERVIÇOS EDUCACIONAIS<br><br>VALOR: R$ 480,00 (quatrocentos e oitenta reais)<br><br>Recebi de LUCIANA FERREIRA, CPF nº 777.666.555-44, a importância de R$ 480,00, paga via Pix nesta data, referente à prestação de serviços de aulas particulares de reforço em Química e Biologia ministradas ao estudante Gabriel Ferreira no mês de maio de 2026 (carga horária: 8 horas/aula). Dou plena quitação.<br><br>Florianópolis - SC, 31 de maio de 2026.<br><br>Professora: ____________________________________________<br>Nome: JULIANA CRISTINA RAMOS - CPF: 000.888.777-66</div>",
+        "hasCta": {
+          "text": "Profissionalize suas aulas com recibos limpos e gratuitos:",
+          "link": "/recibo-simples",
+          "ctaLabel": "CRIAR RECIBO EDUCACIONAL EM PDF"
+        }
+      }
+    ],
+    "conclusion": "A educação exige organização e respeito mútuo. Emitir recibos pontuais valoriza seu trabalho docente e fideliza alunos e famílias por anos.",
+    "faqs": [
+      {
+        "question": "Aula particular de reforço escolar é dedutível no IRPF?",
+        "answer": "Para quem paga, a legislação do IRPF não permite deduzir reforço escolar e cursos livres na declaração de ajuste anual, mas o recibo é obrigatório para comprovar a transação e justificar os ganhos do professor perante o Fisco."
+      },
+      {
+        "question": "Professor autônomo pode emitir com CPF?",
+        "answer": "Sim! Não é obrigatório ter CNPJ. O professor pessoa física pode emitir recibo simples perfeitamente válido com seu CPF."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-oficina-mecanica-conserto-veiculos",
+    "title": "Recibo para Oficinas Mecânicas: Como Formalizar Consertos",
+    "category": "prestacao-de-servicos",
+    "seoTitle": "Recibo de Oficina Mecânica e Conserto Automotivo: Modelo em PDF",
+    "seoDescription": "Aprenda como emitir recibo de oficina mecânica, funilaria e auto center. Modelo completo com peças, mão de obra e quitação para clientes.",
+    "intro": {
+      "acordo": "Consertar carros e motos exige clareza absoluta sobre o que foi feito na mão de obra e quais peças foram trocadas para evitar litígios pós-reparo.",
+      "promessa": "Neste artigo, você aprenderá a elaborar um recibo de oficina mecânica que comprova o pagamento e detalha os serviços com segurança.",
+      "previa": "Veja como separar peças de mão de obra e como gerar comprovantes em PDF direto do celular para enviar ao proprietário do veículo."
+    },
+    "sections": [
+      {
+        "h2": "A importância de separar mão de obra e peças no recibo mecânico",
+        "content": "<p>Toda oficina mecânica que zela pela sua reputação deve discriminar no recibo o valor da mão de obra e o valor correspondente a peças e insumos utilizados (óleo, filtros, pastilhas, correias). Isso confere transparência e atende às exigências do Código de Defesa do Consumidor e do Código Civil.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">🚗 Mecânico, formalize seus consertos na hora:</p><p class=\"text-sm text-emerald-800 mb-3\">Insira modelo do carro, placa e serviços prestados. Baixe o PDF e envie no WhatsApp do cliente antes da entrega da chave.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo de Oficina em PDF →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "Dados indispensáveis no recibo mecânico",
+        "content": "<p>Para que o documento tenha validade jurídica inquestionável nos termos do <strong>Artigo 320 do Código Civil</strong>:</p><ul class=\"list-disc pl-5 my-4 space-y-2\"><li>Identificação do veículo: Marca, modelo, ano e placa.</li><li>Quilometragem (km) no momento da entrega do veículo.</li><li>Discriminação detalhada do reparo executado.</li><li>Valor total e forma de pagamento (Pix, dinheiro, cartão).</li></ul><p>Crie seu documento com visual profissional no <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples para serviços mecânicos</a>.</p>"
+      },
+      {
+        "h2": "Modelo de Recibo de Manutenção Automotiva",
+        "content": "<div class=\"bg-gray-100 p-5 rounded-xl border border-gray-300 font-mono text-xs sm:text-sm text-gray-800 my-4 leading-relaxed\">RECIBO DE MANUTENÇÃO AUTOMOTIVA E REPARO MECÂNICO<br><br>VALOR: R$ 850,00 (oitocentos e cinquenta reais)<br><br>Recebemos de BRUNO HENRIQUE SILVA, CPF nº 333.222.111-99, a quantia de R$ 850,00, paga via Pix nesta data, referente ao conserto e revisão mecânica do veículo Fiat Argo 2021, placa BRA-2E19 (km atual: 45.200), compreendendo: substituição de pastilhas de freio dianteiras, troca de óleo do motor, filtro de óleo e alinhamento/balanceamento. Dou plena quitação dos serviços executados.<br><br>Ribeirão Preto - SP, 20 de outubro de 2026.<br><br>Mecânico Responsável: ___________________________________<br>Nome: AUTO MECÂNICA CENTRAL - CPF/CNPJ: 12.345.678/0001-90</div>",
+        "hasCta": {
+          "text": "Entregue o carro com comprovante de pagamento limpo e profissional:",
+          "link": "/recibo-simples",
+          "ctaLabel": "GERAR RECIBO MECÂNICO EM PDF"
+        }
+      }
+    ],
+    "conclusion": "Oficinas que entregam recibos detalhados transmitem confiança imediata e blindam o estabelecimento contra reclamações indevidas de peças desgastadas previamente.",
+    "faqs": [
+      {
+        "question": "O recibo de oficina substitui o certificado de garantia das peças?",
+        "answer": "O Código de Defesa do Consumidor garante 90 dias para serviços duráveis. O recibo com data e km serve como certidão da data de início do prazo legal de garantia."
+      },
+      {
+        "question": "Oficina que é MEI pode emitir recibo simples para cliente pessoa física?",
+        "answer": "Sim! De acordo com a Lei Complementar 123/2006, o MEI está dispensado de emitir NF-e para consumidor pessoa física, sendo o recibo simples preenchido perfeitamente legal."
+      }
+    ]
+  },
+
+  {
+    "slug": "modelo-de-recibo-simples-preenchido-exemplos",
+    "title": "Recibo Simples Preenchido: 5 Exemplos Reais Comentados",
+    "category": "burocracia-descomplicada",
+    "seoTitle": "Recibo Simples Preenchido: 5 Exemplos Reais para Não Errar",
+    "seoDescription": "Confira 5 modelos de recibo simples preenchidos para serviços, pagamentos, adiantamentos e compras. Veja o que escrever e gere o seu em PDF grátis.",
+    "intro": {
+      "acordo": "Preencher um recibo simples parece fácil até surgir a dúvida: como escrever o valor por extenso? O que colocar no campo referente a? Como datar?",
+      "promessa": "Neste guia prático, reunimos 5 exemplos reais de recibos preenchidos para as situações mais comuns do dia a dia de autônomos e empresas.",
+      "previa": "Veja modelos comentados para diárias, serviços autônomos, aluguel, adiantamentos e acordos e gere o seu automaticamente."
+    },
+    "sections": [
+      {
+        "h2": "Por que ver um modelo preenchido antes de emitir?",
+        "content": "<p>Erros simples de preenchimento — como valores divergentes entre algarismo e texto, falta de CPF ou datas rasuradas — podem anular a validade jurídica de quitação garantida pelos <strong>artigos 319 e 320 do Código Civil</strong>.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">⚡ Quer emitir um recibo perfeito sem risco de errar?</p><p class=\"text-sm text-emerald-800 mb-3\">O nosso gerador automático escreve o valor por extenso sozinho e organiza os campos no padrão oficial.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo Simples Preenchido →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "Exemplo 1: Recibo Simples de Prestação de Serviços Avulsos",
+        "content": "<div class=\"bg-gray-100 p-4 rounded-xl border border-gray-300 font-mono text-xs text-gray-800 my-3\">RECEBI de LUCAS MENDONÇA (CPF: 111.222.333-44) a quantia de R$ 750,00 (setecentos e cinquenta reais), via Pix, referente aos serviços de formatação e manutenção de 3 computadores. Dou plena quitação.<br>Campinas - SP, 10 de maio de 2026.<br>Assinatura: ___________________________<br>Recebedor: ANDRÉ COSTA (CPF: 555.666.777-88)</div>"
+      },
+      {
+        "h2": "Exemplo 2: Recibo de Adiantamento Salarial / Vale",
+        "content": "<div class=\"bg-gray-100 p-4 rounded-xl border border-gray-300 font-mono text-xs text-gray-800 my-3\">RECEBI da empresa COMÉRCIO VAREJISTA LTDA (CNPJ: 10.200.300/0001-40) a quantia de R$ 600,00 (seiscentos reais), em moeda corrente, a título de adiantamento salarial (vale) correspondente ao mês trabalhado de junho de 2026, a ser descontado na folha de pagamento.<br>Recife - PE, 15 de junho de 2026.<br>Assinatura do Funcionário: ___________________________<br>Nome: RAFAEL OLIVEIRA (CPF: 999.888.777-66)</div>"
+      },
+      {
+        "h2": "Exemplo 3: Recibo de Sinal de Negócio / Entrada",
+        "content": "<div class=\"bg-gray-100 p-4 rounded-xl border border-gray-300 font-mono text-xs text-gray-800 my-3\">RECEBI de JULIA CASTRO (CPF: 444.555.666-77) a importância de R$ 1.500,00 (um mil e quinhentos reais), paga via Pix, a título de sinal e princípio de pagamento pela compra do jogo de sofá de couro usado. Restando o saldo devedor de R$ 2.000,00 a ser liquidado na entrega do bem.<br>Curitiba - PR, 04 de julho de 2026.<br>Assinatura: ___________________________<br>Nome: MARCOS SILVEIRA (CPF: 333.222.111-00)</div><p class=\"mt-4\">Para gerar qualquer um desses modelos em PDF pronto para assinar, acesse o <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">gerador de recibo simples</a> do Recibo Grátis.</p>",
+        "hasCta": {
+          "text": "Gere seu recibo simples preenchido em 30 segundos:",
+          "link": "/recibo-simples",
+          "ctaLabel": "GERAR RECIBO EM PDF"
+        }
+      }
+    ],
+    "conclusion": "Consultar exemplos reais evita gafes e protege seu dinheiro. Use sempre recibos digitais com valores por extenso para garantir total clareza documental.",
+    "faqs": [
+      {
+        "question": "O valor por extenso é obrigatório no recibo simples?",
+        "answer": "Sim! Pelo costume e pela praxe jurídica, em caso de divergência entre o algarismo numérico e o valor escrito por extenso, prevalece o valor por extenso."
+      },
+      {
+        "question": "Posso preencher no celular e mandar pelo WhatsApp?",
+        "answer": "Sim, a grande maioria dos profissionais autônomos hoje preenche o recibo em PDF no smartphone e envia diretamente no WhatsApp do cliente."
+      }
+    ]
+  },
+
+  {
+    "slug": "como-escrever-valor-por-extenso-no-recibo",
+    "title": "Como Escrever Valor por Extenso no Recibo: Regras e Exemplos",
+    "category": "burocracia-descomplicada",
+    "seoTitle": "Como Escrever Valor por Extenso no Recibo: Regras de Centavos e Reais",
+    "seoDescription": "Aprenda as regras gramaticais e jurídicas para escrever valor por extenso em recibos. Veja exemplos práticos de centavos, milhares e milhões.",
+    "intro": {
+      "acordo": "Escrever o valor por extenso em recibos, cheques e notas promissórias sempre causa dúvidas: tem vírgula? Quando usa \"e\"? Como escreve centavos?",
+      "promessa": "Neste artigo, você aprenderá as regras da língua portuguesa e a importância jurídica do valor por extenso para evitar fraudes.",
+      "previa": "Confira uma tabela prática com os valores mais comuns e veja como automatizar isso no gerador online."
+    },
+    "sections": [
+      {
+        "h2": "Por que o valor por extenso prevalece perante a lei?",
+        "content": "<p>Em todo documento de pagamento e títulos de crédito no Brasil, vigora o princípio de que <strong>em caso de divergência entre o número e o texto por extenso, prevalece o que está escrito por extenso</strong>. Isso ocorre porque é muito mais difícil fraudar ou errar uma palavra inteira por extenso do que acrescentar um zero em um número.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">💡 Não quer se preocupar com ortografia de números?</p><p class=\"text-sm text-emerald-800 mb-3\">Nosso gerador de recibo simples converte qualquer valor em reais e centavos para extenso automaticamente em tempo real.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Testar Gerador de Recibo com Extenso Automático →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "Tabela de Exemplos Práticos de Valores por Extenso",
+        "content": "<p>Veja como escrever corretamente as quantias mais comuns em recibos:</p><ul class=\"list-disc pl-5 my-4 space-y-2\"><li><strong>R$ 100,00:</strong> cem reais</li><li><strong>R$ 150,50:</strong> cento e cinquenta reais e cinquenta centavos</li><li><strong>R$ 1.000,00:</strong> um mil reais (ou mil reais)</li><li><strong>R$ 1.250,75:</strong> um mil, duzentos e cinquenta reais e setenta e cinco centavos</li><li><strong>R$ 2.000,00:</strong> dois mil reais</li><li><strong>R$ 10.500,00:</strong> dez mil e quinhentos reais</li></ul><p>Você pode testar a conversão instantânea no nosso <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples online</a>.</p>"
+      },
+      {
+        "h2": "Dica de ouro: Use parênteses para proteger o texto",
+        "content": "<p>Recomenda-se sempre colocar o valor numérico seguido do valor por extenso entre parênteses: <em>\"a quantia de R$ 1.400,00 (um mil e quatrocentos reais)\"</em>. Essa prática impede a inserção de algarismos fraudulentos antes ou depois do texto original.</p>",
+        "hasCta": {
+          "text": "Emita recibos com valor por extenso 100% correto automaticamente:",
+          "link": "/recibo-simples",
+          "ctaLabel": "GERAR RECIBO AUTOMÁTICO"
+        }
+      }
+    ],
+    "conclusion": "A exatidão no valor por extenso é a maior garantia contra adulterações e contestações jurídicas. Deixe que sistemas automatizados façam a conversão para poupar tempo e evitar erros gramaticais.",
+    "faqs": [
+      {
+        "question": "Escreve \"mil reais\" ou \"um mil reais\"?",
+        "answer": "Ambas as formas são gramaticalmente corretas. No entanto, no meio jurídico e bancário, prefere-se \"um mil reais\" para evitar que alguém adultere escrevendo \"dois mil\" ou \"três mil\" antes da palavra."
+      },
+      {
+        "question": "E se o recibo não tiver valor por extenso?",
+        "answer": "Ele não é nulo de pleno direito, mas fica muito mais vulnerável a contestações em caso de rasura no número. Por isso, nunca emita recibo sem o extenso."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-duas-vias-folha-a4-como-fazer",
+    "title": "Recibo 2 Vias em Folha A4: Como Economizar Papel e Imprimir",
+    "category": "mei-e-empresas",
+    "seoTitle": "Recibo 2 Vias em Folha A4: Como Imprimir Duas Vias e Economizar Papel",
+    "seoDescription": "Aprenda como imprimir recibo de duas vias na mesma folha A4 (via do pagador e via do recebedor). Dicas práticas para economizar papel e organizar comprovantes.",
+    "intro": {
+      "acordo": "Imprimir uma folha A4 inteira para um recibo simples de poucas linhas gera desperdício desnecessário de papel e tinta.",
+      "promessa": "Neste artigo, você verá como organizar e emitir recibos em duas vias para cortar a folha ao meio e guardar a sua cópia assinada.",
+      "previa": "Entenda por que a via do recebedor e a via do pagador são fundamentais para empresas, condomínios e autônomos organizados."
+    },
+    "sections": [
+      {
+        "h2": "Por que o formato de 2 vias é tão procurado no Brasil?",
+        "content": "<p>Em qualquer transação profissional presencial, o padrão de ouro é a <strong>dupla via</strong>: uma via original fica com quem pagou (comprovando que quitou) e a segunda via (o contra-recibo assinado) fica com quem recebeu (comprovando que o cliente conferiu e concordou com o serviço).</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">📄 Economize papel na impressora:</p><p class=\"text-sm text-emerald-800 mb-3\">Gere seus documentos em PDF otimizados para impressão em folha A4 sem marcas d'água.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Imprimir Recibo em Folha A4 →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "Como organizar as 2 vias no momento da impressão",
+        "content": "<p>Para imprimir duas vias facilmente:</p><ol class=\"list-decimal pl-5 my-4 space-y-2\"><li>Preencha os dados no nosso gerador e gere o PDF.</li><li>Ao abrir a tela de impressão do navegador ou do leitor de PDF, configure a opção <strong>\"Páginas por folha: 2\"</strong> ou duplique o documento.</li><li>Corte a folha A4 ao meio com guilhotina ou tesoura: você terá dois recibos perfeitos em formato meio-ofício (A5).</li></ol><p>Você pode criar o seu agora no <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples para impressão</a>.</p>"
+      }
+    ],
+    "conclusion": "Emitir recibos em duas vias demonstra alto profissionalismo organizacional e reduz seus custos com papel pela metade. Adote essa rotina no seu escritório ou comércio.",
+    "faqs": [
+      {
+        "question": "A 2ª via tem a mesma validade jurídica da 1ª via?",
+        "answer": "Sim, desde que ambas sejam assinadas pelas partes. O contra-recibo assinado pelo cliente é prova irrefutável de entrega de produto ou conclusão de serviço."
+      },
+      {
+        "question": "Precisa colocar carbono para assinar as duas vias?",
+        "answer": "O papel carbono é uma tecnologia antiga que mancha os dedos. O método moderno é imprimir duas folhas ou assinar ambas com caneta azul original."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-simples-em-branco-para-imprimir-vale-a-pena",
+    "title": "Recibo Simples em Branco para Imprimir: Vale a Pena?",
+    "category": "burocracia-descomplicada",
+    "seoTitle": "Recibo Simples em Branco para Imprimir: Modelo em PDF e Vale a Pena?",
+    "seoDescription": "Baixe modelo de recibo simples em branco para imprimir em folha A4 e preencher à mão. Compare com o gerador digital no celular e escolha o melhor.",
+    "intro": {
+      "acordo": "Muitos profissionais ainda gostam de ter folhas de recibo em branco guardadas na pasta do carro ou na mochila para preencher à mão na hora.",
+      "promessa": "Neste artigo, avaliamos quando o modelo impresso em branco ainda é útil e por que a versão digital no celular está substituindo a caneta.",
+      "previa": "Disponibilizamos o modelo em branco para impressão e mostramos como preencher no smartphone sem gastar papel."
+    },
+    "sections": [
+      {
+        "h2": "Quando o recibo em branco para preenchimento manual é útil?",
+        "content": "<p>Ter algumas folhas de recibo em branco impressas é uma excelente alternativa de contingência quando você está em locais sem sinal de internet (obras rurais, garagens subterrâneas ou estradas) e precisa dar quitação imediata a um cliente.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">📱 Sabia que você pode preencher direto na tela?</p><p class=\"text-sm text-emerald-800 mb-3\">Em vez de carregar prancheta e caneta, gere o PDF no navegador do seu smartphone em menos de 1 minuto.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Testar Gerador no Celular →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "As 3 desvantagens do recibo manuscrito",
+        "content": "<ul class=\"list-disc pl-5 my-4 space-y-2\"><li><strong>Letra ilegível:</strong> Nomes ou CPFs mal escritos geram problemas sérios na contabilidade e no Imposto de Renda.</li><li><strong>Risco de perda e umidade:</strong> Folhas soltas em pastas podem molhar, amassar ou sumir com o tempo.</li><li><strong>Falta de backup:</strong> Ao emitir no <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples digital</a>, o arquivo fica salvo no seu histórico e você pode reenviar no WhatsApp quando quiser.</li></ul>"
+      }
+    ],
+    "conclusion": "O recibo em branco serve como socorro de emergência, mas a gestão moderna de qualquer prestador de serviços já migrou para o recibo digital em PDF.",
+    "faqs": [
+      {
+        "question": "Recibo preenchido com caneta tem validade?",
+        "answer": "Sim, tem a mesma validade jurídica do Art. 320 do Código Civil, desde que não contenha rasuras que comprometam os valores ou nomes."
+      },
+      {
+        "question": "Qual cor de caneta deve ser usada?",
+        "answer": "Prefira sempre caneta esferográfica azul ou preta. A caneta azul é especialmente indicada para diferenciar a assinatura original de fotocópias."
+      }
+    ]
+  },
+
+  {
+    "slug": "como-enviar-recibo-simples-em-pdf-pelo-whatsapp",
+    "title": "Como Enviar Recibo Simples em PDF pelo WhatsApp: Passo a Passo",
+    "category": "tecnologia-e-seguranca",
+    "seoTitle": "Como Enviar Recibo Simples em PDF pelo WhatsApp (Passo a Passo)",
+    "seoDescription": "Aprenda como gerar e enviar recibos de pagamento em PDF direto no WhatsApp do cliente usando o celular. Rápido, profissional e sem imprimir papel.",
+    "intro": {
+      "acordo": "O WhatsApp se tornou a ferramenta comercial número 1 do Brasil. Ninguém mais quer esperar chegar em casa para escanear ou imprimir um recibo.",
+      "promessa": "Neste tutorial, você aprenderá a gerar um recibo simples em PDF profissional e compartilhar no WhatsApp do pagador em menos de 40 segundos.",
+      "previa": "Veja como funciona o botão de envio direto do Recibo Grátis e como formalizar a mensagem para encantar o cliente."
+    },
+    "sections": [
+      {
+        "h2": "O fim da impressão: Cobrança ágil na palma da mão",
+        "content": "<p>Mandar o comprovante em PDF pelo WhatsApp economiza tempo, dinheiro com impressora e papel, e ainda deixa registrado o histórico exato do envio na conversa com o cliente para consultas futuras.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">💬 Envie seu primeiro recibo no WhatsApp agora:</p><p class=\"text-sm text-emerald-800 mb-3\">Preencha o formulário, clique em Compartilhar e selecione o contato do seu cliente.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo para WhatsApp →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "Passo a passo para gerar e enviar pelo celular",
+        "content": "<ol class=\"list-decimal pl-5 my-4 space-y-2\"><li>Acesse a página do <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples online</a> pelo navegador do smartphone.</li><li>Preencha valor, nome do pagador e descrição rápida do serviço.</li><li>Clique no botão <strong>\"Baixar PDF\"</strong> ou <strong>\"Enviar WhatsApp\"</strong>.</li><li>O sistema baixa o documento em alta resolução e abre o WhatsApp com a mensagem de confirmação pronta.</li><li>Basta enviar para o contato do cliente!</li></ol>"
+      }
+    ],
+    "conclusion": "A agilidade no fechamento de contas impressiona o cliente e demonstra organização de alto nível. Elimine a papelada e adote o envio digital hoje mesmo.",
+    "faqs": [
+      {
+        "question": "O cliente precisa ter algum app específico para abrir o recibo?",
+        "answer": "Não. Todo smartphone moderno (Android ou iPhone) abre arquivos em formato PDF nativamente sem precisar de programas extras."
+      },
+      {
+        "question": "O envio por WhatsApp tem valor jurídico?",
+        "answer": "Sim! Mensagens e arquivos enviados por aplicativos de mensagens são aceitos como prova documental de quitação no Poder Judiciário brasileiro."
+      }
+    ]
+  },
+
+  {
+    "slug": "bloco-de-recibo-papelaria-vale-a-pena-aposentar",
+    "title": "Bloco de Recibo da Papelaria: 4 Motivos para Aposentar o Talão",
+    "category": "financas-pessoais",
+    "seoTitle": "Bloco de Recibo de Papelaria Vale a Pena? 4 Motivos para Aposentar",
+    "seoDescription": "Ainda compra talão de recibo na papelaria? Veja por que o bloco de papel custa caro, causa rasuras e como economizar gerando recibos online grátis.",
+    "intro": {
+      "acordo": "Comprar bloquinhos de recibo na papelaria com folha de carbono foi o padrão durante décadas em qualquer comércio do Brasil.",
+      "promessa": "Neste artigo, mostramos por que continuar usando o talão físico está custando seu tempo, dinheiro e prejudicando a imagem do seu negócio.",
+      "previa": "Compare custos, segurança documental e praticidade entre o velho bloco de papel e o gerador online gratuito em PDF."
+    },
+    "sections": [
+      {
+        "h2": "1. Custo contínuo e desperdício de dinheiro",
+        "content": "<p>Um bloco de recibos de papelaria custa entre R$ 10 e R$ 25. Ao longo do ano, um profissional autônomo gasta dezenas de reais comprando talões, além do carbono que desgasta e mancha as mãos. Com o <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">gerador de recibo simples</a>, o custo é exatamente <strong>zero</strong>.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">✂️ Aposente o talão de papel agora mesmo:</p><p class=\"text-sm text-emerald-800 mb-3\">Emita quantos recibos precisar sem pagar mensalidades e sem comprar bloquinhos.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Usar Gerador de Recibo Grátis →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "2. Imagem profissional e credibilidade",
+        "content": "<p>Entregar para um cliente uma folha fina de bloquinho com escrita torta e carbono borrado transmite uma sensação de amadorismo. Já enviar um PDF alinhado, com tipografia limpa e QR Code Pix gera impacto imediato de empresa estruturada e confiável.</p>"
+      },
+      {
+        "h2": "3. Histórico digital contra perdas e incêndios",
+        "content": "<p>Se você perder o canhoto do talão de papel ou se ele molhar na chuva, seu controle financeiro se perde para sempre. O recibo digital pode ser salvo no Google Drive, WhatsApp ou na memória do celular com segurança absoluta.</p>"
+      }
+    ],
+    "conclusion": "A modernização não é capricho, é economia e eficiência operacional. Deixe o bloco da papelaria no passado e controle seus recebimentos na era digital.",
+    "faqs": [
+      {
+        "question": "O recibo digital tem a mesma validade do talão de papelaria?",
+        "answer": "Exatamente a mesma validade. A lei brasileira (Art. 320 do Código Civil) exige o conteúdo correto de quitação, independentemente de ser impresso em gráfica ou gerado digitalmente."
+      }
+    ]
+  },
+
+  {
+    "slug": "modelo-de-recibo-no-excel-por-que-evitar",
+    "title": "Modelo de Recibo no Excel: Por que Planilhas Podem Dar Dor de Cabeça",
+    "category": "tecnologia-e-seguranca",
+    "seoTitle": "Modelo de Recibo no Excel: Vantagens, Riscos e Alternativas Rápidas",
+    "seoDescription": "Pensando em usar planilha de Excel para emitir recibos? Entenda por que fórmulas quebram, desconfiguram no celular e como gerar PDFs direto na web.",
+    "intro": {
+      "acordo": "Milhares de pessoas procuram diariamente por \"modelo de recibo excel grátis\" na esperança de criar um sistema fácil de cobranças.",
+      "promessa": "Neste artigo, explicamos por que gerenciar recibos por planilhas costuma travar na rotina de quem precisa atender clientes na rua ou pelo celular.",
+      "previa": "Veja os problemas comuns de macros, desconfiguração de impressão e a alternativa mais rápida e leve do mercado."
+    },
+    "sections": [
+      {
+        "h2": "Os problemas de usar o Excel para preencher recibos",
+        "content": "<p>O Microsoft Excel e o Google Planilhas são excelentes para cálculos financeiros e gráficos, mas são péssimos editores de layout de documentos para celular:</p><ul class=\"list-disc pl-5 my-4 space-y-2\"><li>No celular, abrir planilhas pesadas é lento e desconfigura as colunas.</li><li>A fórmula de valor por extenso exige macros complexas (VBA) que não funcionam no smartphone.</li><li>Para exportar em PDF, você precisa ajustar margens e quebras de página manualmente toda vez.</li></ul><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">📊 Pare de perder tempo ajustando células:</p><p class=\"text-sm text-emerald-800 mb-3\">Preencha formulários prontos com cálculo de extenso nativo e exporte o PDF em 1 toque.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Acessar Gerador Web de Recibos →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "A superioridade dos geradores web responsivos",
+        "content": "<p>Em vez de baixar arquivos externos sujeitos a vírus ou falhas de macro, o <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples online</a> roda diretamente no navegador, sem precisar instalar programas pesados e compatível com qualquer modelo de celular ou computador.</p>"
+      }
+    ],
+    "conclusion": "Use planilhas para planejar seus gastos do mês, mas use geradores dedicados para emitir comprovantes para seus clientes. Cada ferramenta no seu devido lugar economiza horas do seu dia.",
+    "faqs": [
+      {
+        "question": "O gerador web funciona sem precisar instalar programas?",
+        "answer": "Sim! Funciona diretamente no Google Chrome, Safari, Edge ou Firefox, sem instalar nada."
+      }
+    ]
+  },
+
+  {
+    "slug": "diferenca-recibo-simples-e-recibo-de-pagamento",
+    "title": "Recibo Simples e Recibo de Pagamento: Qual a Diferença Jurídica?",
+    "category": "burocracia-descomplicada",
+    "seoTitle": "Recibo Simples vs. Recibo de Pagamento: Qual a Diferença Legal?",
+    "seoDescription": "Entenda a diferença entre recibo simples e recibo de pagamento. Veja quando emitir cada modelo perante o Código Civil e a legislação trabalhista.",
+    "intro": {
+      "acordo": "Você já ficou na dúvida se deveria procurar por um \"recibo simples\" ou por um \"recibo de pagamento\" para documentar uma transação?",
+      "promessa": "Neste artigo, esclarecemos de uma vez por todas a diferença técnica, jurídica e cultural entre essas duas nomenclaturas.",
+      "previa": "Veja como ambos se fundamentam no Artigo 320 do Código Civil e aprenda a escolher o termo ideal para o seu perfil profissional."
+    },
+    "sections": [
+      {
+        "h2": "Do ponto de vista da Lei Civil: Eles são a mesma coisa!",
+        "content": "<p>Juridicamente falando, perante os <strong>artigos 319 e 320 do Código Civil</strong>, não existe distinção entre \"recibo simples\" e \"recibo de pagamento\". Ambos são <strong>instrumentos de quitação</strong> que atestam que uma dívida foi adimplida e que o recebedor declara os fundos como pagos.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">⚖️ Emita qualquer um dos dois em poucos cliques:</p><p class=\"text-sm text-emerald-800 mb-3\">Nosso modelo atende perfeitamente a quitações simples, prestação de serviços e acertos comerciais.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo Oficial em PDF →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "A diferença no costume comercial e trabalhista",
+        "content": "<p>A diferença reside apenas no uso prático do mercado:</p><ul class=\"list-disc pl-5 my-4 space-y-2\"><li><strong>Recibo Simples:</strong> Mais associado a negócios rápidos do dia a dia, diárias de autônomos, vendas de itens usados e pequenas reformas.</li><li><strong>Recibo de Pagamento (ou Holerite/RPA):</strong> Mais utilizado no ambiente corporativo para discriminar salários, honorários de prestação de serviços continuados ou retenções fiscais de INSS e ISS.</li></ul><p>O nosso <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">gerador de recibo simples</a> atende com maestria ambas as finalidades.</p>"
+      }
+    ],
+    "conclusion": "Não perca tempo se preocupando com o nome do topo da folha: desde que contenha as informações essenciais exigidas por lei, seu comprovante tem plena força executiva.",
+    "faqs": [
+      {
+        "question": "O título do documento precisa ser exatamente \"Recibo Simples\"?",
+        "answer": "Não. O que confere validade ao documento é o seu conteúdo (declaração expressa de quitação, valores e assinaturas), e não o título impresso no cabeçalho."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-simples-para-mei-cliente-pessoa-fisica",
+    "title": "Recibo Simples para MEI: Quando o Microempreendedor Pode Emitir",
+    "category": "mei-e-empresas",
+    "seoTitle": "Recibo Simples para MEI: Quando Pode Emitir Sem Nota Fiscal?",
+    "seoDescription": "Descubra quando o MEI pode emitir recibo simples para cliente pessoa física sem precisar de Nota Fiscal Eletrônica. Regras da Lei Complementar 123.",
+    "intro": {
+      "acordo": "Muitos microempreendedores individuais acreditam que são obrigados a abrir o portal nacional da NF-e para toda e qualquer venda ou serviço de pequeno valor.",
+      "promessa": "Neste guia, explicamos exatamente o que a legislação do MEI determina sobre a dispensa de nota fiscal e o uso do recibo simples.",
+      "previa": "Conheça o artigo 106 da Resolução CGSN 140/2018 e veja como manter seu faturamento regular perante a Receita Federal."
+    },
+    "sections": [
+      {
+        "h2": "O que diz a legislação do MEI sobre emissão de Nota Fiscal?",
+        "content": "<p>De acordo com a <strong>Lei Complementar nº 123/2006</strong> e a Resolução CGSN nº 140/2018, o MEI:</p><ul class=\"list-disc pl-5 my-4 space-y-2\"><li><strong>É OBRIGADO a emitir Nota Fiscal:</strong> Apenas quando vender produtos ou prestar serviços para outra pessoa jurídica (outra empresa com CNPJ ou órgãos públicos).</li><li><strong>NÃO É OBRIGADO a emitir Nota Fiscal:</strong> Quando atender o consumidor final pessoa física (CPF), exceto se o consumidor exigir expressamente a NF-e.</li></ul><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">💼 MEI, atenda seus clientes particulares com recibo profissional:</p><p class=\"text-sm text-emerald-800 mb-3\">Emita recibos simples com seu CNPJ e dados cadastrais para comprovar faturamento sem complicação.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo do MEI em PDF →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "Como o recibo simples ajuda no Relatório Mensal do MEI?",
+        "content": "<p>Todo mês, o MEI deve preencher o <strong>Relatório Mensal das Receitas Brutas</strong> até o dia 20. Ter todos os recibos simples emitidos e organizados em uma pasta permite somar os valores com precisão cirúrgica, facilitando a declaração anual do DASN-SIMEI sem risco de inconsistências fiscais.</p><p>Você pode emitir esses documentos rapidamente no <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples online</a>.</p>"
+      }
+    ],
+    "conclusion": "O recibo simples é o maior aliado do MEI para atender o público geral com agilidade e respaldo da lei. Guarde sempre os comprovantes emitidos para proteger o seu CNPJ.",
+    "faqs": [
+      {
+        "question": "O cliente pessoa física pode exigir nota fiscal do MEI?",
+        "answer": "Sim. Se o cliente pessoa física solicitar formalmente a emissão da NF-e, o MEI deve emiti-la pelo portal nacional. Se ele não solicitar, o recibo simples preenchido é 100% legal."
+      },
+      {
+        "question": "O MEI pode colocar o CNPJ no recibo simples?",
+        "answer": "Com certeza! Colocar o nome empresarial e o número do CNPJ no campo do recebedor confere enorme credibilidade profissional ao documento."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-com-canhoto-ou-sem-canhoto-diferencas",
+    "title": "Recibo com Canhoto ou Sem Canhoto? Entenda Quando Usar Cada Um",
+    "category": "burocracia-descomplicada",
+    "seoTitle": "Recibo com Canhoto ou Sem Canhoto? Entenda a Função do Canhoto",
+    "seoDescription": "Para que serve o canhoto do recibo? Descubra quando usar comprovantes com canhoto destacável e quando o recibo simples avulso é suficiente.",
+    "intro": {
+      "acordo": "Você com certeza já viu aqueles recibos com uma parte estreita à esquerda ou no topo com pontilhado para destacar: o famoso canhoto.",
+      "promessa": "Neste artigo, você entenderá a real utilidade do canhoto, quando ele é indispensável e quando ele é apenas excesso de burocracia.",
+      "previa": "Veja como funciona a prestação de contas com canhoto assinado e as opções digitais para modernizar o controle."
+    },
+    "sections": [
+      {
+        "h2": "Qual é a função prática do canhoto?",
+        "content": "<p>O canhoto funciona como um <strong>mini contra-recibo</strong>. Ao destacar a parte principal do recibo para entregar ao pagador, o recebedor mantém o canhoto grampeado no talão com a assinatura ou visto do cliente, comprovando que o documento principal foi entregue.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">📋 Quer simplicidade e elegância?</p><p class=\"text-sm text-emerald-800 mb-3\">No mundo digital, você não precisa rasgar canhotos de papel: o PDF salvo no seu celular é a sua cópia eterna.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Emitir Recibo em PDF Direto →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "Por que o recibo simples digital dispensou o canhoto?",
+        "content": "<p>Com a emissão pelo computador ou celular, o modelo tradicional de canhoto perdeu o sentido: em vez de picotar papel, o <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples moderno</a> gera o documento completo em folha A4 com duas cópias ou salva o arquivo digital com registro de data e hora inviolável.</p>"
+      }
+    ],
+    "conclusion": "O canhoto é herança da era analógica das papelarias. Hoje, manter seus comprovantes armazenados em PDF no WhatsApp ou nuvem é muito mais seguro e organizado.",
+    "faqs": [
+      {
+        "question": "O canhoto sozinho vale como recibo?",
+        "answer": "Geralmente não, pois o canhoto traz apenas um resumo telegráfico. O documento de quitação pleno que prova o adimplemento nos termos do art. 320 do Código Civil é o corpo principal do recibo."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-de-manicure-cabeleireira-salao-de-beleza",
+    "title": "Recibo para Manicure e Cabeleireira: Modelo e Como Fazer",
+    "category": "autonomos",
+    "seoTitle": "Recibo para Manicure, Cabeleireira e Estética: Modelo em PDF Grátis",
+    "seoDescription": "Aprenda como emitir recibo de manicure, depilação, cabeleireira e estética. Modelo simples em PDF para salões parceiros e autônomas.",
+    "intro": {
+      "acordo": "Profissionais de beleza e estética atendem dezenas de clientes por semana e precisam formalizar atendimentos, pacotes mensais e parcerias.",
+      "promessa": "Neste artigo, você verá como emitir recibos profissionais em segundos para pacotes de unhas, cabelo e estética com respaldo legal.",
+      "previa": "Entenda como funciona o comprovante na Lei do Salão-Parceiro e veja o modelo pronto para baixar ou enviar no WhatsApp."
+    },
+    "sections": [
+      {
+        "h2": "Por que profissionais de beleza devem emitir recibo?",
+        "content": "<p>A emissão de recibo para serviços de beleza comprova a prestação do serviço e o valor recebido, protegendo a profissional em caso de cancelamentos e garantindo suporte financeiro para o controle de rendimentos e declaração de renda.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">💅 Terminou o procedimento? Emita o recibo em 30 segundos:</p><p class=\"text-sm text-emerald-800 mb-3\">Preencha o serviço realizado, valor e envie o PDF direto no WhatsApp da cliente sem custo.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo de Beleza em PDF →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "Modelo de Recibo para Serviços de Estética e Beleza",
+        "content": "<div class=\"bg-gray-100 p-4 rounded-xl border border-gray-300 font-mono text-xs text-gray-800 my-3\">RECEBI de MARIANA ALBUQUERQUE (CPF: 222.333.444-55) a quantia de R$ 220,00 (duzentos e vinte reais), via Pix, referente a pacote de manicure, pedicure e hidratação capilar. Dou plena quitação.<br>Santos - SP, 12 de maio de 2026.<br>Profissional: CARLA DIAS ESTÉTICA - CPF/CNPJ: 111.222.333-00</div><p class=\"mt-4\">Você pode gerar esse modelo em formato folha A4 no <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples online</a>.</p>",
+        "hasCta": {
+          "text": "Profissionalize seus atendimentos com comprovantes em PDF:",
+          "link": "/recibo-simples",
+          "ctaLabel": "EMITIR RECIBO DE MANICURE EM PDF"
+        }
+      }
+    ],
+    "conclusion": "Organização financeira é o primeiro passo para o crescimento de qualquer salão ou estúdio de beleza. Emita recibos em cada pacote fechado.",
+    "faqs": [
+      {
+        "question": "Manicure autônoma pode emitir recibo com CPF?",
+        "answer": "Sim, a manicure ou esteticista autônoma pode emitir recibo com CPF perfeitamente válido com base no Art. 320 do Código Civil."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-de-jardinagem-limpeza-de-terreno",
+    "title": "Recibo para Jardinagem e Limpeza de Terreno: Modelo Pronto",
+    "category": "prestacao-de-servicos",
+    "seoTitle": "Recibo de Jardinagem e Roçagem de Terreno: Modelo em PDF Grátis",
+    "seoDescription": "Como fazer recibo de jardinagem, poda de árvores, paisagismo e limpeza de terrenos. Modelo pronto para autônomos e condomínios.",
+    "intro": {
+      "acordo": "Trabalhos de jardinagem, roçagem de lotes e poda de árvores envolvem contratações avulsas que precisam de quitação na entrega do serviço.",
+      "promessa": "Neste artigo, você verá como redigir um recibo simples de jardinagem que atesta o serviço concluído e protege contratante e jardineiro.",
+      "previa": "Veja os detalhes do terreno a incluir no comprovante e gere o PDF na hora pelo celular."
+    },
+    "sections": [
+      {
+        "h2": "Por que condomínios e donos de lotes exigem recibo de jardinagem?",
+        "content": "<p>Tanto administradoras de condomínios quanto proprietários de terrenos exigem recibo com CPF do jardineiro para comprovar que o lote foi limpo (evitando multas da Prefeitura por mato alto) e prestar contas aos condôminos.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">🌿 Concluiu a roçagem ou jardim?</p><p class=\"text-sm text-emerald-800 mb-3\">Preencha metragem, endereço do lote e receba o valor com o comprovante assinado.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo de Jardinagem em PDF →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "Exemplo de Recibo Simples de Limpeza de Terreno",
+        "content": "<div class=\"bg-gray-100 p-4 rounded-xl border border-gray-300 font-mono text-xs text-gray-800 my-3\">RECEBI de CONDOMÍNIO RESIDENCIAL PARQUE DAS PALMEIRAS (CNPJ: 01.234.567/0001-89) a quantia de R$ 900,00 (novecentos reais), via transferência bancária, referente aos serviços de roçagem mecanizada, poda de cerca viva e retirada de entulho vegetal. Dou plena quitação.<br>Sorocaba - SP, 18 de agosto de 2026.<br>Jardineiro: JOÃO BOSCO FERREIRA - CPF: 333.444.555-66</div><p class=\"mt-4\">Emita seu comprovante em menos de 1 minuto no <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples para serviços gerais</a>.</p>",
+        "hasCta": {
+          "text": "Formalize serviços de jardinagem e poda com recibo limpo:",
+          "link": "/recibo-simples",
+          "ctaLabel": "CRIAR RECIBO DE JARDINAGEM"
+        }
+      }
+    ],
+    "conclusion": "Trabalhos pesados merecem comprovação clara e justa. Emita seu recibo a cada limpeza de lote e mantenha seus clientes recorrentes.",
+    "faqs": [
+      {
+        "question": "O recibo de jardinagem serve para prestação de contas de condomínio?",
+        "answer": "Sim, recibos detalhados com CPF do prestador e descrição do serviço atendem às exigências de prestação de contas em assembleias condominiais."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-de-eletricista-instalacao-e-reparos",
+    "title": "Recibo de Eletricista: Modelo para Instalações e Reparos",
+    "category": "prestacao-de-servicos",
+    "seoTitle": "Recibo de Eletricista Residencial e Predial: Modelo em PDF Grátis",
+    "seoDescription": "Como fazer recibo de eletricista para instalações, padrão de energia e consertos. Modelo profissional com descrição técnica e quitação.",
+    "intro": {
+      "acordo": "Serviços de instalações elétricas, troca de disjuntores e fiação exigem formalização detalhada para atestar a entrega da infraestrutura em perfeito funcionamento.",
+      "promessa": "Neste artigo, você aprenderá a criar recibos de eletricista com termos técnicos e garantias de conformidade com as normas NBR 5410.",
+      "previa": "Veja o modelo de recibo para instalações residenciais e industriais e como emitir em PDF sem complicações."
+    },
+    "sections": [
+      {
+        "h2": "A importância da descrição técnica no recibo elétrico",
+        "content": "<p>Trabalhos elétricos envolvem segurança predial. No recibo, citar os quadros de força, circuitos ou tomadas instaladas comprova o escopo exato do trabalho executado pelo profissional nos termos do <strong>Artigo 320 do Código Civil</strong>.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">⚡ Eletricista, entregue a obra com recibo profissional:</p><p class=\"text-sm text-emerald-800 mb-3\">Preencha os dados no celular em segundos e envie o PDF com seu nome e CPF/CNPJ.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo de Eletricista em PDF →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "Exemplo de Recibo Simples para Eletricista",
+        "content": "<div class=\"bg-gray-100 p-4 rounded-xl border border-gray-300 font-mono text-xs text-gray-800 my-3\">RECEBI de GUILHERME SANTOS (CPF: 444.555.666-00) a quantia de R$ 1.100,00 (um mil e cem reais), via Pix, referente à substituição de fiação do circuito de chuveiros e instalação do novo quadro de distribuição bifásico com disjuntores DIN e DPS no imóvel da Rua das Acácias, 88. Dou plena quitação dos serviços executados.<br>Maringá - PR, 25 de junho de 2026.<br>Eletricista: CARLOS ALBERTO NOGUEIRA - CPF: 777.888.999-11</div><p class=\"mt-4\">Use a nossa ferramenta no <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">gerador de recibo simples</a> para emitir na hora.</p>",
+        "hasCta": {
+          "text": "Formalize seus serviços de eletricista com alta credibilidade:",
+          "link": "/recibo-simples",
+          "ctaLabel": "EMITIR RECIBO ELÉTRICO EM PDF"
+        }
+      }
+    ],
+    "conclusion": "A segurança elétrica começa no cabeamento e termina na transparência contratual. Garanta recibos assinados em todas as suas instalações.",
+    "faqs": [
+      {
+        "question": "Eletricista autônomo precisa colocar registro do conselho no recibo?",
+        "answer": "Se o profissional for técnico em eletrotécnica (CFT) ou engenheiro (CREA), é excelente prática adicionar o número do registro profissional no cabeçalho."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-de-encanador-desentupimento-e-reparos",
+    "title": "Recibo de Encanador: Modelo para Consertos Hidráulicos",
+    "category": "prestacao-de-servicos",
+    "seoTitle": "Recibo de Encanador e Desentupimento: Modelo em PDF Grátis",
+    "seoDescription": "Aprenda como fazer recibo de encanador para consertos hidráulicos, caça-vazamentos e desentupimentos. Baixe modelo pronto em PDF.",
+    "intro": {
+      "acordo": "Vazamentos, infiltrações e desentupimentos costumam acontecer de surpresa e exigem solução e pagamento imediatos.",
+      "promessa": "Neste artigo, você verá como formalizar reparos hidráulicos com um recibo simples que comprova o conserto e a quitação.",
+      "previa": "Confira os dados essenciais do laudo e recibo de caça-vazamento e gere o comprovante em PDF na hora."
+    },
+    "sections": [
+      {
+        "h2": "Por que o cliente exige recibo de encanador?",
+        "content": "<p>Em muitos casos de infiltração em apartamentos, o morador precisa apresentar o recibo do encanador ao síndico ou ao vizinho de baixo para comprovar que o cano foi consertado e solicitar rateio ou reembolso.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">🔧 Concluiu o reparo hidráulico?</p><p class=\"text-sm text-emerald-800 mb-3\">Gere o recibo simples com descrição do vazamento consertado em 30 segundos.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo de Encanador →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "Exemplo de Recibo Simples Hidráulico",
+        "content": "<div class=\"bg-gray-100 p-4 rounded-xl border border-gray-300 font-mono text-xs text-gray-800 my-3\">RECEBI de BEATRIZ VASCONCELOS (CPF: 555.444.333-22) a quantia de R$ 450,00 (quatrocentos e cinquenta reais), paga em dinheiro, referente à localização e conserto de vazamento em tubulação de água limpa na coluna da cozinha do Apto 302. Dou plena quitação.<br>Niterói - RJ, 14 de setembro de 2026.<br>Encanador: MARCOS PAULO SILVA - CPF: 111.999.888-00</div><p class=\"mt-4\">Gere agora mesmo pelo celular no <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples para encanadores</a>.</p>",
+        "hasCta": {
+          "text": "Emita recibos claros para reembolsos de condomínio:",
+          "link": "/recibo-simples",
+          "ctaLabel": "GERAR RECIBO DE ENCANADOR EM PDF"
+        }
+      }
+    ],
+    "conclusion": "Um recibo bem detalhado encerra conflitos entre vizinhos e condomínios sobre a origem do vazamento e valoriza o trabalho técnico do encanador.",
+    "faqs": [
+      {
+        "question": "O recibo de caça-vazamento serve para contestar conta de água alta?",
+        "answer": "Sim! As concessionárias de saneamento (como Sabesp, Copasa, Sanepar) costumam conceder desconto no esgoto mediante apresentação de recibo de encanador que ateste o reparo do vazamento oculto."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-de-fotografo-eventos-e-ensaios",
+    "title": "Recibo para Fotógrafo e Videomaker: Modelo de Ensaios e Eventos",
+    "category": "autonomos",
+    "seoTitle": "Recibo para Fotógrafo e Videomaker: Modelo em PDF Grátis",
+    "seoDescription": "Como fazer recibo de fotografia para ensaios, aniversários, casamentos e cobertura de eventos. Modelo pronto em PDF para profissionais visuais.",
+    "intro": {
+      "acordo": "Fotógrafos e produtores audiovisuais recebem comumente em duas ou três parcelas: entrada no fechamento e saldo na entrega das fotos.",
+      "promessa": "Neste artigo, você aprenderá a documentar cada pagamento de pacotes fotográficos com recibos elegantes e sem margem para dúvidas.",
+      "previa": "Veja como descrever quantidade de fotos tratadas, horas de cobertura e modelo pronto para emitir em segundos."
+    },
+    "sections": [
+      {
+        "h2": "Por que o fotógrafo profissional deve emitir recibo a cada etapa?",
+        "content": "<p>A fotografia artística envolve prazos de pós-produção e edição. Ter recibos discriminando o sinal para reserva de data e o recibo de entrega final com aprovação do material resguarda o fotógrafo contra pedidos infindáveis de refação ou atrasos no pagamento final.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">📸 Fechou o ensaio ou evento?</p><p class=\"text-sm text-emerald-800 mb-3\">Emita o recibo em PDF com layout limpo e envie no WhatsApp do cliente junto com a prévia.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo de Fotografia em PDF →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "Exemplo de Recibo para Cobertura Fotográfica",
+        "content": "<div class=\"bg-gray-100 p-4 rounded-xl border border-gray-300 font-mono text-xs text-gray-800 my-3\">RECEBI de CAMILA RODRIGUES (CPF: 888.777.666-55) a importância de R$ 1.500,00 (um mil e quinhentos reais), via Pix, referente à quitação final da cobertura fotográfica de aniversário infantil realizada em 10/04/2026, incluindo 80 fotos tratadas em alta resolução entregues digitalmente. Dou plena quitação.<br>Brasília - DF, 20 de abril de 2026.<br>Fotógrafo: LEONARDO VIANA FOTOGRAFIA - CPF/CNPJ: 333.222.111-00</div><p class=\"mt-4\">Crie o seu no <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples para fotógrafos</a>.</p>",
+        "hasCta": {
+          "text": "Formalize seus ensaios com recibos de alto padrão visual:",
+          "link": "/recibo-simples",
+          "ctaLabel": "GERAR RECIBO DE FOTÓGRAFO EM PDF"
+        }
+      }
+    ],
+    "conclusion": "A excelência do fotógrafo vai além do clique: ela se manifesta na pontualidade, no contrato e nos recibos organizados entregues aos clientes.",
+    "faqs": [
+      {
+        "question": "O recibo de fotografia transfere direitos autorais das imagens?",
+        "answer": "Não. O recibo comprova apenas o pagamento financeiro. A cessão ou licença de uso dos direitos autorais deve constar no contrato de prestação de serviços fotográficos."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-de-marcenaria-moveis-planejados",
+    "title": "Recibo de Marcenaria: Como Comprovar Móveis Planejados",
+    "category": "prestacao-de-servicos",
+    "seoTitle": "Recibo de Marcenaria e Móveis Planejados: Modelo em PDF Grátis",
+    "seoDescription": "Aprenda como emitir recibo de marcenaria, fabricação de móveis sob medida e materiais. Modelo em PDF com etapas de entrada, corte e montagem.",
+    "intro": {
+      "acordo": "A fabricação de móveis sob medida exige compra prévia de chapas de MDF, ferragens e montagem no cliente, envolvendo valores expressivos.",
+      "promessa": "Neste artigo, você aprenderá a estruturar recibos de marcenaria para garantir o pagamento da entrada de materiais e da entrega final.",
+      "previa": "Veja as cláusulas recomendadas para marcenarias e marceneiros autônomos e gere o documento em PDF grátis."
+    },
+    "sections": [
+      {
+        "h2": "Por que o marceneiro nunca deve comprar MDF sem recibo de sinal?",
+        "content": "<p>A compra de matéria-prima sob medida gera custos imediatos. O marceneiro deve colher a entrada e emitir um recibo detalhando expressamente que o valor se destina à aquisição dos insumos do projeto aprovado nos termos do <strong>Artigo 417 do Código Civil</strong>.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">🪵 Marceneiro, proteja seus custos com recibos claros:</p><p class=\"text-sm text-emerald-800 mb-3\">Preencha ambiente, materiais e valores de entrada e montagem no nosso gerador gratuito.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo de Marcenaria →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "Exemplo de Recibo Simples de Marcenaria",
+        "content": "<div class=\"bg-gray-100 p-4 rounded-xl border border-gray-300 font-mono text-xs text-gray-800 my-3\">RECEBI de RODRIGO PEIXOTO (CPF: 666.555.444-33) o valor de R$ 3.800,00 (três mil e oitocentos reais), via Pix, referente à 1ª parcela de entrada e compra de MDF/ferragens para execução do armário planejado de cozinha conforme projeto nº 42. Restando saldo final de R$ 3.800,00 na montagem.<br>Joinville - SC, 15 de julho de 2026.<br>Marcenaria: MARCENARIA DESIGN - CPF/CNPJ: 12.000.111/0001-22</div><p class=\"mt-4\">Gere facilmente no <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples para marcenaria</a>.</p>",
+        "hasCta": {
+          "text": "Formalize a entrada dos seus projetos planejados:",
+          "link": "/recibo-simples",
+          "ctaLabel": "EMITIR RECIBO DE MARCENEIRO"
+        }
+      }
+    ],
+    "conclusion": "Grandes marceneiros constroem impérios baseados na qualidade do acabamento e no rigor documental das suas cobranças.",
+    "faqs": [
+      {
+        "question": "O recibo de marcenaria dá início ao prazo de garantia do móvel?",
+        "answer": "Sim, o recibo de quitação da montagem serve como certidão da data de conclusão do serviço para contagem dos prazos de garantia legal e contratual."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-de-costureira-reparos-e-confeccao",
+    "title": "Recibo para Costureira: Modelo para Ajustes e Confecção",
+    "category": "autonomos",
+    "seoTitle": "Recibo para Costureira e Ateliê de Costura: Modelo em PDF Grátis",
+    "seoDescription": "Como emitir recibo simples de costureira para ajustes de roupas, bainhas, vestidos sob medida e consertos. Modelo prático para imprimir ou celular.",
+    "intro": {
+      "acordo": "Costureiras, ateliês e alfaiates realizam dezenas de pequenos consertos diários e confecções de alto valor que exigem comprovante.",
+      "promessa": "Neste artigo, você verá como formalizar reformas de roupas, vestidos de festa e encomendas sob medida com recibos organizados.",
+      "previa": "Veja o modelo de recibo de costura e aprenda a enviar direto no WhatsApp das clientes."
+    },
+    "sections": [
+      {
+        "h2": "A utilidade do recibo em reformas e encomendas de roupas",
+        "content": "<p>O recibo simples de costura identifica as peças deixadas no ateliê, o valor cobrado e a data combinada de prova ou entrega, evitando discussões sobre peças prontas esquecidas pelas clientes.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">🧵 Costureira, organize suas encomendas com recibos:</p><p class=\"text-sm text-emerald-800 mb-3\">Preencha peça, ajuste e valor. Gere em PDF para impressão ou envie no WhatsApp da cliente.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo de Costura em PDF →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "Exemplo de Recibo Simples de Costura",
+        "content": "<div class=\"bg-gray-100 p-4 rounded-xl border border-gray-300 font-mono text-xs text-gray-800 my-3\">RECEBI de FABIANA DUARTE (CPF: 111.000.999-88) a quantia de R$ 160,00 (cento e sessenta reais), via Pix, referente aos ajustes de barra original em 2 calças jeans e ajuste de cintura em 1 vestido de festa. Dou plena quitação.<br>Uberlândia - MG, 03 de agosto de 2026.<br>Costureira: MARIA APARECIDA ATELIÊ - CPF: 777.666.555-44</div><p class=\"mt-4\">Emita seu modelo no <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples para costureiras</a>.</p>",
+        "hasCta": {
+          "text": "Formalize reformas e confecções no seu ateliê:",
+          "link": "/recibo-simples",
+          "ctaLabel": "GERAR RECIBO DE COSTURA EM PDF"
+        }
+      }
+    ],
+    "conclusion": "A precisão do corte e da costura deve refletir na precisão da sua gestão. Recibos limpos fidelizam clientes e valorizam seu talento artesanal.",
+    "faqs": [
+      {
+        "question": "Costureira autônoma pode emitir com CPF?",
+        "answer": "Sim, a costureira autônoma pessoa física pode emitir recibos perfeitamente legais com seu CPF."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-de-montador-de-moveis-servicos-avulsos",
+    "title": "Recibo de Montador de Móveis: Modelo Profissional em PDF",
+    "category": "autonomos",
+    "seoTitle": "Recibo de Montador de Móveis: Modelo Simples em PDF Grátis",
+    "seoDescription": "Aprenda como emitir recibo de montador de móveis autônomo. Modelo completo para montagem de guarda-roupas, cozinhas e desmontagens.",
+    "intro": {
+      "acordo": "Montar móveis comprados pela internet é um dos serviços mais demandados do Brasil, exigindo quitação no ato da montagem no domicílio do cliente.",
+      "promessa": "Neste artigo, você aprenderá a emitir um recibo simples de montagem que comprova o teste de portas, gavetas e quitação do valor.",
+      "previa": "Veja como se proteger de reclamações de peças danificadas na fábrica e gere o PDF na hora pelo celular."
+    },
+    "sections": [
+      {
+        "h2": "Por que o montador de móveis deve colher assinatura no recibo?",
+        "content": "<p>Muitas vezes, móveis comprados online vêm com avarias de fábrica ou transporte. O recibo assinado pelo cliente atesta que o montador concluiu a montagem técnica e que o produto foi testado e entregue regulado nos termos do <strong>Artigo 320 do Código Civil</strong>.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">🔨 Montou o móvel? Emita o comprovante antes de sair:</p><p class=\"text-sm text-emerald-800 mb-3\">Preencha no smartphone, baixe o PDF e mande no WhatsApp do cliente na hora.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo de Montador em PDF →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "Exemplo de Recibo Simples de Montador",
+        "content": "<div class=\"bg-gray-100 p-4 rounded-xl border border-gray-300 font-mono text-xs text-gray-800 my-3\">RECEBI de THIAGO GOMES (CPF: 999.000.111-22) a quantia de R$ 200,00 (duzentos reais), via Pix, referente à montagem e regulagem de 1 guarda-roupa de 6 portas com espelho e 1 painel de TV na Rua Brasil, 300. Dou plena quitação.<br>Fortaleza - CE, 28 de maio de 2026.<br>Montador: MARCOS MONTAGENS - CPF: 444.333.222-11</div><p class=\"mt-4\">Gere agora no <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples para montadores de móveis</a>.</p>",
+        "hasCta": {
+          "text": "Cobrança rápida e profissional na palma da mão:",
+          "link": "/recibo-simples",
+          "ctaLabel": "EMITIR RECIBO DE MONTAGEM EM PDF"
+        }
+      }
+    ],
+    "conclusion": "O montador de móveis que envia recibo em PDF transmite autoridade e recebe indicações contínuas de vizinhos e parentes do cliente satisfeito.",
+    "faqs": [
+      {
+        "question": "O recibo de montador cobre defeitos de fábrica da madeira?",
+        "answer": "Não. O recibo atesta a montagem da mão de obra. Defeitos de fábrica são de responsabilidade do fabricante ou da loja vendedora conforme o CDC."
+      }
+    ]
+  },
+
+  {
+    "slug": "recibo-de-adestrador-e-pet-sitter",
+    "title": "Recibo para Adestrador, Passeador e Pet Sitter: Modelo Pronto",
+    "category": "autonomos",
+    "seoTitle": "Recibo de Adestrador, Passeador de Cães e Pet Sitter em PDF",
+    "seoDescription": "Como fazer recibo de passeador de cães (dog walker), adestrador e pet sitter. Modelo simples em PDF para mensalidades e pacotes de passeios.",
+    "intro": {
+      "acordo": "O mercado pet cresce a passos largos no Brasil, e os tutores valorizam imensamente a segurança e o profissionalismo de quem cuida dos seus animais.",
+      "promessa": "Neste artigo, você verá como emitir recibos profissionais para pacotes de adestramento, passeios diários e hospedagem pet.",
+      "previa": "Veja os termos de cuidado a incluir e gere o documento em PDF para os tutores."
+    },
+    "sections": [
+      {
+        "h2": "A importância de formalizar serviços no mercado pet",
+        "content": "<p>Emitir recibo mensal de passeios ou sessões de adestramento confere transparência sobre a frequência dos serviços e transmite a segurança de um profissional sério e comprometido com o bem-estar animal.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">🐾 Profissional Pet, formalize seus pacotes com elegância:</p><p class=\"text-sm text-emerald-800 mb-3\">Preencha nome do pet, tutor e pacote mensal. Baixe o PDF e mande no WhatsApp.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Gerar Recibo Pet em PDF →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "Exemplo de Recibo Simples para Dog Walker e Adestrador",
+        "content": "<div class=\"bg-gray-100 p-4 rounded-xl border border-gray-300 font-mono text-xs text-gray-800 my-3\">RECEBI de DANIELA FONSECA (CPF: 777.666.555-88) o valor de R$ 400,00 (quatrocentos reais), via Pix, referente ao pacote mensal de passeios educativos (3x por semana) para o cão \"Thor\" no mês de junho de 2026. Dou plena quitação.<br>Campinas - SP, 30 de junho de 2026.<br>Profissional: LUCAS PET CARE - CPF: 222.111.000-99</div><p class=\"mt-4\">Crie facilmente no <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples para serviços pet</a>.</p>",
+        "hasCta": {
+          "text": "Formalize seus atendimentos pet com recibos limpos:",
+          "link": "/recibo-simples",
+          "ctaLabel": "GERAR RECIBO PET EM PDF"
+        }
+      }
+    ],
+    "conclusion": "Quem ama animais sabe que confiança é tudo. Recibos pontuais constroem relações duradouras com famílias e tutores de pets.",
+    "faqs": [
+      {
+        "question": "Pet sitter precisa de CNPJ para emitir recibo?",
+        "answer": "Não, o pet sitter ou dog walker autônomo pode emitir recibo simples perfeitamente legal com seu CPF."
+      }
+    ]
+  },
+
+  {
+    "slug": "como-organizar-recibos-do-ano-todo-declaracao-mei",
+    "title": "Como Organizar Recibos do Ano Todo para o MEI (DASN-SIMEI)",
+    "category": "mei-e-empresas",
+    "seoTitle": "Como Organizar Recibos do Ano Todo para a Declaração Anual do MEI",
+    "seoDescription": "Aprenda como guardar e somar recibos de vendas e serviços para não passar sufoco na Declaração Anual do MEI (DASN-SIMEI). Guia prático definitivo.",
+    "intro": {
+      "acordo": "Chega o mês de maio e milhares de microempreendedores entram em pânico tentando somar papéis espalhados para declarar o faturamento à Receita.",
+      "promessa": "Neste artigo, você aprenderá uma rotina simples de 5 minutos por mês para organizar todos os seus recibos e faturar dentro do teto do MEI.",
+      "previa": "Veja a planilha mental de controle, como fazer backup digital e como emitir recibos padronizados ao longo do ano."
+    },
+    "sections": [
+      {
+        "h2": "O teto do MEI e o perigo de não controlar os recibos emitidos",
+        "content": "<p>O Microempreendedor Individual tem um teto anual de faturamento de R$ 81.000 (com margem de tolerância de 20%). Se você emitir recibos sem somar mensalmente, corre o risco de estourar o limite sem perceber e ser desenquadrado compulsoriamente para o Simples Nacional, pagando impostos retroativos com multa.</p><div class=\"my-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200\"><p class=\"text-emerald-900 font-semibold mb-2\">📈 MEI, emita recibos organizados o ano todo:</p><p class=\"text-sm text-emerald-800 mb-3\">Gere seus comprovantes com seu CNPJ e salve os PDFs para consulta imediata na hora do DASN.</p><a href=\"/recibo-simples\" class=\"inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-sm hover:bg-emerald-700 transition\">Acessar Gerador Oficial do MEI →</a></div>",
+        "hasAd": true
+      },
+      {
+        "h2": "O passo a passo para a pasta anual do MEI",
+        "content": "<ol class=\"list-decimal pl-5 my-4 space-y-2\"><li>Crie uma pasta no seu computador ou Google Drive chamada <strong>\"MEI 2026 - Recibos\"</strong> dividida por mês (Janeiro, Fevereiro, etc.).</li><li>A cada pagamento de cliente pessoa física, gere o comprovante no <a href=\"/recibo-simples\" class=\"text-emerald-700 font-semibold hover:underline\">recibo simples online</a> e salve o PDF na pasta do mês.</li><li>No último dia de cada mês, preencha o Relatório Mensal de Receitas Brutas com a soma exata dos recibos.</li><li>Em janeiro do ano seguinte, sua declaração do DASN-SIMEI levará menos de 2 minutos para ser enviada sem nenhum erro!</li></ol>"
+      }
+    ],
+    "conclusion": "A tranquilidade contábil do MEI não depende de softwares caros, mas de disciplina no registro de cada pagamento. Emita e guarde seus recibos digitais a cada transação.",
+    "faqs": [
+      {
+        "question": "O MEI precisa guardar os comprovantes fiscais por quanto tempo?",
+        "answer": "Por pelo menos 5 anos a contar do ano subsequente à declaração do DASN-SIMEI, conforme determina a Resolução CGSN nº 140."
+      },
+      {
+        "question": "Recibo simples é aceito na fiscalização do MEI?",
+        "answer": "Sim! Para vendas a pessoas físicas em que não foi exigida NF-e, os recibos emitidos e o relatório mensal constituem a documentação legal exigida pelo Fisco."
+      }
+    ]
+  },
 ];

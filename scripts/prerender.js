@@ -261,6 +261,10 @@ async function prerender() {
         `<div id="root" suppressHydrationWarning>${cleanAppHtml}</div>`
       );
 
+      if (!fs.existsSync(routeDir)) {
+        fs.mkdirSync(routeDir, { recursive: true });
+      }
+
       const outputPath = path.join(routeDir, 'index.html');
       fs.writeFileSync(outputPath, html);
       console.log(`Generated static HTML for ${route.path}`);
@@ -293,6 +297,21 @@ async function prerender() {
     if (fs.existsSync(publicAdsPath)) {
       fs.copyFileSync(publicAdsPath, distAdsPath);
       console.log('Ensured ads.txt is present in dist/');
+    }
+
+    // Ensure fresh sitemap.xml and rss.xml are present in dist
+    const publicSitemap = path.resolve(__dirname, '../public/sitemap.xml');
+    const distSitemap = path.join(distDir, 'sitemap.xml');
+    if (fs.existsSync(publicSitemap)) {
+      fs.copyFileSync(publicSitemap, distSitemap);
+      console.log('Ensured fresh sitemap.xml is present in dist/');
+    }
+
+    const publicRss = path.resolve(__dirname, '../public/rss.xml');
+    const distRss = path.join(distDir, 'rss.xml');
+    if (fs.existsSync(publicRss)) {
+      fs.copyFileSync(publicRss, distRss);
+      console.log('Ensured fresh rss.xml is present in dist/');
     }
   } catch (e) {
     console.error(e);
