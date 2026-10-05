@@ -273,10 +273,16 @@ export function Home() {
     },
     "aggregateRating": {
       "@type": "AggregateRating",
+      "@id": "https://recibogratis.com.br/#aggregateRating",
       "ratingValue": "4.9",
       "reviewCount": "1840",
       "bestRating": "5",
-      "worstRating": "1"
+      "worstRating": "1",
+      "itemReviewed": {
+        "@type": "SoftwareApplication",
+        "@id": "https://recibogratis.com.br/#software",
+        "name": "Recibo Grátis - Gerador de Recibos Online"
+      }
     }
   };
 
@@ -360,6 +366,68 @@ export function Home() {
     ]
   };
 
+  const homeBreadcrumbSchema = {
+    "@type": "BreadcrumbList",
+    "@id": "https://recibogratis.com.br/#breadcrumb",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Início",
+        "item": "https://recibogratis.com.br/"
+      }
+    ]
+  };
+
+  const homeItemListSchema = {
+    "@type": "ItemList",
+    "name": "Modelos de Recibos e Documentos Mais Utilizados",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Recibo Simples Online em PDF",
+        "url": "https://recibogratis.com.br/recibo-simples",
+        "description": "Gere recibo simples de pagamento em PDF e Word na hora sem cadastro."
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Recibo PIX com QR Code Copia e Cola",
+        "url": "https://recibogratis.com.br/recibo-pix",
+        "description": "Emita recibo de pagamento PIX com chave e QR Code oficial do Banco Central."
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Recibo de Prestação de Serviços",
+        "url": "https://recibogratis.com.br/recibo-de-prestacao-de-servicos",
+        "description": "Modelo completo para autônomos, MEI e profissionais liberais com discriminação de serviço."
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Recibo de Aluguel Residencial e Comercial",
+        "url": "https://recibogratis.com.br/recibo-de-aluguel",
+        "description": "Comprovante com período de locação, taxas de condomínio e IPTU discriminados."
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "Recibo com Logo Personalizado",
+        "url": "https://recibogratis.com.br/recibo-com-logo",
+        "description": "Adicione o logotipo da sua empresa ou negócio no cabeçalho do recibo em PDF."
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "name": "Nota Promissória com Validade Jurídica",
+        "url": "https://recibogratis.com.br/nota-promissoria",
+        "description": "Título de crédito executivo preenchido online nos termos da Lei Uniforme de Genebra."
+      }
+    ]
+  };
+
   return (
     <>
       <SEO 
@@ -370,7 +438,9 @@ export function Home() {
           "@context": "https://schema.org", 
           "@graph": [
             { ...websiteSchema, "@context": undefined }, 
+            { ...homeBreadcrumbSchema, "@context": undefined },
             { ...softwareSchema, "@context": undefined },
+            { ...homeItemListSchema, "@context": undefined },
             { ...howToSchema, "@context": undefined },
             { ...faqSchema, "@context": undefined }
           ] 
@@ -387,6 +457,19 @@ export function Home() {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           
+          {/* Breadcrumb Navigation on Homepage */}
+          <nav aria-label="Navegação estrutural do site" className="flex justify-center mb-4">
+            <ol className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-950/40 border border-emerald-400/20 text-xs text-emerald-200/90 backdrop-blur-sm shadow-sm">
+              <li className="flex items-center gap-1 font-semibold text-white">
+                <span>Início</span>
+              </li>
+              <li className="text-emerald-400/60 font-mono">/</li>
+              <li className="text-emerald-100">Gerador de Recibo Online Grátis</li>
+              <li className="text-emerald-400/60 font-mono">/</li>
+              <li className="text-emerald-300 font-bold">Emissão em PDF na Hora</li>
+            </ol>
+          </nav>
+
           {/* Trust Badge Top - Verified & Factual */}
           <div className="inline-flex items-center gap-2 bg-emerald-950/60 border border-emerald-400/30 text-emerald-100 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full mb-6 backdrop-blur-md shadow-sm">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />

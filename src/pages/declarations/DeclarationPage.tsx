@@ -18,9 +18,25 @@ export default function DeclarationPage() {
 
   const currentUrl = `https://recibogratis.com.br/declaracoes/${model.slug}`;
 
+  const getDeclarationCategory = (slug: string) => {
+    if (slug.includes('renda') || slug.includes('hipossuficiencia') || slug.includes('economica') || slug.includes('isento') || slug.includes('divida')) {
+      return { name: 'Financeiras e Fiscais', slug: 'financeiras-e-fiscais' };
+    }
+    if (slug.includes('trabalho') || slug.includes('aviso') || slug.includes('comparecimento') || slug.includes('abandono') || slug.includes('vinculo')) {
+      return { name: 'Trabalhistas e RH', slug: 'trabalhistas-e-rh' };
+    }
+    if (slug.includes('comercial') || slug.includes('anuencia') || slug.includes('veracidade') || slug.includes('comodato') || slug.includes('perda') || slug.includes('veiculo')) {
+      return { name: 'Jurídicas e Empresariais', slug: 'juridicas-e-empresariais' };
+    }
+    return { name: 'Civis e Pessoais', slug: 'civis-e-pessoais' };
+  };
+
+  const categoryInfo = getDeclarationCategory(model.slug);
+
   const breadcrumbsSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": `${currentUrl}#breadcrumb`,
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -37,6 +53,12 @@ export default function DeclarationPage() {
       {
         "@type": "ListItem",
         "position": 3,
+        "name": categoryInfo.name,
+        "item": `https://recibogratis.com.br/declaracoes#${categoryInfo.slug}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
         "name": model.title,
         "item": currentUrl
       }
@@ -50,28 +72,36 @@ export default function DeclarationPage() {
   const dynamicDesc = model.seoDescription || richData?.intro || `Gere gratuitamente sua ${titleLower} online. Preencha, imprima em PDF ou envie por WhatsApp. Rápido, seguro e grátis.`;
 
   const softwareSchema = {
-    "@context": "https://schema.org",
     "@type": "SoftwareApplication",
+    "@id": `${currentUrl}#software`,
     "name": `Gerador de ${model.title}`,
     "operatingSystem": "Any",
     "applicationCategory": "BusinessApplication",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "ratingCount": "890"
-    },
+    "isAccessibleForFree": true,
     "offers": {
       "@type": "Offer",
-      "price": "0",
+      "price": "0.00",
       "priceCurrency": "BRL"
     },
-    "description": dynamicDesc
+    "description": dynamicDesc,
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "@id": `${currentUrl}#aggregateRating`,
+      "ratingValue": "4.9",
+      "reviewCount": "890",
+      "bestRating": "5",
+      "worstRating": "1",
+      "itemReviewed": {
+        "@type": "SoftwareApplication",
+        "@id": `${currentUrl}#software`,
+        "name": `Gerador de ${model.title}`
+      }
+    }
   };
 
   const finalFaqs = richData?.faqs || [];
 
   const faqSchema = finalFaqs.length > 0 ? {
-    "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": finalFaqs.map((faq: {question: string, answer: string}) => ({
       "@type": "Question",
@@ -83,6 +113,15 @@ export default function DeclarationPage() {
     }))
   } : null;
 
+  const schemaString = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      { ...breadcrumbsSchema, "@context": undefined },
+      { ...softwareSchema, "@context": undefined },
+      ...(faqSchema ? [{ ...faqSchema, "@context": undefined }] : [])
+    ]
+  });
+
   return (
     <div className="bg-gray-50 min-h-screen">
       <SEO 
@@ -90,17 +129,19 @@ export default function DeclarationPage() {
         description={dynamicDesc}
         keywords={Array.isArray(model.keywords) ? model.keywords.join(", ") : model.keywords}
         url={currentUrl}
-        schema={JSON.stringify([breadcrumbsSchema, softwareSchema, ...(faqSchema ? [faqSchema] : [])])}
+        schema={schemaString}
       />
 
-      {/* Breadcrumbs */}
+      {/* Breadcrumbs - 4 Níveis */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <div className="flex items-center space-x-2 text-sm text-gray-500">
+          <div className="flex items-center space-x-2 text-xs sm:text-sm text-gray-500 flex-wrap">
             <Link to="/" className="hover:text-emerald-700 transition-colors">Início</Link>
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-3.5 h-3.5" />
             <Link to="/declaracoes" className="hover:text-emerald-700 transition-colors">Declarações</Link>
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-3.5 h-3.5" />
+            <Link to={`/declaracoes#${categoryInfo.slug}`} className="hover:text-emerald-700 transition-colors">{categoryInfo.name}</Link>
+            <ChevronRight className="w-3.5 h-3.5" />
             <span className="text-gray-900 font-medium truncate">{model.title}</span>
           </div>
         </div>

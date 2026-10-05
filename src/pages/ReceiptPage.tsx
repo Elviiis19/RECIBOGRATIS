@@ -46,10 +46,27 @@ export function ReceiptPage() {
 
   const currentUrl = `https://recibogratis.com.br/${model.slug}`;
 
-  // Generate JSON-LD Schemas
+  // Helper de categoria para estrutura de 4 níveis
+  const getModelCategory = (slug: string) => {
+    if (slug.includes('aluguel') || slug.includes('chaves') || slug.includes('sinal')) {
+      return { name: 'Locação e Imóveis', slug: 'locacao-e-imoveis' };
+    }
+    if (slug.includes('mei') || slug.includes('salario') || slug.includes('adiantamento') || slug.includes('diaria') || slug.includes('vale') || slug.includes('pensao')) {
+      return { name: 'Trabalho e Salários', slug: 'trabalho-e-salarios' };
+    }
+    if (slug === 'recibo-simples' || slug === 'recibo-pix' || slug === 'recibo-com-logo' || slug === 'recibo-de-compra-e-venda' || slug === 'recibo-de-quitacao' || slug === 'recibo-de-doacao' || slug.includes('promissoria') || slug.includes('ordem-de-servico') || slug.includes('orcamento')) {
+      return { name: 'Comercial e Pagamentos', slug: 'comercial-e-pagamentos' };
+    }
+    return { name: 'Serviços e Autônomos', slug: 'servicos-e-autonomos' };
+  };
+
+  const categoryInfo = getModelCategory(model.slug);
+
+  // Generate JSON-LD Schemas com 4 níveis hierárquicos
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": `${currentUrl}#breadcrumb`,
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -66,6 +83,12 @@ export function ReceiptPage() {
       {
         "@type": "ListItem",
         "position": 3,
+        "name": categoryInfo.name,
+        "item": `https://recibogratis.com.br/modelos#${categoryInfo.slug}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
         "name": model.title,
         "item": currentUrl
       }
@@ -112,10 +135,16 @@ export function ReceiptPage() {
     "description": dynamicDesc,
     "aggregateRating": {
       "@type": "AggregateRating",
+      "@id": `${currentUrl}#aggregateRating`,
       "ratingValue": "4.9",
       "reviewCount": "1420",
       "bestRating": "5",
-      "worstRating": "1"
+      "worstRating": "1",
+      "itemReviewed": {
+        "@type": "SoftwareApplication",
+        "@id": `${currentUrl}#software`,
+        "name": model.id === 'simples' ? "Gerador de Recibo Simples Online e em Word" : `Gerador de ${model.title}`
+      }
     },
     "publisher": {
       "@id": "https://recibogratis.com.br/#organization"
@@ -253,30 +282,35 @@ export function ReceiptPage() {
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-400 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob" style={{ animationDelay: '2s' }}></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          {/* Breadcrumbs - Hierarquia Agêntica de 3 Níveis */}
-          <nav className="flex items-center text-emerald-100 text-sm mb-6 flex-wrap" aria-label="Breadcrumb">
-            <ol className="flex items-center space-x-2 flex-wrap" itemScope itemType="https://schema.org/BreadcrumbList">
-              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <Link to="/" itemProp="item" className="hover:text-white transition-colors">
-                  <span itemProp="name">Início</span>
+          {/* Breadcrumbs - Hierarquia Agêntica de 4 Níveis */}
+          <nav className="flex items-center text-emerald-100 text-sm mb-6 flex-wrap" aria-label="Navegação estrutural">
+            <ol className="flex items-center space-x-2 flex-wrap text-xs sm:text-sm">
+              <li>
+                <Link to="/" className="hover:text-white transition-colors">
+                  <span>Início</span>
                 </Link>
-                <meta itemProp="position" content="1" />
               </li>
               <li>
-                <ChevronRight className="w-4 h-4 text-emerald-300/70" />
-              </li>
-              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <Link to="/modelos" itemProp="item" className="hover:text-white transition-colors">
-                  <span itemProp="name">Modelos</span>
-                </Link>
-                <meta itemProp="position" content="2" />
+                <ChevronRight className="w-3.5 h-3.5 text-emerald-300/70" />
               </li>
               <li>
-                <ChevronRight className="w-4 h-4 text-emerald-300/70" />
+                <Link to="/modelos" className="hover:text-white transition-colors">
+                  <span>Modelos</span>
+                </Link>
               </li>
-              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem" className="text-white font-semibold" aria-current="page">
-                <span itemProp="name">{model.title}</span>
-                <meta itemProp="position" content="3" />
+              <li>
+                <ChevronRight className="w-3.5 h-3.5 text-emerald-300/70" />
+              </li>
+              <li>
+                <Link to={`/modelos#${categoryInfo.slug}`} className="hover:text-white transition-colors">
+                  <span>{categoryInfo.name}</span>
+                </Link>
+              </li>
+              <li>
+                <ChevronRight className="w-3.5 h-3.5 text-emerald-300/70" />
+              </li>
+              <li className="text-white font-semibold" aria-current="page">
+                <span>{model.title}</span>
               </li>
             </ol>
             
