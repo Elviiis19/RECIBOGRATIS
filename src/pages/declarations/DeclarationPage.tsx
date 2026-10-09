@@ -19,6 +19,9 @@ export default function DeclarationPage() {
   const currentUrl = `https://recibogratis.com.br/declaracoes/${model.slug}`;
 
   const getDeclarationCategory = (slug: string) => {
+    if (slug.includes('contrato')) {
+      return { name: 'Contratos e Acordos', slug: 'contratos-e-acordos' };
+    }
     if (slug.includes('renda') || slug.includes('hipossuficiencia') || slug.includes('economica') || slug.includes('isento') || slug.includes('divida')) {
       return { name: 'Financeiras e Fiscais', slug: 'financeiras-e-fiscais' };
     }

@@ -13,11 +13,14 @@ import {
   Upload,
   QrCode,
   Download,
+  PenTool,
+  Sparkles,
 } from "lucide-react";
 import { QRCodeCanvas } from "qrcode.react";
 import { cn } from "../utils/cn";
 import { generatePixPayload } from "../utils/pix";
 import { saveDocument, getDocumentToPrefill } from "../utils/documentHistory";
+import { SignatureModal } from "./SignatureModal";
 
 import { AdSense } from "./AdSense";
 import { AdsKeeper } from "./AdsKeeper";
@@ -37,6 +40,7 @@ interface ReceiptData {
   chavePix: string;
   pixTransacaoId?: string;
   incluirQrCodePix?: boolean;
+  assinaturaUrl?: string;
   // Novos campos para Aluguel
   aluguelMesRef?: string;
   aluguelAnoRef?: string;
@@ -163,6 +167,9 @@ export function ReceiptGenerator({
     if (savedData) {
       try {
         const parsed = JSON.parse(savedData);
+        if (parsed.recebedorNome || parsed.recebedorDocumento) {
+          setHasAutoFilledIssuer(true);
+        }
         setData((prev) => ({
           ...prev,
           recebedorNome: parsed.recebedorNome || "",
@@ -291,6 +298,8 @@ export function ReceiptGenerator({
     Partial<Record<keyof ReceiptData, string>>
   >({});
   const [duasVias, setDuasVias] = useState(false);
+  const [isSignatureModalOpen, setIsSignatureModalOpen] = useState(false);
+  const [hasAutoFilledIssuer, setHasAutoFilledIssuer] = useState(false);
   const isReciboSimples = title.toLowerCase().includes("simples");
 
   const getDocType = () => {
@@ -1803,6 +1812,33 @@ export function ReceiptGenerator({
             {(steps[currentStep].id === "recebedor" ||
               steps[currentStep].id === "credor") && (
               <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
+                {hasAutoFilledIssuer && (
+                  <div className="bg-emerald-50 border border-emerald-200 text-emerald-900 rounded-xl p-3.5 flex items-center justify-between text-xs sm:text-sm">
+                    <div className="flex items-center gap-2">
+                      <Sparkles className="w-4 h-4 text-emerald-600 shrink-0" />
+                      <span>
+                        <strong>Dados preenchidos automaticamente</strong> do seu último recibo!
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        localStorage.removeItem("receiptIssuerData");
+                        setHasAutoFilledIssuer(false);
+                        setData((prev) => ({
+                          ...prev,
+                          recebedorNome: "",
+                          recebedorDocumento: "",
+                          chavePix: "",
+                          logo: "",
+                        }));
+                      }}
+                      className="text-emerald-700 hover:text-red-600 underline font-semibold ml-2 shrink-0 cursor-pointer"
+                    >
+                      Limpar
+                    </button>
+                  </div>
+                )}
                 {!isSemLogo && (
                   <div>
                     <label className="block text-sm font-semibold text-gray-900 mb-2">
@@ -2499,20 +2535,31 @@ export function ReceiptGenerator({
                   escolha como deseja compartilhar.
                 </p>
 
-                <div className="flex items-center justify-center gap-2 mb-8">
-                  <input
-                    type="checkbox"
-                    id="duasVias"
-                    checked={duasVias}
-                    onChange={(e) => setDuasVias(e.target.checked)}
-                    className="w-5 h-5 text-emerald-700 rounded border-gray-300 focus:ring-emerald-500"
-                  />
-                  <label
-                    htmlFor="duasVias"
-                    className="text-gray-700 font-medium cursor-pointer"
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6 bg-gray-50 p-4 rounded-xl border border-gray-200">
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      id="duasVias"
+                      checked={duasVias}
+                      onChange={(e) => setDuasVias(e.target.checked)}
+                      className="w-5 h-5 text-emerald-700 rounded border-gray-300 focus:ring-emerald-500"
+                    />
+                    <label
+                      htmlFor="duasVias"
+                      className="text-gray-800 text-sm font-semibold cursor-pointer"
+                    >
+                      Imprimir em 2 vias na folha A4 (economiza papel)
+                    </label>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => setIsSignatureModalOpen(true)}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-emerald-600 text-emerald-700 hover:bg-emerald-50 text-xs font-bold transition-colors cursor-pointer"
                   >
-                    Imprimir em duas vias (2 cópias)
-                  </label>
+                    <PenTool className="w-3.5 h-3.5" />
+                    {data.assinaturaUrl ? "Alterar Assinatura na Tela" : "Assinar com o Dedo na Tela"}
+                  </button>
                 </div>
 
                 <div className="flex flex-col gap-4 max-w-xs mx-auto">
@@ -2649,6 +2696,12 @@ export function ReceiptGenerator({
                 <>
                   {/* Primeira Via */}
                   <div className="bg-white p-4 md:p-6 relative shadow-xl print:shadow-none border-2 border-black break-inside-avoid">
+                    {/* Tarja de Via se duas vias estiver ativo */}
+                    {duasVias && (
+                      <div className="absolute top-2 right-2 bg-black text-white text-[9px] font-bold uppercase px-2 py-0.5 rounded tracking-widest">
+                        1ª VIA - CLIENTE / PAGADOR
+                      </div>
+                    )}
                     {/* Receipt Header */}
                     <div className="flex justify-between items-start mb-4 border-b-2 border-black pb-3">
                       <div className="flex items-center gap-4 w-1/4">
@@ -2693,7 +2746,18 @@ export function ReceiptGenerator({
 
                       <div className="flex flex-col md:flex-row items-center justify-between mt-6 gap-6">
                         <div className="flex-1 flex flex-col items-center justify-center w-full">
-                          <div className="w-80 border-t-2 border-black mb-2"></div>
+                          {data.assinaturaUrl ? (
+                            <div className="relative flex flex-col items-center">
+                              <img
+                                src={data.assinaturaUrl}
+                                alt="Assinatura"
+                                className="h-14 max-w-[220px] object-contain mb-1 pointer-events-none"
+                              />
+                              <div className="w-80 border-t-2 border-black mb-2"></div>
+                            </div>
+                          ) : (
+                            <div className="w-80 border-t-2 border-black mb-2"></div>
+                          )}
                           <p className="text-[16px] font-bold uppercase">
                             {getSignatureName()}
                           </p>
@@ -2702,6 +2766,14 @@ export function ReceiptGenerator({
                               CPF/CNPJ: {getSignatureDoc()}
                             </p>
                           )}
+                          <button
+                            type="button"
+                            onClick={() => setIsSignatureModalOpen(true)}
+                            className="print:hidden text-[11px] text-emerald-700 hover:text-emerald-800 underline font-medium mt-1 flex items-center gap-1 cursor-pointer"
+                          >
+                            <PenTool className="w-3 h-3" />
+                            {data.assinaturaUrl ? "Trocar assinatura na tela" : "Assinar com o dedo ou mouse"}
+                          </button>
                         </div>
 
                         {data.chavePix && (data.formaPagamento === "PIX" || docType === "pix") && data.incluirQrCodePix !== false && (
@@ -2744,6 +2816,9 @@ export function ReceiptGenerator({
                       </div>
 
                       <div className="bg-white p-4 md:p-6 relative shadow-xl print:shadow-none border-2 border-black break-inside-avoid">
+                        <div className="absolute top-2 right-2 bg-black text-white text-[9px] font-bold uppercase px-2 py-0.5 rounded tracking-widest">
+                          2ª VIA - EMISSOR / CONTROLE
+                        </div>
                         {/* Receipt Header */}
                         <div className="flex justify-between items-start mb-4 border-b-2 border-black pb-3">
                           <div className="flex items-center gap-4 w-1/4">
@@ -2791,7 +2866,18 @@ export function ReceiptGenerator({
 
                           <div className="flex flex-col md:flex-row items-center justify-between mt-6 gap-6">
                             <div className="flex-1 flex flex-col items-center justify-center w-full">
-                              <div className="w-80 border-t-2 border-black mb-2"></div>
+                              {data.assinaturaUrl ? (
+                                <div className="relative flex flex-col items-center">
+                                  <img
+                                    src={data.assinaturaUrl}
+                                    alt="Assinatura"
+                                    className="h-14 max-w-[220px] object-contain mb-1 pointer-events-none"
+                                  />
+                                  <div className="w-80 border-t-2 border-black mb-2"></div>
+                                </div>
+                              ) : (
+                                <div className="w-80 border-t-2 border-black mb-2"></div>
+                              )}
                               <p className="text-[16px] font-bold uppercase">
                                 {getSignatureName()}
                               </p>
@@ -2858,6 +2944,16 @@ export function ReceiptGenerator({
           refreshKey={currentStep} 
         />
       </div>
+      {/* Signature Modal */}
+      <SignatureModal
+        isOpen={isSignatureModalOpen}
+        onClose={() => setIsSignatureModalOpen(false)}
+        signerName={data.recebedorNome || "Recebedor"}
+        initialSignature={data.assinaturaUrl}
+        onSave={(dataUrl) => {
+          setData((prev) => ({ ...prev, assinaturaUrl: dataUrl }));
+        }}
+      />
     </>
   );
 }

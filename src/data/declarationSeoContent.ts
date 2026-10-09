@@ -326,5 +326,60 @@ export const declarationSeoData: Record<string, any> = {
       "Placa e dados do veículo (preencha no campo de finalidade)."
     ],
     faqs: []
+  },
+  "contrato-prestacao-servicos-simples": {
+    h1: "Contrato Simples de Prestação de Serviços em 1 Página",
+    intro: "Feito sob medida para autônomos, MEIs, técnicos e freelancers. O contrato sintético de 1 página reúne em uma única folha A4 tudo o que é juridicamente indispensável pelo Código Civil (Art. 593): descrição do trabalho, prazo de entrega, forma de pagamento, quitação e foro. Sem cláusulas prolixas que assustam o cliente e pronto para imprimir e assinar na hora.",
+    specificDetailsTitle: "Por que usar o Contrato de 1 Página?",
+    specificDetailsList: [
+      "Leitura rápida e transparente: o cliente assina sem medo e na hora da contratação.",
+      "Economia de papel e tinta: cabe perfeitamente em 1 folha A4.",
+      "Segurança jurídica plena: atende aos requisitos do Código Civil Brasileiro para contratos civis.",
+      "Cobrança resguardada: serve como título de prova material em caso de inadimplência."
+    ],
+    faqs: [
+      {
+        question: "Um contrato de 1 página tem a mesma validade jurídica de um contrato longo?",
+        answer: "Sim! A legislação brasileira (Código Civil) não exige tamanho mínimo de páginas. O que confere validade é a qualificação das partes, o objeto lícito, o preço, o consentimento e a assinatura de ambos com testemunhas."
+      },
+      {
+        question: "Precisa reconhecer firma em cartório?",
+        answer: "Não é obrigatório. O contrato particular assinado pelas partes já é plenamente válido. Se tiver a assinatura de duas testemunhas, torna-se um Título Executivo Extrajudicial (Art. 784, III do CPC)."
+      }
+    ]
+  },
+  "contrato-locacao-residencial-simples": {
+    h1: "Contrato Simples de Locação Residencial em 1 Página",
+    intro: "Projetado para proprietários e inquilinos que realizam locações diretas de imóveis, quitinetes, casas ou apartamentos. Em apenas uma página A4, o modelo cobre o valor do aluguel, data de vencimento, caução de garantia, conservação do imóvel e rescisão amparado na Lei do Inquilinato (Lei nº 8.245/91).",
+    specificDetailsTitle: "Principais Cláusulas Inclusas",
+    specificDetailsList: [
+      "Valor mensal do aluguel e dia fixo de vencimento.",
+      "Destinação exclusivamente residencial do imóvel.",
+      "Garantia locatícia simplificada (caução ou pagamento antecipado).",
+      "Obrigação de devolução do imóvel nas mesmas condições de conservação."
+    ],
+    faqs: [
+      {
+        question: "Posso alugar meu imóvel direto sem imobiliária com esse contrato?",
+        answer: "Com certeza. A Lei 8.245/91 autoriza a locação direta entre pessoas físicas. Este contrato simples de 1 página garante todas as proteções básicas de ambas as partes."
+      }
+    ]
+  },
+  "contrato-compra-venda-veiculo-simples": {
+    h1: "Contrato Simples de Compra e Venda de Veículo em 1 Página",
+    intro: "Ideal para transações particulares de compra e venda de carros, motos, caminhões e utilitários usados. Estabelece claramente o valor pago, o estado de conservação mecânica e da lataria do veículo e, o mais importante: a data e o prazo máximo para a transferência no Detran, livrando o vendedor de multas futuras cometidas pelo comprador.",
+    specificDetailsTitle: "Segurança na Venda de Veículos Usados",
+    specificDetailsList: [
+      "Identificação completa do veículo (marca, modelo, placa, ano e chassi/Renavam).",
+      "Cláusula de ciência do estado de conservação do veículo usado.",
+      "Responsabilidade por multas e tributos (IPVA/licenciamento) anteriores à data de entrega.",
+      "Prazo legal de 30 dias para comunicação e transferência de propriedade no Detran."
+    ],
+    faqs: [
+      {
+        question: "Esse contrato substitui o DUT / ATPV-e do Detran?",
+        answer: "Não. A transferência oficial é feita no cartório/Detran via ATPV-e digital. No entanto, este contrato de compra e venda é o documento que prova o pagamento, o dia e a hora em que a posse do veículo foi entregue ao novo proprietário."
+      }
+    ]
   }
 };

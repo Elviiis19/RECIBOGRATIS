@@ -172,6 +172,9 @@ export function DeclarationGenerator({ modelId }: { modelId: string }) {
       case "comparecimento": return "Dados da Instituição / Empresa";
       case "veiculo-autorizacao": return "Dados do Condutor Autorizado";
       case "perda-documentos": return "Documentos Perdidos (Apenas o Nome)";
+      case "contrato-prestacao-servicos-simples": return "Dados do Tomador (Cliente)";
+      case "contrato-locacao-residencial-simples": return "Dados do Locatário (Inquilino)";
+      case "contrato-compra-venda-veiculo-simples": return "Dados do Comprador do Veículo";
       default: return "";
     }
   };
@@ -548,6 +551,75 @@ export function DeclarationGenerator({ modelId }: { modelId: string }) {
               Por ser verdade, dato e assino. (Recomenda-se reconhecimento de firma).
             </p>
           </>
+        );
+      case "contrato-prestacao-servicos-simples":
+        return (
+          <div className="text-justify text-sm leading-relaxed space-y-3 font-sans">
+            <p>
+              <strong>CONTRATANTE:</strong> <strong>{data.declarante2Nome || "[Nome do Cliente / Contratante]"}</strong>, inscrito(a) no CPF/CNPJ sob o nº <strong>{data.declarante2Cpf || "[CPF/CNPJ]"}</strong>.
+            </p>
+            <p>
+              <strong>CONTRATADO(A):</strong> <strong>{data.declaranteNome || "[Seu Nome / Razão Social]"}</strong>, inscrito(a) no CPF/CNPJ sob o nº <strong>{data.declaranteCpf || "[CPF/CNPJ]"}</strong>, residente/sediado(a) na {data.endereco || "[Endereço]"}, nº {data.numero || "[Número]"}, {data.cidade || "[Cidade]"}/{data.estado || "[UF]"}.
+            </p>
+            <p className="pt-1">
+              <strong>CLÁUSULA 1ª - DO OBJETO:</strong> O(A) CONTRATADO(A) compromete-se a prestar ao(à) CONTRATANTE os seguintes serviços: <em>{data.finalidade || "[descreva de forma clara os serviços a serem realizados, ex: pintura dos quartos, consultoria técnica, reforma da fachada, desenvolvimento de site...]"}</em>.
+            </p>
+            <p>
+              <strong>CLÁUSULA 2ª - DO VALOR E PAGAMENTO:</strong> Pela execução dos serviços descritos, o(a) CONTRATANTE pagará ao(à) CONTRATADO(A) o valor total acertado, quitado conforme as condições e datas previamente combinadas entre as partes.
+            </p>
+            <p>
+              <strong>CLÁUSULA 3ª - DO PRAZO E ENTREGA:</strong> Os serviços serão iniciados e executados com zelo e qualidade técnica dentro dos prazos pactuados, cabendo ao CONTRATANTE fornecer o acesso e as condições necessárias para a realização dos trabalhos.
+            </p>
+            <p>
+              <strong>CLÁUSULA 4ª - DA RESCISÃO E FORO:</strong> O presente contrato tem eficácia de título executivo extrajudicial nos termos do Art. 784, III do CPC. Elegem as partes o foro da comarca de <strong>{data.cidade || "domicílio das partes"}</strong> para dirimir quaisquer dúvidas decorrentes deste ajuste.
+            </p>
+          </div>
+        );
+      case "contrato-locacao-residencial-simples":
+        return (
+          <div className="text-justify text-sm leading-relaxed space-y-3 font-sans">
+            <p>
+              <strong>LOCADOR(A) (Proprietário):</strong> <strong>{data.declaranteNome || "[Nome do Locador]"}</strong>, inscrito(a) no CPF/CNPJ nº <strong>{data.declaranteCpf || "[CPF]"}</strong>.
+            </p>
+            <p>
+              <strong>LOCATÁRIO(A) (Inquilino):</strong> <strong>{data.declarante2Nome || "[Nome do Inquilino]"}</strong>, inscrito(a) no CPF nº <strong>{data.declarante2Cpf || "[CPF]"}</strong>.
+            </p>
+            <p className="pt-1">
+              <strong>CLÁUSULA 1ª - DO IMÓVEL:</strong> O(A) LOCADOR(A) dá em locação para fins estritamente residenciais o imóvel localizado na: <strong>{data.endereco || "[Endereço do Imóvel Alugado]"}</strong>, nº <strong>{data.numero || "[Nº]"}</strong>, Bairro {data.bairro || "[Bairro]"}, {data.cidade || "[Cidade]"}/{data.estado || "[UF]"}.
+            </p>
+            <p>
+              <strong>CLÁUSULA 2ª - DO VALOR DO ALUGUEL:</strong> O aluguel mensal pactuado é devido pontualmente até o dia ajustado de cada mês, mediante recibo ou transferência bancária/PIX.
+            </p>
+            <p>
+              <strong>CLÁUSULA 3ª - DAS OBRIGAÇÕES:</strong> O(A) LOCATÁRIO(A) compromete-se a manter o imóvel em perfeito estado de conservação, limpeza e segurança, respondendo pelas despesas de água, luz e danos causados durante o período de ocupação.
+            </p>
+            <p>
+              <strong>CLÁUSULA 4ª - DA RESTITUIÇÃO E FORO:</strong> Finda a locação, o imóvel deverá ser devolvido nas mesmas condições em que foi entregue. Aplica-se a Lei nº 8.245/1991 (Lei do Inquilinato), elegendo o foro de <strong>{data.cidade || "situação do imóvel"}</strong> para dirimir controvérsias.
+            </p>
+          </div>
+        );
+      case "contrato-compra-venda-veiculo-simples":
+        return (
+          <div className="text-justify text-sm leading-relaxed space-y-3 font-sans">
+            <p>
+              <strong>VENDEDOR(A):</strong> <strong>{data.declaranteNome || "[Nome do Vendedor]"}</strong>, inscrito(a) no CPF nº <strong>{data.declaranteCpf || "[CPF]"}</strong>, residente na {data.endereco || "[Endereço]"}, {data.cidade || "[Cidade]"}/{data.estado || "[UF]"}.
+            </p>
+            <p>
+              <strong>COMPRADOR(A):</strong> <strong>{data.declarante2Nome || "[Nome do Comprador]"}</strong>, inscrito(a) no CPF nº <strong>{data.declarante2Cpf || "[CPF]"}</strong>.
+            </p>
+            <p className="pt-1">
+              <strong>CLÁUSULA 1ª - DO VEÍCULO:</strong> O(A) VENDEDOR(A) vende ao(à) COMPRADOR(A) o seguinte veículo: <em>{data.finalidade || "[Marca, Modelo, Ano de Fabricação/Modelo, Placa, Renavam e Chassi]"}</em>.
+            </p>
+            <p>
+              <strong>CLÁUSULA 2ª - DO VALOR E QUITAÇÃO:</strong> Pela compra e venda, o(a) COMPRADOR(A) paga o valor combinado, dando o(a) VENDEDOR(A) plena e geral quitação após a compensação integral dos recursos.
+            </p>
+            <p>
+              <strong>CLÁUSULA 3ª - DO ESTADO E MULTAS:</strong> O(A) COMPRADOR(A) declara que vistoriou o veículo e o aceita no estado de conservação mecânica e de funilaria em que se encontra. Todas as multas e encargos até a presente data são de responsabilidade do VENDEDOR, passando as infrações posteriores a serem de responsabilidade exclusiva do COMPRADOR.
+            </p>
+            <p>
+              <strong>CLÁUSULA 4ª - DA TRANSFERÊNCIA NO DETRAN:</strong> O(A) COMPRADOR(A) obriga-se a transferir a titularidade do veículo perante o DETRAN no prazo legal improrrogável de até 30 (trinta) dias corridos a contar desta data.
+            </p>
+          </div>
         );
       default:
         return (
@@ -999,6 +1071,9 @@ export function DeclarationGenerator({ modelId }: { modelId: string }) {
                 {modelId === "comparecimento" && "Declaração de Comparecimento"}
                 {modelId === "abandono-emprego" && "Declaração de Abandono de Emprego"}
                 {modelId === "perda-documento" && "Declaração de Perda de Documentos"}
+                {modelId === "contrato-prestacao-servicos-simples" && "CONTRATO SIMPLES DE PRESTAÇÃO DE SERVIÇOS"}
+                {modelId === "contrato-locacao-residencial-simples" && "CONTRATO SIMPLES DE LOCAÇÃO RESIDENCIAL"}
+                {modelId === "contrato-compra-venda-veiculo-simples" && "CONTRATO PARTICULAR DE COMPRA E VENDA DE VEÍCULO"}
               </h1>
 
               {renderDeclarationContent()}
@@ -1010,15 +1085,36 @@ export function DeclarationGenerator({ modelId }: { modelId: string }) {
                 <div className="flex flex-col items-center gap-12 text-center">
                   <div className="w-full max-w-sm">
                     <div className="border-t border-gray-800 mb-2"></div>
-                    <p className="font-bold">{data.declaranteNome || "Assinatura do Declarante"}</p>
+                    <p className="font-bold">
+                      {modelId.startsWith("contrato-")
+                        ? `${data.declaranteNome || "Assinatura do Contratado / Vendedor / Locador"}`
+                        : `${data.declaranteNome || "Assinatura do Declarante"}`}
+                    </p>
                     <p className="text-sm">CPF: {data.declaranteCpf || "[CPF]"}</p>
                   </div>
                   
-                  {modelId === "uniao-estavel" && (
+                  {(modelId === "uniao-estavel" || modelId.startsWith("contrato-")) && (
                     <div className="w-full max-w-sm">
                       <div className="border-t border-gray-800 mb-2"></div>
-                      <p className="font-bold">{data.declarante2Nome || "Assinatura do 2º Declarante"}</p>
+                      <p className="font-bold">
+                        {modelId.startsWith("contrato-")
+                          ? `${data.declarante2Nome || "Assinatura do Contratante / Comprador / Inquilino"}`
+                          : `${data.declarante2Nome || "Assinatura do 2º Declarante"}`}
+                      </p>
                       <p className="text-sm">CPF: {data.declarante2Cpf || "[CPF]"}</p>
+                    </div>
+                  )}
+
+                  {modelId.startsWith("contrato-") && (
+                    <div className="w-full max-w-md grid grid-cols-2 gap-6 pt-4 text-xs text-gray-600">
+                      <div>
+                        <div className="border-t border-gray-400 mb-1"></div>
+                        <p>1ª Testemunha: Nome e CPF</p>
+                      </div>
+                      <div>
+                        <div className="border-t border-gray-400 mb-1"></div>
+                        <p>2ª Testemunha: Nome e CPF</p>
+                      </div>
                     </div>
                   )}
                 </div>
