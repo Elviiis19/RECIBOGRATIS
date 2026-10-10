@@ -204,7 +204,7 @@ export function Layout() {
                         <li>
                           <Link to="/validador-formatador-cpf-cnpj" className="text-sm text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 block py-2 px-3 rounded-xl transition-colors">
                             <div className="font-bold text-gray-900">Validador de CPF / CNPJ</div>
-                            <div className="text-xs text-gray-500">Validação oficial da Receita Federal</div>
+                            <div className="text-xs text-gray-500">Cálculo matemático dos dígitos verificadores</div>
                           </Link>
                         </li>
                       </ul>
@@ -438,6 +438,11 @@ export function Layout() {
                   <Link to="/meus-documentos" className="text-sm text-emerald-300 font-bold hover:text-white transition-colors flex items-center gap-1.5">
                     <FolderArchive className="w-3.5 h-3.5" />
                     <span>Meus Documentos</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/sobre" className="text-sm text-emerald-100/70 hover:text-white transition-colors">
+                    Sobre Nós
                   </Link>
                 </li>
                 <li>

@@ -153,17 +153,12 @@ export const BlogPostView = () => {
               />
               <div>
                 <p className="text-sm text-emerald-100 font-medium">
-                  Por <strong className="text-white">Elvis Dias</strong>
+                  Por <Link to="/sobre" className="text-white hover:underline font-bold">Elvis Dias</Link>
                 </p>
                 <div className="text-xs text-emerald-300 flex flex-wrap items-center gap-x-2 mt-1">
                   <span>Jornalista Profissional (DRT 1466/RO)</span>
                   <span className="hidden sm:inline">•</span>
-                  <time
-                    dateTime="2026-06-28T08:00:00-03:00"
-                    className="text-emerald-200"
-                  >
-                    Publicado em 28 de Junho de 2026
-                  </time>
+                  <span className="text-emerald-200">Atualizado em Outubro de 2026</span>
                 </div>
               </div>
             </div>
@@ -273,7 +268,9 @@ export const BlogPostView = () => {
                 loading="lazy"
               />
               <div className="text-center md:text-left">
-                <h4 className="text-xl font-bold text-gray-900">Elvis Dias</h4>
+                <h4 className="text-xl font-bold text-gray-900">
+                  <Link to="/sobre" className="hover:text-emerald-700 transition-colors">Elvis Dias</Link>
+                </h4>
                 <p className="text-emerald-700 font-medium mb-3">
                   Jornalista (DRT 1466/RO) e Especialista em Conteúdo Digital
                 </p>

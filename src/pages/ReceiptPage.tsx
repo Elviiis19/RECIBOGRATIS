@@ -20,7 +20,7 @@ export function ReceiptPage() {
   const guide = model ? getReceiptGuide(model.slug, model.title) : null;
 
   const handleCopyTemplate = () => {
-    const templateText = `RECIBO Nº 01\n\nRecebi de JOSÉ APARECIDO DA SILVA, CPF: 123.456.789-00, a importância de R$ 130,00 (cento e trinta reais), referente a serviço de manutenção em computador.\n\nObservações: Pagamento recebido em dinheiro.\n\nPara maior clareza, firmo o presente recibo para que produza os seus efeitos, dando plena, rasa e irrevogável quitação.\n\nRio de Janeiro - RJ, 28 de setembro de 2026\n\n________________________________________\nANTÔNIO JOSÉ PINHEIRO\nCPF: 123.456.789-00\n\nDocumento gerado gratuitamente pelo site recibogratis.com.br`;
+    const templateText = `RECIBO Nº 01\n\nRecebi de JOSÉ APARECIDO DA SILVA, CPF: 234.567.890-12, a importância de R$ 130,00 (cento e trinta reais), referente a serviço de manutenção em computador.\n\nObservações: Pagamento recebido em dinheiro.\n\nPara maior clareza, firmo o presente recibo para que produza os seus efeitos, dando plena, rasa e irrevogável quitação.\n\nRio de Janeiro - RJ, 28 de setembro de 2026\n\n________________________________________\nANTÔNIO JOSÉ PINHEIRO\nCPF: 987.654.321-00\n\nDocumento gerado gratuitamente pelo site recibogratis.com.br`;
 
     if (typeof navigator !== 'undefined' && navigator.clipboard) {
       navigator.clipboard.writeText(templateText).then(() => {
@@ -539,7 +539,7 @@ export function ReceiptPage() {
 
                     <div className="space-y-4 text-gray-900 text-base md:text-lg leading-relaxed font-sans">
                       <p>
-                        Recebi de <strong>JOSÉ APARECIDO DA SILVA</strong>, CPF: 123.456.789-00, a importância de <strong>R$ 130,00</strong> (cento e trinta reais), referente a <strong>serviço de manutenção em computador</strong>.
+                        Recebi de <strong>JOSÉ APARECIDO DA SILVA</strong>, CPF: 234.567.890-12, a importância de <strong>R$ 130,00</strong> (cento e trinta reais), referente a <strong>serviço de manutenção em computador</strong>.
                       </p>
 
                       <p>
@@ -560,7 +560,7 @@ export function ReceiptPage() {
                           ANTÔNIO JOSÉ PINHEIRO
                         </p>
                         <p className="text-xs sm:text-sm text-gray-600">
-                          CPF: 123.456.789-00
+                          CPF: 987.654.321-00
                         </p>
                       </div>
                     </div>
@@ -873,7 +873,7 @@ export function ReceiptPage() {
                           <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">1</div>
                           <div>
                             <strong className="block text-gray-900 text-lg mb-1">Valor e Data</strong>
-                            <span className="text-gray-600 leading-relaxed block">Informe o valor recebido e a data do pagamento.<br/><span className="text-sm text-gray-500">Exemplo: 150,00 em 10/07/2025</span></span>
+                            <span className="text-gray-600 leading-relaxed block">Informe o valor recebido e a data do pagamento.<br/><span className="text-sm text-gray-500">Exemplo: 150,00 em 10/10/2026</span></span>
                           </div>
                         </li>
                         <li className="flex items-start gap-4">
@@ -1113,7 +1113,7 @@ export function ReceiptPage() {
                 {finalFaqs.map((faq, index) => (
                   <details key={index} className="group bg-white rounded-2xl border border-gray-200 shadow-sm [&_summary::-webkit-details-marker]:hidden">
                     <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-gray-900 font-bold hover:text-emerald-700 transition-colors list-none">
-                      <h3 className="text-xl font-bold m-0">{faq.question}</h3>
+                      <h3 className="text-xl font-bold m-0">{faq.question.replace(/^#+\s*/, '')}</h3>
                       <span className="shrink-0 rounded-full bg-emerald-50 p-1.5 text-emerald-700 sm:p-3 group-open:bg-emerald-700 group-open:text-emerald-50 transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" className="size-5 shrink-0 transition duration-300 group-open:-rotate-45" viewBox="0 0 20 20" fill="currentColor">
                           <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
@@ -1152,7 +1152,7 @@ export function ReceiptPage() {
                 </span>
               </div>
               <h3 className="text-lg font-bold text-gray-900">
-                Conteúdo elaborado e revisado tecnicamente por Elvis Dias
+                Conteúdo elaborado e revisado tecnicamente por <Link to="/sobre" className="text-emerald-800 hover:underline">Elvis Dias</Link>
               </h3>
               <p className="text-xs text-emerald-800 font-bold mb-2">
                 Jornalista Profissional (Registro MTE / DRT 1466/RO) • Especialista em Direito do Consumidor e Documentos Fiscais
@@ -1227,7 +1227,7 @@ export function ReceiptPage() {
                 ))}
             </div>
             <div className="text-center mt-8">
-              <Link to="/" className="inline-flex items-center gap-2 text-emerald-700 font-medium hover:text-emerald-700 transition-colors no-underline">
+              <Link to="/modelos" className="inline-flex items-center gap-2 text-emerald-700 font-medium hover:text-emerald-700 transition-colors no-underline">
                 Ver todos os 40+ modelos <ChevronRight className="w-4 h-4" />
               </Link>
             </div>

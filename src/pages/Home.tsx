@@ -455,21 +455,8 @@ export function Home() {
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-500 rounded-full mix-blend-screen filter blur-3xl opacity-20 pointer-events-none"></div>
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-400 rounded-full mix-blend-screen filter blur-3xl opacity-20 pointer-events-none"></div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 pt-4 sm:pt-6">
           
-          {/* Breadcrumb Navigation on Homepage */}
-          <nav aria-label="Navegação estrutural do site" className="flex justify-center mb-4">
-            <ol className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-950/40 border border-emerald-400/20 text-xs text-emerald-200/90 backdrop-blur-sm shadow-sm">
-              <li className="flex items-center gap-1 font-semibold text-white">
-                <span>Início</span>
-              </li>
-              <li className="text-emerald-400/60 font-mono">/</li>
-              <li className="text-emerald-100">Gerador de Recibo Online Grátis</li>
-              <li className="text-emerald-400/60 font-mono">/</li>
-              <li className="text-emerald-300 font-bold">Emissão em PDF na Hora</li>
-            </ol>
-          </nav>
-
           {/* Trust Badge Top - Verified & Factual */}
           <div className="inline-flex items-center gap-2 bg-emerald-950/60 border border-emerald-400/30 text-emerald-100 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full mb-6 backdrop-blur-md shadow-sm">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
@@ -874,7 +861,7 @@ export function Home() {
           </div>
 
           <div className="mt-6 text-center text-xs text-gray-500">
-            * Levantamento comparativo de recursos gerais disponíveis em soluções online.
+            * Comparativo informativo dos recursos disponíveis diretamente na plataforma Recibo Grátis em relação a ferramentas comuns da web e softwares sob assinatura corporativa.
           </div>
         </div>
       </section>

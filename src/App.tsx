@@ -14,6 +14,7 @@ import { Contato } from './pages/Contato';
 import { ComoFunciona } from './pages/ComoFunciona';
 import { PixGenerator } from './pages/PixGenerator';
 import { Faq } from './pages/Faq';
+import Sobre from './pages/Sobre';
 import { AllModels } from './pages/AllModels';
 import { AllTools } from './pages/AllTools';
 import { GeradorCarnePagamento } from './pages/tools/GeradorCarnePagamento';
@@ -70,6 +71,7 @@ export default function App({ url }: { url?: string }) {
         <Route path="politica-de-privacidade" element={<Privacidade />} />
         <Route path="contato" element={<Contato />} />
         <Route path="faq" element={<Faq />} />
+        <Route path="sobre" element={<Sobre />} />
         <Route path="como-funciona" element={<ComoFunciona />} />
         <Route path="modelos" element={<AllModels />} />
         <Route path="ferramentas" element={<AllTools />} />

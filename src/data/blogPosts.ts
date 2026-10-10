@@ -863,7 +863,7 @@ export const blogPosts: BlogPost[] = [
       "Você alugou um imóvel sem contrato escrito? Descubra por que o recibo de aluguel pode ser a única prova jurídica para locador e locatário.",
     intro: {
       acordo:
-        'No Brasil, fechar um aluguel residencial inteiramente "no fio do bigode" e pagamento via depósito comum ainda surpreende pela quantidade de ocorrências em milhões de lares.',
+        "No Brasil, fechar um aluguel residencial verbalmente, sem contrato por escrito e com pagamentos por depósito comum, ainda é uma realidade frequente em milhões de lares.",
       promessa:
         "O problema é quando acontece um atraso, um dano à estrutura do imóvel ou pedidos de desocupação judicial complexos onde não há uma única folha de papel arquivada assinado provando a natureza daquela dívida.",
       previa:
@@ -926,7 +926,7 @@ export const blogPosts: BlogPost[] = [
       acordo:
         "Realizar uma transferência imediata pelo PIX em uma transação financeira trouxe agilidade revolucionária. No entanto, é muito comum crer que a simples captura de tela daquele depósito funcione já como segurança garantida.",
       promessa:
-        'Confiar apenas nisso é uma cilada. Na esfera jurídica, você apenas provou que "um repasse ocorreu", sem estipular os devidos acordos daqueles fundos imobilizados.',
+        "Confiar apenas nisso é arriscado. Na esfera jurídica, você apenas provou que uma transferência financeira ocorreu, sem comprovar a causa do negócio ou a quitação da obrigação contratual.",
       previa:
         "Hoje exploraremos a essência dos meios probatórios do Direito Civil para elucidar se depositar na conta alheia suprime certidões, isenta calotes nas pequenas causas, e mostro o formato correto de documentar compras em segundos.",
     },
@@ -1487,11 +1487,11 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "cuidado-no-pix-receita-federal-travar-cpf",
     title:
-      "Cuidado no Pix: O detalhe bobo que faz a Receita Federal travar o seu CPF",
+      "Cuidado no Pix: Como Evitar a Malha Fina e Pendências na Receita Federal",
     category: "tecnologia-e-seguranca",
-    seoTitle: "Cuidado no Pix: O detalhe que faz a Receita Federal travar CPF",
+    seoTitle: "Cuidado no Pix: Como Evitar a Malha Fina da Receita Federal",
     seoDescription:
-      "Receber Pix sem lastro pode bloquear seu CPF na malha fina da Receita Federal. Veja os 3 erros comuns de autônomos e como se proteger hoje mesmo.",
+      "Receber Pix sem comprovante ou recibo pode gerar inconsistências fiscais na Receita Federal. Veja os cuidados essenciais para autônomos e MEIs.",
     image: "/o-detalhe-bobo.webp",
     intro: {
       acordo:

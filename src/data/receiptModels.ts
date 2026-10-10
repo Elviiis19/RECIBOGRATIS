@@ -98,7 +98,7 @@ export const receiptModels = [
     keywords:
       "recibo simples, recibo de pagamento, recibo simples online, recibo de pagamento online, modelo de recibo, modelo de recibo simples, modelo de recibo de pagamento, recibo simples word, recibo simples docx, recibo de pagamento simples para imprimir, recibo simples pdf, recibo simples sem cadastro, recibo simples 2026, como fazer recibo simples, comprovante de pagamento, recibo de pagamento gratis",
     defaultReferenteA:
-      "Pagamento referente a [descreva o motivo do pagamento].",
+      "Pagamento referente a [descreva o motivo do pagamento]",
     icon: "FileText",
     seoContent: {
       h2: "Para que serve o Recibo Simples e de Pagamento?",
@@ -110,7 +110,7 @@ export const receiptModels = [
       {
         question: "O recibo simples tem validade jurídica?",
         answer:
-          "Sim. O recibo simples tem plena validade jurídica no Brasil, respaldado pelos artigos 319 e 320 do Código Civil (Lei 10.406/2002). Ele serve como prova incontestável de quitação de pagamento, desde que contenha os dados das partes (nome e CPF/CNPJ), valor numérico e por extenso, descrição do pagamento, data e assinatura de quem recebeu."
+          "Sim. O recibo simples tem plena validade jurídica no Brasil, respaldado pelos artigos 319 e 320 do Código Civil (Lei 10.406/2002). Ele serve como prova documental idônea e eficaz de quitação de pagamento, desde que contenha os dados das partes (nome e CPF/CNPJ), valor numérico e por extenso, descrição do pagamento, data e assinatura de quem recebeu."
       },
       {
         question: "Preciso reconhecer firma em cartório no recibo simples?",
@@ -160,7 +160,7 @@ export const receiptModels = [
       {
         question: "Qual o prazo recomendado para guardar o recibo?",
         answer:
-          "O Código Civil e o Código de Defesa do Consumidor recomendam guardar comprovantes de pagamento e recibos por pelo menos 5 (cinco) anos. Esse é o prazo geral de prescrição de cobranças de dívidas e cobranças judiciais no Brasil."
+          "A recomendação de guarda por pelo menos 5 (cinco) anos fundamenta-se no prazo prescricional quinquenal para cobrança de dívidas previsto no artigo 206, § 5º, inciso I do Código Civil Brasileiro e no artigo 27 do Código de Defesa do Consumidor."
       },
       {
         question: "Posso usar o gerador para vários clientes diferentes?",

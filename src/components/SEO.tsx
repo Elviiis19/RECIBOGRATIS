@@ -38,7 +38,6 @@ export function SEO({ title, description, keywords, schema, url, image }: SEOPro
     <>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={normalizedUrl} />
       
       <meta name="theme-color" content="#065f46" />

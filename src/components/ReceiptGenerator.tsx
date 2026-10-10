@@ -948,8 +948,9 @@ export function ReceiptGenerator({
                 : ""}
               , referente a{" "}
               <span className="font-bold uppercase">
-                {data.referenteA ||
-                  "________________________________________________________________________________________________"}
+                {data.referenteA
+                  ? data.referenteA.replace(/\.+$/, "")
+                  : "________________________________________________________________________________________________"}
               </span>
               .
             </p>
