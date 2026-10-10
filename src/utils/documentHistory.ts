@@ -1,6 +1,6 @@
 export interface SavedDocument {
   id: string;
-  category: 'recibo' | 'declaracao' | 'outro';
+  category: 'recibo' | 'declaracao' | 'contrato' | 'outro';
   modelSlug: string;
   title: string;
   createdAt: number;

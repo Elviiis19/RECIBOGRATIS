@@ -27,7 +27,7 @@ import {
 export function DocumentHistory() {
   const [documents, setDocuments] = useState<SavedDocument[]>([]);
   const [search, setSearch] = useState('');
-  const [categoryFilter, setCategoryFilter] = useState<'all' | 'recibo' | 'declaracao'>('all');
+  const [categoryFilter, setCategoryFilter] = useState<'all' | 'recibo' | 'declaracao' | 'contrato'>('all');
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const navigate = useNavigate();
 
@@ -195,6 +195,14 @@ export function DocumentHistory() {
             >
               Declarações ({documents.filter(d => d.category === 'declaracao').length})
             </button>
+            {documents.some(d => d.category === 'contrato') && (
+              <button
+                onClick={() => setCategoryFilter('contrato')}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${categoryFilter === 'contrato' ? 'bg-emerald-700 text-white shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+              >
+                Contratos ({documents.filter(d => d.category === 'contrato').length})
+              </button>
+            )}
 
             {documents.length > 0 && (
               <button

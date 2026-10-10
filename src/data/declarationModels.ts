@@ -234,35 +234,5 @@ export const declarationModels = [
     seoTitle: "Declaração de Autorização de Uso de Veículo | PDF",
     seoDescription: "Autorize um terceiro a dirigir seu veículo com este modelo grátis. Ideal para fronteiras e empresas.",
     keywords: ["autorização uso veículo", "declaração motorista", "autorização para dirigir", "carro cedido"]
-  },
-  {
-    id: "contrato-prestacao-servicos-simples",
-    slug: "contrato-de-prestacao-de-servicos-simples",
-    title: "Contrato Simples de Prestação de Serviços (1 Página)",
-    shortDescription: "Contrato direto e objetivo de 1 página para autônomos, MEIs e freelancers fecharem qualquer serviço com segurança.",
-    seoTitle: "Contrato de Prestação de Serviços Simples 1 Página | PDF Grátis",
-    seoDescription: "Gere um Contrato de Prestação de Serviços simples de 1 página em PDF. Ideal para autônomos e MEI: serviço, prazos, valor, quitação e foro. Sem burocracia.",
-    keywords: ["contrato prestacao de servicos simples", "contrato 1 pagina", "contrato mei simples pdf", "modelo contrato autônomo 1 folha", "contrato servico rápido"],
-    icon: "FileCheck"
-  },
-  {
-    id: "contrato-locacao-residencial-simples",
-    slug: "contrato-de-locacao-residencial-simples",
-    title: "Contrato Simples de Aluguel Residencial (1 Página)",
-    shortDescription: "Modelo sintético de aluguel residencial em 1 página com valor, vencimento, caução, vistoria e rescisão.",
-    seoTitle: "Contrato de Aluguel Residencial Simples 1 Página | PDF",
-    seoDescription: "Crie um contrato de aluguel residencial de 1 página em PDF. Rápido e objetivo para proprietários e inquilinos, com cláusulas essenciais e sem juridiquês.",
-    keywords: ["contrato de aluguel simples 1 pagina", "contrato de locacao residencial folha unica", "modelo contrato aluguel simples pdf", "contrato locação direto com proprietário"],
-    icon: "Home"
-  },
-  {
-    id: "contrato-compra-venda-veiculo-simples",
-    slug: "contrato-de-compra-e-venda-de-veiculo-simples",
-    title: "Contrato Simples de Compra e Venda de Veículo (1 Página)",
-    shortDescription: "Formalize a venda particular de carro ou moto em 1 página com dados do veículo, valor, multas anteriores e transferência.",
-    seoTitle: "Contrato de Compra e Venda de Veículo Simples 1 Página | PDF",
-    seoDescription: "Gere seu contrato particular de compra e venda de carro ou moto em 1 folha. Proteção contra multas anteriores e prazo para transferência no Detran.",
-    keywords: ["contrato de compra e venda de veiculo simples", "contrato venda carro 1 pagina", "contrato venda moto pdf", "termo de compra e venda veiculo usado"],
-    icon: "Car"
   }
 ];

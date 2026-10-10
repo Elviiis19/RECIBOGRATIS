@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, FileText, CornerDownLeft, X } from 'lucide-react';
+import { Search, FileText, CornerDownLeft, X, FileCheck } from 'lucide-react';
 import { receiptModels } from '../data/receiptModels';
+import { contractModels } from '../data/contractModels';
 
 interface SearchPaletteProps {
   isOpen: boolean;
@@ -36,11 +37,17 @@ export function SearchPalette({ isOpen, onClose }: SearchPaletteProps) {
 
   if (!isOpen) return null;
 
+  const allItems = [
+    ...receiptModels.map(m => ({ ...m, type: 'recibo' as const })),
+    ...contractModels.map(c => ({ ...c, type: 'contrato' as const }))
+  ];
+
   const filteredModels = query.trim() === '' 
-    ? receiptModels 
-    : receiptModels.filter(m => 
+    ? receiptModels.map(m => ({ ...m, type: 'recibo' as const }))
+    : allItems.filter(m => 
         m.title.toLowerCase().includes(query.toLowerCase()) || 
-        m.shortDescription.toLowerCase().includes(query.toLowerCase())
+        m.shortDescription.toLowerCase().includes(query.toLowerCase()) ||
+        (Array.isArray(m.keywords) && m.keywords.some((k: string) => k.toLowerCase().includes(query.toLowerCase())))
       );
 
   return (
@@ -96,7 +103,12 @@ export function SearchPalette({ isOpen, onClose }: SearchPaletteProps) {
                       }}
                     >
                       <div>
-                        <div className="font-bold text-gray-900 group-hover:text-emerald-700 transition-colors text-base">{model.title}</div>
+                        <div className="font-bold text-gray-900 group-hover:text-emerald-700 transition-colors text-base flex items-center gap-2">
+                          <span>{model.title}</span>
+                          {model.type === 'contrato' && (
+                            <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded-full shrink-0">Contrato 1 pág</span>
+                          )}
+                        </div>
                         <div className="text-sm text-gray-500 mt-0.5 line-clamp-1">{model.shortDescription}</div>
                       </div>
                       <CornerDownLeft className="w-5 h-5 text-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity shrink-0 ml-3" />

@@ -26,6 +26,9 @@ import { BlogPostView } from './pages/blog/BlogPostView';
 
 import DeclarationIndex from './pages/declarations/DeclarationIndex';
 import DeclarationPage from './pages/declarations/DeclarationPage';
+import ContractIndex from './pages/contracts/ContractIndex';
+import ContractPage from './pages/contracts/ContractPage';
+import { getContractBySlug } from './data/contractModels';
 
 import { ValorPorExtenso } from './pages/tools/ValorPorExtenso';
 import { RetencaoImpostos } from './pages/tools/RetencaoImpostos';
@@ -81,12 +84,27 @@ export default function App({ url }: { url?: string }) {
         <Route path="declaracoes" element={<DeclarationIndex />} />
         <Route path="declaracoes/:slug" element={<DeclarationPage />} />
 
+        {/* Contratos de 1 Página - Hub e Redirecionamentos de Legado */}
+        <Route path="contratos" element={<ContractIndex />} />
+        <Route path="declaracoes/contrato-de-prestacao-de-servicos-simples" element={<Navigate to="/contrato-de-prestacao-de-servicos-simples" replace />} />
+        <Route path="declaracoes/contrato-de-locacao-residencial-simples" element={<Navigate to="/contrato-de-locacao-residencial-simples" replace />} />
+        <Route path="declaracoes/contrato-de-compra-e-venda-de-veiculo-simples" element={<Navigate to="/contrato-de-compra-e-venda-de-veiculo-simples" replace />} />
+
+        {/* Aliases Amigáveis para Buscas Orgânicas */}
+        <Route path="contrato-de-prestacao-de-servicos" element={<Navigate to="/contrato-de-prestacao-de-servicos-simples" replace />} />
+        <Route path="contrato-de-aluguel-simples" element={<Navigate to="/contrato-de-locacao-residencial-simples" replace />} />
+        <Route path="contrato-de-compra-e-venda-de-veiculo" element={<Navigate to="/contrato-de-compra-e-venda-de-veiculo-simples" replace />} />
+        <Route path="contrato-de-diarista-simples" element={<Navigate to="/contrato-de-diarista-e-faxina-simples" replace />} />
+        <Route path="contrato-de-empreitada-simples" element={<Navigate to="/contrato-de-empreitada-obra-simples" replace />} />
+        <Route path="contrato-de-parceria-simples" element={<Navigate to="/contrato-de-parceria-comercial-simples" replace />} />
+        <Route path="contrato-de-sublocacao-de-imovel-simples" element={<Navigate to="/contrato-de-sublocacao-simples" replace />} />
+
         <Route path="blog" element={<BlogIndex />} />
         <Route path="blog/categoria/:category" element={<BlogIndex />} />
         <Route path="blog/:slug" element={<BlogPostView />} />
         {/* Unificação de autoridade SEO: recibo-de-pagamento redireciona para recibo-simples */}
         <Route path="recibo-de-pagamento" element={<Navigate to="/recibo-simples" replace />} />
-        <Route path=":slug" element={<ReceiptPage />} />
+        <Route path=":slug" element={<SlugPageResolver />} />
       </Route>
     </Routes>
   );
@@ -106,6 +124,14 @@ export default function App({ url }: { url?: string }) {
       )}
     </>
   );
+}
+
+function SlugPageResolver() {
+  const { slug } = useParams<{ slug: string }>();
+  if (slug && getContractBySlug(slug)) {
+    return <ContractPage />;
+  }
+  return <ReceiptPage />;
 }
 
 

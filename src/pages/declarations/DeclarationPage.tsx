@@ -10,6 +10,12 @@ import React from 'react';
 
 export default function DeclarationPage() {
   const { slug } = useParams<{ slug: string }>();
+
+  // Contratos são soltos na raiz - redirecionar automaticamente se acessado via /declaracoes/
+  if (slug?.startsWith('contrato-')) {
+    return <Navigate to={`/${slug}`} replace />;
+  }
+
   const model = declarationModels.find((m) => m.slug === slug);
 
   if (!model) {
